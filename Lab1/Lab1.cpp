@@ -10,16 +10,18 @@
 
 int main()
 {
-	polynomial a,b;
+	polynomial a,b,c,d;
 	fstream f("input.txt", ios::in);
-
+	//monomial c(1, 3);
+	//cin >> c;
 	a.fget(f);
 	b.fget(f);
 	//a.fget(f);
 	//b.fget(f);
+	divide(a, b, c, d);
 	cout << a << endl;
 	cout << b << endl;
-	cout << a * b << endl;
+	cout << c <<' '<<d<< endl;
 	//cout << "Check for input:";
 	//int b;
 //	cin >> b;

@@ -10,7 +10,7 @@ struct monomial
 	vector<double> powers;
 	string variables;
 
-	monomial(double c = 1, int n = 1,const string& v="xyzfgh") :coef(c), numb_of_variables(n), powers(n, 1),variables(v) {}
+	monomial(double c = 1, int n = 1,const string& v="xyzfgh") :coef(c), numb_of_variables(n), powers(n, 0),variables(v) {}
 	inline void add_powers(const vector<double>& a)
 	{
 		copy(a.begin(), a.end(), powers.begin());
@@ -20,9 +20,12 @@ struct monomial
 	void get();
 	double power() const;
 	double max_power() const;
+	friend bool divide(const monomial& a, const monomial& b, monomial& res);
 	friend bool operator==(const monomial& a, const monomial& b);
 	friend bool operator<(const monomial& a, const monomial& b);
+	friend bool operator<=(const monomial& a, const monomial& b);
 	friend bool operator>(const monomial& a, const monomial& b);
+	friend bool operator>=(const monomial& a, const monomial& b);
 	friend monomial operator*(const monomial& a, const monomial& b);
 	friend ostream& operator<<(ostream& os,const monomial& p);
 	friend istream& operator>>(istream& is, monomial&p);
@@ -34,12 +37,14 @@ class polynomial
 	int numb_of_variables;
 public:
 	polynomial(int n=1) :pol(),numb_of_variables(n) {}
-	polynomial(string s) :pol() {}
+	//polynomial(string s) :pol() {}
 	void get(istream& is=cin);
 	void fget(fstream& fis);
 	polynomial& operator-();
+	friend bool divide(const polynomial& a, const polynomial& b, polynomial& quotient, polynomial& reminder);
 	friend polynomial operator-(const polynomial& a, const polynomial& b);
 	friend ostream& operator<<(ostream& os, const polynomial& p);
 	friend polynomial operator+(const polynomial& a, const polynomial& b);
 	friend polynomial operator*(const polynomial& a, const polynomial& b);
+	friend polynomial operator*(const polynomial& a, const monomial& b);
 };
