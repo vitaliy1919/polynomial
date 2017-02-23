@@ -6,17 +6,21 @@
 #include "stdafx.h"
 #include "list.h"
 #include "polynom.h"
-#include <vld.h> 
+//#include <vld.h> 
 
 int main()
 {
-	polynomial a;
+	polynomial a,b;
+	fstream 
 	a.get();
+	//b.get();
 	cout << a << endl;
-	cout << "Check for input:";
-	int b;
-	cin >> b;
 	cout << b << endl;
+	//cout << a + b << endl;
+	//cout << "Check for input:";
+	//int b;
+//	cin >> b;
+//	cout << b << endl;
 	system("pause");
     return 0;
 }

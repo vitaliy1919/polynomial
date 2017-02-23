@@ -18,14 +18,11 @@ struct monomial
 	void show(ostream &os=cout) const;
 	double value(const vector<double>& a);
 	void get();
-	bool operator==(const monomial& m) const;
-	bool operator>(const monomial& m) const;
-	bool operator<(const monomial& m) const;
 	friend bool operator==(const monomial& a, const monomial& b);
 	friend bool operator<(const monomial& a, const monomial& b);
 	friend bool operator>(const monomial& a, const monomial& b);
 	friend ostream& operator<<(ostream& os,const monomial& p);
-	friend istream& operator >> (istream& is, monomial&p);
+	friend istream& operator>>(istream& is, monomial&p);
 };
 
 class polynomial
@@ -35,8 +32,8 @@ class polynomial
 public:
 	polynomial(int n=1) :pol(),numb_of_variables(n) {}
 	polynomial(string s) :pol() {}
-	void get();
+	void get(istream& is=cin);
 	friend ostream& operator<<(ostream& os, const polynomial& p);
-
+	friend polynomial operator+(const polynomial& a, const polynomial& b);
 	
 };

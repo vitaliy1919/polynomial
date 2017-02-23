@@ -68,7 +68,7 @@ void List<T>::insertNode_after(Node<T>* a,T data)
 		return;
 	if (a == tail)
 	{
-		addNode(data);
+		addNode_tail(data);
 		return;
 	}
 	Node<T>* add = new Node<T>(data,a,a->next);

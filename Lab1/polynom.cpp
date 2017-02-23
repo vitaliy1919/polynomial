@@ -17,7 +17,23 @@ int compare(double a, double b)
 
 bool operator==(const monomial & a, const monomial & b)
 {
-	return a.operator==(b);
+	if (a.powers == b.powers)
+		return true;
+	return false;
+}
+
+bool operator<(const monomial & a, const monomial & b)
+{
+	if (b.powers > a.powers)
+		return true;
+	return false;
+}
+
+bool operator>(const monomial & a, const monomial & b)
+{
+	if (a.powers > b.powers)
+		return true;
+	return false;
 }
 
 ostream & operator<<(ostream & os,const monomial & p)
@@ -43,7 +59,7 @@ void monomial::show(ostream & os) const
 	for (; first_not_show_multi >= 0; first_not_show_multi--)
 		if (powers[first_not_show_multi] != 0)
 			break;
-	if (first_not_show_multi!=-1)
+	if (show_coef && first_not_show_multi!=-1)
 		os << '*';
 	for (int i = 0; i < numb_of_variables; ++i)
 	{
@@ -79,28 +95,6 @@ void monomial::get()
 	while (cin.get() != '\n');
 }
 
-bool monomial::operator==(const monomial & m) const
-{
-	if (powers == m.powers)
-		return true;
-	return false;
-}
-
-bool monomial::operator>(const monomial & m) const
-{
-	if (powers > m.powers)
-		return true;
-	return false;
-}
-
-bool monomial::operator<(const monomial & m) const
-{
-	if (m.powers > powers)
-		return true;
-	return false;
-}
-
-
 ostream& operator<<(ostream & os, const polynomial& a)
 {
 	const Node<monomial>* p = a.pol[0];
@@ -114,18 +108,58 @@ ostream& operator<<(ostream & os, const polynomial& a)
 	return os;
 }
 
-void polynomial::get()
+polynomial  operator+(const polynomial & a, const polynomial & b)
+{
+	polynomial res;
+	monomial temp;
+	const Node<monomial>* pa = a.pol[0], *pb = b.pol[0];
+	while (pa && pb)
+	{
+		if (pa->data == pb->data)
+		{
+			temp = pa->data;
+			temp.coef += pb->data.coef;
+			if (temp.coef)
+				res.pol.addNode_tail(temp);
+			pa = pa->next;
+			pb=pb->next;
+		}
+		else if (pa->data > pb->data)
+		{
+			res.pol.addNode_tail(pa->data);
+			pa = pa->next;
+		}
+		else
+		{
+			res.pol.addNode_tail(pb->data);
+			pb = pb->next;
+		}
+	}
+	if (pa)
+	{
+		res.pol.addNode_tail(pa->data);
+		pa = pa->next;
+	}
+	if (pb)
+	{
+		res.pol.addNode_tail(pb->data);
+		pb = pb->next;
+	}
+	return res;
+}
+
+void polynomial::get(istream& is)
 {
 	cout << "Input number of variables: ";
-	cin >> numb_of_variables;
+	is >> numb_of_variables;
 	monomial t(1,numb_of_variables);
-	while(cin)
+	while(/*is .eof() &&*/ is )
 	{
-		cin >> t;
-		if (cin)
-			pol.insertNode_sorted(t, operator<);
+		is >> t;
+		if (/*is.eof() &&*/ is)
+			pol.insertNode_sorted(t, operator>);
 			//pol.addNode_tail(t);
 	}
-	cin.clear();
-	while (cin.get() != '\n');
+	is.clear();
+	while (is.get() != '\n');
 }
