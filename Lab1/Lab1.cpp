@@ -11,16 +11,18 @@
 int main()
 {
 	polynomial a,b;
-	fstream 
-	a.get();
+	fstream f("input.txt", ios::in);
+
+	a.fget(f);
 	//b.get();
 	cout << a << endl;
-	cout << b << endl;
+	//cout << b << endl;
 	//cout << a + b << endl;
 	//cout << "Check for input:";
 	//int b;
 //	cin >> b;
 //	cout << b << endl;
+	f.close();
 	system("pause");
     return 0;
 }

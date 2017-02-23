@@ -15,24 +15,26 @@ int compare(double a, double b)
 	return 0;
 }
 
-bool operator==(const monomial & a, const monomial & b)
+inline bool operator==(const monomial & a, const monomial & b)
 {
-	if (a.powers == b.powers)
-		return true;
-	return false;
+	return a.powers == b.powers;
 }
 
 bool operator<(const monomial & a, const monomial & b)
 {
-	if (b.powers > a.powers)
+	if (b.power() > a.power())
 		return true;
+	else if (b.power() == a.power())
+		return b.max_power() > a.max_power() ? true : (b.max_power() == a.max_power() ? b.powers > a.powers:false);
 	return false;
 }
 
 bool operator>(const monomial & a, const monomial & b)
 {
-	if (a.powers > b.powers)
+	if (a.power() > b.power())
 		return true;
+	else if (a.power() == b.power())
+		return a.max_power() > b.max_power() ? true : (a.max_power() == b.max_power() ? a.powers > b.powers:false);
 	return false;
 }
 
@@ -70,7 +72,7 @@ void monomial::show(ostream & os) const
 			if (compare(powers[i], 1))
 				os << '^' << powers[i];
 		}
-		if ((show_coef || i != 0) && (i<first_not_show_multi) && show_var)
+		if (i<first_not_show_multi && show_var)
 			os << '*';
 	}
 }
@@ -93,6 +95,23 @@ void monomial::get()
 		cin >> powers[i];
 	}
 	while (cin.get() != '\n');
+}
+
+double monomial::power() const
+{
+	double res = 0;
+	for (int i = 0; i < numb_of_variables; ++i)
+		res += powers[i];
+	return res;
+}
+
+double monomial::max_power() const
+{
+	int max = 0;
+	for (int i = 0; i < numb_of_variables; ++i)
+		if (powers[max] < powers[i])
+			max = i;
+	return powers[max];
 }
 
 ostream& operator<<(ostream & os, const polynomial& a)
@@ -162,4 +181,17 @@ void polynomial::get(istream& is)
 	}
 	is.clear();
 	while (is.get() != '\n');
+}
+
+void polynomial::fget(fstream & fis)
+{
+	fis >> numb_of_variables;
+	monomial t(1, numb_of_variables);
+	while (fis)
+	{
+		fis >> t;
+		if (fis)
+			pol.insertNode_sorted(t, operator>);
+		//pol.addNode_tail(t);
+	}
 }

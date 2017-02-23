@@ -18,6 +18,8 @@ struct monomial
 	void show(ostream &os=cout) const;
 	double value(const vector<double>& a);
 	void get();
+	double power() const;
+	double max_power() const;
 	friend bool operator==(const monomial& a, const monomial& b);
 	friend bool operator<(const monomial& a, const monomial& b);
 	friend bool operator>(const monomial& a, const monomial& b);
@@ -33,6 +35,7 @@ public:
 	polynomial(int n=1) :pol(),numb_of_variables(n) {}
 	polynomial(string s) :pol() {}
 	void get(istream& is=cin);
+	void fget(fstream& fis);
 	friend ostream& operator<<(ostream& os, const polynomial& p);
 	friend polynomial operator+(const polynomial& a, const polynomial& b);
 	
