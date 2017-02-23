@@ -6,10 +6,14 @@
 #pragma once
 
 #include "targetver.h"
-
+#include <algorithm>
+#include <iostream>
 #include <stdio.h>
 #include <tchar.h>
-
+#include <cmath>
+#include <vector>
+#include <string>
+using namespace std;
 
 
 // TODO: reference additional headers your program requires here
