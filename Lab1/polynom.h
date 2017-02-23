@@ -23,6 +23,7 @@ struct monomial
 	friend bool operator==(const monomial& a, const monomial& b);
 	friend bool operator<(const monomial& a, const monomial& b);
 	friend bool operator>(const monomial& a, const monomial& b);
+	friend monomial operator*(const monomial& a, const monomial& b);
 	friend ostream& operator<<(ostream& os,const monomial& p);
 	friend istream& operator>>(istream& is, monomial&p);
 };
@@ -36,7 +37,9 @@ public:
 	polynomial(string s) :pol() {}
 	void get(istream& is=cin);
 	void fget(fstream& fis);
+	polynomial& operator-();
+	friend polynomial operator-(const polynomial& a, const polynomial& b);
 	friend ostream& operator<<(ostream& os, const polynomial& p);
 	friend polynomial operator+(const polynomial& a, const polynomial& b);
-	
+	friend polynomial operator*(const polynomial& a, const polynomial& b);
 };

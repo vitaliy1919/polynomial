@@ -14,10 +14,12 @@ int main()
 	fstream f("input.txt", ios::in);
 
 	a.fget(f);
-	//b.get();
+	b.fget(f);
+	//a.fget(f);
+	//b.fget(f);
 	cout << a << endl;
-	//cout << b << endl;
-	//cout << a + b << endl;
+	cout << b << endl;
+	cout << a * b << endl;
 	//cout << "Check for input:";
 	//int b;
 //	cin >> b;

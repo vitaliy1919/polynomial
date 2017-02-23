@@ -54,7 +54,9 @@ istream & operator >> (istream & is, monomial & p)
 
 void monomial::show(ostream & os) const
 {	
-	int show_coef = compare(coef, 1);
+	int show_coef = compare(abs(coef), 1);
+	if (!compare(coef, -1))
+		cout << '-';
 	if (show_coef)
 		os << coef;
 	int first_not_show_multi = numb_of_variables - 1;
@@ -117,6 +119,8 @@ double monomial::max_power() const
 ostream& operator<<(ostream & os, const polynomial& a)
 {
 	const Node<monomial>* p = a.pol[0];
+	if (!p)
+		cout << 0;
 	while (p)
 	{
 		if (p->data.coef > 0 && p != a.pol[0])
@@ -127,9 +131,11 @@ ostream& operator<<(ostream & os, const polynomial& a)
 	return os;
 }
 
-polynomial  operator+(const polynomial & a, const polynomial & b)
+polynomial operator+(const polynomial & a, const polynomial & b)
 {
-	polynomial res;
+	if (a.numb_of_variables != b.numb_of_variables)
+		return polynomial();
+	polynomial res(a.numb_of_variables);
 	monomial temp;
 	const Node<monomial>* pa = a.pol[0], *pb = b.pol[0];
 	while (pa && pb)
@@ -154,12 +160,12 @@ polynomial  operator+(const polynomial & a, const polynomial & b)
 			pb = pb->next;
 		}
 	}
-	if (pa)
+	while (pa)
 	{
 		res.pol.addNode_tail(pa->data);
 		pa = pa->next;
 	}
-	if (pb)
+	while (pb)
 	{
 		res.pol.addNode_tail(pb->data);
 		pb = pb->next;
@@ -172,12 +178,12 @@ void polynomial::get(istream& is)
 	cout << "Input number of variables: ";
 	is >> numb_of_variables;
 	monomial t(1,numb_of_variables);
-	while(/*is .eof() &&*/ is )
+	pol.~List();
+	while(is)
 	{
 		is >> t;
-		if (/*is.eof() &&*/ is)
+		if (is)
 			pol.insertNode_sorted(t, operator>);
-			//pol.addNode_tail(t);
 	}
 	is.clear();
 	while (is.get() != '\n');
@@ -186,12 +192,45 @@ void polynomial::get(istream& is)
 void polynomial::fget(fstream & fis)
 {
 	fis >> numb_of_variables;
+	int number_of_lines = 0;
+	fis >> number_of_lines;
 	monomial t(1, numb_of_variables);
-	while (fis)
+	pol.~List();
+	for (int i=0;i<number_of_lines && !fis.eof();++i)
 	{
 		fis >> t;
-		if (fis)
-			pol.insertNode_sorted(t, operator>);
-		//pol.addNode_tail(t);
+		pol.insertNode_sorted(t, operator>);
 	}
+}
+
+monomial operator*(const monomial& a, const monomial& b)
+{
+	if (a.powers.size() != b.powers.size())
+		return monomial();
+	monomial res(a.coef*b.coef, a.powers.size());
+	if (res.coef)
+	{
+		for (int i = 0; i < res.numb_of_variables; ++i)
+			res.powers[i] = a.powers[i] + b.powers[i];
+	}
+	return res;
+}
+
+polynomial operator*(const polynomial& a, const polynomial& b)
+{
+	if (a.numb_of_variables != b.numb_of_variables)
+		return polynomial();
+	polynomial res(a.numb_of_variables);
+	const Node<monomial>* pa = a.pol[0], *pb = b.pol[0];
+	while (pa)
+	{
+		pb = b.pol[0];
+		while (pb)
+		{
+			res.pol.addNode_tail(pa->data*pb->data);
+			pb = pb->next;
+		}
+		pa = pa->next;
+	}
+	return res;
 }
