@@ -387,6 +387,7 @@ double polynomial::value(const vector<double>& a) const
 		while (p)
 		{
 			res += p->data.value(a);
+			p = p->next;
 		}
 	}
 	return res;
@@ -412,13 +413,10 @@ polynomial operator*(const polynomial& a, const polynomial& b)
 {
 	int num = (a.numb_of_variables > b.numb_of_variables ? a.numb_of_variables : b.numb_of_variables);
 	polynomial res(num);
-	cout << "Debug:\n" << "res first: " << res << endl;
 	const Node<monomial>* pa = a.pol.begin(), *pb = b.pol.begin();
 	while (pa)
 	{
 		res = res + b*pa->data;
-		cout << "pa->data: " << pa->data << endl<<"b: "<<b<<endl;
-		cout << "res: " << res << endl << "b*pa->data: " << b*pa->data << endl;
 		pa = pa->next;
 	}
 	return res;
