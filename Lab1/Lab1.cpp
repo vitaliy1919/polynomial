@@ -24,12 +24,12 @@ int main()
 	//cout << a.derivative().derivative().derivative().derivative() << endl;
 	////cout << atof("+5") << endl;
 	//cout << c <<' '<<d<< endl;
-	string s1 = "x2-2xy+y2",s2="x-1";
+	string s1 = "x2-2xy+y2",s2="x-y";
 	int i = 0;
 	polynomial r = string_get(s1),y=string_get(s2);
 	cout << r << endl << y << endl;
-	cout << r+y << endl;
-	cout << r*y << endl;
+	cout <<"r+y= "<< r+y << endl;
+	cout <<"r*y= "<< r*y << endl;
 	//cout << "Check for input:";
 	//int b;
 //	cin >> b;
