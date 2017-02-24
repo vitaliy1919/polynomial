@@ -189,17 +189,13 @@ bool divide(const polynomial & a, const polynomial & b, polynomial & quotient, p
 	{
 		quotient.pol.insertNode_sorted(temp,operator>);
 		reminder = reminder - b*temp;
-	//	cout << quotient << endl;
-		//cout << reminder << endl;
 	}
 	return true;
 }
 
 polynomial operator-(const polynomial & a, const polynomial & b)
 {
-	
-	if (a.numb_of_variables != b.numb_of_variables)
-		return polynomial();
+	int num = (a.numb_of_variables > b.numb_of_variables ? a.numb_of_variables : b.numb_of_variables);
 	polynomial res(a.numb_of_variables);
 	monomial temp;
 	const Node<monomial>* pa = a.pol[0], *pb = b.pol[0];
@@ -208,7 +204,7 @@ polynomial operator-(const polynomial & a, const polynomial & b)
 		if (pa->data == pb->data)
 		{
 			temp = pa->data;
-			temp.coef -= pb->data.coef;
+			temp.coef += pb->data.coef;
 			if (temp.coef)
 				res.pol.addNode_tail(temp);
 			pa = pa->next;
@@ -255,8 +251,6 @@ ostream& operator<<(ostream & os, const polynomial& a)
 
 polynomial operator+(const polynomial & a, const polynomial & b)
 {
-	/*if (a.numb_of_variables != b.numb_of_variables)
-		return polynomial();*/
 	int num = (a.numb_of_variables > b.numb_of_variables ? a.numb_of_variables : b.numb_of_variables);
 	polynomial res(a.numb_of_variables);
 	monomial temp;
@@ -382,30 +376,21 @@ polynomial polynomial::derivative() const
 
 monomial operator*(const monomial& a, const monomial& b)
 {
-	/*if (a.powers.size() != b.powers.size())
-		return monomial();*/
 	int num = (a.numb_of_variables < b.numb_of_variables ? a.numb_of_variables : b.numb_of_variables);
 	const monomial &t=(a.numb_of_variables > b.numb_of_variables ? a : b);
 	monomial res(a.coef*b.coef, t.numb_of_variables);
-	//cout << "Debug mon*mon: \n";
-	//cout << "a: " << a << endl << "b: " << b << endl;
 	if (res.coef)
 	{
 		for (int i = 0; i < num; ++i)
 			res.powers[i] = a.powers[i] + b.powers[i];
-		//cout << "res: " << res << endl;
 		for (int i = num; i < t.numb_of_variables; ++i)
 			res.powers[i] = t.powers[i];
-		//cout << "res: " << res << endl;
 	}
-	//cout << "res: " << res << endl;
 	return res;
 }
 
 polynomial operator*(const polynomial& a, const polynomial& b)
 {
-	/*if (a.numb_of_variables != b.numb_of_variables)
-		return polynomial();*/
 	int num = (a.numb_of_variables > b.numb_of_variables ? a.numb_of_variables : b.numb_of_variables);
 	polynomial res(num);
 	cout << "Debug:\n" << "res first: " << res << endl;
@@ -415,32 +400,6 @@ polynomial operator*(const polynomial& a, const polynomial& b)
 		res = res + b*pa->data;
 		cout << "pa->data: " << pa->data << endl<<"b: "<<b<<endl;
 		cout << "res: " << res << endl << "b*pa->data: " << b*pa->data << endl;
-		//pb = b.pol.begin();
-		//while (pb)
-		//{
-		//	monomial t = pa->data*pb->data;
-		//	/*if (!res.pol.begin() || res.pol.end()->data>t)
-		//		res.pol.addNode_tail(t);
-		//	else
-		//	{
-		//		Node<monomial>* p = res.pol.begin();
-		//		while (p)
-		//		{
-		//			if (p->data == t)
-		//			{
-		//				p->data.coef += t.coef;
-		//				break;
-		//			}
-		//			if (t > p->data)
-		//			{
-		//				res.pol.insertNode_after(p, t);
-		//				break;
-		//			}
-		//			p = p->next;
-		//		}
-		//	}*/
-		//	pb = pb->next;
-		//}
 		pa = pa->next;
 	}
 	return res;
@@ -448,8 +407,6 @@ polynomial operator*(const polynomial& a, const polynomial& b)
 
 polynomial operator*(const polynomial & a, const monomial & b)
 {
-	/*if (a.numb_of_variables != b.numb_of_variables)
-		return polynomial();*/
 	const Node<monomial>* p = a.pol.begin();
 	int num = (a.numb_of_variables > b.numb_of_variables ? a.numb_of_variables : b.numb_of_variables);
 	polynomial res(num);
