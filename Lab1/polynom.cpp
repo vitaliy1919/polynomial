@@ -356,11 +356,15 @@ polynomial string_get(const string & s)
 	int i = 0,pos=0,len=s.length(),vlen=var.length();
 	for (int j = 0; j < vlen; ++j)
 		if (s.find(var[j]) != string::npos)
-			res.numb_of_variables=j+1;
-	
+			res.numb_of_variables = j + 1;
+	string s_right;
+	for (int j = 0; j < len; ++j)
+		if (s[j] != '*' && s[j] != '^')
+			s_right += s[j];
+	len = s_right.length();
 	while (i < len)
 	{
-		res.pol.insertNode_sorted(string_get(s, i, res.numb_of_variables),operator>=);
+		res.pol.insertNode_sorted(string_get(s_right, i, res.numb_of_variables),operator>=);
 	}
 	return res;
 }
