@@ -32,8 +32,8 @@ public:
 	List<T>& operator=(const List<T>& a);
 	bool isempty();
 	int size();
-	Node<T>* begin() { return head; }
-	Node<T>* end() { return tail; }
+	inline Node<T>* begin() const { return head; }
+	inline Node<T>* end() const { return tail; }
 	void addNode_tail(T data);
 	void addNode_head(T data);
 	void showList(ostream&os=cout) const;

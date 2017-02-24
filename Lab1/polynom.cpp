@@ -2,7 +2,11 @@
 // PVS-Studio Static Code Analyzer for C, C++ and C#: http://www.viva64.com
 #include "stdafx.h"
 #include "polynom.h"
-
+double get_number(const string& s, int&i);
+bool isoper(int i)
+{
+	return (i == '+') || (i == '-') || (i == '/') || (i == '*');
+}
 int compare(double a, double b)
 {
 	if (abs(a - b) > eps)
@@ -95,9 +99,9 @@ void monomial::show(ostream & os) const
 	for (int i = 0; i < numb_of_variables; ++i)
 	{
 		int show_var = compare(powers[i], 0);
-		if (i < variables.length() && show_var)
+		if (i < var.length() && show_var)
 		{
-			os << variables[i];
+			os << var[i];
 			if (compare(powers[i], 1))
 				os << '^' << powers[i];
 		}
@@ -141,6 +145,35 @@ double monomial::max_power() const
 		if (powers[max] < powers[i])
 			max = i;
 	return powers[max];
+}
+
+monomial string_get(const string & s, int & i,const int& numb_var) 
+{
+	monomial res(1, numb_var);
+	if (isoper(s[i]))
+	{
+		if (isalpha(s[i + 1]))
+		{
+			if (s[i] == '-')
+				res.coef = -1;
+			++i;
+		}
+		else
+			res.coef = get_number(s, i);
+	}
+	else if (isdigit(s[i]))
+		res.coef = get_number(s, i);
+	int len = s.length();
+	while (i < len && s[i] != '+' && s[i] != '-')
+	{
+		i++;
+		int pos = var.find(s[i - 1]);
+		if (i>=len || !isdigit(s[i]))
+			res.powers[pos] = 1;
+		else
+			res.powers[pos] = get_number(s, i);
+	}
+	return res;
 }
 
 bool divide(const polynomial & a, const polynomial & b, polynomial & quotient, polynomial & reminder)
@@ -291,6 +324,29 @@ void polynomial::fget(fstream & fis)
 		pol.insertNode_sorted(t, operator>);
 	}
 }
+double get_number(const string& s, int& i)
+{
+	string res;
+	if (isoper(s[i]))
+		res += s[i++];
+	while (isdigit(s[i]) || s[i] == '.' )
+		res += s[i++];
+	return atof(res.c_str());
+}
+polynomial string_get(const string & s)
+{
+	polynomial res(0);
+	int i = 0,len=s.length(),vlen=var.length();
+	for (int j = 0; j < vlen; ++j)
+		if (s.find(var[j]) != string::npos)
+			++res.numb_of_variables;
+	
+	while (i < len)
+	{
+		res.pol.insertNode_sorted(string_get(s, i, res.numb_of_variables),operator>=);
+	}
+	return res;
+}
 
 polynomial & polynomial::operator-()
 {
@@ -301,6 +357,25 @@ polynomial & polynomial::operator-()
 		p = p->next;
 	}
 	return *this;
+}
+
+polynomial polynomial::derivative() const
+{
+	if (numb_of_variables!=1)
+		return polynomial();
+	polynomial res(numb_of_variables);
+	const Node<monomial> *p = pol.begin();
+	while (p)
+	{
+		if (p->data.powers[0] > 0)
+		{
+			monomial t(p->data.coef*p->data.powers[0], numb_of_variables);
+			t.powers[0] = p->data.powers[0] - 1;
+			res.pol.addNode_tail(t);
+		}
+		p = p->next;
+	}
+	return res;
 }
 
 
@@ -322,35 +397,36 @@ polynomial operator*(const polynomial& a, const polynomial& b)
 	if (a.numb_of_variables != b.numb_of_variables)
 		return polynomial();
 	polynomial res(a.numb_of_variables);
-	const Node<monomial>* pa = a.pol[0], *pb = b.pol[0];
+	const Node<monomial>* pa = a.pol.begin(), *pb = b.pol.begin();
 	while (pa)
 	{
-		pb = b.pol[0];
-		while (pb)
-		{
-			monomial t = pa->data*pb->data;
-			if (!res.pol.begin() || res.pol.end()->data>t)
-				res.pol.addNode_tail(t);
-			else
-			{
-				Node<monomial>* p = res.pol[0];
-				while (p)
-				{
-					if (p->data == t)
-					{
-						p->data.coef += t.coef;
-						break;
-					}
-					if (t > p->data)
-					{
-						res.pol.insertNode_after(p, t);
-						break;
-					}
-					p = p->next;
-				}
-			}
-			pb = pb->next;
-		}
+		res = res + b*pa->data;
+		//pb = b.pol.begin();
+		//while (pb)
+		//{
+		//	monomial t = pa->data*pb->data;
+		//	/*if (!res.pol.begin() || res.pol.end()->data>t)
+		//		res.pol.addNode_tail(t);
+		//	else
+		//	{
+		//		Node<monomial>* p = res.pol.begin();
+		//		while (p)
+		//		{
+		//			if (p->data == t)
+		//			{
+		//				p->data.coef += t.coef;
+		//				break;
+		//			}
+		//			if (t > p->data)
+		//			{
+		//				res.pol.insertNode_after(p, t);
+		//				break;
+		//			}
+		//			p = p->next;
+		//		}
+		//	}*/
+		//	pb = pb->next;
+		//}
 		pa = pa->next;
 	}
 	return res;
