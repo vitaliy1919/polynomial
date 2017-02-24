@@ -38,7 +38,11 @@ int main()
 	string s;
 	if (inp == 'f')
 	{	
-		ifstream f("input.txt", ios::in);
+		cout << "Input name of file (input.txt if blank):";
+		getline(cin, s);
+		if (s == "")
+			s = "input.txt";
+		ifstream f(s);
 		while (!f.eof())
 		{
 			getline(f, s);
