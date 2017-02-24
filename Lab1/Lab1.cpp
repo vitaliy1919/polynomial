@@ -79,6 +79,7 @@ int main()
 					p = p->next;
 				}
 				f.close();
+				continue;
 			}
 			if (s == "a")
 			{
