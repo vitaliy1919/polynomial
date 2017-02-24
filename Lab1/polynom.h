@@ -15,7 +15,7 @@ struct monomial
 		copy(a.begin(), a.end(), powers.begin());
 	}
 	void show(ostream &os=cout) const;
-	double value(const vector<double>& a);
+	double value(const vector<double>& a) const;
 	void get();
 	double power() const;
 	double max_power() const;
@@ -37,12 +37,12 @@ class polynomial
 	int numb_of_variables;
 public:
 	polynomial(int n=1) :pol(),numb_of_variables(n) {}
-	//polynomial(string s) :pol() {}
 	void get(istream& is=cin);
 	void fget(fstream& fis);
 	friend polynomial string_get(const string& s);
 	polynomial& operator-();
 	polynomial derivative() const;
+	double value(const vector<double> &a) const;
 	friend bool divide(const polynomial& a, const polynomial& b, polynomial& quotient, polynomial& reminder);
 	friend polynomial operator-(const polynomial& a, const polynomial& b);
 	friend ostream& operator<<(ostream& os, const polynomial& p);

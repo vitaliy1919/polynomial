@@ -110,7 +110,7 @@ void monomial::show(ostream & os) const
 	}
 }
 
-double monomial::value(const vector<double>& a)
+double monomial::value(const vector<double>& a) const
 {
 	double res = coef;
 	for (int i = 0; i < numb_of_variables; ++i)
@@ -204,7 +204,7 @@ polynomial operator-(const polynomial & a, const polynomial & b)
 		if (pa->data == pb->data)
 		{
 			temp = pa->data;
-			temp.coef += pb->data.coef;
+			temp.coef -= pb->data.coef;
 			if (temp.coef)
 				res.pol.addNode_tail(temp);
 			pa = pa->next;
@@ -369,6 +369,25 @@ polynomial polynomial::derivative() const
 			res.pol.addNode_tail(t);
 		}
 		p = p->next;
+	}
+	return res;
+}
+
+double polynomial::value(const vector<double>& a) const
+{
+	double res = 0;
+	if (numb_of_variables > a.size())
+	{
+		cout << "too few values.\n";
+		return 0;
+	}
+	else
+	{
+		const Node<monomial>* p = pol.begin();
+		while (p)
+		{
+			res += p->data.value(a);
+		}
 	}
 	return res;
 }
