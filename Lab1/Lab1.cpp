@@ -28,7 +28,7 @@ int main()
 	int i = 0;
 	polynomial r = string_get(s1),y=string_get(s2);
 	cout << r << endl << y << endl;
-	cout << "r(1,1)" << r.value({ 1,1 });
+	cout << "r(1,1)= " << r.value({ 1,1 })<<endl;
 	cout <<"r+y= "<< r+y << endl;
 	cout <<"r*y= "<< r*y << endl;
 	//cout << "Check for input:";
