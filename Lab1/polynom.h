@@ -39,6 +39,7 @@ public:
 	polynomial(int n=1) :pol(),numb_of_variables(n) {}
 	void get(istream& is=cin);
 	void fget(fstream& fis);
+	inline int numb_of_var() const { return numb_of_variables; }
 	friend polynomial string_get(const string& s);
 	polynomial& operator-();
 	polynomial derivative() const;

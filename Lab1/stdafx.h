@@ -9,6 +9,7 @@
 #include <algorithm>
 #include <fstream>
 #include <cctype>
+#include <set>
 #include <iostream>
 #include <stdio.h>
 #include <tchar.h>

@@ -43,6 +43,7 @@ public:
 	void insertNode_before(Node<T>* a, T data);
 	void deleteNode_head();
 	void deleteNode_tail();
+	void deleteNode_index(int i);
 	void deleteNode_key(T key);
 	Node<T>* find(T key);
 	Node<T>*& operator[](int i);
@@ -120,6 +121,32 @@ void List<T>::deleteNode_tail()
 }
 
 template<typename T>
+void List<T>::deleteNode_index(int i)
+{
+	if (i < 0)
+		return;
+	if (i == 0)
+		deleteNode_head();
+	else
+	{
+		Node<T> *p = head;
+		while (p && (i > 0))
+		{
+			p = p->next;
+			i--;
+		}
+		if (p == tail)
+			deleteNode_tail();
+		else
+		{
+			p->prev->next = p->next;
+			p->next->prev = p->prev;
+			delete p;
+		}
+	}
+}
+
+template<typename T>
 void List<T>::deleteNode_key(T key)
 {
 	if (head->data == key)
@@ -133,10 +160,10 @@ void List<T>::deleteNode_key(T key)
 		{
 			if (p->data == key)
 			{
-				Node<T>* t = p;
+				//Node<T>* t = p;
 				p->prev->next = p->next;
 				p->next->prev = p->prev;
-				delete t;
+				delete p;
 				return;
 			}
 			p = p-> next;

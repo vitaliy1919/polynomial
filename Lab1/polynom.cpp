@@ -36,7 +36,15 @@ bool divide(const monomial & a, const monomial & b, monomial & res)
 
 inline bool operator==(const monomial & a, const monomial & b)
 {
-	return a.powers == b.powers;
+	int numb_var = (a.numb_of_variables > b.numb_of_variables ? b.numb_of_variables : a.numb_of_variables);
+	const monomial& t = (a.numb_of_variables > b.numb_of_variables ? a : b);
+	for (int i = 0; i < numb_var; i++)
+		if (a.powers[i] != b.powers[i])
+			return false;
+	for (int i = numb_var; i < t.numb_of_variables; ++i)
+		if (t.powers[i] != 0)
+			return false;
+	return true;
 }
 
 bool operator<(const monomial & a, const monomial & b)
@@ -44,7 +52,25 @@ bool operator<(const monomial & a, const monomial & b)
 	if (b.power() > a.power())
 		return true;
 	else if (b.power() == a.power())
-		return b.max_power() > a.max_power() ? true : (b.max_power() == a.max_power() ? b.powers > a.powers:false);
+	{
+		int numb_var = (a.numb_of_variables < b.numb_of_variables ? a.numb_of_variables : b.numb_of_variables);
+		const monomial& t = (a.numb_of_variables < b.numb_of_variables ? b : a);
+		for (int i = 0; i < numb_var; ++i)
+		{
+			if (a.powers[i] > b.powers[i])
+				return false;
+			else if (a.powers[i] < b.powers[i])
+				return true;
+		}
+		if (t.numb_of_variables != a.numb_of_variables)
+		{
+			for (int i = numb_var; i < t.numb_of_variables; i++)
+			{
+				if (t.powers[i]> 0)
+					return true;
+			}
+		}
+	}
 	return false;
 }
 
@@ -55,11 +81,7 @@ bool operator<=(const monomial & a, const monomial & b)
 
 bool operator>(const monomial & a, const monomial & b)
 {
-	if (a.power() > b.power())
-		return true;
-	else if (a.power() == b.power())
-		return a.max_power() > b.max_power() ? true : (a.max_power() == b.max_power() ? a.powers > b.powers:false);
-	return false;
+	return !operator<(a, b) && (!operator==(a, b));
 }
 
 bool operator>=(const monomial & a, const monomial & b)
@@ -242,7 +264,7 @@ ostream& operator<<(ostream & os, const polynomial& a)
 	while (p)
 	{
 		if (p->data.coef > 0 && p != a.pol[0])
-			cout << '+';
+			os << '+';
 		os << p->data;
 		p = p->next;
 	}
@@ -331,10 +353,10 @@ double get_number(const string& s, int& i)
 polynomial string_get(const string & s)
 {
 	polynomial res(0);
-	int i = 0,len=s.length(),vlen=var.length();
+	int i = 0,pos=0,len=s.length(),vlen=var.length();
 	for (int j = 0; j < vlen; ++j)
 		if (s.find(var[j]) != string::npos)
-			++res.numb_of_variables;
+			res.numb_of_variables=j+1;
 	
 	while (i < len)
 	{
