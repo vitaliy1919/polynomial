@@ -34,6 +34,8 @@ public:
 	int size();
 	inline Node<T>* begin() const { return head; }
 	inline Node<T>* end() const { return tail; }
+	inline Node<T>*& begin() { return head; }
+	inline Node<T>*& end() { return tail; }
 	void addNode_tail(T data);
 	void addNode_head(T data);
 	void showList(ostream&os=cout) const;
