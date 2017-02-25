@@ -300,8 +300,6 @@ polynomial operator-(const polynomial & a, const polynomial & b)
 ostream& operator<<(ostream & os, const polynomial& a)
 {
 	const Node<monomial>* p = a.pol.begin();
-	/*if (!p)
-		cout << 0;*/
 	while (p)
 	{
 		if (p->data.coef >= 0 && p != a.pol.begin())
