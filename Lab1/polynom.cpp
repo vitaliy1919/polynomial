@@ -2,6 +2,10 @@
 // PVS-Studio Static Code Analyzer for C, C++ and C#: http://www.viva64.com
 #include "stdafx.h"
 #include "polynom.h"
+bool cur_order(const monomial& a, const monomial& b)
+{
+	return operator>=(a, b);
+}
 double get_number(const string& s, int&i);
 bool isoper(int i)
 {
@@ -279,7 +283,7 @@ polynomial operator-(const polynomial & a, const polynomial & b)
 	}
 	while (pa)
 	{
-		if (compare(pb->data.coef, 0))
+		if (compare(pa->data.coef, 0))
 			res.pol.addNode_tail(pa->data);
 		pa = pa->next;
 	}
@@ -372,7 +376,7 @@ void polynomial::get(istream& is)
 	{
 		is >> t;
 		if (is)
-			pol.insertNode_sorted(t, operator>=);
+			pol.insertNode_sorted(t, cur_order);
 	}
 	is.clear();
 	while (is.get() != '\n');
@@ -414,7 +418,7 @@ polynomial string_get(const string & s)
 	len = s_right.length();
 	while (i < len)
 	{
-		res.pol.insertNode_sorted(string_get(s_right, i, res.numb_of_variables),operator>=);
+		res.pol.insertNode_sorted(string_get(s_right, i, res.numb_of_variables),cur_order);
 	}
 	return res;
 }
