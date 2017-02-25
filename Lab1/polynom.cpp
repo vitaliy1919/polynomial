@@ -34,40 +34,46 @@ bool divide(const monomial & a, const monomial & b, monomial & res)
 	return true;
 }
 
-inline bool operator==(const monomial & a, const monomial & b)
+bool operator==(const monomial & a, const monomial & b)
 {
 	int numb_var = (a.numb_of_variables > b.numb_of_variables ? b.numb_of_variables : a.numb_of_variables);
 	const monomial& t = (a.numb_of_variables > b.numb_of_variables ? a : b);
 	for (int i = 0; i < numb_var; i++)
-		if (!compare(a.powers[i] - b.powers[i],0))
+		if (compare(a.powers[i] - b.powers[i],0))
 			return false;
 	for (int i = numb_var; i < t.numb_of_variables; ++i)
-		if (!compare(t.powers[i],0))
+		if (compare(t.powers[i],0))
 			return false;
 	return true;
 }
 
 bool operator<(const monomial & a, const monomial & b)
 {
-	if (b.power() > a.power())
+	double pow_a = a.power(), pow_b = b.power();
+	if (pow_b > pow_a)
 		return true;
-	else if (!compare(b.power() - a.power(),0))
+	else if (!compare(pow_b - pow_a,0))
 	{
-		int numb_var = (a.numb_of_variables < b.numb_of_variables ? a.numb_of_variables : b.numb_of_variables);
-		const monomial& t = (a.numb_of_variables < b.numb_of_variables ? b : a);
-		for (int i = 0; i < numb_var; ++i)
+		if (b.max_power() > a.max_power())
+			return true;
+		else
 		{
-			if (a.powers[i] > b.powers[i])
-				return false;
-			else if (a.powers[i] < b.powers[i])
-				return true;
-		}
-		if (t.numb_of_variables != a.numb_of_variables)
-		{
-			for (int i = numb_var; i < t.numb_of_variables; i++)
+			int numb_var = (a.numb_of_variables < b.numb_of_variables ? a.numb_of_variables : b.numb_of_variables);
+			const monomial& t = (a.numb_of_variables < b.numb_of_variables ? b : a);
+			for (int i = 0; i < numb_var; ++i)
 			{
-				if (t.powers[i]> 0)
+				if (a.powers[i] > b.powers[i])
+					return false;
+				else if (a.powers[i] < b.powers[i])
 					return true;
+			}
+			if (t.numb_of_variables != a.numb_of_variables)
+			{
+				for (int i = numb_var; i < t.numb_of_variables; i++)
+				{
+					if (t.powers[i] > 0)
+						return true;
+				}
 			}
 		}
 	}
@@ -81,7 +87,35 @@ bool operator<=(const monomial & a, const monomial & b)
 
 bool operator>(const monomial & a, const monomial & b)
 {
-	return !operator<(a, b) && (!operator==(a, b));
+	double pow_a = a.power(), pow_b = b.power();
+	if (pow_a > pow_b)
+		return true;
+	else if (!compare(pow_a - pow_b, 0))
+	{
+		if (a.max_power() > b.max_power())
+			return true;
+		else
+		{
+			int numb_var = (a.numb_of_variables < b.numb_of_variables ? a.numb_of_variables : b.numb_of_variables);
+			const monomial& t = (a.numb_of_variables < b.numb_of_variables ? b : a);
+			for (int i = 0; i < numb_var; ++i)
+			{
+				if (a.powers[i] > b.powers[i])
+					return true;
+				else if (a.powers[i] < b.powers[i])
+					return false;
+			}
+			if (t.numb_of_variables != b.numb_of_variables)
+			{
+				for (int i = numb_var; i < t.numb_of_variables; i++)
+				{
+					if (t.powers[i] > 0)
+						return true;
+				}
+			}
+		}
+	}
+	return false;
 }
 
 bool operator>=(const monomial & a, const monomial & b)
@@ -106,10 +140,9 @@ istream & operator >> (istream & is, monomial & p)
 void monomial::show(ostream & os) const
 {	
 	int show_coef = compare(fabs(coef), 1);
-	
 	int first_not_show_multi = numb_of_variables - 1;
 	for (; first_not_show_multi >= 0; first_not_show_multi--)
-		if (fabs(powers[first_not_show_multi])<eps)
+		if (fabs(powers[first_not_show_multi])>eps)
 			break;
 	if (!compare(coef, -1) && first_not_show_multi != -1)
 		cout << '-';
@@ -339,7 +372,7 @@ void polynomial::get(istream& is)
 	{
 		is >> t;
 		if (is)
-			pol.insertNode_sorted(t, operator>);
+			pol.insertNode_sorted(t, operator>=);
 	}
 	is.clear();
 	while (is.get() != '\n');
