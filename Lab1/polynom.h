@@ -35,6 +35,7 @@ class polynomial
 {
 	List<monomial> pol;
 	int numb_of_variables;
+	void add_0();
 public:
 	polynomial(int n=1) :pol(),numb_of_variables(n) {}
 	void get(istream& is=cin);
@@ -50,5 +51,4 @@ public:
 	friend polynomial operator+(const polynomial& a, const polynomial& b);
 	friend polynomial operator*(const polynomial& a, const polynomial& b);
 	friend polynomial operator*(const polynomial& a, const monomial& b);
-	
 };

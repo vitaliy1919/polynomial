@@ -1,0 +1,1257 @@
+<?xml version="1.0" standalone="yes"?>
+<NewDataSet>
+  <xs:schema id="NewDataSet" xmlns="" xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:msdata="urn:schemas-microsoft-com:xml-msdata">
+    <xs:element name="NewDataSet" msdata:IsDataSet="true" msdata:UseCurrentLocale="true">
+      <xs:complexType>
+        <xs:choice minOccurs="0" maxOccurs="unbounded">
+          <xs:element name="Solution_Path">
+            <xs:complexType>
+              <xs:sequence>
+                <xs:element name="SolutionPath" type="xs:string" minOccurs="0" />
+                <xs:element name="SolutionVersion" type="xs:string" minOccurs="0" />
+                <xs:element name="PlogVersion" type="xs:unsignedInt" minOccurs="0" />
+                <xs:element name="ModificationDate" msdata:DateTimeMode="Utc" type="xs:dateTime" minOccurs="0" />
+              </xs:sequence>
+            </xs:complexType>
+          </xs:element>
+          <xs:element name="PVS-Studio_Analysis_Log">
+            <xs:complexType>
+              <xs:sequence>
+                <xs:element name="FavIcon" type="xs:boolean" minOccurs="0" />
+                <xs:element name="Level" type="xs:unsignedInt" minOccurs="0" />
+                <xs:element name="DefaultOrder" type="xs:int" minOccurs="0" />
+                <xs:element name="ErrorCode" type="xs:string" minOccurs="0" />
+                <xs:element name="Message" type="xs:string" />
+                <xs:element name="Project" type="xs:string" minOccurs="0" />
+                <xs:element name="ShortFile" type="xs:string" minOccurs="0" />
+                <xs:element name="Line" type="xs:int" />
+                <xs:element name="FalseAlarm" type="xs:boolean" minOccurs="0" />
+                <xs:element name="File" type="xs:string" />
+                <xs:element name="CodePrev" type="xs:unsignedInt" minOccurs="0" />
+                <xs:element name="CodeCurrent" type="xs:unsignedInt" minOccurs="0" />
+                <xs:element name="CodeNext" type="xs:unsignedInt" minOccurs="0" />
+                <xs:element name="TrialMessage" type="xs:boolean" minOccurs="0" />
+                <xs:element name="Analyzer" type="xs:int" minOccurs="0" />
+                <xs:element name="LineExtension" type="xs:string" minOccurs="0" />
+                <xs:element name="Retired" type="xs:boolean" default="false" minOccurs="0" />
+                <xs:element name="AnalyzedSourceFiles" type="xs:string" minOccurs="0" />
+              </xs:sequence>
+            </xs:complexType>
+          </xs:element>
+        </xs:choice>
+      </xs:complexType>
+      <xs:unique name="Constraint1" msdata:PrimaryKey="true">
+        <xs:selector xpath=".//PVS-Studio_Analysis_Log" />
+        <xs:field xpath="Line" />
+        <xs:field xpath="Message" />
+        <xs:field xpath="File" />
+      </xs:unique>
+    </xs:element>
+  </xs:schema>
+  <Solution_Path>
+    <SolutionPath>C:\Users\HP\Documents\Visual Studio 2015\Projects\Class Projects\Lab1\Lab1.sln</SolutionPath>
+    <SolutionVersion>14.0</SolutionVersion>
+    <PlogVersion>4</PlogVersion>
+    <ModificationDate>2017-02-25T07:21:29.2988316Z</ModificationDate>
+  </Solution_Path>
+  <PVS-Studio_Analysis_Log>
+    <FavIcon>false</FavIcon>
+    <Level>3</Level>
+    <DefaultOrder>1</DefaultOrder>
+    <ErrorCode>V122</ErrorCode>
+    <Message>Memsize type is used in the struct/class.</Message>
+    <Project>Lab1</Project>
+    <ShortFile>list.h</ShortFile>
+    <Line>18</Line>
+    <FalseAlarm>false</FalseAlarm>
+    <File>c:\users\hp\documents\visual studio 2015\projects\class projects\lab1\lab1\list.h</File>
+    <CodePrev>3809</CodePrev>
+    <CodeCurrent>55507</CodeCurrent>
+    <CodeNext>55803</CodeNext>
+    <TrialMessage>false</TrialMessage>
+    <Analyzer>1</Analyzer>
+    <LineExtension />
+    <Retired>false</Retired>
+    <AnalyzedSourceFiles>c:\users\hp\documents\visual studio 2015\projects\class projects\lab1\lab1\lab1.cpp*c:\users\hp\documents\visual studio 2015\projects\class projects\lab1\lab1\polynom.cpp</AnalyzedSourceFiles>
+  </PVS-Studio_Analysis_Log>
+  <PVS-Studio_Analysis_Log>
+    <FavIcon>false</FavIcon>
+    <Level>3</Level>
+    <DefaultOrder>2</DefaultOrder>
+    <ErrorCode>V122</ErrorCode>
+    <Message>Memsize type is used in the struct/class.</Message>
+    <Project>Lab1</Project>
+    <ShortFile>list.h</ShortFile>
+    <Line>19</Line>
+    <FalseAlarm>false</FalseAlarm>
+    <File>c:\users\hp\documents\visual studio 2015\projects\class projects\lab1\lab1\list.h</File>
+    <CodePrev>55507</CodePrev>
+    <CodeCurrent>55803</CodeCurrent>
+    <CodeNext>4112690396</CodeNext>
+    <TrialMessage>false</TrialMessage>
+    <Analyzer>1</Analyzer>
+    <LineExtension />
+    <Retired>false</Retired>
+    <AnalyzedSourceFiles>c:\users\hp\documents\visual studio 2015\projects\class projects\lab1\lab1\lab1.cpp*c:\users\hp\documents\visual studio 2015\projects\class projects\lab1\lab1\polynom.cpp</AnalyzedSourceFiles>
+  </PVS-Studio_Analysis_Log>
+  <PVS-Studio_Analysis_Log>
+    <FavIcon>false</FavIcon>
+    <Level>3</Level>
+    <DefaultOrder>3</DefaultOrder>
+    <ErrorCode>V122</ErrorCode>
+    <Message>Memsize type is used in the struct/class.</Message>
+    <Project>Lab1</Project>
+    <ShortFile>list.h</ShortFile>
+    <Line>27</Line>
+    <FalseAlarm>false</FalseAlarm>
+    <File>c:\users\hp\documents\visual studio 2015\projects\class projects\lab1\lab1\list.h</File>
+    <CodePrev>45270</CodePrev>
+    <CodeCurrent>449055</CodeCurrent>
+    <CodeNext>449487</CodeNext>
+    <TrialMessage>false</TrialMessage>
+    <Analyzer>1</Analyzer>
+    <LineExtension />
+    <Retired>false</Retired>
+    <AnalyzedSourceFiles>c:\users\hp\documents\visual studio 2015\projects\class projects\lab1\lab1\lab1.cpp*c:\users\hp\documents\visual studio 2015\projects\class projects\lab1\lab1\polynom.cpp</AnalyzedSourceFiles>
+  </PVS-Studio_Analysis_Log>
+  <PVS-Studio_Analysis_Log>
+    <FavIcon>false</FavIcon>
+    <Level>3</Level>
+    <DefaultOrder>4</DefaultOrder>
+    <ErrorCode>V122</ErrorCode>
+    <Message>Memsize type is used in the struct/class.</Message>
+    <Project>Lab1</Project>
+    <ShortFile>list.h</ShortFile>
+    <Line>28</Line>
+    <FalseAlarm>false</FalseAlarm>
+    <File>c:\users\hp\documents\visual studio 2015\projects\class projects\lab1\lab1\list.h</File>
+    <CodePrev>449055</CodePrev>
+    <CodeCurrent>449487</CodeCurrent>
+    <CodeNext>5816</CodeNext>
+    <TrialMessage>false</TrialMessage>
+    <Analyzer>1</Analyzer>
+    <LineExtension />
+    <Retired>false</Retired>
+    <AnalyzedSourceFiles>c:\users\hp\documents\visual studio 2015\projects\class projects\lab1\lab1\lab1.cpp*c:\users\hp\documents\visual studio 2015\projects\class projects\lab1\lab1\polynom.cpp</AnalyzedSourceFiles>
+  </PVS-Studio_Analysis_Log>
+  <PVS-Studio_Analysis_Log>
+    <FavIcon>false</FavIcon>
+    <Level>2</Level>
+    <DefaultOrder>5</DefaultOrder>
+    <ErrorCode>V302</ErrorCode>
+    <Message>Member operator[] of 'List' class has a 32-bit type argument. Use memsize-type here.</Message>
+    <Project>Lab1</Project>
+    <ShortFile>list.h</ShortFile>
+    <Line>49</Line>
+    <FalseAlarm>false</FalseAlarm>
+    <File>c:\users\hp\documents\visual studio 2015\projects\class projects\lab1\lab1\list.h</File>
+    <CodePrev>28746389</CodePrev>
+    <CodeCurrent>3687882285</CodeCurrent>
+    <CodeNext>890489642</CodeNext>
+    <TrialMessage>false</TrialMessage>
+    <Analyzer>1</Analyzer>
+    <LineExtension />
+    <Retired>false</Retired>
+    <AnalyzedSourceFiles>c:\users\hp\documents\visual studio 2015\projects\class projects\lab1\lab1\lab1.cpp*c:\users\hp\documents\visual studio 2015\projects\class projects\lab1\lab1\polynom.cpp</AnalyzedSourceFiles>
+  </PVS-Studio_Analysis_Log>
+  <PVS-Studio_Analysis_Log>
+    <FavIcon>false</FavIcon>
+    <Level>2</Level>
+    <DefaultOrder>6</DefaultOrder>
+    <ErrorCode>V302</ErrorCode>
+    <Message>Member operator[] of 'List' class has a 32-bit type argument. Use memsize-type here.</Message>
+    <Project>Lab1</Project>
+    <ShortFile>list.h</ShortFile>
+    <Line>50</Line>
+    <FalseAlarm>false</FalseAlarm>
+    <File>c:\users\hp\documents\visual studio 2015\projects\class projects\lab1\lab1\list.h</File>
+    <CodePrev>3687882285</CodePrev>
+    <CodeCurrent>890489642</CodeCurrent>
+    <CodeNext>1408889</CodeNext>
+    <TrialMessage>false</TrialMessage>
+    <Analyzer>1</Analyzer>
+    <LineExtension />
+    <Retired>false</Retired>
+    <AnalyzedSourceFiles>c:\users\hp\documents\visual studio 2015\projects\class projects\lab1\lab1\lab1.cpp*c:\users\hp\documents\visual studio 2015\projects\class projects\lab1\lab1\polynom.cpp</AnalyzedSourceFiles>
+  </PVS-Studio_Analysis_Log>
+  <PVS-Studio_Analysis_Log>
+    <FavIcon>false</FavIcon>
+    <Level>2</Level>
+    <DefaultOrder>7</DefaultOrder>
+    <ErrorCode>V108</ErrorCode>
+    <Message>Incorrect index type: val[not a memsize-type]. Use memsize type instead.</Message>
+    <Project>Lab1</Project>
+    <ShortFile>lab1.cpp</ShortFile>
+    <Line>117</Line>
+    <FalseAlarm>false</FalseAlarm>
+    <File>c:\users\hp\documents\visual studio 2015\projects\class projects\lab1\lab1\lab1.cpp</File>
+    <CodePrev>80502463</CodePrev>
+    <CodeCurrent>152989</CodeCurrent>
+    <CodeNext>2150726896</CodeNext>
+    <TrialMessage>false</TrialMessage>
+    <Analyzer>1</Analyzer>
+    <LineExtension />
+    <Retired>false</Retired>
+    <AnalyzedSourceFiles />
+  </PVS-Studio_Analysis_Log>
+  <PVS-Studio_Analysis_Log>
+    <FavIcon>false</FavIcon>
+    <Level>1</Level>
+    <DefaultOrder>8</DefaultOrder>
+    <ErrorCode>V004</ErrorCode>
+    <Message>Diagnostics from the 64-bit rule set are not entirely accurate without the appropriate 64-bit compiler. Consider utilizing 64-bit compiler if possible.</Message>
+    <Project>Lab1</Project>
+    <ShortFile xml:space="preserve"> </ShortFile>
+    <Line>1</Line>
+    <FalseAlarm>false</FalseAlarm>
+    <File xml:space="preserve"> </File>
+    <CodePrev>0</CodePrev>
+    <CodeCurrent>0</CodeCurrent>
+    <CodeNext>0</CodeNext>
+    <TrialMessage>false</TrialMessage>
+    <Analyzer>1</Analyzer>
+    <LineExtension />
+    <Retired>false</Retired>
+    <AnalyzedSourceFiles />
+  </PVS-Studio_Analysis_Log>
+  <PVS-Studio_Analysis_Log>
+    <FavIcon>false</FavIcon>
+    <Level>2</Level>
+    <DefaultOrder>9</DefaultOrder>
+    <ErrorCode>V108</ErrorCode>
+    <Message>Incorrect index type: a.powers[not a memsize-type]. Use memsize type instead.</Message>
+    <Project>Lab1</Project>
+    <ShortFile>polynom.cpp</ShortFile>
+    <Line>29</Line>
+    <FalseAlarm>false</FalseAlarm>
+    <File>c:\users\hp\documents\visual studio 2015\projects\class projects\lab1\lab1\polynom.cpp</File>
+    <CodePrev>123</CodePrev>
+    <CodeCurrent>974485424</CodeCurrent>
+    <CodeNext>2054599898</CodeNext>
+    <TrialMessage>false</TrialMessage>
+    <Analyzer>1</Analyzer>
+    <LineExtension />
+    <Retired>false</Retired>
+    <AnalyzedSourceFiles />
+  </PVS-Studio_Analysis_Log>
+  <PVS-Studio_Analysis_Log>
+    <FavIcon>false</FavIcon>
+    <Level>2</Level>
+    <DefaultOrder>10</DefaultOrder>
+    <ErrorCode>V108</ErrorCode>
+    <Message>Incorrect index type: b.powers[not a memsize-type]. Use memsize type instead.</Message>
+    <Project>Lab1</Project>
+    <ShortFile>polynom.cpp</ShortFile>
+    <Line>29</Line>
+    <FalseAlarm>false</FalseAlarm>
+    <File>c:\users\hp\documents\visual studio 2015\projects\class projects\lab1\lab1\polynom.cpp</File>
+    <CodePrev>123</CodePrev>
+    <CodeCurrent>974485424</CodeCurrent>
+    <CodeNext>2054599898</CodeNext>
+    <TrialMessage>false</TrialMessage>
+    <Analyzer>1</Analyzer>
+    <LineExtension />
+    <Retired>false</Retired>
+    <AnalyzedSourceFiles />
+  </PVS-Studio_Analysis_Log>
+  <PVS-Studio_Analysis_Log>
+    <FavIcon>false</FavIcon>
+    <Level>2</Level>
+    <DefaultOrder>11</DefaultOrder>
+    <ErrorCode>V108</ErrorCode>
+    <Message>Incorrect index type: res.powers[not a memsize-type]. Use memsize type instead.</Message>
+    <Project>Lab1</Project>
+    <ShortFile>polynom.cpp</ShortFile>
+    <Line>30</Line>
+    <FalseAlarm>false</FalseAlarm>
+    <File>c:\users\hp\documents\visual studio 2015\projects\class projects\lab1\lab1\polynom.cpp</File>
+    <CodePrev>974485424</CodePrev>
+    <CodeCurrent>2054599898</CodeCurrent>
+    <CodeNext>539</CodeNext>
+    <TrialMessage>false</TrialMessage>
+    <Analyzer>1</Analyzer>
+    <LineExtension />
+    <Retired>false</Retired>
+    <AnalyzedSourceFiles />
+  </PVS-Studio_Analysis_Log>
+  <PVS-Studio_Analysis_Log>
+    <FavIcon>false</FavIcon>
+    <Level>2</Level>
+    <DefaultOrder>12</DefaultOrder>
+    <ErrorCode>V108</ErrorCode>
+    <Message>Incorrect index type: a.powers[not a memsize-type]. Use memsize type instead.</Message>
+    <Project>Lab1</Project>
+    <ShortFile>polynom.cpp</ShortFile>
+    <Line>30</Line>
+    <FalseAlarm>false</FalseAlarm>
+    <File>c:\users\hp\documents\visual studio 2015\projects\class projects\lab1\lab1\polynom.cpp</File>
+    <CodePrev>974485424</CodePrev>
+    <CodeCurrent>2054599898</CodeCurrent>
+    <CodeNext>539</CodeNext>
+    <TrialMessage>false</TrialMessage>
+    <Analyzer>1</Analyzer>
+    <LineExtension />
+    <Retired>false</Retired>
+    <AnalyzedSourceFiles />
+  </PVS-Studio_Analysis_Log>
+  <PVS-Studio_Analysis_Log>
+    <FavIcon>false</FavIcon>
+    <Level>2</Level>
+    <DefaultOrder>13</DefaultOrder>
+    <ErrorCode>V108</ErrorCode>
+    <Message>Incorrect index type: b.powers[not a memsize-type]. Use memsize type instead.</Message>
+    <Project>Lab1</Project>
+    <ShortFile>polynom.cpp</ShortFile>
+    <Line>30</Line>
+    <FalseAlarm>false</FalseAlarm>
+    <File>c:\users\hp\documents\visual studio 2015\projects\class projects\lab1\lab1\polynom.cpp</File>
+    <CodePrev>974485424</CodePrev>
+    <CodeCurrent>2054599898</CodeCurrent>
+    <CodeNext>539</CodeNext>
+    <TrialMessage>false</TrialMessage>
+    <Analyzer>1</Analyzer>
+    <LineExtension />
+    <Retired>false</Retired>
+    <AnalyzedSourceFiles />
+  </PVS-Studio_Analysis_Log>
+  <PVS-Studio_Analysis_Log>
+    <FavIcon>false</FavIcon>
+    <Level>2</Level>
+    <DefaultOrder>14</DefaultOrder>
+    <ErrorCode>V108</ErrorCode>
+    <Message>Incorrect index type: a.powers[not a memsize-type]. Use memsize type instead.</Message>
+    <Project>Lab1</Project>
+    <ShortFile>polynom.cpp</ShortFile>
+    <Line>42</Line>
+    <FalseAlarm>false</FalseAlarm>
+    <File>c:\users\hp\documents\visual studio 2015\projects\class projects\lab1\lab1\polynom.cpp</File>
+    <CodePrev>2575960619</CodePrev>
+    <CodeCurrent>2612391540</CodeCurrent>
+    <CodeNext>176909</CodeNext>
+    <TrialMessage>false</TrialMessage>
+    <Analyzer>1</Analyzer>
+    <LineExtension />
+    <Retired>false</Retired>
+    <AnalyzedSourceFiles />
+  </PVS-Studio_Analysis_Log>
+  <PVS-Studio_Analysis_Log>
+    <FavIcon>false</FavIcon>
+    <Level>2</Level>
+    <DefaultOrder>15</DefaultOrder>
+    <ErrorCode>V108</ErrorCode>
+    <Message>Incorrect index type: b.powers[not a memsize-type]. Use memsize type instead.</Message>
+    <Project>Lab1</Project>
+    <ShortFile>polynom.cpp</ShortFile>
+    <Line>42</Line>
+    <FalseAlarm>false</FalseAlarm>
+    <File>c:\users\hp\documents\visual studio 2015\projects\class projects\lab1\lab1\polynom.cpp</File>
+    <CodePrev>2575960619</CodePrev>
+    <CodeCurrent>2612391540</CodeCurrent>
+    <CodeNext>176909</CodeNext>
+    <TrialMessage>false</TrialMessage>
+    <Analyzer>1</Analyzer>
+    <LineExtension />
+    <Retired>false</Retired>
+    <AnalyzedSourceFiles />
+  </PVS-Studio_Analysis_Log>
+  <PVS-Studio_Analysis_Log>
+    <FavIcon>false</FavIcon>
+    <Level>2</Level>
+    <DefaultOrder>16</DefaultOrder>
+    <ErrorCode>V108</ErrorCode>
+    <Message>Incorrect index type: t.powers[not a memsize-type]. Use memsize type instead.</Message>
+    <Project>Lab1</Project>
+    <ShortFile>polynom.cpp</ShortFile>
+    <Line>45</Line>
+    <FalseAlarm>false</FalseAlarm>
+    <File>c:\users\hp\documents\visual studio 2015\projects\class projects\lab1\lab1\polynom.cpp</File>
+    <CodePrev>3138240629</CodePrev>
+    <CodeCurrent>1107098218</CodeCurrent>
+    <CodeNext>176909</CodeNext>
+    <TrialMessage>false</TrialMessage>
+    <Analyzer>1</Analyzer>
+    <LineExtension />
+    <Retired>false</Retired>
+    <AnalyzedSourceFiles />
+  </PVS-Studio_Analysis_Log>
+  <PVS-Studio_Analysis_Log>
+    <FavIcon>false</FavIcon>
+    <Level>2</Level>
+    <DefaultOrder>17</DefaultOrder>
+    <ErrorCode>V108</ErrorCode>
+    <Message>Incorrect index type: a.powers[not a memsize-type]. Use memsize type instead.</Message>
+    <Project>Lab1</Project>
+    <ShortFile>polynom.cpp</ShortFile>
+    <Line>60</Line>
+    <FalseAlarm>false</FalseAlarm>
+    <File>c:\users\hp\documents\visual studio 2015\projects\class projects\lab1\lab1\polynom.cpp</File>
+    <CodePrev>123</CodePrev>
+    <CodeCurrent>1903660894</CodeCurrent>
+    <CodeNext>176909</CodeNext>
+    <TrialMessage>false</TrialMessage>
+    <Analyzer>1</Analyzer>
+    <LineExtension />
+    <Retired>false</Retired>
+    <AnalyzedSourceFiles />
+  </PVS-Studio_Analysis_Log>
+  <PVS-Studio_Analysis_Log>
+    <FavIcon>false</FavIcon>
+    <Level>2</Level>
+    <DefaultOrder>18</DefaultOrder>
+    <ErrorCode>V108</ErrorCode>
+    <Message>Incorrect index type: b.powers[not a memsize-type]. Use memsize type instead.</Message>
+    <Project>Lab1</Project>
+    <ShortFile>polynom.cpp</ShortFile>
+    <Line>60</Line>
+    <FalseAlarm>false</FalseAlarm>
+    <File>c:\users\hp\documents\visual studio 2015\projects\class projects\lab1\lab1\polynom.cpp</File>
+    <CodePrev>123</CodePrev>
+    <CodeCurrent>1903660894</CodeCurrent>
+    <CodeNext>176909</CodeNext>
+    <TrialMessage>false</TrialMessage>
+    <Analyzer>1</Analyzer>
+    <LineExtension />
+    <Retired>false</Retired>
+    <AnalyzedSourceFiles />
+  </PVS-Studio_Analysis_Log>
+  <PVS-Studio_Analysis_Log>
+    <FavIcon>false</FavIcon>
+    <Level>2</Level>
+    <DefaultOrder>19</DefaultOrder>
+    <ErrorCode>V108</ErrorCode>
+    <Message>Incorrect index type: a.powers[not a memsize-type]. Use memsize type instead.</Message>
+    <Project>Lab1</Project>
+    <ShortFile>polynom.cpp</ShortFile>
+    <Line>62</Line>
+    <FalseAlarm>false</FalseAlarm>
+    <File>c:\users\hp\documents\visual studio 2015\projects\class projects\lab1\lab1\polynom.cpp</File>
+    <CodePrev>176909</CodePrev>
+    <CodeCurrent>2843193166</CodeCurrent>
+    <CodeNext>88117</CodeNext>
+    <TrialMessage>false</TrialMessage>
+    <Analyzer>1</Analyzer>
+    <LineExtension />
+    <Retired>false</Retired>
+    <AnalyzedSourceFiles />
+  </PVS-Studio_Analysis_Log>
+  <PVS-Studio_Analysis_Log>
+    <FavIcon>false</FavIcon>
+    <Level>2</Level>
+    <DefaultOrder>20</DefaultOrder>
+    <ErrorCode>V108</ErrorCode>
+    <Message>Incorrect index type: b.powers[not a memsize-type]. Use memsize type instead.</Message>
+    <Project>Lab1</Project>
+    <ShortFile>polynom.cpp</ShortFile>
+    <Line>62</Line>
+    <FalseAlarm>false</FalseAlarm>
+    <File>c:\users\hp\documents\visual studio 2015\projects\class projects\lab1\lab1\polynom.cpp</File>
+    <CodePrev>176909</CodePrev>
+    <CodeCurrent>2843193166</CodeCurrent>
+    <CodeNext>88117</CodeNext>
+    <TrialMessage>false</TrialMessage>
+    <Analyzer>1</Analyzer>
+    <LineExtension />
+    <Retired>false</Retired>
+    <AnalyzedSourceFiles />
+  </PVS-Studio_Analysis_Log>
+  <PVS-Studio_Analysis_Log>
+    <FavIcon>false</FavIcon>
+    <Level>2</Level>
+    <DefaultOrder>21</DefaultOrder>
+    <ErrorCode>V108</ErrorCode>
+    <Message>Incorrect index type: t.powers[not a memsize-type]. Use memsize type instead.</Message>
+    <Project>Lab1</Project>
+    <ShortFile>polynom.cpp</ShortFile>
+    <Line>69</Line>
+    <FalseAlarm>false</FalseAlarm>
+    <File>c:\users\hp\documents\visual studio 2015\projects\class projects\lab1\lab1\polynom.cpp</File>
+    <CodePrev>123</CodePrev>
+    <CodeCurrent>6225257</CodeCurrent>
+    <CodeNext>88117</CodeNext>
+    <TrialMessage>false</TrialMessage>
+    <Analyzer>1</Analyzer>
+    <LineExtension />
+    <Retired>false</Retired>
+    <AnalyzedSourceFiles />
+  </PVS-Studio_Analysis_Log>
+  <PVS-Studio_Analysis_Log>
+    <FavIcon>false</FavIcon>
+    <Level>2</Level>
+    <DefaultOrder>22</DefaultOrder>
+    <ErrorCode>V108</ErrorCode>
+    <Message>Incorrect index type: p.powers[not a memsize-type]. Use memsize type instead.</Message>
+    <Project>Lab1</Project>
+    <ShortFile>polynom.cpp</ShortFile>
+    <Line>102</Line>
+    <FalseAlarm>false</FalseAlarm>
+    <File>c:\users\hp\documents\visual studio 2015\projects\class projects\lab1\lab1\polynom.cpp</File>
+    <CodePrev>1225761619</CodePrev>
+    <CodeCurrent>3145549</CodeCurrent>
+    <CodeNext>22025</CodeNext>
+    <TrialMessage>false</TrialMessage>
+    <Analyzer>1</Analyzer>
+    <LineExtension />
+    <Retired>false</Retired>
+    <AnalyzedSourceFiles />
+  </PVS-Studio_Analysis_Log>
+  <PVS-Studio_Analysis_Log>
+    <FavIcon>false</FavIcon>
+    <Level>2</Level>
+    <DefaultOrder>23</DefaultOrder>
+    <ErrorCode>V108</ErrorCode>
+    <Message>Incorrect index type: powers[not a memsize-type]. Use memsize type instead.</Message>
+    <Project>Lab1</Project>
+    <ShortFile>polynom.cpp</ShortFile>
+    <Line>112</Line>
+    <FalseAlarm>false</FalseAlarm>
+    <File>c:\users\hp\documents\visual studio 2015\projects\class projects\lab1\lab1\polynom.cpp</File>
+    <CodePrev>4109403056</CodePrev>
+    <CodeCurrent>2076399384</CodeCurrent>
+    <CodeNext>2337</CodeNext>
+    <TrialMessage>false</TrialMessage>
+    <Analyzer>1</Analyzer>
+    <LineExtension />
+    <Retired>false</Retired>
+    <AnalyzedSourceFiles />
+  </PVS-Studio_Analysis_Log>
+  <PVS-Studio_Analysis_Log>
+    <FavIcon>false</FavIcon>
+    <Level>2</Level>
+    <DefaultOrder>24</DefaultOrder>
+    <ErrorCode>V108</ErrorCode>
+    <Message>Incorrect index type: powers[not a memsize-type]. Use memsize type instead.</Message>
+    <Project>Lab1</Project>
+    <ShortFile>polynom.cpp</ShortFile>
+    <Line>123</Line>
+    <FalseAlarm>false</FalseAlarm>
+    <File>c:\users\hp\documents\visual studio 2015\projects\class projects\lab1\lab1\polynom.cpp</File>
+    <CodePrev>123</CodePrev>
+    <CodeCurrent>2751298096</CodeCurrent>
+    <CodeNext>3787770155</CodeNext>
+    <TrialMessage>false</TrialMessage>
+    <Analyzer>1</Analyzer>
+    <LineExtension />
+    <Retired>false</Retired>
+    <AnalyzedSourceFiles />
+  </PVS-Studio_Analysis_Log>
+  <PVS-Studio_Analysis_Log>
+    <FavIcon>false</FavIcon>
+    <Level>2</Level>
+    <DefaultOrder>25</DefaultOrder>
+    <ErrorCode>V104</ErrorCode>
+    <Message>Implicit conversion of 'i' to memsize type in an arithmetic expression: i &lt; var.length()</Message>
+    <Project>Lab1</Project>
+    <ShortFile>polynom.cpp</ShortFile>
+    <Line>124</Line>
+    <FalseAlarm>false</FalseAlarm>
+    <File>c:\users\hp\documents\visual studio 2015\projects\class projects\lab1\lab1\polynom.cpp</File>
+    <CodePrev>2751298096</CodePrev>
+    <CodeCurrent>3787770155</CodeCurrent>
+    <CodeNext>123</CodeNext>
+    <TrialMessage>false</TrialMessage>
+    <Analyzer>1</Analyzer>
+    <LineExtension />
+    <Retired>false</Retired>
+    <AnalyzedSourceFiles />
+  </PVS-Studio_Analysis_Log>
+  <PVS-Studio_Analysis_Log>
+    <FavIcon>false</FavIcon>
+    <Level>2</Level>
+    <DefaultOrder>26</DefaultOrder>
+    <ErrorCode>V108</ErrorCode>
+    <Message>Incorrect index type: var[not a memsize-type]. Use memsize type instead.</Message>
+    <Project>Lab1</Project>
+    <ShortFile>polynom.cpp</ShortFile>
+    <Line>126</Line>
+    <FalseAlarm>false</FalseAlarm>
+    <File>c:\users\hp\documents\visual studio 2015\projects\class projects\lab1\lab1\polynom.cpp</File>
+    <CodePrev>123</CodePrev>
+    <CodeCurrent>93565</CodeCurrent>
+    <CodeNext>744323695</CodeNext>
+    <TrialMessage>false</TrialMessage>
+    <Analyzer>1</Analyzer>
+    <LineExtension />
+    <Retired>false</Retired>
+    <AnalyzedSourceFiles />
+  </PVS-Studio_Analysis_Log>
+  <PVS-Studio_Analysis_Log>
+    <FavIcon>false</FavIcon>
+    <Level>2</Level>
+    <DefaultOrder>27</DefaultOrder>
+    <ErrorCode>V108</ErrorCode>
+    <Message>Incorrect index type: powers[not a memsize-type]. Use memsize type instead.</Message>
+    <Project>Lab1</Project>
+    <ShortFile>polynom.cpp</ShortFile>
+    <Line>127</Line>
+    <FalseAlarm>false</FalseAlarm>
+    <File>c:\users\hp\documents\visual studio 2015\projects\class projects\lab1\lab1\polynom.cpp</File>
+    <CodePrev>93565</CodePrev>
+    <CodeCurrent>744323695</CodeCurrent>
+    <CodeNext>24758093</CodeNext>
+    <TrialMessage>false</TrialMessage>
+    <Analyzer>1</Analyzer>
+    <LineExtension />
+    <Retired>false</Retired>
+    <AnalyzedSourceFiles />
+  </PVS-Studio_Analysis_Log>
+  <PVS-Studio_Analysis_Log>
+    <FavIcon>false</FavIcon>
+    <Level>2</Level>
+    <DefaultOrder>28</DefaultOrder>
+    <ErrorCode>V108</ErrorCode>
+    <Message>Incorrect index type: powers[not a memsize-type]. Use memsize type instead.</Message>
+    <Project>Lab1</Project>
+    <ShortFile>polynom.cpp</ShortFile>
+    <Line>128</Line>
+    <FalseAlarm>false</FalseAlarm>
+    <File>c:\users\hp\documents\visual studio 2015\projects\class projects\lab1\lab1\polynom.cpp</File>
+    <CodePrev>744323695</CodePrev>
+    <CodeCurrent>24758093</CodeCurrent>
+    <CodeNext>125</CodeNext>
+    <TrialMessage>false</TrialMessage>
+    <Analyzer>1</Analyzer>
+    <LineExtension />
+    <Retired>false</Retired>
+    <AnalyzedSourceFiles />
+  </PVS-Studio_Analysis_Log>
+  <PVS-Studio_Analysis_Log>
+    <FavIcon>false</FavIcon>
+    <Level>2</Level>
+    <DefaultOrder>29</DefaultOrder>
+    <ErrorCode>V108</ErrorCode>
+    <Message>Incorrect index type: a[not a memsize-type]. Use memsize type instead.</Message>
+    <Project>Lab1</Project>
+    <ShortFile>polynom.cpp</ShortFile>
+    <Line>139</Line>
+    <FalseAlarm>false</FalseAlarm>
+    <File>c:\users\hp\documents\visual studio 2015\projects\class projects\lab1\lab1\polynom.cpp</File>
+    <CodePrev>336570028</CodePrev>
+    <CodeCurrent>1476697733</CodeCurrent>
+    <CodeNext>44089</CodeNext>
+    <TrialMessage>false</TrialMessage>
+    <Analyzer>1</Analyzer>
+    <LineExtension />
+    <Retired>false</Retired>
+    <AnalyzedSourceFiles />
+  </PVS-Studio_Analysis_Log>
+  <PVS-Studio_Analysis_Log>
+    <FavIcon>false</FavIcon>
+    <Level>2</Level>
+    <DefaultOrder>30</DefaultOrder>
+    <ErrorCode>V108</ErrorCode>
+    <Message>Incorrect index type: powers[not a memsize-type]. Use memsize type instead.</Message>
+    <Project>Lab1</Project>
+    <ShortFile>polynom.cpp</ShortFile>
+    <Line>139</Line>
+    <FalseAlarm>false</FalseAlarm>
+    <File>c:\users\hp\documents\visual studio 2015\projects\class projects\lab1\lab1\polynom.cpp</File>
+    <CodePrev>336570028</CodePrev>
+    <CodeCurrent>1476697733</CodeCurrent>
+    <CodeNext>44089</CodeNext>
+    <TrialMessage>false</TrialMessage>
+    <Analyzer>1</Analyzer>
+    <LineExtension />
+    <Retired>false</Retired>
+    <AnalyzedSourceFiles />
+  </PVS-Studio_Analysis_Log>
+  <PVS-Studio_Analysis_Log>
+    <FavIcon>false</FavIcon>
+    <Level>2</Level>
+    <DefaultOrder>31</DefaultOrder>
+    <ErrorCode>V108</ErrorCode>
+    <Message>Incorrect index type: powers[not a memsize-type]. Use memsize type instead.</Message>
+    <Project>Lab1</Project>
+    <ShortFile>polynom.cpp</ShortFile>
+    <Line>150</Line>
+    <FalseAlarm>false</FalseAlarm>
+    <File>c:\users\hp\documents\visual studio 2015\projects\class projects\lab1\lab1\polynom.cpp</File>
+    <CodePrev>123</CodePrev>
+    <CodeCurrent>1224525</CodeCurrent>
+    <CodeNext>125</CodeNext>
+    <TrialMessage>false</TrialMessage>
+    <Analyzer>1</Analyzer>
+    <LineExtension />
+    <Retired>false</Retired>
+    <AnalyzedSourceFiles />
+  </PVS-Studio_Analysis_Log>
+  <PVS-Studio_Analysis_Log>
+    <FavIcon>false</FavIcon>
+    <Level>2</Level>
+    <DefaultOrder>32</DefaultOrder>
+    <ErrorCode>V108</ErrorCode>
+    <Message>Incorrect index type: powers[not a memsize-type]. Use memsize type instead.</Message>
+    <Project>Lab1</Project>
+    <ShortFile>polynom.cpp</ShortFile>
+    <Line>159</Line>
+    <FalseAlarm>false</FalseAlarm>
+    <File>c:\users\hp\documents\visual studio 2015\projects\class projects\lab1\lab1\polynom.cpp</File>
+    <CodePrev>336570028</CodePrev>
+    <CodeCurrent>1448781</CodeCurrent>
+    <CodeNext>44089</CodeNext>
+    <TrialMessage>false</TrialMessage>
+    <Analyzer>1</Analyzer>
+    <LineExtension />
+    <Retired>false</Retired>
+    <AnalyzedSourceFiles />
+  </PVS-Studio_Analysis_Log>
+  <PVS-Studio_Analysis_Log>
+    <FavIcon>false</FavIcon>
+    <Level>2</Level>
+    <DefaultOrder>33</DefaultOrder>
+    <ErrorCode>V108</ErrorCode>
+    <Message>Incorrect index type: powers[not a memsize-type]. Use memsize type instead.</Message>
+    <Project>Lab1</Project>
+    <ShortFile>polynom.cpp</ShortFile>
+    <Line>167</Line>
+    <FalseAlarm>false</FalseAlarm>
+    <File>c:\users\hp\documents\visual studio 2015\projects\class projects\lab1\lab1\polynom.cpp</File>
+    <CodePrev>336570028</CodePrev>
+    <CodeCurrent>1517608799</CodeCurrent>
+    <CodeNext>2157</CodeNext>
+    <TrialMessage>false</TrialMessage>
+    <Analyzer>1</Analyzer>
+    <LineExtension />
+    <Retired>false</Retired>
+    <AnalyzedSourceFiles />
+  </PVS-Studio_Analysis_Log>
+  <PVS-Studio_Analysis_Log>
+    <FavIcon>false</FavIcon>
+    <Level>2</Level>
+    <DefaultOrder>34</DefaultOrder>
+    <ErrorCode>V108</ErrorCode>
+    <Message>Incorrect index type: powers[not a memsize-type]. Use memsize type instead.</Message>
+    <Project>Lab1</Project>
+    <ShortFile>polynom.cpp</ShortFile>
+    <Line>169</Line>
+    <FalseAlarm>false</FalseAlarm>
+    <File>c:\users\hp\documents\visual studio 2015\projects\class projects\lab1\lab1\polynom.cpp</File>
+    <CodePrev>2157</CodePrev>
+    <CodeCurrent>11304217</CodeCurrent>
+    <CodeNext>125</CodeNext>
+    <TrialMessage>false</TrialMessage>
+    <Analyzer>1</Analyzer>
+    <LineExtension />
+    <Retired>false</Retired>
+    <AnalyzedSourceFiles />
+  </PVS-Studio_Analysis_Log>
+  <PVS-Studio_Analysis_Log>
+    <FavIcon>false</FavIcon>
+    <Level>2</Level>
+    <DefaultOrder>35</DefaultOrder>
+    <ErrorCode>V108</ErrorCode>
+    <Message>Incorrect index type: s[not a memsize-type]. Use memsize type instead.</Message>
+    <Project>Lab1</Project>
+    <ShortFile>polynom.cpp</ShortFile>
+    <Line>175</Line>
+    <FalseAlarm>false</FalseAlarm>
+    <File>c:\users\hp\documents\visual studio 2015\projects\class projects\lab1\lab1\polynom.cpp</File>
+    <CodePrev>608112937</CodePrev>
+    <CodeCurrent>2886551</CodeCurrent>
+    <CodeNext>123</CodeNext>
+    <TrialMessage>false</TrialMessage>
+    <Analyzer>1</Analyzer>
+    <LineExtension />
+    <Retired>false</Retired>
+    <AnalyzedSourceFiles />
+  </PVS-Studio_Analysis_Log>
+  <PVS-Studio_Analysis_Log>
+    <FavIcon>false</FavIcon>
+    <Level>2</Level>
+    <DefaultOrder>36</DefaultOrder>
+    <ErrorCode>V108</ErrorCode>
+    <Message>Incorrect index type: s[not a memsize-type]. Use memsize type instead.</Message>
+    <Project>Lab1</Project>
+    <ShortFile>polynom.cpp</ShortFile>
+    <Line>177</Line>
+    <FalseAlarm>false</FalseAlarm>
+    <File>c:\users\hp\documents\visual studio 2015\projects\class projects\lab1\lab1\polynom.cpp</File>
+    <CodePrev>123</CodePrev>
+    <CodeCurrent>23087703</CodeCurrent>
+    <CodeNext>123</CodeNext>
+    <TrialMessage>false</TrialMessage>
+    <Analyzer>1</Analyzer>
+    <LineExtension />
+    <Retired>false</Retired>
+    <AnalyzedSourceFiles />
+  </PVS-Studio_Analysis_Log>
+  <PVS-Studio_Analysis_Log>
+    <FavIcon>false</FavIcon>
+    <Level>2</Level>
+    <DefaultOrder>37</DefaultOrder>
+    <ErrorCode>V108</ErrorCode>
+    <Message>Incorrect index type: s[not a memsize-type]. Use memsize type instead.</Message>
+    <Project>Lab1</Project>
+    <ShortFile>polynom.cpp</ShortFile>
+    <Line>179</Line>
+    <FalseAlarm>false</FalseAlarm>
+    <File>c:\users\hp\documents\visual studio 2015\projects\class projects\lab1\lab1\polynom.cpp</File>
+    <CodePrev>123</CodePrev>
+    <CodeCurrent>367451</CodeCurrent>
+    <CodeNext>191877</CodeNext>
+    <TrialMessage>false</TrialMessage>
+    <Analyzer>1</Analyzer>
+    <LineExtension />
+    <Retired>false</Retired>
+    <AnalyzedSourceFiles />
+  </PVS-Studio_Analysis_Log>
+  <PVS-Studio_Analysis_Log>
+    <FavIcon>false</FavIcon>
+    <Level>2</Level>
+    <DefaultOrder>38</DefaultOrder>
+    <ErrorCode>V108</ErrorCode>
+    <Message>Incorrect index type: s[not a memsize-type]. Use memsize type instead.</Message>
+    <Project>Lab1</Project>
+    <ShortFile>polynom.cpp</ShortFile>
+    <Line>186</Line>
+    <FalseAlarm>false</FalseAlarm>
+    <File>c:\users\hp\documents\visual studio 2015\projects\class projects\lab1\lab1\polynom.cpp</File>
+    <CodePrev>125</CodePrev>
+    <CodeCurrent>74320535</CodeCurrent>
+    <CodeNext>1569620125</CodeNext>
+    <TrialMessage>false</TrialMessage>
+    <Analyzer>1</Analyzer>
+    <LineExtension />
+    <Retired>false</Retired>
+    <AnalyzedSourceFiles />
+  </PVS-Studio_Analysis_Log>
+  <PVS-Studio_Analysis_Log>
+    <FavIcon>false</FavIcon>
+    <Level>2</Level>
+    <DefaultOrder>39</DefaultOrder>
+    <ErrorCode>V103</ErrorCode>
+    <Message>Implicit type conversion from memsize to 32-bit type.</Message>
+    <Project>Lab1</Project>
+    <ShortFile>polynom.cpp</ShortFile>
+    <Line>188</Line>
+    <FalseAlarm>false</FalseAlarm>
+    <File>c:\users\hp\documents\visual studio 2015\projects\class projects\lab1\lab1\polynom.cpp</File>
+    <CodePrev>1569620125</CodePrev>
+    <CodeCurrent>9925929</CodeCurrent>
+    <CodeNext>2609275007</CodeNext>
+    <TrialMessage>false</TrialMessage>
+    <Analyzer>1</Analyzer>
+    <LineExtension />
+    <Retired>false</Retired>
+    <AnalyzedSourceFiles />
+  </PVS-Studio_Analysis_Log>
+  <PVS-Studio_Analysis_Log>
+    <FavIcon>false</FavIcon>
+    <Level>2</Level>
+    <DefaultOrder>40</DefaultOrder>
+    <ErrorCode>V108</ErrorCode>
+    <Message>Incorrect index type: s[not a memsize-type]. Use memsize type instead.</Message>
+    <Project>Lab1</Project>
+    <ShortFile>polynom.cpp</ShortFile>
+    <Line>189</Line>
+    <FalseAlarm>false</FalseAlarm>
+    <File>c:\users\hp\documents\visual studio 2015\projects\class projects\lab1\lab1\polynom.cpp</File>
+    <CodePrev>9925929</CodePrev>
+    <CodeCurrent>2609275007</CodeCurrent>
+    <CodeNext>123</CodeNext>
+    <TrialMessage>false</TrialMessage>
+    <Analyzer>1</Analyzer>
+    <LineExtension />
+    <Retired>false</Retired>
+    <AnalyzedSourceFiles />
+  </PVS-Studio_Analysis_Log>
+  <PVS-Studio_Analysis_Log>
+    <FavIcon>false</FavIcon>
+    <Level>2</Level>
+    <DefaultOrder>41</DefaultOrder>
+    <ErrorCode>V108</ErrorCode>
+    <Message>Incorrect index type: s[not a memsize-type]. Use memsize type instead.</Message>
+    <Project>Lab1</Project>
+    <ShortFile>polynom.cpp</ShortFile>
+    <Line>192</Line>
+    <FalseAlarm>false</FalseAlarm>
+    <File>c:\users\hp\documents\visual studio 2015\projects\class projects\lab1\lab1\polynom.cpp</File>
+    <CodePrev>905</CodePrev>
+    <CodeCurrent>605392933</CodeCurrent>
+    <CodeNext>3157936791</CodeNext>
+    <TrialMessage>false</TrialMessage>
+    <Analyzer>1</Analyzer>
+    <LineExtension />
+    <Retired>false</Retired>
+    <AnalyzedSourceFiles />
+  </PVS-Studio_Analysis_Log>
+  <PVS-Studio_Analysis_Log>
+    <FavIcon>false</FavIcon>
+    <Level>2</Level>
+    <DefaultOrder>42</DefaultOrder>
+    <ErrorCode>V103</ErrorCode>
+    <Message>Implicit type conversion from memsize to 32-bit type.</Message>
+    <Project>Lab1</Project>
+    <ShortFile>polynom.cpp</ShortFile>
+    <Line>192</Line>
+    <FalseAlarm>false</FalseAlarm>
+    <File>c:\users\hp\documents\visual studio 2015\projects\class projects\lab1\lab1\polynom.cpp</File>
+    <CodePrev>905</CodePrev>
+    <CodeCurrent>605392933</CodeCurrent>
+    <CodeNext>3157936791</CodeNext>
+    <TrialMessage>false</TrialMessage>
+    <Analyzer>1</Analyzer>
+    <LineExtension />
+    <Retired>false</Retired>
+    <AnalyzedSourceFiles />
+  </PVS-Studio_Analysis_Log>
+  <PVS-Studio_Analysis_Log>
+    <FavIcon>false</FavIcon>
+    <Level>2</Level>
+    <DefaultOrder>43</DefaultOrder>
+    <ErrorCode>V108</ErrorCode>
+    <Message>Incorrect index type: s[not a memsize-type]. Use memsize type instead.</Message>
+    <Project>Lab1</Project>
+    <ShortFile>polynom.cpp</ShortFile>
+    <Line>193</Line>
+    <FalseAlarm>false</FalseAlarm>
+    <File>c:\users\hp\documents\visual studio 2015\projects\class projects\lab1\lab1\polynom.cpp</File>
+    <CodePrev>605392933</CodePrev>
+    <CodeCurrent>3157936791</CodeCurrent>
+    <CodeNext>12153365</CodeNext>
+    <TrialMessage>false</TrialMessage>
+    <Analyzer>1</Analyzer>
+    <LineExtension />
+    <Retired>false</Retired>
+    <AnalyzedSourceFiles />
+  </PVS-Studio_Analysis_Log>
+  <PVS-Studio_Analysis_Log>
+    <FavIcon>false</FavIcon>
+    <Level>2</Level>
+    <DefaultOrder>44</DefaultOrder>
+    <ErrorCode>V108</ErrorCode>
+    <Message>Incorrect index type: res.powers[not a memsize-type]. Use memsize type instead.</Message>
+    <Project>Lab1</Project>
+    <ShortFile>polynom.cpp</ShortFile>
+    <Line>194</Line>
+    <FalseAlarm>false</FalseAlarm>
+    <File>c:\users\hp\documents\visual studio 2015\projects\class projects\lab1\lab1\polynom.cpp</File>
+    <CodePrev>3157936791</CodePrev>
+    <CodeCurrent>12153365</CodeCurrent>
+    <CodeNext>539</CodeNext>
+    <TrialMessage>false</TrialMessage>
+    <Analyzer>1</Analyzer>
+    <LineExtension />
+    <Retired>false</Retired>
+    <AnalyzedSourceFiles />
+  </PVS-Studio_Analysis_Log>
+  <PVS-Studio_Analysis_Log>
+    <FavIcon>false</FavIcon>
+    <Level>2</Level>
+    <DefaultOrder>45</DefaultOrder>
+    <ErrorCode>V108</ErrorCode>
+    <Message>Incorrect index type: res.powers[not a memsize-type]. Use memsize type instead.</Message>
+    <Project>Lab1</Project>
+    <ShortFile>polynom.cpp</ShortFile>
+    <Line>196</Line>
+    <FalseAlarm>false</FalseAlarm>
+    <File>c:\users\hp\documents\visual studio 2015\projects\class projects\lab1\lab1\polynom.cpp</File>
+    <CodePrev>539</CodePrev>
+    <CodeCurrent>1555071155</CodeCurrent>
+    <CodeNext>125</CodeNext>
+    <TrialMessage>false</TrialMessage>
+    <Analyzer>1</Analyzer>
+    <LineExtension />
+    <Retired>false</Retired>
+    <AnalyzedSourceFiles />
+  </PVS-Studio_Analysis_Log>
+  <PVS-Studio_Analysis_Log>
+    <FavIcon>false</FavIcon>
+    <Level>2</Level>
+    <DefaultOrder>46</DefaultOrder>
+    <ErrorCode>V108</ErrorCode>
+    <Message>Incorrect index type: s[not a memsize-type]. Use memsize type instead.</Message>
+    <Project>Lab1</Project>
+    <ShortFile>polynom.cpp</ShortFile>
+    <Line>366</Line>
+    <FalseAlarm>false</FalseAlarm>
+    <File>c:\users\hp\documents\visual studio 2015\projects\class projects\lab1\lab1\polynom.cpp</File>
+    <CodePrev>47145</CodePrev>
+    <CodeCurrent>2886551</CodeCurrent>
+    <CodeNext>182213</CodeNext>
+    <TrialMessage>false</TrialMessage>
+    <Analyzer>1</Analyzer>
+    <LineExtension />
+    <Retired>false</Retired>
+    <AnalyzedSourceFiles />
+  </PVS-Studio_Analysis_Log>
+  <PVS-Studio_Analysis_Log>
+    <FavIcon>false</FavIcon>
+    <Level>2</Level>
+    <DefaultOrder>47</DefaultOrder>
+    <ErrorCode>V108</ErrorCode>
+    <Message>Incorrect index type: s[not a memsize-type]. Use memsize type instead.</Message>
+    <Project>Lab1</Project>
+    <ShortFile>polynom.cpp</ShortFile>
+    <Line>367</Line>
+    <FalseAlarm>false</FalseAlarm>
+    <File>c:\users\hp\documents\visual studio 2015\projects\class projects\lab1\lab1\polynom.cpp</File>
+    <CodePrev>2886551</CodePrev>
+    <CodeCurrent>182213</CodeCurrent>
+    <CodeNext>3025632067</CodeNext>
+    <TrialMessage>false</TrialMessage>
+    <Analyzer>1</Analyzer>
+    <LineExtension />
+    <Retired>false</Retired>
+    <AnalyzedSourceFiles />
+  </PVS-Studio_Analysis_Log>
+  <PVS-Studio_Analysis_Log>
+    <FavIcon>false</FavIcon>
+    <Level>2</Level>
+    <DefaultOrder>48</DefaultOrder>
+    <ErrorCode>V108</ErrorCode>
+    <Message>Incorrect index type: s[not a memsize-type]. Use memsize type instead.</Message>
+    <Project>Lab1</Project>
+    <ShortFile>polynom.cpp</ShortFile>
+    <Line>368</Line>
+    <FalseAlarm>false</FalseAlarm>
+    <File>c:\users\hp\documents\visual studio 2015\projects\class projects\lab1\lab1\polynom.cpp</File>
+    <CodePrev>182213</CodePrev>
+    <CodeCurrent>3025632067</CodeCurrent>
+    <CodeNext>182213</CodeNext>
+    <TrialMessage>false</TrialMessage>
+    <Analyzer>1</Analyzer>
+    <LineExtension />
+    <Retired>false</Retired>
+    <AnalyzedSourceFiles />
+  </PVS-Studio_Analysis_Log>
+  <PVS-Studio_Analysis_Log>
+    <FavIcon>false</FavIcon>
+    <Level>2</Level>
+    <DefaultOrder>49</DefaultOrder>
+    <ErrorCode>V108</ErrorCode>
+    <Message>Incorrect index type: s[not a memsize-type]. Use memsize type instead.</Message>
+    <Project>Lab1</Project>
+    <ShortFile>polynom.cpp</ShortFile>
+    <Line>369</Line>
+    <FalseAlarm>false</FalseAlarm>
+    <File>c:\users\hp\documents\visual studio 2015\projects\class projects\lab1\lab1\polynom.cpp</File>
+    <CodePrev>3025632067</CodePrev>
+    <CodeCurrent>182213</CodeCurrent>
+    <CodeNext>723566701</CodeNext>
+    <TrialMessage>false</TrialMessage>
+    <Analyzer>1</Analyzer>
+    <LineExtension />
+    <Retired>false</Retired>
+    <AnalyzedSourceFiles />
+  </PVS-Studio_Analysis_Log>
+  <PVS-Studio_Analysis_Log>
+    <FavIcon>false</FavIcon>
+    <Level>2</Level>
+    <DefaultOrder>50</DefaultOrder>
+    <ErrorCode>V103</ErrorCode>
+    <Message>Implicit type conversion from memsize to 32-bit type.</Message>
+    <Project>Lab1</Project>
+    <ShortFile>polynom.cpp</ShortFile>
+    <Line>375</Line>
+    <FalseAlarm>false</FalseAlarm>
+    <File>c:\users\hp\documents\visual studio 2015\projects\class projects\lab1\lab1\polynom.cpp</File>
+    <CodePrev>5709817</CodePrev>
+    <CodeCurrent>3562708684</CodeCurrent>
+    <CodeNext>160988729</CodeNext>
+    <TrialMessage>false</TrialMessage>
+    <Analyzer>1</Analyzer>
+    <LineExtension />
+    <Retired>false</Retired>
+    <AnalyzedSourceFiles />
+  </PVS-Studio_Analysis_Log>
+  <PVS-Studio_Analysis_Log>
+    <FavIcon>false</FavIcon>
+    <Level>2</Level>
+    <DefaultOrder>51</DefaultOrder>
+    <ErrorCode>V108</ErrorCode>
+    <Message>Incorrect index type: var[not a memsize-type]. Use memsize type instead.</Message>
+    <Project>Lab1</Project>
+    <ShortFile>polynom.cpp</ShortFile>
+    <Line>377</Line>
+    <FalseAlarm>false</FalseAlarm>
+    <File>c:\users\hp\documents\visual studio 2015\projects\class projects\lab1\lab1\polynom.cpp</File>
+    <CodePrev>160988729</CodePrev>
+    <CodeCurrent>1455143548</CodeCurrent>
+    <CodeNext>3146753365</CodeNext>
+    <TrialMessage>false</TrialMessage>
+    <Analyzer>1</Analyzer>
+    <LineExtension />
+    <Retired>false</Retired>
+    <AnalyzedSourceFiles />
+  </PVS-Studio_Analysis_Log>
+  <PVS-Studio_Analysis_Log>
+    <FavIcon>false</FavIcon>
+    <Level>2</Level>
+    <DefaultOrder>52</DefaultOrder>
+    <ErrorCode>V108</ErrorCode>
+    <Message>Incorrect index type: s[not a memsize-type]. Use memsize type instead.</Message>
+    <Project>Lab1</Project>
+    <ShortFile>polynom.cpp</ShortFile>
+    <Line>381</Line>
+    <FalseAlarm>false</FalseAlarm>
+    <File>c:\users\hp\documents\visual studio 2015\projects\class projects\lab1\lab1\polynom.cpp</File>
+    <CodePrev>80491577</CodePrev>
+    <CodeCurrent>751452311</CodeCurrent>
+    <CodeNext>602529</CodeNext>
+    <TrialMessage>false</TrialMessage>
+    <Analyzer>1</Analyzer>
+    <LineExtension />
+    <Retired>false</Retired>
+    <AnalyzedSourceFiles />
+  </PVS-Studio_Analysis_Log>
+  <PVS-Studio_Analysis_Log>
+    <FavIcon>false</FavIcon>
+    <Level>2</Level>
+    <DefaultOrder>53</DefaultOrder>
+    <ErrorCode>V108</ErrorCode>
+    <Message>Incorrect index type: s[not a memsize-type]. Use memsize type instead.</Message>
+    <Project>Lab1</Project>
+    <ShortFile>polynom.cpp</ShortFile>
+    <Line>382</Line>
+    <FalseAlarm>false</FalseAlarm>
+    <File>c:\users\hp\documents\visual studio 2015\projects\class projects\lab1\lab1\polynom.cpp</File>
+    <CodePrev>751452311</CodePrev>
+    <CodeCurrent>602529</CodeCurrent>
+    <CodeNext>73650473</CodeNext>
+    <TrialMessage>false</TrialMessage>
+    <Analyzer>1</Analyzer>
+    <LineExtension />
+    <Retired>false</Retired>
+    <AnalyzedSourceFiles />
+  </PVS-Studio_Analysis_Log>
+  <PVS-Studio_Analysis_Log>
+    <FavIcon>false</FavIcon>
+    <Level>2</Level>
+    <DefaultOrder>54</DefaultOrder>
+    <ErrorCode>V103</ErrorCode>
+    <Message>Implicit type conversion from memsize to 32-bit type.</Message>
+    <Project>Lab1</Project>
+    <ShortFile>polynom.cpp</ShortFile>
+    <Line>383</Line>
+    <FalseAlarm>false</FalseAlarm>
+    <File>c:\users\hp\documents\visual studio 2015\projects\class projects\lab1\lab1\polynom.cpp</File>
+    <CodePrev>602529</CodePrev>
+    <CodeCurrent>73650473</CodeCurrent>
+    <CodeNext>168545</CodeNext>
+    <TrialMessage>false</TrialMessage>
+    <Analyzer>1</Analyzer>
+    <LineExtension />
+    <Retired>false</Retired>
+    <AnalyzedSourceFiles />
+  </PVS-Studio_Analysis_Log>
+  <PVS-Studio_Analysis_Log>
+    <FavIcon>false</FavIcon>
+    <Level>2</Level>
+    <DefaultOrder>55</DefaultOrder>
+    <ErrorCode>V104</ErrorCode>
+    <Message>Implicit conversion of 'numb_of_variables' to memsize type in an arithmetic expression: numb_of_variables &gt; a.size()</Message>
+    <Project>Lab1</Project>
+    <ShortFile>polynom.cpp</ShortFile>
+    <Line>424</Line>
+    <FalseAlarm>false</FalseAlarm>
+    <File>c:\users\hp\documents\visual studio 2015\projects\class projects\lab1\lab1\polynom.cpp</File>
+    <CodePrev>143463</CodePrev>
+    <CodeCurrent>301251512</CodeCurrent>
+    <CodeNext>123</CodeNext>
+    <TrialMessage>false</TrialMessage>
+    <Analyzer>1</Analyzer>
+    <LineExtension />
+    <Retired>false</Retired>
+    <AnalyzedSourceFiles />
+  </PVS-Studio_Analysis_Log>
+  <PVS-Studio_Analysis_Log>
+    <FavIcon>false</FavIcon>
+    <Level>2</Level>
+    <DefaultOrder>56</DefaultOrder>
+    <ErrorCode>V108</ErrorCode>
+    <Message>Incorrect index type: res.powers[not a memsize-type]. Use memsize type instead.</Message>
+    <Project>Lab1</Project>
+    <ShortFile>polynom.cpp</ShortFile>
+    <Line>450</Line>
+    <FalseAlarm>false</FalseAlarm>
+    <File>c:\users\hp\documents\visual studio 2015\projects\class projects\lab1\lab1\polynom.cpp</File>
+    <CodePrev>80500575</CodePrev>
+    <CodeCurrent>2054608090</CodeCurrent>
+    <CodeNext>51360929</CodeNext>
+    <TrialMessage>false</TrialMessage>
+    <Analyzer>1</Analyzer>
+    <LineExtension />
+    <Retired>false</Retired>
+    <AnalyzedSourceFiles />
+  </PVS-Studio_Analysis_Log>
+  <PVS-Studio_Analysis_Log>
+    <FavIcon>false</FavIcon>
+    <Level>2</Level>
+    <DefaultOrder>57</DefaultOrder>
+    <ErrorCode>V108</ErrorCode>
+    <Message>Incorrect index type: a.powers[not a memsize-type]. Use memsize type instead.</Message>
+    <Project>Lab1</Project>
+    <ShortFile>polynom.cpp</ShortFile>
+    <Line>450</Line>
+    <FalseAlarm>false</FalseAlarm>
+    <File>c:\users\hp\documents\visual studio 2015\projects\class projects\lab1\lab1\polynom.cpp</File>
+    <CodePrev>80500575</CodePrev>
+    <CodeCurrent>2054608090</CodeCurrent>
+    <CodeNext>51360929</CodeNext>
+    <TrialMessage>false</TrialMessage>
+    <Analyzer>1</Analyzer>
+    <LineExtension />
+    <Retired>false</Retired>
+    <AnalyzedSourceFiles />
+  </PVS-Studio_Analysis_Log>
+  <PVS-Studio_Analysis_Log>
+    <FavIcon>false</FavIcon>
+    <Level>2</Level>
+    <DefaultOrder>58</DefaultOrder>
+    <ErrorCode>V108</ErrorCode>
+    <Message>Incorrect index type: b.powers[not a memsize-type]. Use memsize type instead.</Message>
+    <Project>Lab1</Project>
+    <ShortFile>polynom.cpp</ShortFile>
+    <Line>450</Line>
+    <FalseAlarm>false</FalseAlarm>
+    <File>c:\users\hp\documents\visual studio 2015\projects\class projects\lab1\lab1\polynom.cpp</File>
+    <CodePrev>80500575</CodePrev>
+    <CodeCurrent>2054608090</CodeCurrent>
+    <CodeNext>51360929</CodeNext>
+    <TrialMessage>false</TrialMessage>
+    <Analyzer>1</Analyzer>
+    <LineExtension />
+    <Retired>false</Retired>
+    <AnalyzedSourceFiles />
+  </PVS-Studio_Analysis_Log>
+  <PVS-Studio_Analysis_Log>
+    <FavIcon>false</FavIcon>
+    <Level>2</Level>
+    <DefaultOrder>59</DefaultOrder>
+    <ErrorCode>V108</ErrorCode>
+    <Message>Incorrect index type: res.powers[not a memsize-type]. Use memsize type instead.</Message>
+    <Project>Lab1</Project>
+    <ShortFile>polynom.cpp</ShortFile>
+    <Line>452</Line>
+    <FalseAlarm>false</FalseAlarm>
+    <File>c:\users\hp\documents\visual studio 2015\projects\class projects\lab1\lab1\polynom.cpp</File>
+    <CodePrev>51360929</CodePrev>
+    <CodeCurrent>3111587661</CodeCurrent>
+    <CodeNext>125</CodeNext>
+    <TrialMessage>false</TrialMessage>
+    <Analyzer>1</Analyzer>
+    <LineExtension />
+    <Retired>false</Retired>
+    <AnalyzedSourceFiles />
+  </PVS-Studio_Analysis_Log>
+  <PVS-Studio_Analysis_Log>
+    <FavIcon>false</FavIcon>
+    <Level>2</Level>
+    <DefaultOrder>60</DefaultOrder>
+    <ErrorCode>V108</ErrorCode>
+    <Message>Incorrect index type: t.powers[not a memsize-type]. Use memsize type instead.</Message>
+    <Project>Lab1</Project>
+    <ShortFile>polynom.cpp</ShortFile>
+    <Line>452</Line>
+    <FalseAlarm>false</FalseAlarm>
+    <File>c:\users\hp\documents\visual studio 2015\projects\class projects\lab1\lab1\polynom.cpp</File>
+    <CodePrev>51360929</CodePrev>
+    <CodeCurrent>3111587661</CodeCurrent>
+    <CodeNext>125</CodeNext>
+    <TrialMessage>false</TrialMessage>
+    <Analyzer>1</Analyzer>
+    <LineExtension />
+    <Retired>false</Retired>
+    <AnalyzedSourceFiles />
+  </PVS-Studio_Analysis_Log>
+</NewDataSet>

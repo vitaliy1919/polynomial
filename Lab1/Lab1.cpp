@@ -6,7 +6,7 @@
 #include "stdafx.h"
 #include "list.h"
 #include "polynom.h"
-//#include <vld.h> 
+#include <vld.h> 
 bool is_cor(const string& s, const set<string>& a)
 {
 	if (a.find(s) != a.end())
@@ -30,8 +30,6 @@ int main()
 	do
 	{
 		cout << "Do you want to input from file (f) or from keyboard (k): ";
-		//cin >> inp;
-		//while (cin.get() != '\n');
 	} while (cin>>inp  && inp != 'f' && inp != 'k');
 	while (cin.get() != '\n');
 	List<polynomial> list_pol;
@@ -40,7 +38,7 @@ int main()
 	{	
 		cout << "Input name of file (input.txt if blank):";
 		getline(cin, s);
-		if (s == "")
+		if (s.empty())
 			s = "input.txt";
 		ifstream f(s);
 		while (!f.eof())
@@ -51,11 +49,11 @@ int main()
 	}
 	else
 	{
-		cout << "Input your polynomials, one in each line(quit to end):\n";
+		cout << "Input your polynomials, one in each line(q to end):\n";
 		do
 		{
 			getline(cin, s);
-			if (s != "q")
+			if (s != "q" && !s.empty())
 				list_pol.addNode_tail(string_get(s));
 		} while (s != "q");
 	}
@@ -65,21 +63,27 @@ int main()
 		system("cls");
 		size=show_list_of_pol(list_pol);
 		cout << "do you want to add(+),substract(-),multiply(*), divide(/), get a value of polynomial (v), get a derivative(d)?\n"
-				"You can add (a) or delete (del) polynomials from list above or save the list to file (sf)\nq for quit: ";
+				"You can add (a) or delete (del) polynomials from list above or save the list to file (sfa - append, sfr - rewrite)\nq for quit: ";
 		cin >> s;
 		while (cin.get() != '\n');
-		if (is_cor(s, { "+","-","*","/","v","d","a","del","sf" }))
+		if (is_cor(s, { "+","-","*","/","v","d","a","del","sfa","sfr" }))
 		{
 			int num1 = -1, num2 = -1;
-			if (s == "sf")
+			if (s.substr(0,2) == "sf")
 			{
 				cout << "Input name of file: ";
-				getline(cin, s);
-				ofstream f(s, ios::out | ios::ate);
+				string s1;
+				getline(cin, s1);
+				ofstream f;
+				if (s == "sfa")
+					f.open(s1, ios::out | ios::app);
+				else
+					f.open(s1, ios::out);
 				Node<polynomial>*p = list_pol.begin();
 				while (p)
 				{
-					f << p->data << endl;
+					
+					f << p->data<< endl;
 					p = p->next;
 				}
 				f.close();

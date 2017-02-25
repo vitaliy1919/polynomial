@@ -9,7 +9,7 @@ bool isoper(int i)
 }
 int compare(double a, double b)
 {
-	if (abs(a - b) > eps)
+	if (fabs(a - b) > eps)
 	{
 		if (a > b)
 			return 1;
@@ -21,12 +21,12 @@ int compare(double a, double b)
 
 bool divide(const monomial & a, const monomial & b, monomial & res)
 {
-	if (a.power()<b.power() || a.max_power()<b.max_power() || b.coef==0)
+	if (a.power() < b.power() || a.max_power() < b.max_power() || !compare(b.coef,0))
 		return false;
 	res = monomial(a.coef / b.coef, a.numb_of_variables);
 	for (int i = 0; i < res.numb_of_variables; ++i)
 	{
-		if (a.powers[i] - b.powers[i] >= 0)
+		if (a.powers[i] - b.powers[i] > 0 || !compare((a.powers[i] - b.powers[i]),0))
 			res.powers[i] = a.powers[i] - b.powers[i];
 		else
 			return false;
@@ -39,10 +39,10 @@ inline bool operator==(const monomial & a, const monomial & b)
 	int numb_var = (a.numb_of_variables > b.numb_of_variables ? b.numb_of_variables : a.numb_of_variables);
 	const monomial& t = (a.numb_of_variables > b.numb_of_variables ? a : b);
 	for (int i = 0; i < numb_var; i++)
-		if (a.powers[i] != b.powers[i])
+		if (!compare(a.powers[i] - b.powers[i],0))
 			return false;
 	for (int i = numb_var; i < t.numb_of_variables; ++i)
-		if (t.powers[i] != 0)
+		if (!compare(t.powers[i],0))
 			return false;
 	return true;
 }
@@ -51,7 +51,7 @@ bool operator<(const monomial & a, const monomial & b)
 {
 	if (b.power() > a.power())
 		return true;
-	else if (b.power() == a.power())
+	else if (!compare(b.power() - a.power(),0))
 	{
 		int numb_var = (a.numb_of_variables < b.numb_of_variables ? a.numb_of_variables : b.numb_of_variables);
 		const monomial& t = (a.numb_of_variables < b.numb_of_variables ? b : a);
@@ -105,11 +105,11 @@ istream & operator >> (istream & is, monomial & p)
 
 void monomial::show(ostream & os) const
 {	
-	int show_coef = compare(abs(coef), 1);
+	int show_coef = compare(fabs(coef), 1);
 	
 	int first_not_show_multi = numb_of_variables - 1;
 	for (; first_not_show_multi >= 0; first_not_show_multi--)
-		if (powers[first_not_show_multi] != 0)
+		if (fabs(powers[first_not_show_multi])<eps)
 			break;
 	if (!compare(coef, -1) && first_not_show_multi != -1)
 		cout << '-';
@@ -202,7 +202,7 @@ bool divide(const polynomial & a, const polynomial & b, polynomial & quotient, p
 {
 	if (a.numb_of_variables != b.numb_of_variables && a.numb_of_variables != 1)
 		return false;
-	const Node<monomial>* pa = a.pol[0];
+	//const Node<monomial>* pa = a.pol[0];
 	monomial temp;
 	reminder = a;
 	reminder.numb_of_variables = a.numb_of_variables;
@@ -227,43 +227,48 @@ polynomial operator-(const polynomial & a, const polynomial & b)
 		{
 			temp = pa->data;
 			temp.coef -= pb->data.coef;
-			if (temp.coef)
+			if (compare(temp.coef,0))
 				res.pol.addNode_tail(temp);
 			pa = pa->next;
 			pb = pb->next;
 		}
 		else if (pa->data > pb->data)
 		{
-			res.pol.addNode_tail(pa->data);
+			if (compare(pa->data.coef,0))
+				res.pol.addNode_tail(pa->data);
 			pa = pa->next;
 		}
 		else
 		{
-			res.pol.addNode_tail(pb->data);
+			if (compare(pb->data.coef,0))
+				res.pol.addNode_tail(pb->data);
 			pb = pb->next;
 		}
 	}
 	while (pa)
 	{
-		res.pol.addNode_tail(pa->data);
+		if (compare(pb->data.coef, 0))
+			res.pol.addNode_tail(pa->data);
 		pa = pa->next;
 	}
 	while (pb)
 	{
-		res.pol.addNode_tail(pb->data);
+		if (compare(pb->data.coef, 0))
+			res.pol.addNode_tail(pb->data);
 		pb = pb->next;
 	}
+	res.add_0();
 	return res;
 }
 
 ostream& operator<<(ostream & os, const polynomial& a)
 {
-	const Node<monomial>* p = a.pol[0];
-	if (!p)
-		cout << 0;
+	const Node<monomial>* p = a.pol.begin();
+	/*if (!p)
+		cout << 0;*/
 	while (p)
 	{
-		if (p->data.coef > 0 && p != a.pol[0])
+		if (p->data.coef >= 0 && p != a.pol.begin())
 			os << '+';
 		os << p->data;
 		p = p->next;
@@ -283,33 +288,47 @@ polynomial operator+(const polynomial & a, const polynomial & b)
 		{
 			temp = pa->data;
 			temp.coef += pb->data.coef;
-			if (temp.coef)
+			if (compare(temp.coef,0))
 				res.pol.addNode_tail(temp);
 			pa = pa->next;
 			pb=pb->next;
 		}
 		else if (pa->data > pb->data)
 		{
-			res.pol.addNode_tail(pa->data);
+			if (compare(pa->data.coef,0))
+				res.pol.addNode_tail(pa->data);
 			pa = pa->next;
 		}
 		else
 		{
-			res.pol.addNode_tail(pb->data);
+			if (compare(pb->data.coef,0))
+				res.pol.addNode_tail(pb->data);
 			pb = pb->next;
 		}
 	}
 	while (pa)
 	{
-		res.pol.addNode_tail(pa->data);
+		if (pa->data.coef != 0)
+			res.pol.addNode_tail(pa->data);
 		pa = pa->next;
 	}
 	while (pb)
 	{
-		res.pol.addNode_tail(pb->data);
+		if (pb->data.coef != 0)
+			res.pol.addNode_tail(pb->data);
 		pb = pb->next;
 	}
+	res.add_0();
 	return res;
+}
+
+void polynomial::add_0()
+{
+	if (pol.isempty())
+	{
+		monomial temp = monomial(0, 0);
+		pol.addNode_tail(temp);
+	}
 }
 
 void polynomial::get(istream& is)
@@ -425,7 +444,7 @@ monomial operator*(const monomial& a, const monomial& b)
 	int num = (a.numb_of_variables < b.numb_of_variables ? a.numb_of_variables : b.numb_of_variables);
 	const monomial &t=(a.numb_of_variables > b.numb_of_variables ? a : b);
 	monomial res(a.coef*b.coef, t.numb_of_variables);
-	if (res.coef)
+	if (compare(res.coef,0))
 	{
 		for (int i = 0; i < num; ++i)
 			res.powers[i] = a.powers[i] + b.powers[i];
@@ -445,6 +464,7 @@ polynomial operator*(const polynomial& a, const polynomial& b)
 		res = res + b*pa->data;
 		pa = pa->next;
 	}
+	res.add_0();
 	return res;
 }
 
@@ -458,5 +478,6 @@ polynomial operator*(const polynomial & a, const monomial & b)
 		res.pol.addNode_tail(p->data*b);
 		p = p->next;
 	}
+	res.add_0();
 	return res;
 }
