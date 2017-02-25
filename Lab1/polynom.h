@@ -37,7 +37,7 @@ class polynomial
 	int numb_of_variables;
 	void add_0();
 public:
-	polynomial(int n=1) :pol(),numb_of_variables(n) {}
+	explicit polynomial(int n=1) :pol(),numb_of_variables(n) {}
 	void get(istream& is=cin);
 	void fget(fstream& fis);
 	inline int numb_of_var() const { return numb_of_variables; }

@@ -17,7 +17,7 @@ struct Node
 	T data;
 	Node* prev;
 	Node* next;
-	Node(T d = 0, Node* pr = nullptr, Node* nx = nullptr) :data(d), prev(pr), next(nx) {}
+	Node(const &T d = 0, Node* pr = nullptr, Node* nx = nullptr) :data(d), prev(pr), next(nx) {}
 };
 
 template <typename T>

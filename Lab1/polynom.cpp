@@ -217,7 +217,6 @@ bool divide(const polynomial & a, const polynomial & b, polynomial & quotient, p
 
 polynomial operator-(const polynomial & a, const polynomial & b)
 {
-	int num = (a.numb_of_variables > b.numb_of_variables ? a.numb_of_variables : b.numb_of_variables);
 	polynomial res(a.numb_of_variables);
 	monomial temp;
 	const Node<monomial>* pa = a.pol[0], *pb = b.pol[0];
@@ -278,7 +277,6 @@ ostream& operator<<(ostream & os, const polynomial& a)
 
 polynomial operator+(const polynomial & a, const polynomial & b)
 {
-	int num = (a.numb_of_variables > b.numb_of_variables ? a.numb_of_variables : b.numb_of_variables);
 	polynomial res(a.numb_of_variables);
 	monomial temp;
 	const Node<monomial>* pa = a.pol[0], *pb = b.pol[0];
@@ -458,7 +456,7 @@ polynomial operator*(const polynomial& a, const polynomial& b)
 {
 	int num = (a.numb_of_variables > b.numb_of_variables ? a.numb_of_variables : b.numb_of_variables);
 	polynomial res(num);
-	const Node<monomial>* pa = a.pol.begin(), *pb = b.pol.begin();
+	const Node<monomial>* pa = a.pol.begin();
 	while (pa)
 	{
 		res = res + b*pa->data;
