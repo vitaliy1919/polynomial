@@ -4,6 +4,16 @@
 const double eps = 1e-6;
 const string var = "xyzfgh";
 int compare(double a,double b);
+class monom
+{
+	double coef;
+	vector<pair<char, double>> var;
+	int var_numb;
+public:
+	monom() :var() {}
+	friend monom string_get(const string& s, int& i);
+	friend ostream& operator<<(ostream& os, const monom& m);
+};
 struct monomial
 {
 	double coef;

@@ -1,5 +1,6 @@
 #pragma once
-#include "stdafx.h"
+#include <iostream>
+using namespace std;
 
 template <typename T>
 bool bigger(const T& a,const T& b)

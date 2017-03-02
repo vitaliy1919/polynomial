@@ -23,6 +23,57 @@ int compare(double a, double b)
 	return 0;
 }
 
+monom string_get(const string & s, int & i)
+{
+	monom res;
+	if (isoper(s[i]))
+	{
+		if (isalpha(s[i + 1]))
+		{
+			if (s[i] == '-')
+				res.coef = -1;
+			++i;
+		}
+		else
+			res.coef = get_number(s, i);
+	}
+	else if (isdigit(s[i]))
+		res.coef = get_number(s, i);
+	int len = s.length();
+	while (i < len && s[i] != '+' && s[i] != '-')
+	{
+		i++;
+		int pos = var.find(s[i - 1]);
+		if (i >= len || !isdigit(s[i]))
+			res.var.push_back({ s[i - 1],1 });
+		else
+			res.var.push_back({ s[i - 1],get_number(s, i) });
+	}
+	res.var_numb = res.var.size();
+	return res;
+}
+
+ostream & operator<<(ostream & os, const monom & m)
+{
+	int show_coef = compare(fabs(m.coef), 1);
+
+	if (!compare(m.coef, -1))
+		cout << '-';
+	if (show_coef)
+		os << m.coef;
+	if (show_coef && !m.var_numb)
+		os << '*';
+
+	for (int i = 0; i < m.var_numb; ++i)
+	{
+			os << m.var[i].first;
+			if (compare(m.var[i].second, 1))
+				os << '^' << m.var[i].second;
+		if (i<m.var_numb-1)
+			os << '*';
+	}
+}
+
 bool divide(const monomial & a, const monomial & b, monomial & res)
 {
 	if (a.power() < b.power() || a.max_power() < b.max_power() || !compare(b.coef,0))
