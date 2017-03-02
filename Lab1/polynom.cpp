@@ -56,10 +56,9 @@ monom string_get(const string & s, int & i)
 ostream & operator<<(ostream & os, const monom & m)
 {
 	int show_coef = compare(fabs(m.coef), 1);
-
-	if (!compare(m.coef, -1))
+	if (!compare(m.coef, -1)&& m.var_numb)
 		cout << '-';
-	if (show_coef)
+	if (show_coef || !m.var_numb)
 		os << m.coef;
 	if (show_coef && m.var_numb)
 		os << '*';

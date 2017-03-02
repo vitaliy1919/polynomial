@@ -27,7 +27,7 @@ int show_list_of_pol(const List<polynomial> &a)
 int main()
 {
 	int i = 0;
-	monom a = string_get("12xy2",i);
+	monom a = string_get("-1",i);
 	cout << a << endl;
 	system("pause");
     return 0;
