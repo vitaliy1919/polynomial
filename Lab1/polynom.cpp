@@ -43,11 +43,11 @@ monom string_get(const string & s, int & i)
 	while (i < len && s[i] != '+' && s[i] != '-')
 	{
 		i++;
-		int pos = var.find(s[i - 1]);
+		char var = s[i-1];
 		if (i >= len || !isdigit(s[i]))
-			res.var.push_back({ s[i - 1],1 });
+			res.var.push_back({ var,1 });
 		else
-			res.var.push_back({ s[i - 1],get_number(s, i) });
+			res.var.push_back({ var,get_number(s, i) });
 	}
 	res.var_numb = res.var.size();
 	return res;
@@ -61,17 +61,17 @@ ostream & operator<<(ostream & os, const monom & m)
 		cout << '-';
 	if (show_coef)
 		os << m.coef;
-	if (show_coef && !m.var_numb)
+	if (show_coef && m.var_numb)
 		os << '*';
-
 	for (int i = 0; i < m.var_numb; ++i)
 	{
-			os << m.var[i].first;
-			if (compare(m.var[i].second, 1))
-				os << '^' << m.var[i].second;
+		os << m.var[i].first;
+		if (compare(m.var[i].second, 1))
+			os << '^' << m.var[i].second;
 		if (i<m.var_numb-1)
 			os << '*';
 	}
+	return os;
 }
 
 bool divide(const monomial & a, const monomial & b, monomial & res)

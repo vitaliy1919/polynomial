@@ -1,1 +1,0 @@
-@call "C:\Program Files (x86)\PVS-Studio\x64\PVS-Studio.exe" --cfg "C:\Users\HP\Documents\Visual Studio 2015\Projects\Class Projects\Lab1\Lab1\stdafx.cpp.PVS-Studio.cfg"

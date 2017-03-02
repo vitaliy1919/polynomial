@@ -1,11 +1,10 @@
-# 1 "c:\\users\\hp\\documents\\visual studio 2015\\projects\\class projects\\lab1\\lab1\\stdafx.cpp"
+# 1 "c:\\users\\hp\\documents\\visual studio 2015\\projects\\class projects\\lab1\\lab1\\lab1.cpp"
 # 1 "<built-in>" 1
 # 1 "<built-in>" 3
-# 323 "<built-in>" 3
+# 327 "<built-in>" 3
 # 1 "<command line>" 1
 # 1 "<built-in>" 2
-# 1 "c:\\users\\hp\\documents\\visual studio 2015\\projects\\class projects\\lab1\\lab1\\stdafx.cpp" 2
-
+# 1 "c:\\users\\hp\\documents\\visual studio 2015\\projects\\class projects\\lab1\\lab1\\lab1.cpp" 2
 
 
 
@@ -27,12 +26,12 @@
 
 
 
-# 1 "C:\\Program Files (x86)\\Windows Kits\\8.1\\Include\\shared\\SDKDDKVer.h" 1 3
-# 20 "C:\\Program Files (x86)\\Windows Kits\\8.1\\Include\\shared\\SDKDDKVer.h" 3
+# 1 "C:\\Program Files (x86)\\Windows Kits\\8.1\\Include\\shared\\SDKDDKVer.h" 1
+# 20 "C:\\Program Files (x86)\\Windows Kits\\8.1\\Include\\shared\\SDKDDKVer.h"
 #pragma warning(push)
 
 #pragma warning(disable: 4001)
-# 279 "C:\\Program Files (x86)\\Windows Kits\\8.1\\Include\\shared\\SDKDDKVer.h" 3
+# 279 "C:\\Program Files (x86)\\Windows Kits\\8.1\\Include\\shared\\SDKDDKVer.h"
 #pragma warning(pop)
 # 8 "C:\\Users\\HP\\Documents\\Visual Studio 2015\\Projects\\Class Projects\\Lab1\\Lab1/targetver.h" 2
 # 8 "C:\\Users\\HP\\Documents\\Visual Studio 2015\\Projects\\Class Projects\\Lab1\\Lab1/stdafx.h" 2
@@ -81,20 +80,20 @@
 
 # 1 "D:\\Microsoft Visual Studio 14.0\\VC\\include\\vcruntime.h" 1 3
 # 45 "D:\\Microsoft Visual Studio 14.0\\VC\\include\\vcruntime.h" 3
-# 1 "D:\\Microsoft Visual Studio 14.0\\VC\\include\\sal.h" 1 3
-# 2361 "D:\\Microsoft Visual Studio 14.0\\VC\\include\\sal.h" 3
+# 1 "C:\\Program Files (x86)\\Windows Kits\\8.1\\Include\\shared\\sal.h" 1 3
+# 2381 "C:\\Program Files (x86)\\Windows Kits\\8.1\\Include\\shared\\sal.h" 3
 extern "C" {
-# 2967 "D:\\Microsoft Visual Studio 14.0\\VC\\include\\sal.h" 3
+# 2987 "C:\\Program Files (x86)\\Windows Kits\\8.1\\Include\\shared\\sal.h" 3
 }
 
 
 
-# 1 "D:\\Microsoft Visual Studio 14.0\\VC\\include\\ConcurrencySal.h" 1 3
-# 22 "D:\\Microsoft Visual Studio 14.0\\VC\\include\\ConcurrencySal.h" 3
+# 1 "C:\\Program Files (x86)\\Windows Kits\\8.1\\Include\\shared\\ConcurrencySal.h" 1 3
+# 22 "C:\\Program Files (x86)\\Windows Kits\\8.1\\Include\\shared\\ConcurrencySal.h" 3
 extern "C" {
-# 354 "D:\\Microsoft Visual Studio 14.0\\VC\\include\\ConcurrencySal.h" 3
+# 354 "C:\\Program Files (x86)\\Windows Kits\\8.1\\Include\\shared\\ConcurrencySal.h" 3
 }
-# 2970 "D:\\Microsoft Visual Studio 14.0\\VC\\include\\sal.h" 2 3
+# 2990 "C:\\Program Files (x86)\\Windows Kits\\8.1\\Include\\shared\\sal.h" 2 3
 # 45 "D:\\Microsoft Visual Studio 14.0\\VC\\include\\vcruntime.h" 2 3
 
 # 1 "D:\\Microsoft Visual Studio 14.0\\VC\\include\\vadefs.h" 1 3
@@ -103,10 +102,12 @@ extern "C" {
 
 
 extern "C" {
-# 30 "D:\\Microsoft Visual Studio 14.0\\VC\\include\\vadefs.h" 3
-        typedef unsigned int uintptr_t;
+# 28 "D:\\Microsoft Visual Studio 14.0\\VC\\include\\vadefs.h" 3
+        typedef unsigned __int64 uintptr_t;
 # 39 "D:\\Microsoft Visual Studio 14.0\\VC\\include\\vadefs.h" 3
         typedef char* va_list;
+# 106 "D:\\Microsoft Visual Studio 14.0\\VC\\include\\vadefs.h" 3
+    void __cdecl __va_start(va_list* , ...);
 # 118 "D:\\Microsoft Visual Studio 14.0\\VC\\include\\vadefs.h" 3
 }
 
@@ -145,10 +146,14 @@ extern "C" {
 #pragma pack(push, 8)
 # 81 "D:\\Microsoft Visual Studio 14.0\\VC\\include\\vcruntime.h" 3
  extern "C" {
-# 198 "D:\\Microsoft Visual Studio 14.0\\VC\\include\\vcruntime.h" 3
-    typedef unsigned int size_t;
-    typedef int ptrdiff_t;
-    typedef int intptr_t;
+# 194 "D:\\Microsoft Visual Studio 14.0\\VC\\include\\vcruntime.h" 3
+    typedef unsigned __int64 size_t;
+    typedef __int64 ptrdiff_t;
+    typedef __int64 intptr_t;
+
+
+
+
 
 
 
@@ -157,7 +162,7 @@ extern "C" {
     extern "C++"
     {
         template <typename _CountofType, size_t _SizeOfArray>
-        char (*__countof_helper( _CountofType (&_Array)[_SizeOfArray]))[_SizeOfArray];
+        char (*__countof_helper(__unaligned _CountofType (&_Array)[_SizeOfArray]))[_SizeOfArray];
 
 
     }
@@ -165,11 +170,11 @@ extern "C" {
     void __cdecl __security_init_cookie(void);
 
 
-        void __fastcall __security_check_cookie( uintptr_t _StackCookie);
-        __declspec(noreturn) void __cdecl __report_gsfailure(void);
 
 
 
+        void __cdecl __security_check_cookie( uintptr_t _StackCookie);
+        __declspec(noreturn) void __cdecl __report_gsfailure( uintptr_t _StackCookie);
 
 
 
@@ -2269,38 +2274,12 @@ __declspec(dllimport) unsigned int __cdecl _statusfp(void);
 
 
 __declspec(dllimport) void __cdecl _fpreset(void);
-
-
-
-
-    __declspec(dllimport) void __cdecl _statusfp2(
-                  unsigned int* _X86Status,
-                  unsigned int* _SSE2Status
-        );
-
-
-
-
-
-
-
+# 272 "C:\\Program Files (x86)\\Windows Kits\\10\\Include\\10.0.10240.0\\ucrt\\float.h" 3
 __declspec(dllimport) unsigned int __cdecl _control87(
          unsigned int _NewValue,
          unsigned int _Mask
     );
-
-
-
-    __declspec(dllimport) int __cdecl __control87_2(
-                  unsigned int _NewValue,
-                  unsigned int _Mask,
-                  unsigned int* _X86ControlWord,
-                  unsigned int* _Sse2ControlWord
-        );
-
-
-
-
+# 289 "C:\\Program Files (x86)\\Windows Kits\\10\\Include\\10.0.10240.0\\ucrt\\float.h" 3
 __declspec(dllimport) int* __cdecl __fpecode(void);
 
 
@@ -2316,6 +2295,9 @@ __declspec(dllimport) int __cdecl __fpe_flt_rounds(void);
                __declspec(dllimport) int __cdecl _finite( double _X);
                __declspec(dllimport) int __cdecl _isnan( double _X);
                __declspec(dllimport) int __cdecl _fpclass( double _X);
+
+
+                   __declspec(dllimport) float __cdecl _scalbf( float _X, long _Y);
 # 334 "C:\\Program Files (x86)\\Windows Kits\\10\\Include\\10.0.10240.0\\ucrt\\float.h" 3
     __declspec(dllimport) void __cdecl fpreset(void);
 # 401 "C:\\Program Files (x86)\\Windows Kits\\10\\Include\\10.0.10240.0\\ucrt\\float.h" 3
@@ -2758,65 +2740,40 @@ int __cdecl _matherr( struct _exception* _Except);
 
 
 
-                   __declspec(dllimport) int __cdecl _set_SSE2_enable( int _Flag);
-# 608 "C:\\Program Files (x86)\\Windows Kits\\10\\Include\\10.0.10240.0\\ucrt\\math.h" 3
-                   __inline float __cdecl acosf( float _X)
-    {
-        return (float)acos(_X);
-    }
 
-                   __inline float __cdecl asinf( float _X)
-    {
-        return (float)asin(_X);
-    }
 
-                   __inline float __cdecl atan2f( float _Y, float _X)
-    {
-        return (float)atan2(_Y, _X);
-    }
 
-                   __inline float __cdecl atanf( float _X)
-    {
-        return (float)atan(_X);
-    }
 
-                   __inline float __cdecl ceilf( float _X)
-    {
-        return (float)ceil(_X);
-    }
+                   __declspec(dllimport) float __cdecl _logbf( float _X);
+                   __declspec(dllimport) float __cdecl _nextafterf( float _X, float _Y);
+                   __declspec(dllimport) int __cdecl _finitef( float _X);
+                   __declspec(dllimport) int __cdecl _isnanf( float _X);
+                   __declspec(dllimport) int __cdecl _fpclassf( float _X);
 
-                   __inline float __cdecl cosf( float _X)
-    {
-        return (float)cos(_X);
-    }
-
-                   __inline float __cdecl coshf( float _X)
-    {
-        return (float)cosh(_X);
-    }
-
-                   __inline float __cdecl expf( float _X)
-    {
-        return (float)exp(_X);
-    }
+                   __declspec(dllimport) int __cdecl _set_FMA3_enable( int _Flag);
+                   __declspec(dllimport) int __cdecl _get_FMA3_enable(void);
+# 597 "C:\\Program Files (x86)\\Windows Kits\\10\\Include\\10.0.10240.0\\ucrt\\math.h" 3
+                   __declspec(dllimport) float __cdecl acosf( float _X);
+                   __declspec(dllimport) float __cdecl asinf( float _X);
+                   __declspec(dllimport) float __cdecl atan2f( float _Y, float _X);
+                   __declspec(dllimport) float __cdecl atanf( float _X);
+                   __declspec(dllimport) float __cdecl ceilf( float _X);
+                   __declspec(dllimport) float __cdecl cosf( float _X);
+                   __declspec(dllimport) float __cdecl coshf( float _X);
+                   __declspec(dllimport) float __cdecl expf( float _X);
 # 656 "C:\\Program Files (x86)\\Windows Kits\\10\\Include\\10.0.10240.0\\ucrt\\math.h" 3
                    __inline float __cdecl fabsf( float _X)
     {
         return (float)fabs(_X);
     }
-# 670 "C:\\Program Files (x86)\\Windows Kits\\10\\Include\\10.0.10240.0\\ucrt\\math.h" 3
-                   __inline float __cdecl floorf( float _X)
-    {
-        return (float)floor(_X);
-    }
-
-                   __inline float __cdecl fmodf( float _X, float _Y)
-    {
-        return (float)fmod(_X, _Y);
-    }
 
 
 
+
+
+                   __declspec(dllimport) float __cdecl floorf( float _X);
+                   __declspec(dllimport) float __cdecl fmodf( float _X, float _Y);
+# 682 "C:\\Program Files (x86)\\Windows Kits\\10\\Include\\10.0.10240.0\\ucrt\\math.h" 3
                __inline float __cdecl frexpf( float _X, int *_Y)
 {
     return (float)frexp(_X, _Y);
@@ -2831,57 +2788,19 @@ int __cdecl _matherr( struct _exception* _Except);
 {
     return (float)ldexp(_X, _Y);
 }
-# 711 "C:\\Program Files (x86)\\Windows Kits\\10\\Include\\10.0.10240.0\\ucrt\\math.h" 3
-                   __inline float __cdecl log10f( float _X)
-    {
-        return (float)log10(_X);
-    }
-
-                   __inline float __cdecl logf( float _X)
-    {
-        return (float)log(_X);
-    }
-
-                   __inline float __cdecl modff( float _X, float* _Y)
-    {
-        double _F, _I;
-        _F = modf(_X, &_I);
-        *_Y = (float)_I;
-        return (float)_F;
-    }
-
-                   __inline float __cdecl powf( float _X, float _Y)
-    {
-        return (float)pow(_X, _Y);
-    }
-
-                   __inline float __cdecl sinf( float _X)
-    {
-        return (float)sin(_X);
-    }
-
-                   __inline float __cdecl sinhf( float _X)
-    {
-        return (float)sinh(_X);
-    }
-
-                   __inline float __cdecl sqrtf( float _X)
-    {
-        return (float)sqrt(_X);
-    }
-
-                   __inline float __cdecl tanf( float _X)
-    {
-        return (float)tan(_X);
-    }
-
-                   __inline float __cdecl tanhf( float _X)
-    {
-        return (float)tanh(_X);
-    }
 
 
 
+                   __declspec(dllimport) float __cdecl log10f( float _X);
+                   __declspec(dllimport) float __cdecl logf( float _X);
+                   __declspec(dllimport) float __cdecl modff( float _X, float *_Y);
+                   __declspec(dllimport) float __cdecl powf( float _X, float _Y);
+                   __declspec(dllimport) float __cdecl sinf( float _X);
+                   __declspec(dllimport) float __cdecl sinhf( float _X);
+                   __declspec(dllimport) float __cdecl sqrtf( float _X);
+                   __declspec(dllimport) float __cdecl tanf( float _X);
+                   __declspec(dllimport) float __cdecl tanhf( float _X);
+# 761 "C:\\Program Files (x86)\\Windows Kits\\10\\Include\\10.0.10240.0\\ucrt\\math.h" 3
                __declspec(dllimport) long double __cdecl acoshl( long double _X);
 
                __inline long double __cdecl acosl( long double _X)
@@ -4675,7 +4594,7 @@ __declspec(noinline) __inline unsigned __int64* __cdecl __local_stdio_scanf_opti
     {
         int _Result;
         va_list _ArgList;
-        ((void)(__vcrt_va_start_verify_argument_type<decltype(_Locale)>(), ((void)(_ArgList = (va_list)(&const_cast<char&>(reinterpret_cast<const volatile char&>(_Locale))) + ((sizeof(_Locale) + sizeof(int) - 1) & ~(sizeof(int) - 1))))));
+        ((void)(__vcrt_va_start_verify_argument_type<decltype(_Locale)>(), ((void)(__va_start(&_ArgList, _Locale)))));
         _Result = _vcwprintf_l(_Format, _Locale, _ArgList);
         ((void)(_ArgList = (va_list)0));
         return _Result;
@@ -4692,7 +4611,7 @@ __declspec(noinline) __inline unsigned __int64* __cdecl __local_stdio_scanf_opti
     {
         int _Result;
         va_list _ArgList;
-        ((void)(__vcrt_va_start_verify_argument_type<decltype(_Format)>(), ((void)(_ArgList = (va_list)(&const_cast<char&>(reinterpret_cast<const volatile char&>(_Format))) + ((sizeof(_Format) + sizeof(int) - 1) & ~(sizeof(int) - 1))))));
+        ((void)(__vcrt_va_start_verify_argument_type<decltype(_Format)>(), ((void)(__va_start(&_ArgList, _Format)))));
         _Result = _vcwprintf_l(_Format, 0, _ArgList);
         ((void)(_ArgList = (va_list)0));
         return _Result;
@@ -4710,7 +4629,7 @@ __declspec(noinline) __inline unsigned __int64* __cdecl __local_stdio_scanf_opti
     {
         int _Result;
         va_list _ArgList;
-        ((void)(__vcrt_va_start_verify_argument_type<decltype(_Locale)>(), ((void)(_ArgList = (va_list)(&const_cast<char&>(reinterpret_cast<const volatile char&>(_Locale))) + ((sizeof(_Locale) + sizeof(int) - 1) & ~(sizeof(int) - 1))))));
+        ((void)(__vcrt_va_start_verify_argument_type<decltype(_Locale)>(), ((void)(__va_start(&_ArgList, _Locale)))));
         _Result = _vcwprintf_s_l(_Format, _Locale, _ArgList);
         ((void)(_ArgList = (va_list)0));
         return _Result;
@@ -4727,7 +4646,7 @@ __declspec(noinline) __inline unsigned __int64* __cdecl __local_stdio_scanf_opti
     {
         int _Result;
         va_list _ArgList;
-        ((void)(__vcrt_va_start_verify_argument_type<decltype(_Format)>(), ((void)(_ArgList = (va_list)(&const_cast<char&>(reinterpret_cast<const volatile char&>(_Format))) + ((sizeof(_Format) + sizeof(int) - 1) & ~(sizeof(int) - 1))))));
+        ((void)(__vcrt_va_start_verify_argument_type<decltype(_Format)>(), ((void)(__va_start(&_ArgList, _Format)))));
         _Result = _vcwprintf_s_l(_Format, 0, _ArgList);
         ((void)(_ArgList = (va_list)0));
         return _Result;
@@ -4745,7 +4664,7 @@ __declspec(noinline) __inline unsigned __int64* __cdecl __local_stdio_scanf_opti
     {
         int _Result;
         va_list _ArgList;
-        ((void)(__vcrt_va_start_verify_argument_type<decltype(_Locale)>(), ((void)(_ArgList = (va_list)(&const_cast<char&>(reinterpret_cast<const volatile char&>(_Locale))) + ((sizeof(_Locale) + sizeof(int) - 1) & ~(sizeof(int) - 1))))));
+        ((void)(__vcrt_va_start_verify_argument_type<decltype(_Locale)>(), ((void)(__va_start(&_ArgList, _Locale)))));
         _Result = _vcwprintf_p_l(_Format, _Locale, _ArgList);
         ((void)(_ArgList = (va_list)0));
         return _Result;
@@ -4762,7 +4681,7 @@ __declspec(noinline) __inline unsigned __int64* __cdecl __local_stdio_scanf_opti
     {
         int _Result;
         va_list _ArgList;
-        ((void)(__vcrt_va_start_verify_argument_type<decltype(_Format)>(), ((void)(_ArgList = (va_list)(&const_cast<char&>(reinterpret_cast<const volatile char&>(_Format))) + ((sizeof(_Format) + sizeof(int) - 1) & ~(sizeof(int) - 1))))));
+        ((void)(__vcrt_va_start_verify_argument_type<decltype(_Format)>(), ((void)(__va_start(&_ArgList, _Format)))));
         _Result = _vcwprintf_p_l(_Format, 0, _ArgList);
         ((void)(_ArgList = (va_list)0));
         return _Result;
@@ -4847,7 +4766,7 @@ __declspec(noinline) __inline unsigned __int64* __cdecl __local_stdio_scanf_opti
     {
         int _Result;
         va_list _ArgList;
-        ((void)(__vcrt_va_start_verify_argument_type<decltype(_Locale)>(), ((void)(_ArgList = (va_list)(&const_cast<char&>(reinterpret_cast<const volatile char&>(_Locale))) + ((sizeof(_Locale) + sizeof(int) - 1) & ~(sizeof(int) - 1))))));
+        ((void)(__vcrt_va_start_verify_argument_type<decltype(_Locale)>(), ((void)(__va_start(&_ArgList, _Locale)))));
 
 #pragma warning(push)
 #pragma warning(disable: 4996)
@@ -4869,7 +4788,7 @@ __declspec(noinline) __inline unsigned __int64* __cdecl __local_stdio_scanf_opti
     {
         int _Result;
         va_list _ArgList;
-        ((void)(__vcrt_va_start_verify_argument_type<decltype(_Format)>(), ((void)(_ArgList = (va_list)(&const_cast<char&>(reinterpret_cast<const volatile char&>(_Format))) + ((sizeof(_Format) + sizeof(int) - 1) & ~(sizeof(int) - 1))))));
+        ((void)(__vcrt_va_start_verify_argument_type<decltype(_Format)>(), ((void)(__va_start(&_ArgList, _Format)))));
 
 #pragma warning(push)
 #pragma warning(disable: 4996)
@@ -4892,7 +4811,7 @@ __declspec(noinline) __inline unsigned __int64* __cdecl __local_stdio_scanf_opti
     {
         int _Result;
         va_list _ArgList;
-        ((void)(__vcrt_va_start_verify_argument_type<decltype(_Locale)>(), ((void)(_ArgList = (va_list)(&const_cast<char&>(reinterpret_cast<const volatile char&>(_Locale))) + ((sizeof(_Locale) + sizeof(int) - 1) & ~(sizeof(int) - 1))))));
+        ((void)(__vcrt_va_start_verify_argument_type<decltype(_Locale)>(), ((void)(__va_start(&_ArgList, _Locale)))));
         _Result = _vcwscanf_s_l(_Format, _Locale, _ArgList);
         ((void)(_ArgList = (va_list)0));
         return _Result;
@@ -4909,7 +4828,7 @@ __declspec(noinline) __inline unsigned __int64* __cdecl __local_stdio_scanf_opti
     {
         int _Result;
         va_list _ArgList;
-        ((void)(__vcrt_va_start_verify_argument_type<decltype(_Format)>(), ((void)(_ArgList = (va_list)(&const_cast<char&>(reinterpret_cast<const volatile char&>(_Format))) + ((sizeof(_Format) + sizeof(int) - 1) & ~(sizeof(int) - 1))))));
+        ((void)(__vcrt_va_start_verify_argument_type<decltype(_Format)>(), ((void)(__va_start(&_ArgList, _Format)))));
         _Result = _vcwscanf_s_l(_Format, 0, _ArgList);
         ((void)(_ArgList = (va_list)0));
         return _Result;
@@ -5786,7 +5705,7 @@ __inline int __cdecl _fwprintf_l(
 {
     int _Result;
     va_list _ArgList;
-    ((void)(__vcrt_va_start_verify_argument_type<decltype(_Locale)>(), ((void)(_ArgList = (va_list)(&const_cast<char&>(reinterpret_cast<const volatile char&>(_Locale))) + ((sizeof(_Locale) + sizeof(int) - 1) & ~(sizeof(int) - 1))))));
+    ((void)(__vcrt_va_start_verify_argument_type<decltype(_Locale)>(), ((void)(__va_start(&_ArgList, _Locale)))));
     _Result = _vfwprintf_l(_Stream, _Format, _Locale, _ArgList);
     ((void)(_ArgList = (va_list)0));
     return _Result;
@@ -5804,7 +5723,7 @@ __inline int __cdecl fwprintf(
 {
     int _Result;
     va_list _ArgList;
-    ((void)(__vcrt_va_start_verify_argument_type<decltype(_Format)>(), ((void)(_ArgList = (va_list)(&const_cast<char&>(reinterpret_cast<const volatile char&>(_Format))) + ((sizeof(_Format) + sizeof(int) - 1) & ~(sizeof(int) - 1))))));
+    ((void)(__vcrt_va_start_verify_argument_type<decltype(_Format)>(), ((void)(__va_start(&_ArgList, _Format)))));
     _Result = _vfwprintf_l(_Stream, _Format, 0, _ArgList);
     ((void)(_ArgList = (va_list)0));
     return _Result;
@@ -5823,7 +5742,7 @@ __inline int __cdecl _fwprintf_s_l(
 {
     int _Result;
     va_list _ArgList;
-    ((void)(__vcrt_va_start_verify_argument_type<decltype(_Locale)>(), ((void)(_ArgList = (va_list)(&const_cast<char&>(reinterpret_cast<const volatile char&>(_Locale))) + ((sizeof(_Locale) + sizeof(int) - 1) & ~(sizeof(int) - 1))))));
+    ((void)(__vcrt_va_start_verify_argument_type<decltype(_Locale)>(), ((void)(__va_start(&_ArgList, _Locale)))));
     _Result = _vfwprintf_s_l(_Stream, _Format, _Locale, _ArgList);
     ((void)(_ArgList = (va_list)0));
     return _Result;
@@ -5843,7 +5762,7 @@ __inline int __cdecl _fwprintf_s_l(
     {
         int _Result;
         va_list _ArgList;
-        ((void)(__vcrt_va_start_verify_argument_type<decltype(_Format)>(), ((void)(_ArgList = (va_list)(&const_cast<char&>(reinterpret_cast<const volatile char&>(_Format))) + ((sizeof(_Format) + sizeof(int) - 1) & ~(sizeof(int) - 1))))));
+        ((void)(__vcrt_va_start_verify_argument_type<decltype(_Format)>(), ((void)(__va_start(&_ArgList, _Format)))));
         _Result = _vfwprintf_s_l(_Stream, _Format, 0, _ArgList);
         ((void)(_ArgList = (va_list)0));
         return _Result;
@@ -5864,7 +5783,7 @@ __inline int __cdecl _fwprintf_p_l(
 {
     int _Result;
     va_list _ArgList;
-    ((void)(__vcrt_va_start_verify_argument_type<decltype(_Locale)>(), ((void)(_ArgList = (va_list)(&const_cast<char&>(reinterpret_cast<const volatile char&>(_Locale))) + ((sizeof(_Locale) + sizeof(int) - 1) & ~(sizeof(int) - 1))))));
+    ((void)(__vcrt_va_start_verify_argument_type<decltype(_Locale)>(), ((void)(__va_start(&_ArgList, _Locale)))));
     _Result = _vfwprintf_p_l(_Stream, _Format, _Locale, _ArgList);
     ((void)(_ArgList = (va_list)0));
     return _Result;
@@ -5882,7 +5801,7 @@ __inline int __cdecl _fwprintf_p(
 {
     int _Result;
     va_list _ArgList;
-    ((void)(__vcrt_va_start_verify_argument_type<decltype(_Format)>(), ((void)(_ArgList = (va_list)(&const_cast<char&>(reinterpret_cast<const volatile char&>(_Format))) + ((sizeof(_Format) + sizeof(int) - 1) & ~(sizeof(int) - 1))))));
+    ((void)(__vcrt_va_start_verify_argument_type<decltype(_Format)>(), ((void)(__va_start(&_ArgList, _Format)))));
     _Result = _vfwprintf_p_l(_Stream, _Format, 0, _ArgList);
     ((void)(_ArgList = (va_list)0));
     return _Result;
@@ -5900,7 +5819,7 @@ __inline int __cdecl _wprintf_l(
 {
     int _Result;
     va_list _ArgList;
-    ((void)(__vcrt_va_start_verify_argument_type<decltype(_Locale)>(), ((void)(_ArgList = (va_list)(&const_cast<char&>(reinterpret_cast<const volatile char&>(_Locale))) + ((sizeof(_Locale) + sizeof(int) - 1) & ~(sizeof(int) - 1))))));
+    ((void)(__vcrt_va_start_verify_argument_type<decltype(_Locale)>(), ((void)(__va_start(&_ArgList, _Locale)))));
     _Result = _vfwprintf_l((__acrt_iob_func(1)), _Format, _Locale, _ArgList);
     ((void)(_ArgList = (va_list)0));
     return _Result;
@@ -5917,7 +5836,7 @@ __inline int __cdecl wprintf(
 {
     int _Result;
     va_list _ArgList;
-    ((void)(__vcrt_va_start_verify_argument_type<decltype(_Format)>(), ((void)(_ArgList = (va_list)(&const_cast<char&>(reinterpret_cast<const volatile char&>(_Format))) + ((sizeof(_Format) + sizeof(int) - 1) & ~(sizeof(int) - 1))))));
+    ((void)(__vcrt_va_start_verify_argument_type<decltype(_Format)>(), ((void)(__va_start(&_ArgList, _Format)))));
     _Result = _vfwprintf_l((__acrt_iob_func(1)), _Format, 0, _ArgList);
     ((void)(_ArgList = (va_list)0));
     return _Result;
@@ -5935,7 +5854,7 @@ __inline int __cdecl _wprintf_s_l(
 {
     int _Result;
     va_list _ArgList;
-    ((void)(__vcrt_va_start_verify_argument_type<decltype(_Locale)>(), ((void)(_ArgList = (va_list)(&const_cast<char&>(reinterpret_cast<const volatile char&>(_Locale))) + ((sizeof(_Locale) + sizeof(int) - 1) & ~(sizeof(int) - 1))))));
+    ((void)(__vcrt_va_start_verify_argument_type<decltype(_Locale)>(), ((void)(__va_start(&_ArgList, _Locale)))));
     _Result = _vfwprintf_s_l((__acrt_iob_func(1)), _Format, _Locale, _ArgList);
     ((void)(_ArgList = (va_list)0));
     return _Result;
@@ -5954,7 +5873,7 @@ __inline int __cdecl _wprintf_s_l(
     {
         int _Result;
         va_list _ArgList;
-        ((void)(__vcrt_va_start_verify_argument_type<decltype(_Format)>(), ((void)(_ArgList = (va_list)(&const_cast<char&>(reinterpret_cast<const volatile char&>(_Format))) + ((sizeof(_Format) + sizeof(int) - 1) & ~(sizeof(int) - 1))))));
+        ((void)(__vcrt_va_start_verify_argument_type<decltype(_Format)>(), ((void)(__va_start(&_ArgList, _Format)))));
         _Result = _vfwprintf_s_l((__acrt_iob_func(1)), _Format, 0, _ArgList);
         ((void)(_ArgList = (va_list)0));
         return _Result;
@@ -5974,7 +5893,7 @@ __inline int __cdecl _wprintf_p_l(
 {
     int _Result;
     va_list _ArgList;
-    ((void)(__vcrt_va_start_verify_argument_type<decltype(_Locale)>(), ((void)(_ArgList = (va_list)(&const_cast<char&>(reinterpret_cast<const volatile char&>(_Locale))) + ((sizeof(_Locale) + sizeof(int) - 1) & ~(sizeof(int) - 1))))));
+    ((void)(__vcrt_va_start_verify_argument_type<decltype(_Locale)>(), ((void)(__va_start(&_ArgList, _Locale)))));
     _Result = _vfwprintf_p_l((__acrt_iob_func(1)), _Format, _Locale, _ArgList);
     ((void)(_ArgList = (va_list)0));
     return _Result;
@@ -5991,7 +5910,7 @@ __inline int __cdecl _wprintf_p(
 {
     int _Result;
     va_list _ArgList;
-    ((void)(__vcrt_va_start_verify_argument_type<decltype(_Format)>(), ((void)(_ArgList = (va_list)(&const_cast<char&>(reinterpret_cast<const volatile char&>(_Format))) + ((sizeof(_Format) + sizeof(int) - 1) & ~(sizeof(int) - 1))))));
+    ((void)(__vcrt_va_start_verify_argument_type<decltype(_Format)>(), ((void)(__va_start(&_ArgList, _Format)))));
     _Result = _vfwprintf_p_l((__acrt_iob_func(1)), _Format, 0, _ArgList);
     ((void)(_ArgList = (va_list)0));
     return _Result;
@@ -6140,7 +6059,7 @@ __inline int __cdecl _fwscanf_l(
 {
     int _Result;
     va_list _ArgList;
-    ((void)(__vcrt_va_start_verify_argument_type<decltype(_Locale)>(), ((void)(_ArgList = (va_list)(&const_cast<char&>(reinterpret_cast<const volatile char&>(_Locale))) + ((sizeof(_Locale) + sizeof(int) - 1) & ~(sizeof(int) - 1))))));
+    ((void)(__vcrt_va_start_verify_argument_type<decltype(_Locale)>(), ((void)(__va_start(&_ArgList, _Locale)))));
     _Result = _vfwscanf_l(_Stream, _Format, _Locale, _ArgList);
     ((void)(_ArgList = (va_list)0));
     return _Result;
@@ -6158,7 +6077,7 @@ __inline int __cdecl fwscanf(
 {
     int _Result;
     va_list _ArgList;
-    ((void)(__vcrt_va_start_verify_argument_type<decltype(_Format)>(), ((void)(_ArgList = (va_list)(&const_cast<char&>(reinterpret_cast<const volatile char&>(_Format))) + ((sizeof(_Format) + sizeof(int) - 1) & ~(sizeof(int) - 1))))));
+    ((void)(__vcrt_va_start_verify_argument_type<decltype(_Format)>(), ((void)(__va_start(&_ArgList, _Format)))));
     _Result = _vfwscanf_l(_Stream, _Format, 0, _ArgList);
     ((void)(_ArgList = (va_list)0));
     return _Result;
@@ -6177,7 +6096,7 @@ __inline int __cdecl _fwscanf_s_l(
 {
     int _Result;
     va_list _ArgList;
-    ((void)(__vcrt_va_start_verify_argument_type<decltype(_Locale)>(), ((void)(_ArgList = (va_list)(&const_cast<char&>(reinterpret_cast<const volatile char&>(_Locale))) + ((sizeof(_Locale) + sizeof(int) - 1) & ~(sizeof(int) - 1))))));
+    ((void)(__vcrt_va_start_verify_argument_type<decltype(_Locale)>(), ((void)(__va_start(&_ArgList, _Locale)))));
     _Result = _vfwscanf_s_l(_Stream, _Format, _Locale, _ArgList);
     ((void)(_ArgList = (va_list)0));
     return _Result;
@@ -6197,7 +6116,7 @@ __inline int __cdecl _fwscanf_s_l(
     {
         int _Result;
         va_list _ArgList;
-        ((void)(__vcrt_va_start_verify_argument_type<decltype(_Format)>(), ((void)(_ArgList = (va_list)(&const_cast<char&>(reinterpret_cast<const volatile char&>(_Format))) + ((sizeof(_Format) + sizeof(int) - 1) & ~(sizeof(int) - 1))))));
+        ((void)(__vcrt_va_start_verify_argument_type<decltype(_Format)>(), ((void)(__va_start(&_ArgList, _Format)))));
         _Result = _vfwscanf_s_l(_Stream, _Format, 0, _ArgList);
         ((void)(_ArgList = (va_list)0));
         return _Result;
@@ -6217,7 +6136,7 @@ __inline int __cdecl _wscanf_l(
 {
     int _Result;
     va_list _ArgList;
-    ((void)(__vcrt_va_start_verify_argument_type<decltype(_Locale)>(), ((void)(_ArgList = (va_list)(&const_cast<char&>(reinterpret_cast<const volatile char&>(_Locale))) + ((sizeof(_Locale) + sizeof(int) - 1) & ~(sizeof(int) - 1))))));
+    ((void)(__vcrt_va_start_verify_argument_type<decltype(_Locale)>(), ((void)(__va_start(&_ArgList, _Locale)))));
     _Result = _vfwscanf_l((__acrt_iob_func(0)), _Format, _Locale, _ArgList);
     ((void)(_ArgList = (va_list)0));
     return _Result;
@@ -6234,7 +6153,7 @@ __inline int __cdecl wscanf(
 {
     int _Result;
     va_list _ArgList;
-    ((void)(__vcrt_va_start_verify_argument_type<decltype(_Format)>(), ((void)(_ArgList = (va_list)(&const_cast<char&>(reinterpret_cast<const volatile char&>(_Format))) + ((sizeof(_Format) + sizeof(int) - 1) & ~(sizeof(int) - 1))))));
+    ((void)(__vcrt_va_start_verify_argument_type<decltype(_Format)>(), ((void)(__va_start(&_ArgList, _Format)))));
     _Result = _vfwscanf_l((__acrt_iob_func(0)), _Format, 0, _ArgList);
     ((void)(_ArgList = (va_list)0));
     return _Result;
@@ -6252,7 +6171,7 @@ __inline int __cdecl _wscanf_s_l(
 {
     int _Result;
     va_list _ArgList;
-    ((void)(__vcrt_va_start_verify_argument_type<decltype(_Locale)>(), ((void)(_ArgList = (va_list)(&const_cast<char&>(reinterpret_cast<const volatile char&>(_Locale))) + ((sizeof(_Locale) + sizeof(int) - 1) & ~(sizeof(int) - 1))))));
+    ((void)(__vcrt_va_start_verify_argument_type<decltype(_Locale)>(), ((void)(__va_start(&_ArgList, _Locale)))));
     _Result = _vfwscanf_s_l((__acrt_iob_func(0)), _Format, _Locale, _ArgList);
     ((void)(_ArgList = (va_list)0));
     return _Result;
@@ -6271,7 +6190,7 @@ __inline int __cdecl _wscanf_s_l(
     {
         int _Result;
         va_list _ArgList;
-        ((void)(__vcrt_va_start_verify_argument_type<decltype(_Format)>(), ((void)(_ArgList = (va_list)(&const_cast<char&>(reinterpret_cast<const volatile char&>(_Format))) + ((sizeof(_Format) + sizeof(int) - 1) & ~(sizeof(int) - 1))))));
+        ((void)(__vcrt_va_start_verify_argument_type<decltype(_Format)>(), ((void)(__va_start(&_ArgList, _Format)))));
         _Result = _vfwscanf_s_l((__acrt_iob_func(0)), _Format, 0, _ArgList);
         ((void)(_ArgList = (va_list)0));
         return _Result;
@@ -6673,7 +6592,7 @@ __inline int __cdecl __swprintf_l(
 {
     int _Result;
     va_list _ArgList;
-    ((void)(__vcrt_va_start_verify_argument_type<decltype(_Locale)>(), ((void)(_ArgList = (va_list)(&const_cast<char&>(reinterpret_cast<const volatile char&>(_Locale))) + ((sizeof(_Locale) + sizeof(int) - 1) & ~(sizeof(int) - 1))))));
+    ((void)(__vcrt_va_start_verify_argument_type<decltype(_Locale)>(), ((void)(__va_start(&_ArgList, _Locale)))));
     _Result = __vswprintf_l(_Buffer, _Format, _Locale, _ArgList);
     ((void)(_ArgList = (va_list)0));
     return _Result;
@@ -6694,7 +6613,7 @@ __inline int __cdecl _swprintf_l(
 {
     int _Result;
     va_list _ArgList;
-    ((void)(__vcrt_va_start_verify_argument_type<decltype(_Locale)>(), ((void)(_ArgList = (va_list)(&const_cast<char&>(reinterpret_cast<const volatile char&>(_Locale))) + ((sizeof(_Locale) + sizeof(int) - 1) & ~(sizeof(int) - 1))))));
+    ((void)(__vcrt_va_start_verify_argument_type<decltype(_Locale)>(), ((void)(__va_start(&_ArgList, _Locale)))));
     _Result = _vswprintf_c_l(_Buffer, _BufferCount, _Format, _Locale, _ArgList);
     ((void)(_ArgList = (va_list)0));
     return _Result;
@@ -6713,7 +6632,7 @@ __inline int __cdecl _swprintf(
 {
     int _Result;
     va_list _ArgList;
-    ((void)(__vcrt_va_start_verify_argument_type<decltype(_Format)>(), ((void)(_ArgList = (va_list)(&const_cast<char&>(reinterpret_cast<const volatile char&>(_Format))) + ((sizeof(_Format) + sizeof(int) - 1) & ~(sizeof(int) - 1))))));
+    ((void)(__vcrt_va_start_verify_argument_type<decltype(_Format)>(), ((void)(__va_start(&_ArgList, _Format)))));
     _Result = __vswprintf_l(_Buffer, _Format, 0, _ArgList);
     ((void)(_ArgList = (va_list)0));
     return _Result;
@@ -6733,7 +6652,7 @@ __inline int __cdecl swprintf(
 {
     int _Result;
     va_list _ArgList;
-    ((void)(__vcrt_va_start_verify_argument_type<decltype(_Format)>(), ((void)(_ArgList = (va_list)(&const_cast<char&>(reinterpret_cast<const volatile char&>(_Format))) + ((sizeof(_Format) + sizeof(int) - 1) & ~(sizeof(int) - 1))))));
+    ((void)(__vcrt_va_start_verify_argument_type<decltype(_Format)>(), ((void)(__va_start(&_ArgList, _Format)))));
     _Result = _vswprintf_c_l(_Buffer, _BufferCount, _Format, 0, _ArgList);
     ((void)(_ArgList = (va_list)0));
     return _Result;
@@ -6770,7 +6689,7 @@ __inline int __cdecl _swprintf_s_l(
 {
     int _Result;
     va_list _ArgList;
-    ((void)(__vcrt_va_start_verify_argument_type<decltype(_Locale)>(), ((void)(_ArgList = (va_list)(&const_cast<char&>(reinterpret_cast<const volatile char&>(_Locale))) + ((sizeof(_Locale) + sizeof(int) - 1) & ~(sizeof(int) - 1))))));
+    ((void)(__vcrt_va_start_verify_argument_type<decltype(_Locale)>(), ((void)(__va_start(&_ArgList, _Locale)))));
     _Result = _vswprintf_s_l(_Buffer, _BufferCount, _Format, _Locale, _ArgList);
     ((void)(_ArgList = (va_list)0));
     return _Result;
@@ -6791,7 +6710,7 @@ __inline int __cdecl _swprintf_s_l(
     {
         int _Result;
         va_list _ArgList;
-        ((void)(__vcrt_va_start_verify_argument_type<decltype(_Format)>(), ((void)(_ArgList = (va_list)(&const_cast<char&>(reinterpret_cast<const volatile char&>(_Format))) + ((sizeof(_Format) + sizeof(int) - 1) & ~(sizeof(int) - 1))))));
+        ((void)(__vcrt_va_start_verify_argument_type<decltype(_Format)>(), ((void)(__va_start(&_ArgList, _Format)))));
         _Result = _vswprintf_s_l(_Buffer, _BufferCount, _Format, 0, _ArgList);
         ((void)(_ArgList = (va_list)0));
         return _Result;
@@ -6808,7 +6727,7 @@ extern "C++" {
 # 1548 "C:\\Program Files (x86)\\Windows Kits\\10\\Include\\10.0.10240.0\\ucrt\\corecrt_wstdio.h" 3
 #pragma warning(disable: 4793)
 # 1548 "C:\\Program Files (x86)\\Windows Kits\\10\\Include\\10.0.10240.0\\ucrt\\corecrt_wstdio.h" 3
-; template <size_t _Size> inline int __cdecl swprintf_s(wchar_t (&_Buffer)[_Size], wchar_t const* _Format, ...) throw() { va_list _ArgList; ((void)(__vcrt_va_start_verify_argument_type<decltype(_Format)>(), ((void)(_ArgList = (va_list)(&const_cast<char&>(reinterpret_cast<const volatile char&>(_Format))) + ((sizeof(_Format) + sizeof(int) - 1) & ~(sizeof(int) - 1)))))); return vswprintf_s(_Buffer, _Size, _Format, _ArgList); }
+; template <size_t _Size> inline int __cdecl swprintf_s(wchar_t (&_Buffer)[_Size], wchar_t const* _Format, ...) throw() { va_list _ArgList; ((void)(__vcrt_va_start_verify_argument_type<decltype(_Format)>(), ((void)(__va_start(&_ArgList, _Format))))); return vswprintf_s(_Buffer, _Size, _Format, _ArgList); }
 # 1548 "C:\\Program Files (x86)\\Windows Kits\\10\\Include\\10.0.10240.0\\ucrt\\corecrt_wstdio.h" 3
 #pragma warning(pop)
 # 1548 "C:\\Program Files (x86)\\Windows Kits\\10\\Include\\10.0.10240.0\\ucrt\\corecrt_wstdio.h" 3
@@ -6826,7 +6745,7 @@ __inline int __cdecl _swprintf_p_l(
 {
     int _Result;
     va_list _ArgList;
-    ((void)(__vcrt_va_start_verify_argument_type<decltype(_Locale)>(), ((void)(_ArgList = (va_list)(&const_cast<char&>(reinterpret_cast<const volatile char&>(_Locale))) + ((sizeof(_Locale) + sizeof(int) - 1) & ~(sizeof(int) - 1))))));
+    ((void)(__vcrt_va_start_verify_argument_type<decltype(_Locale)>(), ((void)(__va_start(&_ArgList, _Locale)))));
     _Result = _vswprintf_p_l(_Buffer, _BufferCount, _Format, _Locale, _ArgList);
     ((void)(_ArgList = (va_list)0));
     return _Result;
@@ -6846,7 +6765,7 @@ __inline int __cdecl _swprintf_p(
 {
     int _Result;
     va_list _ArgList;
-    ((void)(__vcrt_va_start_verify_argument_type<decltype(_Format)>(), ((void)(_ArgList = (va_list)(&const_cast<char&>(reinterpret_cast<const volatile char&>(_Format))) + ((sizeof(_Format) + sizeof(int) - 1) & ~(sizeof(int) - 1))))));
+    ((void)(__vcrt_va_start_verify_argument_type<decltype(_Format)>(), ((void)(__va_start(&_ArgList, _Format)))));
     _Result = _vswprintf_p_l(_Buffer, _BufferCount, _Format, 0, _ArgList);
     ((void)(_ArgList = (va_list)0));
     return _Result;
@@ -6867,7 +6786,7 @@ __inline int __cdecl _swprintf_c_l(
 {
     int _Result;
     va_list _ArgList;
-    ((void)(__vcrt_va_start_verify_argument_type<decltype(_Locale)>(), ((void)(_ArgList = (va_list)(&const_cast<char&>(reinterpret_cast<const volatile char&>(_Locale))) + ((sizeof(_Locale) + sizeof(int) - 1) & ~(sizeof(int) - 1))))));
+    ((void)(__vcrt_va_start_verify_argument_type<decltype(_Locale)>(), ((void)(__va_start(&_ArgList, _Locale)))));
     _Result = _vswprintf_c_l(_Buffer, _BufferCount, _Format, _Locale, _ArgList);
     ((void)(_ArgList = (va_list)0));
     return _Result;
@@ -6887,7 +6806,7 @@ __inline int __cdecl _swprintf_c(
 {
     int _Result;
     va_list _ArgList;
-    ((void)(__vcrt_va_start_verify_argument_type<decltype(_Format)>(), ((void)(_ArgList = (va_list)(&const_cast<char&>(reinterpret_cast<const volatile char&>(_Format))) + ((sizeof(_Format) + sizeof(int) - 1) & ~(sizeof(int) - 1))))));
+    ((void)(__vcrt_va_start_verify_argument_type<decltype(_Format)>(), ((void)(__va_start(&_ArgList, _Format)))));
     _Result = _vswprintf_c_l(_Buffer, _BufferCount, _Format, 0, _ArgList);
     ((void)(_ArgList = (va_list)0));
     return _Result;
@@ -6908,7 +6827,7 @@ __inline int __cdecl _snwprintf_l(
 {
     int _Result;
     va_list _ArgList;
-    ((void)(__vcrt_va_start_verify_argument_type<decltype(_Locale)>(), ((void)(_ArgList = (va_list)(&const_cast<char&>(reinterpret_cast<const volatile char&>(_Locale))) + ((sizeof(_Locale) + sizeof(int) - 1) & ~(sizeof(int) - 1))))));
+    ((void)(__vcrt_va_start_verify_argument_type<decltype(_Locale)>(), ((void)(__va_start(&_ArgList, _Locale)))));
 
 #pragma warning(push)
 #pragma warning(disable: 4996)
@@ -6933,7 +6852,7 @@ __inline int __cdecl _snwprintf(
 {
     int _Result;
     va_list _ArgList;
-    ((void)(__vcrt_va_start_verify_argument_type<decltype(_Format)>(), ((void)(_ArgList = (va_list)(&const_cast<char&>(reinterpret_cast<const volatile char&>(_Format))) + ((sizeof(_Format) + sizeof(int) - 1) & ~(sizeof(int) - 1))))));
+    ((void)(__vcrt_va_start_verify_argument_type<decltype(_Format)>(), ((void)(__va_start(&_ArgList, _Format)))));
 
 #pragma warning(push)
 #pragma warning(disable: 4996)
@@ -6960,7 +6879,7 @@ __inline int __cdecl _snwprintf_s_l(
 {
     int _Result;
     va_list _ArgList;
-    ((void)(__vcrt_va_start_verify_argument_type<decltype(_Locale)>(), ((void)(_ArgList = (va_list)(&const_cast<char&>(reinterpret_cast<const volatile char&>(_Locale))) + ((sizeof(_Locale) + sizeof(int) - 1) & ~(sizeof(int) - 1))))));
+    ((void)(__vcrt_va_start_verify_argument_type<decltype(_Locale)>(), ((void)(__va_start(&_ArgList, _Locale)))));
     _Result = _vsnwprintf_s_l(_Buffer, _BufferCount, _MaxCount, _Format, _Locale, _ArgList);
     ((void)(_ArgList = (va_list)0));
     return _Result;
@@ -6981,7 +6900,7 @@ __inline int __cdecl _snwprintf_s(
 {
     int _Result;
     va_list _ArgList;
-    ((void)(__vcrt_va_start_verify_argument_type<decltype(_Format)>(), ((void)(_ArgList = (va_list)(&const_cast<char&>(reinterpret_cast<const volatile char&>(_Format))) + ((sizeof(_Format) + sizeof(int) - 1) & ~(sizeof(int) - 1))))));
+    ((void)(__vcrt_va_start_verify_argument_type<decltype(_Format)>(), ((void)(__va_start(&_ArgList, _Format)))));
     _Result = _vsnwprintf_s_l(_Buffer, _BufferCount, _MaxCount, _Format, 0, _ArgList);
     ((void)(_ArgList = (va_list)0));
     return _Result;
@@ -6996,7 +6915,7 @@ extern "C++" {
 # 1731 "C:\\Program Files (x86)\\Windows Kits\\10\\Include\\10.0.10240.0\\ucrt\\corecrt_wstdio.h" 3
 #pragma warning(disable: 4793)
 # 1731 "C:\\Program Files (x86)\\Windows Kits\\10\\Include\\10.0.10240.0\\ucrt\\corecrt_wstdio.h" 3
-; template <size_t _Size> inline int __cdecl _snwprintf_s(wchar_t (&_Buffer)[_Size], size_t _BufferCount, wchar_t const* _Format, ...) throw() { va_list _ArgList; ((void)(__vcrt_va_start_verify_argument_type<decltype(_Format)>(), ((void)(_ArgList = (va_list)(&const_cast<char&>(reinterpret_cast<const volatile char&>(_Format))) + ((sizeof(_Format) + sizeof(int) - 1) & ~(sizeof(int) - 1)))))); return _vsnwprintf_s(_Buffer, _Size, _BufferCount, _Format, _ArgList); }
+; template <size_t _Size> inline int __cdecl _snwprintf_s(wchar_t (&_Buffer)[_Size], size_t _BufferCount, wchar_t const* _Format, ...) throw() { va_list _ArgList; ((void)(__vcrt_va_start_verify_argument_type<decltype(_Format)>(), ((void)(__va_start(&_ArgList, _Format))))); return _vsnwprintf_s(_Buffer, _Size, _BufferCount, _Format, _ArgList); }
 # 1731 "C:\\Program Files (x86)\\Windows Kits\\10\\Include\\10.0.10240.0\\ucrt\\corecrt_wstdio.h" 3
 #pragma warning(pop)
 # 1731 "C:\\Program Files (x86)\\Windows Kits\\10\\Include\\10.0.10240.0\\ucrt\\corecrt_wstdio.h" 3
@@ -7012,7 +6931,7 @@ __inline int __cdecl _scwprintf_l(
 {
     int _Result;
     va_list _ArgList;
-    ((void)(__vcrt_va_start_verify_argument_type<decltype(_Locale)>(), ((void)(_ArgList = (va_list)(&const_cast<char&>(reinterpret_cast<const volatile char&>(_Locale))) + ((sizeof(_Locale) + sizeof(int) - 1) & ~(sizeof(int) - 1))))));
+    ((void)(__vcrt_va_start_verify_argument_type<decltype(_Locale)>(), ((void)(__va_start(&_ArgList, _Locale)))));
     _Result = _vscwprintf_l(_Format, _Locale, _ArgList);
     ((void)(_ArgList = (va_list)0));
     return _Result;
@@ -7030,7 +6949,7 @@ __inline int __cdecl _scwprintf(
 {
     int _Result;
     va_list _ArgList;
-    ((void)(__vcrt_va_start_verify_argument_type<decltype(_Format)>(), ((void)(_ArgList = (va_list)(&const_cast<char&>(reinterpret_cast<const volatile char&>(_Format))) + ((sizeof(_Format) + sizeof(int) - 1) & ~(sizeof(int) - 1))))));
+    ((void)(__vcrt_va_start_verify_argument_type<decltype(_Format)>(), ((void)(__va_start(&_ArgList, _Format)))));
     _Result = _vscwprintf_l(_Format, 0, _ArgList);
     ((void)(_ArgList = (va_list)0));
     return _Result;
@@ -7049,7 +6968,7 @@ __inline int __cdecl _scwprintf_p_l(
 {
     int _Result;
     va_list _ArgList;
-    ((void)(__vcrt_va_start_verify_argument_type<decltype(_Locale)>(), ((void)(_ArgList = (va_list)(&const_cast<char&>(reinterpret_cast<const volatile char&>(_Locale))) + ((sizeof(_Locale) + sizeof(int) - 1) & ~(sizeof(int) - 1))))));
+    ((void)(__vcrt_va_start_verify_argument_type<decltype(_Locale)>(), ((void)(__va_start(&_ArgList, _Locale)))));
     _Result = _vscwprintf_p_l(_Format, _Locale, _ArgList);
     ((void)(_ArgList = (va_list)0));
     return _Result;
@@ -7067,7 +6986,7 @@ __inline int __cdecl _scwprintf_p(
 {
     int _Result;
     va_list _ArgList;
-    ((void)(__vcrt_va_start_verify_argument_type<decltype(_Format)>(), ((void)(_ArgList = (va_list)(&const_cast<char&>(reinterpret_cast<const volatile char&>(_Format))) + ((sizeof(_Format) + sizeof(int) - 1) & ~(sizeof(int) - 1))))));
+    ((void)(__vcrt_va_start_verify_argument_type<decltype(_Format)>(), ((void)(__va_start(&_ArgList, _Format)))));
     _Result = _vscwprintf_p_l(_Format, 0, _ArgList);
     ((void)(_ArgList = (va_list)0));
     return _Result;
@@ -7089,7 +7008,7 @@ __inline int __cdecl _scwprintf_p(
         {
             int _Result;
             va_list _ArgList;
-            ((void)(__vcrt_va_start_verify_argument_type<decltype(_Format)>(), ((void)(_ArgList = (va_list)(&const_cast<char&>(reinterpret_cast<const volatile char&>(_Format))) + ((sizeof(_Format) + sizeof(int) - 1) & ~(sizeof(int) - 1))))));
+            ((void)(__vcrt_va_start_verify_argument_type<decltype(_Format)>(), ((void)(__va_start(&_ArgList, _Format)))));
 #pragma warning(suppress: 28719)
  _Result = vswprintf(_Buffer, 2147483647, _Format, _ArgList);
             ((void)(_ArgList = (va_list)0));
@@ -7116,7 +7035,7 @@ __inline int __cdecl _scwprintf_p(
         {
             int _Result;
             va_list _ArgList;
-            ((void)(__vcrt_va_start_verify_argument_type<decltype(_Locale)>(), ((void)(_ArgList = (va_list)(&const_cast<char&>(reinterpret_cast<const volatile char&>(_Locale))) + ((sizeof(_Locale) + sizeof(int) - 1) & ~(sizeof(int) - 1))))));
+            ((void)(__vcrt_va_start_verify_argument_type<decltype(_Locale)>(), ((void)(__va_start(&_ArgList, _Locale)))));
             _Result = _vswprintf_l(_Buffer, (size_t)-1, _Format, _Locale, _ArgList);
             ((void)(_ArgList = (va_list)0));
             return _Result;
@@ -7268,7 +7187,7 @@ __inline int __cdecl _swscanf_l(
 {
     int _Result;
     va_list _ArgList;
-    ((void)(__vcrt_va_start_verify_argument_type<decltype(_Locale)>(), ((void)(_ArgList = (va_list)(&const_cast<char&>(reinterpret_cast<const volatile char&>(_Locale))) + ((sizeof(_Locale) + sizeof(int) - 1) & ~(sizeof(int) - 1))))));
+    ((void)(__vcrt_va_start_verify_argument_type<decltype(_Locale)>(), ((void)(__va_start(&_ArgList, _Locale)))));
     _Result = _vswscanf_l(_Buffer, _Format, _Locale, _ArgList);
     ((void)(_ArgList = (va_list)0));
     return _Result;
@@ -7287,7 +7206,7 @@ __inline int __cdecl swscanf(
 {
     int _Result;
     va_list _ArgList;
-    ((void)(__vcrt_va_start_verify_argument_type<decltype(_Format)>(), ((void)(_ArgList = (va_list)(&const_cast<char&>(reinterpret_cast<const volatile char&>(_Format))) + ((sizeof(_Format) + sizeof(int) - 1) & ~(sizeof(int) - 1))))));
+    ((void)(__vcrt_va_start_verify_argument_type<decltype(_Format)>(), ((void)(__va_start(&_ArgList, _Format)))));
     _Result = _vswscanf_l(_Buffer, _Format, 0, _ArgList);
     ((void)(_ArgList = (va_list)0));
     return _Result;
@@ -7307,7 +7226,7 @@ __inline int __cdecl _swscanf_s_l(
 {
     int _Result;
     va_list _ArgList;
-    ((void)(__vcrt_va_start_verify_argument_type<decltype(_Locale)>(), ((void)(_ArgList = (va_list)(&const_cast<char&>(reinterpret_cast<const volatile char&>(_Locale))) + ((sizeof(_Locale) + sizeof(int) - 1) & ~(sizeof(int) - 1))))));
+    ((void)(__vcrt_va_start_verify_argument_type<decltype(_Locale)>(), ((void)(__va_start(&_ArgList, _Locale)))));
     _Result = _vswscanf_s_l(_Buffer, _Format, _Locale, _ArgList);
     ((void)(_ArgList = (va_list)0));
     return _Result;
@@ -7328,7 +7247,7 @@ __inline int __cdecl _swscanf_s_l(
     {
         int _Result;
         va_list _ArgList;
-        ((void)(__vcrt_va_start_verify_argument_type<decltype(_Format)>(), ((void)(_ArgList = (va_list)(&const_cast<char&>(reinterpret_cast<const volatile char&>(_Format))) + ((sizeof(_Format) + sizeof(int) - 1) & ~(sizeof(int) - 1))))));
+        ((void)(__vcrt_va_start_verify_argument_type<decltype(_Format)>(), ((void)(__va_start(&_ArgList, _Format)))));
         _Result = _vswscanf_s_l(_Buffer, _Format, 0, _ArgList);
         ((void)(_ArgList = (va_list)0));
         return _Result;
@@ -7351,7 +7270,7 @@ __inline int __cdecl _snwscanf_l(
 {
     int _Result;
     va_list _ArgList;
-    ((void)(__vcrt_va_start_verify_argument_type<decltype(_Locale)>(), ((void)(_ArgList = (va_list)(&const_cast<char&>(reinterpret_cast<const volatile char&>(_Locale))) + ((sizeof(_Locale) + sizeof(int) - 1) & ~(sizeof(int) - 1))))));
+    ((void)(__vcrt_va_start_verify_argument_type<decltype(_Locale)>(), ((void)(__va_start(&_ArgList, _Locale)))));
 
 #pragma warning(push)
 #pragma warning(disable: 4996)
@@ -7376,7 +7295,7 @@ __inline int __cdecl _snwscanf(
 {
     int _Result;
     va_list _ArgList;
-    ((void)(__vcrt_va_start_verify_argument_type<decltype(_Format)>(), ((void)(_ArgList = (va_list)(&const_cast<char&>(reinterpret_cast<const volatile char&>(_Format))) + ((sizeof(_Format) + sizeof(int) - 1) & ~(sizeof(int) - 1))))));
+    ((void)(__vcrt_va_start_verify_argument_type<decltype(_Format)>(), ((void)(__va_start(&_ArgList, _Format)))));
 
 #pragma warning(push)
 #pragma warning(disable: 4996)
@@ -7402,7 +7321,7 @@ __inline int __cdecl _snwscanf_s_l(
 {
     int _Result;
     va_list _ArgList;
-    ((void)(__vcrt_va_start_verify_argument_type<decltype(_Locale)>(), ((void)(_ArgList = (va_list)(&const_cast<char&>(reinterpret_cast<const volatile char&>(_Locale))) + ((sizeof(_Locale) + sizeof(int) - 1) & ~(sizeof(int) - 1))))));
+    ((void)(__vcrt_va_start_verify_argument_type<decltype(_Locale)>(), ((void)(__va_start(&_ArgList, _Locale)))));
     _Result = _vsnwscanf_s_l(_Buffer, _BufferCount, _Format, _Locale, _ArgList);
     ((void)(_ArgList = (va_list)0));
     return _Result;
@@ -7422,7 +7341,7 @@ __inline int __cdecl _snwscanf_s(
 {
     int _Result;
     va_list _ArgList;
-    ((void)(__vcrt_va_start_verify_argument_type<decltype(_Format)>(), ((void)(_ArgList = (va_list)(&const_cast<char&>(reinterpret_cast<const volatile char&>(_Format))) + ((sizeof(_Format) + sizeof(int) - 1) & ~(sizeof(int) - 1))))));
+    ((void)(__vcrt_va_start_verify_argument_type<decltype(_Format)>(), ((void)(__va_start(&_ArgList, _Format)))));
     _Result = _vsnwscanf_s_l(_Buffer, _BufferCount, _Format, 0, _ArgList);
     ((void)(_ArgList = (va_list)0));
     return _Result;
@@ -8886,14 +8805,14 @@ namespace std {
 inline size_t _Hash_seq(const unsigned char *_First, size_t _Count)
  {
 
+ static_assert(sizeof(size_t) == 8, "This code is for 64-bit size_t.");
+ const size_t _FNV_offset_basis = 14695981039346656037ULL;
+ const size_t _FNV_prime = 1099511628211ULL;
 
 
 
 
 
- static_assert(sizeof(size_t) == 4, "This code is for 32-bit size_t.");
- const size_t _FNV_offset_basis = 2166136261U;
- const size_t _FNV_prime = 16777619U;
 
 
  size_t _Val = _FNV_offset_basis;
@@ -9105,7 +9024,7 @@ template<class _Ty>
  static constexpr bool _Weird = false;
  };
 # 673 "D:\\Microsoft Visual Studio 14.0\\VC\\include\\xstddef" 3
-template<class _Ret, class... _Types> struct _Is_function<_Ret __cdecl (_Types...) > : _Arg_types<_Types...> { typedef true_type _Bool_type; typedef _Ret result_type; static constexpr bool _Weird = false; }; template<class _Ret, class... _Types> struct _Is_function<_Ret __fastcall (_Types...) > : _Arg_types<_Types...> { typedef true_type _Bool_type; typedef _Ret result_type; static constexpr bool _Weird = false; }; template<class _Ret, class... _Types> struct _Is_function<_Ret __stdcall (_Types...) > : _Arg_types<_Types...> { typedef true_type _Bool_type; typedef _Ret result_type; static constexpr bool _Weird = false; }; template<class _Ret, class... _Types> struct _Is_function<_Ret __vectorcall (_Types...) > : _Arg_types<_Types...> { typedef true_type _Bool_type; typedef _Ret result_type; static constexpr bool _Weird = false; }; template<class _Ret, class... _Types> struct _Is_function<_Ret __cdecl (_Types...) const> : _Arg_types<_Types...> { typedef true_type _Bool_type; typedef _Ret result_type; static constexpr bool _Weird = true; }; template<class _Ret, class... _Types> struct _Is_function<_Ret __fastcall (_Types...) const> : _Arg_types<_Types...> { typedef true_type _Bool_type; typedef _Ret result_type; static constexpr bool _Weird = true; }; template<class _Ret, class... _Types> struct _Is_function<_Ret __stdcall (_Types...) const> : _Arg_types<_Types...> { typedef true_type _Bool_type; typedef _Ret result_type; static constexpr bool _Weird = true; }; template<class _Ret, class... _Types> struct _Is_function<_Ret __vectorcall (_Types...) const> : _Arg_types<_Types...> { typedef true_type _Bool_type; typedef _Ret result_type; static constexpr bool _Weird = true; }; template<class _Ret, class... _Types> struct _Is_function<_Ret __cdecl (_Types...) volatile> : _Arg_types<_Types...> { typedef true_type _Bool_type; typedef _Ret result_type; static constexpr bool _Weird = true; }; template<class _Ret, class... _Types> struct _Is_function<_Ret __fastcall (_Types...) volatile> : _Arg_types<_Types...> { typedef true_type _Bool_type; typedef _Ret result_type; static constexpr bool _Weird = true; }; template<class _Ret, class... _Types> struct _Is_function<_Ret __stdcall (_Types...) volatile> : _Arg_types<_Types...> { typedef true_type _Bool_type; typedef _Ret result_type; static constexpr bool _Weird = true; }; template<class _Ret, class... _Types> struct _Is_function<_Ret __vectorcall (_Types...) volatile> : _Arg_types<_Types...> { typedef true_type _Bool_type; typedef _Ret result_type; static constexpr bool _Weird = true; }; template<class _Ret, class... _Types> struct _Is_function<_Ret __cdecl (_Types...) const volatile> : _Arg_types<_Types...> { typedef true_type _Bool_type; typedef _Ret result_type; static constexpr bool _Weird = true; }; template<class _Ret, class... _Types> struct _Is_function<_Ret __fastcall (_Types...) const volatile> : _Arg_types<_Types...> { typedef true_type _Bool_type; typedef _Ret result_type; static constexpr bool _Weird = true; }; template<class _Ret, class... _Types> struct _Is_function<_Ret __stdcall (_Types...) const volatile> : _Arg_types<_Types...> { typedef true_type _Bool_type; typedef _Ret result_type; static constexpr bool _Weird = true; }; template<class _Ret, class... _Types> struct _Is_function<_Ret __vectorcall (_Types...) const volatile> : _Arg_types<_Types...> { typedef true_type _Bool_type; typedef _Ret result_type; static constexpr bool _Weird = true; }; template<class _Ret, class... _Types> struct _Is_function<_Ret __cdecl (_Types...) &> : _Arg_types<_Types...> { typedef true_type _Bool_type; typedef _Ret result_type; static constexpr bool _Weird = true; }; template<class _Ret, class... _Types> struct _Is_function<_Ret __fastcall (_Types...) &> : _Arg_types<_Types...> { typedef true_type _Bool_type; typedef _Ret result_type; static constexpr bool _Weird = true; }; template<class _Ret, class... _Types> struct _Is_function<_Ret __stdcall (_Types...) &> : _Arg_types<_Types...> { typedef true_type _Bool_type; typedef _Ret result_type; static constexpr bool _Weird = true; }; template<class _Ret, class... _Types> struct _Is_function<_Ret __vectorcall (_Types...) &> : _Arg_types<_Types...> { typedef true_type _Bool_type; typedef _Ret result_type; static constexpr bool _Weird = true; }; template<class _Ret, class... _Types> struct _Is_function<_Ret __cdecl (_Types...) const &> : _Arg_types<_Types...> { typedef true_type _Bool_type; typedef _Ret result_type; static constexpr bool _Weird = true; }; template<class _Ret, class... _Types> struct _Is_function<_Ret __fastcall (_Types...) const &> : _Arg_types<_Types...> { typedef true_type _Bool_type; typedef _Ret result_type; static constexpr bool _Weird = true; }; template<class _Ret, class... _Types> struct _Is_function<_Ret __stdcall (_Types...) const &> : _Arg_types<_Types...> { typedef true_type _Bool_type; typedef _Ret result_type; static constexpr bool _Weird = true; }; template<class _Ret, class... _Types> struct _Is_function<_Ret __vectorcall (_Types...) const &> : _Arg_types<_Types...> { typedef true_type _Bool_type; typedef _Ret result_type; static constexpr bool _Weird = true; }; template<class _Ret, class... _Types> struct _Is_function<_Ret __cdecl (_Types...) volatile &> : _Arg_types<_Types...> { typedef true_type _Bool_type; typedef _Ret result_type; static constexpr bool _Weird = true; }; template<class _Ret, class... _Types> struct _Is_function<_Ret __fastcall (_Types...) volatile &> : _Arg_types<_Types...> { typedef true_type _Bool_type; typedef _Ret result_type; static constexpr bool _Weird = true; }; template<class _Ret, class... _Types> struct _Is_function<_Ret __stdcall (_Types...) volatile &> : _Arg_types<_Types...> { typedef true_type _Bool_type; typedef _Ret result_type; static constexpr bool _Weird = true; }; template<class _Ret, class... _Types> struct _Is_function<_Ret __vectorcall (_Types...) volatile &> : _Arg_types<_Types...> { typedef true_type _Bool_type; typedef _Ret result_type; static constexpr bool _Weird = true; }; template<class _Ret, class... _Types> struct _Is_function<_Ret __cdecl (_Types...) const volatile &> : _Arg_types<_Types...> { typedef true_type _Bool_type; typedef _Ret result_type; static constexpr bool _Weird = true; }; template<class _Ret, class... _Types> struct _Is_function<_Ret __fastcall (_Types...) const volatile &> : _Arg_types<_Types...> { typedef true_type _Bool_type; typedef _Ret result_type; static constexpr bool _Weird = true; }; template<class _Ret, class... _Types> struct _Is_function<_Ret __stdcall (_Types...) const volatile &> : _Arg_types<_Types...> { typedef true_type _Bool_type; typedef _Ret result_type; static constexpr bool _Weird = true; }; template<class _Ret, class... _Types> struct _Is_function<_Ret __vectorcall (_Types...) const volatile &> : _Arg_types<_Types...> { typedef true_type _Bool_type; typedef _Ret result_type; static constexpr bool _Weird = true; }; template<class _Ret, class... _Types> struct _Is_function<_Ret __cdecl (_Types...) &&> : _Arg_types<_Types...> { typedef true_type _Bool_type; typedef _Ret result_type; static constexpr bool _Weird = true; }; template<class _Ret, class... _Types> struct _Is_function<_Ret __fastcall (_Types...) &&> : _Arg_types<_Types...> { typedef true_type _Bool_type; typedef _Ret result_type; static constexpr bool _Weird = true; }; template<class _Ret, class... _Types> struct _Is_function<_Ret __stdcall (_Types...) &&> : _Arg_types<_Types...> { typedef true_type _Bool_type; typedef _Ret result_type; static constexpr bool _Weird = true; }; template<class _Ret, class... _Types> struct _Is_function<_Ret __vectorcall (_Types...) &&> : _Arg_types<_Types...> { typedef true_type _Bool_type; typedef _Ret result_type; static constexpr bool _Weird = true; }; template<class _Ret, class... _Types> struct _Is_function<_Ret __cdecl (_Types...) const &&> : _Arg_types<_Types...> { typedef true_type _Bool_type; typedef _Ret result_type; static constexpr bool _Weird = true; }; template<class _Ret, class... _Types> struct _Is_function<_Ret __fastcall (_Types...) const &&> : _Arg_types<_Types...> { typedef true_type _Bool_type; typedef _Ret result_type; static constexpr bool _Weird = true; }; template<class _Ret, class... _Types> struct _Is_function<_Ret __stdcall (_Types...) const &&> : _Arg_types<_Types...> { typedef true_type _Bool_type; typedef _Ret result_type; static constexpr bool _Weird = true; }; template<class _Ret, class... _Types> struct _Is_function<_Ret __vectorcall (_Types...) const &&> : _Arg_types<_Types...> { typedef true_type _Bool_type; typedef _Ret result_type; static constexpr bool _Weird = true; }; template<class _Ret, class... _Types> struct _Is_function<_Ret __cdecl (_Types...) volatile &&> : _Arg_types<_Types...> { typedef true_type _Bool_type; typedef _Ret result_type; static constexpr bool _Weird = true; }; template<class _Ret, class... _Types> struct _Is_function<_Ret __fastcall (_Types...) volatile &&> : _Arg_types<_Types...> { typedef true_type _Bool_type; typedef _Ret result_type; static constexpr bool _Weird = true; }; template<class _Ret, class... _Types> struct _Is_function<_Ret __stdcall (_Types...) volatile &&> : _Arg_types<_Types...> { typedef true_type _Bool_type; typedef _Ret result_type; static constexpr bool _Weird = true; }; template<class _Ret, class... _Types> struct _Is_function<_Ret __vectorcall (_Types...) volatile &&> : _Arg_types<_Types...> { typedef true_type _Bool_type; typedef _Ret result_type; static constexpr bool _Weird = true; }; template<class _Ret, class... _Types> struct _Is_function<_Ret __cdecl (_Types...) const volatile &&> : _Arg_types<_Types...> { typedef true_type _Bool_type; typedef _Ret result_type; static constexpr bool _Weird = true; }; template<class _Ret, class... _Types> struct _Is_function<_Ret __fastcall (_Types...) const volatile &&> : _Arg_types<_Types...> { typedef true_type _Bool_type; typedef _Ret result_type; static constexpr bool _Weird = true; }; template<class _Ret, class... _Types> struct _Is_function<_Ret __stdcall (_Types...) const volatile &&> : _Arg_types<_Types...> { typedef true_type _Bool_type; typedef _Ret result_type; static constexpr bool _Weird = true; }; template<class _Ret, class... _Types> struct _Is_function<_Ret __vectorcall (_Types...) const volatile &&> : _Arg_types<_Types...> { typedef true_type _Bool_type; typedef _Ret result_type; static constexpr bool _Weird = true; };
+template<class _Ret, class... _Types> struct _Is_function<_Ret __cdecl (_Types...) > : _Arg_types<_Types...> { typedef true_type _Bool_type; typedef _Ret result_type; static constexpr bool _Weird = false; }; template<class _Ret, class... _Types> struct _Is_function<_Ret __vectorcall (_Types...) > : _Arg_types<_Types...> { typedef true_type _Bool_type; typedef _Ret result_type; static constexpr bool _Weird = false; }; template<class _Ret, class... _Types> struct _Is_function<_Ret __cdecl (_Types...) const> : _Arg_types<_Types...> { typedef true_type _Bool_type; typedef _Ret result_type; static constexpr bool _Weird = true; }; template<class _Ret, class... _Types> struct _Is_function<_Ret __vectorcall (_Types...) const> : _Arg_types<_Types...> { typedef true_type _Bool_type; typedef _Ret result_type; static constexpr bool _Weird = true; }; template<class _Ret, class... _Types> struct _Is_function<_Ret __cdecl (_Types...) volatile> : _Arg_types<_Types...> { typedef true_type _Bool_type; typedef _Ret result_type; static constexpr bool _Weird = true; }; template<class _Ret, class... _Types> struct _Is_function<_Ret __vectorcall (_Types...) volatile> : _Arg_types<_Types...> { typedef true_type _Bool_type; typedef _Ret result_type; static constexpr bool _Weird = true; }; template<class _Ret, class... _Types> struct _Is_function<_Ret __cdecl (_Types...) const volatile> : _Arg_types<_Types...> { typedef true_type _Bool_type; typedef _Ret result_type; static constexpr bool _Weird = true; }; template<class _Ret, class... _Types> struct _Is_function<_Ret __vectorcall (_Types...) const volatile> : _Arg_types<_Types...> { typedef true_type _Bool_type; typedef _Ret result_type; static constexpr bool _Weird = true; }; template<class _Ret, class... _Types> struct _Is_function<_Ret __cdecl (_Types...) &> : _Arg_types<_Types...> { typedef true_type _Bool_type; typedef _Ret result_type; static constexpr bool _Weird = true; }; template<class _Ret, class... _Types> struct _Is_function<_Ret __vectorcall (_Types...) &> : _Arg_types<_Types...> { typedef true_type _Bool_type; typedef _Ret result_type; static constexpr bool _Weird = true; }; template<class _Ret, class... _Types> struct _Is_function<_Ret __cdecl (_Types...) const &> : _Arg_types<_Types...> { typedef true_type _Bool_type; typedef _Ret result_type; static constexpr bool _Weird = true; }; template<class _Ret, class... _Types> struct _Is_function<_Ret __vectorcall (_Types...) const &> : _Arg_types<_Types...> { typedef true_type _Bool_type; typedef _Ret result_type; static constexpr bool _Weird = true; }; template<class _Ret, class... _Types> struct _Is_function<_Ret __cdecl (_Types...) volatile &> : _Arg_types<_Types...> { typedef true_type _Bool_type; typedef _Ret result_type; static constexpr bool _Weird = true; }; template<class _Ret, class... _Types> struct _Is_function<_Ret __vectorcall (_Types...) volatile &> : _Arg_types<_Types...> { typedef true_type _Bool_type; typedef _Ret result_type; static constexpr bool _Weird = true; }; template<class _Ret, class... _Types> struct _Is_function<_Ret __cdecl (_Types...) const volatile &> : _Arg_types<_Types...> { typedef true_type _Bool_type; typedef _Ret result_type; static constexpr bool _Weird = true; }; template<class _Ret, class... _Types> struct _Is_function<_Ret __vectorcall (_Types...) const volatile &> : _Arg_types<_Types...> { typedef true_type _Bool_type; typedef _Ret result_type; static constexpr bool _Weird = true; }; template<class _Ret, class... _Types> struct _Is_function<_Ret __cdecl (_Types...) &&> : _Arg_types<_Types...> { typedef true_type _Bool_type; typedef _Ret result_type; static constexpr bool _Weird = true; }; template<class _Ret, class... _Types> struct _Is_function<_Ret __vectorcall (_Types...) &&> : _Arg_types<_Types...> { typedef true_type _Bool_type; typedef _Ret result_type; static constexpr bool _Weird = true; }; template<class _Ret, class... _Types> struct _Is_function<_Ret __cdecl (_Types...) const &&> : _Arg_types<_Types...> { typedef true_type _Bool_type; typedef _Ret result_type; static constexpr bool _Weird = true; }; template<class _Ret, class... _Types> struct _Is_function<_Ret __vectorcall (_Types...) const &&> : _Arg_types<_Types...> { typedef true_type _Bool_type; typedef _Ret result_type; static constexpr bool _Weird = true; }; template<class _Ret, class... _Types> struct _Is_function<_Ret __cdecl (_Types...) volatile &&> : _Arg_types<_Types...> { typedef true_type _Bool_type; typedef _Ret result_type; static constexpr bool _Weird = true; }; template<class _Ret, class... _Types> struct _Is_function<_Ret __vectorcall (_Types...) volatile &&> : _Arg_types<_Types...> { typedef true_type _Bool_type; typedef _Ret result_type; static constexpr bool _Weird = true; }; template<class _Ret, class... _Types> struct _Is_function<_Ret __cdecl (_Types...) const volatile &&> : _Arg_types<_Types...> { typedef true_type _Bool_type; typedef _Ret result_type; static constexpr bool _Weird = true; }; template<class _Ret, class... _Types> struct _Is_function<_Ret __vectorcall (_Types...) const volatile &&> : _Arg_types<_Types...> { typedef true_type _Bool_type; typedef _Ret result_type; static constexpr bool _Weird = true; };
 # 686 "D:\\Microsoft Visual Studio 14.0\\VC\\include\\xstddef" 3
 template<class _Ret, class... _Types> struct _Is_function<_Ret (_Types..., ...) > { typedef true_type _Bool_type; typedef _Ret result_type; static constexpr bool _Weird = false; }; template<class _Ret, class... _Types> struct _Is_function<_Ret (_Types..., ...) const> { typedef true_type _Bool_type; typedef _Ret result_type; static constexpr bool _Weird = true; }; template<class _Ret, class... _Types> struct _Is_function<_Ret (_Types..., ...) volatile> { typedef true_type _Bool_type; typedef _Ret result_type; static constexpr bool _Weird = true; }; template<class _Ret, class... _Types> struct _Is_function<_Ret (_Types..., ...) const volatile> { typedef true_type _Bool_type; typedef _Ret result_type; static constexpr bool _Weird = true; }; template<class _Ret, class... _Types> struct _Is_function<_Ret (_Types..., ...) &> { typedef true_type _Bool_type; typedef _Ret result_type; static constexpr bool _Weird = true; }; template<class _Ret, class... _Types> struct _Is_function<_Ret (_Types..., ...) const &> { typedef true_type _Bool_type; typedef _Ret result_type; static constexpr bool _Weird = true; }; template<class _Ret, class... _Types> struct _Is_function<_Ret (_Types..., ...) volatile &> { typedef true_type _Bool_type; typedef _Ret result_type; static constexpr bool _Weird = true; }; template<class _Ret, class... _Types> struct _Is_function<_Ret (_Types..., ...) const volatile &> { typedef true_type _Bool_type; typedef _Ret result_type; static constexpr bool _Weird = true; }; template<class _Ret, class... _Types> struct _Is_function<_Ret (_Types..., ...) &&> { typedef true_type _Bool_type; typedef _Ret result_type; static constexpr bool _Weird = true; }; template<class _Ret, class... _Types> struct _Is_function<_Ret (_Types..., ...) const &&> { typedef true_type _Bool_type; typedef _Ret result_type; static constexpr bool _Weird = true; }; template<class _Ret, class... _Types> struct _Is_function<_Ret (_Types..., ...) volatile &&> { typedef true_type _Bool_type; typedef _Ret result_type; static constexpr bool _Weird = true; }; template<class _Ret, class... _Types> struct _Is_function<_Ret (_Types..., ...) const volatile &&> { typedef true_type _Bool_type; typedef _Ret result_type; static constexpr bool _Weird = true; };
 
@@ -10406,7 +10325,7 @@ template<class _Ty>
  typedef false_type _Bool_type;
  };
 # 33 "D:\\Microsoft Visual Studio 14.0\\VC\\include\\type_traits" 3
-template<class _Ret, class _Arg0, class... _Types> struct _Is_memfunptr<_Ret (__cdecl _Arg0::*)(_Types...) > : _Arg_types< _Arg0 *, _Types...> { typedef true_type _Bool_type; typedef _Ret result_type; typedef _Arg0 _Class_type; }; template<class _Ret, class _Arg0, class... _Types> struct _Is_memfunptr<_Ret (__fastcall _Arg0::*)(_Types...) > : _Arg_types< _Arg0 *, _Types...> { typedef true_type _Bool_type; typedef _Ret result_type; typedef _Arg0 _Class_type; }; template<class _Ret, class _Arg0, class... _Types> struct _Is_memfunptr<_Ret (__stdcall _Arg0::*)(_Types...) > : _Arg_types< _Arg0 *, _Types...> { typedef true_type _Bool_type; typedef _Ret result_type; typedef _Arg0 _Class_type; }; template<class _Ret, class _Arg0, class... _Types> struct _Is_memfunptr<_Ret (__thiscall _Arg0::*)(_Types...) > : _Arg_types< _Arg0 *, _Types...> { typedef true_type _Bool_type; typedef _Ret result_type; typedef _Arg0 _Class_type; }; template<class _Ret, class _Arg0, class... _Types> struct _Is_memfunptr<_Ret (__vectorcall _Arg0::*)(_Types...) > : _Arg_types< _Arg0 *, _Types...> { typedef true_type _Bool_type; typedef _Ret result_type; typedef _Arg0 _Class_type; }; template<class _Ret, class _Arg0, class... _Types> struct _Is_memfunptr<_Ret (__cdecl _Arg0::*)(_Types...) const > : _Arg_types<const _Arg0 *, _Types...> { typedef true_type _Bool_type; typedef _Ret result_type; typedef _Arg0 _Class_type; }; template<class _Ret, class _Arg0, class... _Types> struct _Is_memfunptr<_Ret (__fastcall _Arg0::*)(_Types...) const > : _Arg_types<const _Arg0 *, _Types...> { typedef true_type _Bool_type; typedef _Ret result_type; typedef _Arg0 _Class_type; }; template<class _Ret, class _Arg0, class... _Types> struct _Is_memfunptr<_Ret (__stdcall _Arg0::*)(_Types...) const > : _Arg_types<const _Arg0 *, _Types...> { typedef true_type _Bool_type; typedef _Ret result_type; typedef _Arg0 _Class_type; }; template<class _Ret, class _Arg0, class... _Types> struct _Is_memfunptr<_Ret (__thiscall _Arg0::*)(_Types...) const > : _Arg_types<const _Arg0 *, _Types...> { typedef true_type _Bool_type; typedef _Ret result_type; typedef _Arg0 _Class_type; }; template<class _Ret, class _Arg0, class... _Types> struct _Is_memfunptr<_Ret (__vectorcall _Arg0::*)(_Types...) const > : _Arg_types<const _Arg0 *, _Types...> { typedef true_type _Bool_type; typedef _Ret result_type; typedef _Arg0 _Class_type; }; template<class _Ret, class _Arg0, class... _Types> struct _Is_memfunptr<_Ret (__cdecl _Arg0::*)(_Types...) volatile > : _Arg_types<volatile _Arg0 *, _Types...> { typedef true_type _Bool_type; typedef _Ret result_type; typedef _Arg0 _Class_type; }; template<class _Ret, class _Arg0, class... _Types> struct _Is_memfunptr<_Ret (__fastcall _Arg0::*)(_Types...) volatile > : _Arg_types<volatile _Arg0 *, _Types...> { typedef true_type _Bool_type; typedef _Ret result_type; typedef _Arg0 _Class_type; }; template<class _Ret, class _Arg0, class... _Types> struct _Is_memfunptr<_Ret (__stdcall _Arg0::*)(_Types...) volatile > : _Arg_types<volatile _Arg0 *, _Types...> { typedef true_type _Bool_type; typedef _Ret result_type; typedef _Arg0 _Class_type; }; template<class _Ret, class _Arg0, class... _Types> struct _Is_memfunptr<_Ret (__thiscall _Arg0::*)(_Types...) volatile > : _Arg_types<volatile _Arg0 *, _Types...> { typedef true_type _Bool_type; typedef _Ret result_type; typedef _Arg0 _Class_type; }; template<class _Ret, class _Arg0, class... _Types> struct _Is_memfunptr<_Ret (__vectorcall _Arg0::*)(_Types...) volatile > : _Arg_types<volatile _Arg0 *, _Types...> { typedef true_type _Bool_type; typedef _Ret result_type; typedef _Arg0 _Class_type; }; template<class _Ret, class _Arg0, class... _Types> struct _Is_memfunptr<_Ret (__cdecl _Arg0::*)(_Types...) const volatile > : _Arg_types<const volatile _Arg0 *, _Types...> { typedef true_type _Bool_type; typedef _Ret result_type; typedef _Arg0 _Class_type; }; template<class _Ret, class _Arg0, class... _Types> struct _Is_memfunptr<_Ret (__fastcall _Arg0::*)(_Types...) const volatile > : _Arg_types<const volatile _Arg0 *, _Types...> { typedef true_type _Bool_type; typedef _Ret result_type; typedef _Arg0 _Class_type; }; template<class _Ret, class _Arg0, class... _Types> struct _Is_memfunptr<_Ret (__stdcall _Arg0::*)(_Types...) const volatile > : _Arg_types<const volatile _Arg0 *, _Types...> { typedef true_type _Bool_type; typedef _Ret result_type; typedef _Arg0 _Class_type; }; template<class _Ret, class _Arg0, class... _Types> struct _Is_memfunptr<_Ret (__thiscall _Arg0::*)(_Types...) const volatile > : _Arg_types<const volatile _Arg0 *, _Types...> { typedef true_type _Bool_type; typedef _Ret result_type; typedef _Arg0 _Class_type; }; template<class _Ret, class _Arg0, class... _Types> struct _Is_memfunptr<_Ret (__vectorcall _Arg0::*)(_Types...) const volatile > : _Arg_types<const volatile _Arg0 *, _Types...> { typedef true_type _Bool_type; typedef _Ret result_type; typedef _Arg0 _Class_type; }; template<class _Ret, class _Arg0, class... _Types> struct _Is_memfunptr<_Ret (__cdecl _Arg0::*)(_Types...) &> : _Arg_types< _Arg0 *, _Types...> { typedef true_type _Bool_type; typedef _Ret result_type; typedef _Arg0 _Class_type; }; template<class _Ret, class _Arg0, class... _Types> struct _Is_memfunptr<_Ret (__fastcall _Arg0::*)(_Types...) &> : _Arg_types< _Arg0 *, _Types...> { typedef true_type _Bool_type; typedef _Ret result_type; typedef _Arg0 _Class_type; }; template<class _Ret, class _Arg0, class... _Types> struct _Is_memfunptr<_Ret (__stdcall _Arg0::*)(_Types...) &> : _Arg_types< _Arg0 *, _Types...> { typedef true_type _Bool_type; typedef _Ret result_type; typedef _Arg0 _Class_type; }; template<class _Ret, class _Arg0, class... _Types> struct _Is_memfunptr<_Ret (__thiscall _Arg0::*)(_Types...) &> : _Arg_types< _Arg0 *, _Types...> { typedef true_type _Bool_type; typedef _Ret result_type; typedef _Arg0 _Class_type; }; template<class _Ret, class _Arg0, class... _Types> struct _Is_memfunptr<_Ret (__vectorcall _Arg0::*)(_Types...) &> : _Arg_types< _Arg0 *, _Types...> { typedef true_type _Bool_type; typedef _Ret result_type; typedef _Arg0 _Class_type; }; template<class _Ret, class _Arg0, class... _Types> struct _Is_memfunptr<_Ret (__cdecl _Arg0::*)(_Types...) const &> : _Arg_types<const _Arg0 *, _Types...> { typedef true_type _Bool_type; typedef _Ret result_type; typedef _Arg0 _Class_type; }; template<class _Ret, class _Arg0, class... _Types> struct _Is_memfunptr<_Ret (__fastcall _Arg0::*)(_Types...) const &> : _Arg_types<const _Arg0 *, _Types...> { typedef true_type _Bool_type; typedef _Ret result_type; typedef _Arg0 _Class_type; }; template<class _Ret, class _Arg0, class... _Types> struct _Is_memfunptr<_Ret (__stdcall _Arg0::*)(_Types...) const &> : _Arg_types<const _Arg0 *, _Types...> { typedef true_type _Bool_type; typedef _Ret result_type; typedef _Arg0 _Class_type; }; template<class _Ret, class _Arg0, class... _Types> struct _Is_memfunptr<_Ret (__thiscall _Arg0::*)(_Types...) const &> : _Arg_types<const _Arg0 *, _Types...> { typedef true_type _Bool_type; typedef _Ret result_type; typedef _Arg0 _Class_type; }; template<class _Ret, class _Arg0, class... _Types> struct _Is_memfunptr<_Ret (__vectorcall _Arg0::*)(_Types...) const &> : _Arg_types<const _Arg0 *, _Types...> { typedef true_type _Bool_type; typedef _Ret result_type; typedef _Arg0 _Class_type; }; template<class _Ret, class _Arg0, class... _Types> struct _Is_memfunptr<_Ret (__cdecl _Arg0::*)(_Types...) volatile &> : _Arg_types<volatile _Arg0 *, _Types...> { typedef true_type _Bool_type; typedef _Ret result_type; typedef _Arg0 _Class_type; }; template<class _Ret, class _Arg0, class... _Types> struct _Is_memfunptr<_Ret (__fastcall _Arg0::*)(_Types...) volatile &> : _Arg_types<volatile _Arg0 *, _Types...> { typedef true_type _Bool_type; typedef _Ret result_type; typedef _Arg0 _Class_type; }; template<class _Ret, class _Arg0, class... _Types> struct _Is_memfunptr<_Ret (__stdcall _Arg0::*)(_Types...) volatile &> : _Arg_types<volatile _Arg0 *, _Types...> { typedef true_type _Bool_type; typedef _Ret result_type; typedef _Arg0 _Class_type; }; template<class _Ret, class _Arg0, class... _Types> struct _Is_memfunptr<_Ret (__thiscall _Arg0::*)(_Types...) volatile &> : _Arg_types<volatile _Arg0 *, _Types...> { typedef true_type _Bool_type; typedef _Ret result_type; typedef _Arg0 _Class_type; }; template<class _Ret, class _Arg0, class... _Types> struct _Is_memfunptr<_Ret (__vectorcall _Arg0::*)(_Types...) volatile &> : _Arg_types<volatile _Arg0 *, _Types...> { typedef true_type _Bool_type; typedef _Ret result_type; typedef _Arg0 _Class_type; }; template<class _Ret, class _Arg0, class... _Types> struct _Is_memfunptr<_Ret (__cdecl _Arg0::*)(_Types...) const volatile &> : _Arg_types<const volatile _Arg0 *, _Types...> { typedef true_type _Bool_type; typedef _Ret result_type; typedef _Arg0 _Class_type; }; template<class _Ret, class _Arg0, class... _Types> struct _Is_memfunptr<_Ret (__fastcall _Arg0::*)(_Types...) const volatile &> : _Arg_types<const volatile _Arg0 *, _Types...> { typedef true_type _Bool_type; typedef _Ret result_type; typedef _Arg0 _Class_type; }; template<class _Ret, class _Arg0, class... _Types> struct _Is_memfunptr<_Ret (__stdcall _Arg0::*)(_Types...) const volatile &> : _Arg_types<const volatile _Arg0 *, _Types...> { typedef true_type _Bool_type; typedef _Ret result_type; typedef _Arg0 _Class_type; }; template<class _Ret, class _Arg0, class... _Types> struct _Is_memfunptr<_Ret (__thiscall _Arg0::*)(_Types...) const volatile &> : _Arg_types<const volatile _Arg0 *, _Types...> { typedef true_type _Bool_type; typedef _Ret result_type; typedef _Arg0 _Class_type; }; template<class _Ret, class _Arg0, class... _Types> struct _Is_memfunptr<_Ret (__vectorcall _Arg0::*)(_Types...) const volatile &> : _Arg_types<const volatile _Arg0 *, _Types...> { typedef true_type _Bool_type; typedef _Ret result_type; typedef _Arg0 _Class_type; }; template<class _Ret, class _Arg0, class... _Types> struct _Is_memfunptr<_Ret (__cdecl _Arg0::*)(_Types...) &&> : _Arg_types< _Arg0 *, _Types...> { typedef true_type _Bool_type; typedef _Ret result_type; typedef _Arg0 _Class_type; }; template<class _Ret, class _Arg0, class... _Types> struct _Is_memfunptr<_Ret (__fastcall _Arg0::*)(_Types...) &&> : _Arg_types< _Arg0 *, _Types...> { typedef true_type _Bool_type; typedef _Ret result_type; typedef _Arg0 _Class_type; }; template<class _Ret, class _Arg0, class... _Types> struct _Is_memfunptr<_Ret (__stdcall _Arg0::*)(_Types...) &&> : _Arg_types< _Arg0 *, _Types...> { typedef true_type _Bool_type; typedef _Ret result_type; typedef _Arg0 _Class_type; }; template<class _Ret, class _Arg0, class... _Types> struct _Is_memfunptr<_Ret (__thiscall _Arg0::*)(_Types...) &&> : _Arg_types< _Arg0 *, _Types...> { typedef true_type _Bool_type; typedef _Ret result_type; typedef _Arg0 _Class_type; }; template<class _Ret, class _Arg0, class... _Types> struct _Is_memfunptr<_Ret (__vectorcall _Arg0::*)(_Types...) &&> : _Arg_types< _Arg0 *, _Types...> { typedef true_type _Bool_type; typedef _Ret result_type; typedef _Arg0 _Class_type; }; template<class _Ret, class _Arg0, class... _Types> struct _Is_memfunptr<_Ret (__cdecl _Arg0::*)(_Types...) const &&> : _Arg_types<const _Arg0 *, _Types...> { typedef true_type _Bool_type; typedef _Ret result_type; typedef _Arg0 _Class_type; }; template<class _Ret, class _Arg0, class... _Types> struct _Is_memfunptr<_Ret (__fastcall _Arg0::*)(_Types...) const &&> : _Arg_types<const _Arg0 *, _Types...> { typedef true_type _Bool_type; typedef _Ret result_type; typedef _Arg0 _Class_type; }; template<class _Ret, class _Arg0, class... _Types> struct _Is_memfunptr<_Ret (__stdcall _Arg0::*)(_Types...) const &&> : _Arg_types<const _Arg0 *, _Types...> { typedef true_type _Bool_type; typedef _Ret result_type; typedef _Arg0 _Class_type; }; template<class _Ret, class _Arg0, class... _Types> struct _Is_memfunptr<_Ret (__thiscall _Arg0::*)(_Types...) const &&> : _Arg_types<const _Arg0 *, _Types...> { typedef true_type _Bool_type; typedef _Ret result_type; typedef _Arg0 _Class_type; }; template<class _Ret, class _Arg0, class... _Types> struct _Is_memfunptr<_Ret (__vectorcall _Arg0::*)(_Types...) const &&> : _Arg_types<const _Arg0 *, _Types...> { typedef true_type _Bool_type; typedef _Ret result_type; typedef _Arg0 _Class_type; }; template<class _Ret, class _Arg0, class... _Types> struct _Is_memfunptr<_Ret (__cdecl _Arg0::*)(_Types...) volatile &&> : _Arg_types<volatile _Arg0 *, _Types...> { typedef true_type _Bool_type; typedef _Ret result_type; typedef _Arg0 _Class_type; }; template<class _Ret, class _Arg0, class... _Types> struct _Is_memfunptr<_Ret (__fastcall _Arg0::*)(_Types...) volatile &&> : _Arg_types<volatile _Arg0 *, _Types...> { typedef true_type _Bool_type; typedef _Ret result_type; typedef _Arg0 _Class_type; }; template<class _Ret, class _Arg0, class... _Types> struct _Is_memfunptr<_Ret (__stdcall _Arg0::*)(_Types...) volatile &&> : _Arg_types<volatile _Arg0 *, _Types...> { typedef true_type _Bool_type; typedef _Ret result_type; typedef _Arg0 _Class_type; }; template<class _Ret, class _Arg0, class... _Types> struct _Is_memfunptr<_Ret (__thiscall _Arg0::*)(_Types...) volatile &&> : _Arg_types<volatile _Arg0 *, _Types...> { typedef true_type _Bool_type; typedef _Ret result_type; typedef _Arg0 _Class_type; }; template<class _Ret, class _Arg0, class... _Types> struct _Is_memfunptr<_Ret (__vectorcall _Arg0::*)(_Types...) volatile &&> : _Arg_types<volatile _Arg0 *, _Types...> { typedef true_type _Bool_type; typedef _Ret result_type; typedef _Arg0 _Class_type; }; template<class _Ret, class _Arg0, class... _Types> struct _Is_memfunptr<_Ret (__cdecl _Arg0::*)(_Types...) const volatile &&> : _Arg_types<const volatile _Arg0 *, _Types...> { typedef true_type _Bool_type; typedef _Ret result_type; typedef _Arg0 _Class_type; }; template<class _Ret, class _Arg0, class... _Types> struct _Is_memfunptr<_Ret (__fastcall _Arg0::*)(_Types...) const volatile &&> : _Arg_types<const volatile _Arg0 *, _Types...> { typedef true_type _Bool_type; typedef _Ret result_type; typedef _Arg0 _Class_type; }; template<class _Ret, class _Arg0, class... _Types> struct _Is_memfunptr<_Ret (__stdcall _Arg0::*)(_Types...) const volatile &&> : _Arg_types<const volatile _Arg0 *, _Types...> { typedef true_type _Bool_type; typedef _Ret result_type; typedef _Arg0 _Class_type; }; template<class _Ret, class _Arg0, class... _Types> struct _Is_memfunptr<_Ret (__thiscall _Arg0::*)(_Types...) const volatile &&> : _Arg_types<const volatile _Arg0 *, _Types...> { typedef true_type _Bool_type; typedef _Ret result_type; typedef _Arg0 _Class_type; }; template<class _Ret, class _Arg0, class... _Types> struct _Is_memfunptr<_Ret (__vectorcall _Arg0::*)(_Types...) const volatile &&> : _Arg_types<const volatile _Arg0 *, _Types...> { typedef true_type _Bool_type; typedef _Ret result_type; typedef _Arg0 _Class_type; };
+template<class _Ret, class _Arg0, class... _Types> struct _Is_memfunptr<_Ret (__cdecl _Arg0::*)(_Types...) > : _Arg_types< _Arg0 *, _Types...> { typedef true_type _Bool_type; typedef _Ret result_type; typedef _Arg0 _Class_type; }; template<class _Ret, class _Arg0, class... _Types> struct _Is_memfunptr<_Ret (__vectorcall _Arg0::*)(_Types...) > : _Arg_types< _Arg0 *, _Types...> { typedef true_type _Bool_type; typedef _Ret result_type; typedef _Arg0 _Class_type; }; template<class _Ret, class _Arg0, class... _Types> struct _Is_memfunptr<_Ret (__cdecl _Arg0::*)(_Types...) const > : _Arg_types<const _Arg0 *, _Types...> { typedef true_type _Bool_type; typedef _Ret result_type; typedef _Arg0 _Class_type; }; template<class _Ret, class _Arg0, class... _Types> struct _Is_memfunptr<_Ret (__vectorcall _Arg0::*)(_Types...) const > : _Arg_types<const _Arg0 *, _Types...> { typedef true_type _Bool_type; typedef _Ret result_type; typedef _Arg0 _Class_type; }; template<class _Ret, class _Arg0, class... _Types> struct _Is_memfunptr<_Ret (__cdecl _Arg0::*)(_Types...) volatile > : _Arg_types<volatile _Arg0 *, _Types...> { typedef true_type _Bool_type; typedef _Ret result_type; typedef _Arg0 _Class_type; }; template<class _Ret, class _Arg0, class... _Types> struct _Is_memfunptr<_Ret (__vectorcall _Arg0::*)(_Types...) volatile > : _Arg_types<volatile _Arg0 *, _Types...> { typedef true_type _Bool_type; typedef _Ret result_type; typedef _Arg0 _Class_type; }; template<class _Ret, class _Arg0, class... _Types> struct _Is_memfunptr<_Ret (__cdecl _Arg0::*)(_Types...) const volatile > : _Arg_types<const volatile _Arg0 *, _Types...> { typedef true_type _Bool_type; typedef _Ret result_type; typedef _Arg0 _Class_type; }; template<class _Ret, class _Arg0, class... _Types> struct _Is_memfunptr<_Ret (__vectorcall _Arg0::*)(_Types...) const volatile > : _Arg_types<const volatile _Arg0 *, _Types...> { typedef true_type _Bool_type; typedef _Ret result_type; typedef _Arg0 _Class_type; }; template<class _Ret, class _Arg0, class... _Types> struct _Is_memfunptr<_Ret (__cdecl _Arg0::*)(_Types...) &> : _Arg_types< _Arg0 *, _Types...> { typedef true_type _Bool_type; typedef _Ret result_type; typedef _Arg0 _Class_type; }; template<class _Ret, class _Arg0, class... _Types> struct _Is_memfunptr<_Ret (__vectorcall _Arg0::*)(_Types...) &> : _Arg_types< _Arg0 *, _Types...> { typedef true_type _Bool_type; typedef _Ret result_type; typedef _Arg0 _Class_type; }; template<class _Ret, class _Arg0, class... _Types> struct _Is_memfunptr<_Ret (__cdecl _Arg0::*)(_Types...) const &> : _Arg_types<const _Arg0 *, _Types...> { typedef true_type _Bool_type; typedef _Ret result_type; typedef _Arg0 _Class_type; }; template<class _Ret, class _Arg0, class... _Types> struct _Is_memfunptr<_Ret (__vectorcall _Arg0::*)(_Types...) const &> : _Arg_types<const _Arg0 *, _Types...> { typedef true_type _Bool_type; typedef _Ret result_type; typedef _Arg0 _Class_type; }; template<class _Ret, class _Arg0, class... _Types> struct _Is_memfunptr<_Ret (__cdecl _Arg0::*)(_Types...) volatile &> : _Arg_types<volatile _Arg0 *, _Types...> { typedef true_type _Bool_type; typedef _Ret result_type; typedef _Arg0 _Class_type; }; template<class _Ret, class _Arg0, class... _Types> struct _Is_memfunptr<_Ret (__vectorcall _Arg0::*)(_Types...) volatile &> : _Arg_types<volatile _Arg0 *, _Types...> { typedef true_type _Bool_type; typedef _Ret result_type; typedef _Arg0 _Class_type; }; template<class _Ret, class _Arg0, class... _Types> struct _Is_memfunptr<_Ret (__cdecl _Arg0::*)(_Types...) const volatile &> : _Arg_types<const volatile _Arg0 *, _Types...> { typedef true_type _Bool_type; typedef _Ret result_type; typedef _Arg0 _Class_type; }; template<class _Ret, class _Arg0, class... _Types> struct _Is_memfunptr<_Ret (__vectorcall _Arg0::*)(_Types...) const volatile &> : _Arg_types<const volatile _Arg0 *, _Types...> { typedef true_type _Bool_type; typedef _Ret result_type; typedef _Arg0 _Class_type; }; template<class _Ret, class _Arg0, class... _Types> struct _Is_memfunptr<_Ret (__cdecl _Arg0::*)(_Types...) &&> : _Arg_types< _Arg0 *, _Types...> { typedef true_type _Bool_type; typedef _Ret result_type; typedef _Arg0 _Class_type; }; template<class _Ret, class _Arg0, class... _Types> struct _Is_memfunptr<_Ret (__vectorcall _Arg0::*)(_Types...) &&> : _Arg_types< _Arg0 *, _Types...> { typedef true_type _Bool_type; typedef _Ret result_type; typedef _Arg0 _Class_type; }; template<class _Ret, class _Arg0, class... _Types> struct _Is_memfunptr<_Ret (__cdecl _Arg0::*)(_Types...) const &&> : _Arg_types<const _Arg0 *, _Types...> { typedef true_type _Bool_type; typedef _Ret result_type; typedef _Arg0 _Class_type; }; template<class _Ret, class _Arg0, class... _Types> struct _Is_memfunptr<_Ret (__vectorcall _Arg0::*)(_Types...) const &&> : _Arg_types<const _Arg0 *, _Types...> { typedef true_type _Bool_type; typedef _Ret result_type; typedef _Arg0 _Class_type; }; template<class _Ret, class _Arg0, class... _Types> struct _Is_memfunptr<_Ret (__cdecl _Arg0::*)(_Types...) volatile &&> : _Arg_types<volatile _Arg0 *, _Types...> { typedef true_type _Bool_type; typedef _Ret result_type; typedef _Arg0 _Class_type; }; template<class _Ret, class _Arg0, class... _Types> struct _Is_memfunptr<_Ret (__vectorcall _Arg0::*)(_Types...) volatile &&> : _Arg_types<volatile _Arg0 *, _Types...> { typedef true_type _Bool_type; typedef _Ret result_type; typedef _Arg0 _Class_type; }; template<class _Ret, class _Arg0, class... _Types> struct _Is_memfunptr<_Ret (__cdecl _Arg0::*)(_Types...) const volatile &&> : _Arg_types<const volatile _Arg0 *, _Types...> { typedef true_type _Bool_type; typedef _Ret result_type; typedef _Arg0 _Class_type; }; template<class _Ret, class _Arg0, class... _Types> struct _Is_memfunptr<_Ret (__vectorcall _Arg0::*)(_Types...) const volatile &&> : _Arg_types<const volatile _Arg0 *, _Types...> { typedef true_type _Bool_type; typedef _Ret result_type; typedef _Arg0 _Class_type; };
 # 47 "D:\\Microsoft Visual Studio 14.0\\VC\\include\\type_traits" 3
 template<class _Ret, class _Arg0, class... _Types> struct _Is_memfunptr<_Ret (_Arg0::*)(_Types..., ...) > { typedef true_type _Bool_type; typedef _Ret result_type; typedef _Arg0 _Class_type; }; template<class _Ret, class _Arg0, class... _Types> struct _Is_memfunptr<_Ret (_Arg0::*)(_Types..., ...) const> { typedef true_type _Bool_type; typedef _Ret result_type; typedef _Arg0 _Class_type; }; template<class _Ret, class _Arg0, class... _Types> struct _Is_memfunptr<_Ret (_Arg0::*)(_Types..., ...) volatile> { typedef true_type _Bool_type; typedef _Ret result_type; typedef _Arg0 _Class_type; }; template<class _Ret, class _Arg0, class... _Types> struct _Is_memfunptr<_Ret (_Arg0::*)(_Types..., ...) const volatile> { typedef true_type _Bool_type; typedef _Ret result_type; typedef _Arg0 _Class_type; }; template<class _Ret, class _Arg0, class... _Types> struct _Is_memfunptr<_Ret (_Arg0::*)(_Types..., ...) &> { typedef true_type _Bool_type; typedef _Ret result_type; typedef _Arg0 _Class_type; }; template<class _Ret, class _Arg0, class... _Types> struct _Is_memfunptr<_Ret (_Arg0::*)(_Types..., ...) const &> { typedef true_type _Bool_type; typedef _Ret result_type; typedef _Arg0 _Class_type; }; template<class _Ret, class _Arg0, class... _Types> struct _Is_memfunptr<_Ret (_Arg0::*)(_Types..., ...) volatile &> { typedef true_type _Bool_type; typedef _Ret result_type; typedef _Arg0 _Class_type; }; template<class _Ret, class _Arg0, class... _Types> struct _Is_memfunptr<_Ret (_Arg0::*)(_Types..., ...) const volatile &> { typedef true_type _Bool_type; typedef _Ret result_type; typedef _Arg0 _Class_type; }; template<class _Ret, class _Arg0, class... _Types> struct _Is_memfunptr<_Ret (_Arg0::*)(_Types..., ...) &&> { typedef true_type _Bool_type; typedef _Ret result_type; typedef _Arg0 _Class_type; }; template<class _Ret, class _Arg0, class... _Types> struct _Is_memfunptr<_Ret (_Arg0::*)(_Types..., ...) const &&> { typedef true_type _Bool_type; typedef _Ret result_type; typedef _Arg0 _Class_type; }; template<class _Ret, class _Arg0, class... _Types> struct _Is_memfunptr<_Ret (_Arg0::*)(_Types..., ...) volatile &&> { typedef true_type _Bool_type; typedef _Ret result_type; typedef _Arg0 _Class_type; }; template<class _Ret, class _Arg0, class... _Types> struct _Is_memfunptr<_Ret (_Arg0::*)(_Types..., ...) const volatile &&> { typedef true_type _Bool_type; typedef _Ret result_type; typedef _Arg0 _Class_type; };
 
@@ -11816,7 +11735,7 @@ template<class _Fty>
   "result_of<CallableType(zero or more argument types)> instead.");
  };
 # 1515 "D:\\Microsoft Visual Studio 14.0\\VC\\include\\type_traits" 3
-template<class _Fty, class... _Args> struct result_of<_Fty __cdecl (_Args...)> : _Result_of<void, _Fty, _Args...> { }; template<class _Fty, class... _Args> struct result_of<_Fty __fastcall (_Args...)> : _Result_of<void, _Fty, _Args...> { }; template<class _Fty, class... _Args> struct result_of<_Fty __stdcall (_Args...)> : _Result_of<void, _Fty, _Args...> { }; template<class _Fty, class... _Args> struct result_of<_Fty __vectorcall (_Args...)> : _Result_of<void, _Fty, _Args...> { };
+template<class _Fty, class... _Args> struct result_of<_Fty __cdecl (_Args...)> : _Result_of<void, _Fty, _Args...> { }; template<class _Fty, class... _Args> struct result_of<_Fty __vectorcall (_Args...)> : _Result_of<void, _Fty, _Args...> { };
 
 
 
@@ -12367,7 +12286,7 @@ void* __cdecl _alloca( size_t _Size);
                        __declspec(dllimport) int __cdecl _heapchk(void);
         __declspec(dllimport) int __cdecl _resetstkoflw(void);
 # 84 "C:\\Program Files (x86)\\Windows Kits\\10\\Include\\10.0.10240.0\\ucrt\\malloc.h" 3
-    typedef char __static_assert_t[(sizeof(unsigned int) <= 8) != 0];
+    typedef char __static_assert_t[(sizeof(unsigned int) <= 16) != 0];
 
 
 #pragma warning(push)
@@ -12378,14 +12297,14 @@ void* __cdecl _alloca( size_t _Size);
         if (_Ptr)
         {
             *((unsigned int*)_Ptr) = _Marker;
-            _Ptr = (char*)_Ptr + 8;
+            _Ptr = (char*)_Ptr + 16;
         }
         return _Ptr;
     }
 
     __inline size_t _MallocaComputeSize(size_t _Size)
     {
-        size_t _MarkedSize = _Size + 8;
+        size_t _MarkedSize = _Size + 16;
         return _MarkedSize > _Size ? _MarkedSize : 0;
     }
 
@@ -12398,7 +12317,7 @@ void* __cdecl _alloca( size_t _Size);
         unsigned int _Marker;
         if (_Memory)
         {
-            _Memory = (char*)_Memory - 8;
+            _Memory = (char*)_Memory - 16;
             _Marker = *(unsigned int*)_Memory;
             if (_Marker == 0xDDDD)
             {
@@ -13771,7 +13690,7 @@ __inline int __cdecl _fprintf_l(
 {
     int _Result;
     va_list _ArgList;
-    ((void)(__vcrt_va_start_verify_argument_type<decltype(_Locale)>(), ((void)(_ArgList = (va_list)(&const_cast<char&>(reinterpret_cast<const volatile char&>(_Locale))) + ((sizeof(_Locale) + sizeof(int) - 1) & ~(sizeof(int) - 1))))));
+    ((void)(__vcrt_va_start_verify_argument_type<decltype(_Locale)>(), ((void)(__va_start(&_ArgList, _Locale)))));
     _Result = _vfprintf_l(_Stream, _Format, _Locale, _ArgList);
     ((void)(_ArgList = (va_list)0));
     return _Result;
@@ -13789,7 +13708,7 @@ __inline int __cdecl fprintf(
 {
     int _Result;
     va_list _ArgList;
-    ((void)(__vcrt_va_start_verify_argument_type<decltype(_Format)>(), ((void)(_ArgList = (va_list)(&const_cast<char&>(reinterpret_cast<const volatile char&>(_Format))) + ((sizeof(_Format) + sizeof(int) - 1) & ~(sizeof(int) - 1))))));
+    ((void)(__vcrt_va_start_verify_argument_type<decltype(_Format)>(), ((void)(__va_start(&_ArgList, _Format)))));
     _Result = _vfprintf_l(_Stream, _Format, 0, _ArgList);
     ((void)(_ArgList = (va_list)0));
     return _Result;
@@ -13814,7 +13733,7 @@ __inline int __cdecl _fprintf_s_l(
 {
     int _Result;
     va_list _ArgList;
-    ((void)(__vcrt_va_start_verify_argument_type<decltype(_Locale)>(), ((void)(_ArgList = (va_list)(&const_cast<char&>(reinterpret_cast<const volatile char&>(_Locale))) + ((sizeof(_Locale) + sizeof(int) - 1) & ~(sizeof(int) - 1))))));
+    ((void)(__vcrt_va_start_verify_argument_type<decltype(_Locale)>(), ((void)(__va_start(&_ArgList, _Locale)))));
     _Result = _vfprintf_s_l(_Stream, _Format, _Locale, _ArgList);
     ((void)(_ArgList = (va_list)0));
     return _Result;
@@ -13834,7 +13753,7 @@ __inline int __cdecl _fprintf_s_l(
     {
         int _Result;
         va_list _ArgList;
-        ((void)(__vcrt_va_start_verify_argument_type<decltype(_Format)>(), ((void)(_ArgList = (va_list)(&const_cast<char&>(reinterpret_cast<const volatile char&>(_Format))) + ((sizeof(_Format) + sizeof(int) - 1) & ~(sizeof(int) - 1))))));
+        ((void)(__vcrt_va_start_verify_argument_type<decltype(_Format)>(), ((void)(__va_start(&_ArgList, _Format)))));
         _Result = _vfprintf_s_l(_Stream, _Format, 0, _ArgList);
         ((void)(_ArgList = (va_list)0));
         return _Result;
@@ -13855,7 +13774,7 @@ __inline int __cdecl _fprintf_p_l(
 {
     int _Result;
     va_list _ArgList;
-    ((void)(__vcrt_va_start_verify_argument_type<decltype(_Locale)>(), ((void)(_ArgList = (va_list)(&const_cast<char&>(reinterpret_cast<const volatile char&>(_Locale))) + ((sizeof(_Locale) + sizeof(int) - 1) & ~(sizeof(int) - 1))))));
+    ((void)(__vcrt_va_start_verify_argument_type<decltype(_Locale)>(), ((void)(__va_start(&_ArgList, _Locale)))));
     _Result = _vfprintf_p_l(_Stream, _Format, _Locale, _ArgList);
     ((void)(_ArgList = (va_list)0));
     return _Result;
@@ -13873,7 +13792,7 @@ __inline int __cdecl _fprintf_p(
 {
     int _Result;
     va_list _ArgList;
-    ((void)(__vcrt_va_start_verify_argument_type<decltype(_Format)>(), ((void)(_ArgList = (va_list)(&const_cast<char&>(reinterpret_cast<const volatile char&>(_Format))) + ((sizeof(_Format) + sizeof(int) - 1) & ~(sizeof(int) - 1))))));
+    ((void)(__vcrt_va_start_verify_argument_type<decltype(_Format)>(), ((void)(__va_start(&_ArgList, _Format)))));
     _Result = _vfprintf_p_l(_Stream, _Format, 0, _ArgList);
     ((void)(_ArgList = (va_list)0));
     return _Result;
@@ -13891,7 +13810,7 @@ __inline int __cdecl _printf_l(
 {
     int _Result;
     va_list _ArgList;
-    ((void)(__vcrt_va_start_verify_argument_type<decltype(_Locale)>(), ((void)(_ArgList = (va_list)(&const_cast<char&>(reinterpret_cast<const volatile char&>(_Locale))) + ((sizeof(_Locale) + sizeof(int) - 1) & ~(sizeof(int) - 1))))));
+    ((void)(__vcrt_va_start_verify_argument_type<decltype(_Locale)>(), ((void)(__va_start(&_ArgList, _Locale)))));
     _Result = _vfprintf_l((__acrt_iob_func(1)), _Format, _Locale, _ArgList);
     ((void)(_ArgList = (va_list)0));
     return _Result;
@@ -13908,7 +13827,7 @@ __inline int __cdecl printf(
 {
     int _Result;
     va_list _ArgList;
-    ((void)(__vcrt_va_start_verify_argument_type<decltype(_Format)>(), ((void)(_ArgList = (va_list)(&const_cast<char&>(reinterpret_cast<const volatile char&>(_Format))) + ((sizeof(_Format) + sizeof(int) - 1) & ~(sizeof(int) - 1))))));
+    ((void)(__vcrt_va_start_verify_argument_type<decltype(_Format)>(), ((void)(__va_start(&_ArgList, _Format)))));
     _Result = _vfprintf_l((__acrt_iob_func(1)), _Format, 0, _ArgList);
     ((void)(_ArgList = (va_list)0));
     return _Result;
@@ -13926,7 +13845,7 @@ __inline int __cdecl _printf_s_l(
 {
     int _Result;
     va_list _ArgList;
-    ((void)(__vcrt_va_start_verify_argument_type<decltype(_Locale)>(), ((void)(_ArgList = (va_list)(&const_cast<char&>(reinterpret_cast<const volatile char&>(_Locale))) + ((sizeof(_Locale) + sizeof(int) - 1) & ~(sizeof(int) - 1))))));
+    ((void)(__vcrt_va_start_verify_argument_type<decltype(_Locale)>(), ((void)(__va_start(&_ArgList, _Locale)))));
     _Result = _vfprintf_s_l((__acrt_iob_func(1)), _Format, _Locale, _ArgList);
     ((void)(_ArgList = (va_list)0));
     return _Result;
@@ -13945,7 +13864,7 @@ __inline int __cdecl _printf_s_l(
     {
         int _Result;
         va_list _ArgList;
-        ((void)(__vcrt_va_start_verify_argument_type<decltype(_Format)>(), ((void)(_ArgList = (va_list)(&const_cast<char&>(reinterpret_cast<const volatile char&>(_Format))) + ((sizeof(_Format) + sizeof(int) - 1) & ~(sizeof(int) - 1))))));
+        ((void)(__vcrt_va_start_verify_argument_type<decltype(_Format)>(), ((void)(__va_start(&_ArgList, _Format)))));
         _Result = _vfprintf_s_l((__acrt_iob_func(1)), _Format, 0, _ArgList);
         ((void)(_ArgList = (va_list)0));
         return _Result;
@@ -13965,7 +13884,7 @@ __inline int __cdecl _printf_p_l(
 {
     int _Result;
     va_list _ArgList;
-    ((void)(__vcrt_va_start_verify_argument_type<decltype(_Locale)>(), ((void)(_ArgList = (va_list)(&const_cast<char&>(reinterpret_cast<const volatile char&>(_Locale))) + ((sizeof(_Locale) + sizeof(int) - 1) & ~(sizeof(int) - 1))))));
+    ((void)(__vcrt_va_start_verify_argument_type<decltype(_Locale)>(), ((void)(__va_start(&_ArgList, _Locale)))));
     _Result = _vfprintf_p_l((__acrt_iob_func(1)), _Format, _Locale, _ArgList);
     ((void)(_ArgList = (va_list)0));
     return _Result;
@@ -13982,7 +13901,7 @@ __inline int __cdecl _printf_p(
 {
     int _Result;
     va_list _ArgList;
-    ((void)(__vcrt_va_start_verify_argument_type<decltype(_Format)>(), ((void)(_ArgList = (va_list)(&const_cast<char&>(reinterpret_cast<const volatile char&>(_Format))) + ((sizeof(_Format) + sizeof(int) - 1) & ~(sizeof(int) - 1))))));
+    ((void)(__vcrt_va_start_verify_argument_type<decltype(_Format)>(), ((void)(__va_start(&_ArgList, _Format)))));
     _Result = _vfprintf_p_l((__acrt_iob_func(1)), _Format, 0, _ArgList);
     ((void)(_ArgList = (va_list)0));
     return _Result;
@@ -14133,7 +14052,7 @@ __inline int __cdecl _fscanf_l(
 {
     int _Result;
     va_list _ArgList;
-    ((void)(__vcrt_va_start_verify_argument_type<decltype(_Locale)>(), ((void)(_ArgList = (va_list)(&const_cast<char&>(reinterpret_cast<const volatile char&>(_Locale))) + ((sizeof(_Locale) + sizeof(int) - 1) & ~(sizeof(int) - 1))))));
+    ((void)(__vcrt_va_start_verify_argument_type<decltype(_Locale)>(), ((void)(__va_start(&_ArgList, _Locale)))));
     _Result = _vfscanf_l(_Stream, _Format, _Locale, _ArgList);
     ((void)(_ArgList = (va_list)0));
     return _Result;
@@ -14151,7 +14070,7 @@ __inline int __cdecl fscanf(
 {
     int _Result;
     va_list _ArgList;
-    ((void)(__vcrt_va_start_verify_argument_type<decltype(_Format)>(), ((void)(_ArgList = (va_list)(&const_cast<char&>(reinterpret_cast<const volatile char&>(_Format))) + ((sizeof(_Format) + sizeof(int) - 1) & ~(sizeof(int) - 1))))));
+    ((void)(__vcrt_va_start_verify_argument_type<decltype(_Format)>(), ((void)(__va_start(&_ArgList, _Format)))));
     _Result = _vfscanf_l(_Stream, _Format, 0, _ArgList);
     ((void)(_ArgList = (va_list)0));
     return _Result;
@@ -14170,7 +14089,7 @@ __inline int __cdecl _fscanf_s_l(
 {
     int _Result;
     va_list _ArgList;
-    ((void)(__vcrt_va_start_verify_argument_type<decltype(_Locale)>(), ((void)(_ArgList = (va_list)(&const_cast<char&>(reinterpret_cast<const volatile char&>(_Locale))) + ((sizeof(_Locale) + sizeof(int) - 1) & ~(sizeof(int) - 1))))));
+    ((void)(__vcrt_va_start_verify_argument_type<decltype(_Locale)>(), ((void)(__va_start(&_ArgList, _Locale)))));
     _Result = _vfscanf_s_l(_Stream, _Format, _Locale, _ArgList);
     ((void)(_ArgList = (va_list)0));
     return _Result;
@@ -14190,7 +14109,7 @@ __inline int __cdecl _fscanf_s_l(
     {
         int _Result;
         va_list _ArgList;
-        ((void)(__vcrt_va_start_verify_argument_type<decltype(_Format)>(), ((void)(_ArgList = (va_list)(&const_cast<char&>(reinterpret_cast<const volatile char&>(_Format))) + ((sizeof(_Format) + sizeof(int) - 1) & ~(sizeof(int) - 1))))));
+        ((void)(__vcrt_va_start_verify_argument_type<decltype(_Format)>(), ((void)(__va_start(&_ArgList, _Format)))));
         _Result = _vfscanf_s_l(_Stream, _Format, 0, _ArgList);
         ((void)(_ArgList = (va_list)0));
         return _Result;
@@ -14210,7 +14129,7 @@ __inline int __cdecl _scanf_l(
 {
     int _Result;
     va_list _ArgList;
-    ((void)(__vcrt_va_start_verify_argument_type<decltype(_Locale)>(), ((void)(_ArgList = (va_list)(&const_cast<char&>(reinterpret_cast<const volatile char&>(_Locale))) + ((sizeof(_Locale) + sizeof(int) - 1) & ~(sizeof(int) - 1))))));
+    ((void)(__vcrt_va_start_verify_argument_type<decltype(_Locale)>(), ((void)(__va_start(&_ArgList, _Locale)))));
     _Result = _vfscanf_l((__acrt_iob_func(0)), _Format, _Locale, _ArgList);
     ((void)(_ArgList = (va_list)0));
     return _Result;
@@ -14227,7 +14146,7 @@ __inline int __cdecl scanf(
 {
     int _Result;
     va_list _ArgList;
-    ((void)(__vcrt_va_start_verify_argument_type<decltype(_Format)>(), ((void)(_ArgList = (va_list)(&const_cast<char&>(reinterpret_cast<const volatile char&>(_Format))) + ((sizeof(_Format) + sizeof(int) - 1) & ~(sizeof(int) - 1))))));
+    ((void)(__vcrt_va_start_verify_argument_type<decltype(_Format)>(), ((void)(__va_start(&_ArgList, _Format)))));
     _Result = _vfscanf_l((__acrt_iob_func(0)), _Format, 0, _ArgList);
     ((void)(_ArgList = (va_list)0));
     return _Result;
@@ -14245,7 +14164,7 @@ __inline int __cdecl _scanf_s_l(
 {
     int _Result;
     va_list _ArgList;
-    ((void)(__vcrt_va_start_verify_argument_type<decltype(_Locale)>(), ((void)(_ArgList = (va_list)(&const_cast<char&>(reinterpret_cast<const volatile char&>(_Locale))) + ((sizeof(_Locale) + sizeof(int) - 1) & ~(sizeof(int) - 1))))));
+    ((void)(__vcrt_va_start_verify_argument_type<decltype(_Locale)>(), ((void)(__va_start(&_ArgList, _Locale)))));
     _Result = _vfscanf_s_l((__acrt_iob_func(0)), _Format, _Locale, _ArgList);
     ((void)(_ArgList = (va_list)0));
     return _Result;
@@ -14264,7 +14183,7 @@ __inline int __cdecl _scanf_s_l(
     {
         int _Result;
         va_list _ArgList;
-        ((void)(__vcrt_va_start_verify_argument_type<decltype(_Format)>(), ((void)(_ArgList = (va_list)(&const_cast<char&>(reinterpret_cast<const volatile char&>(_Format))) + ((sizeof(_Format) + sizeof(int) - 1) & ~(sizeof(int) - 1))))));
+        ((void)(__vcrt_va_start_verify_argument_type<decltype(_Format)>(), ((void)(__va_start(&_ArgList, _Format)))));
         _Result = _vfscanf_s_l((__acrt_iob_func(0)), _Format, 0, _ArgList);
         ((void)(_ArgList = (va_list)0));
         return _Result;
@@ -14647,7 +14566,7 @@ __inline int __cdecl _sprintf_l(
 {
     int _Result;
     va_list _ArgList;
-    ((void)(__vcrt_va_start_verify_argument_type<decltype(_Locale)>(), ((void)(_ArgList = (va_list)(&const_cast<char&>(reinterpret_cast<const volatile char&>(_Locale))) + ((sizeof(_Locale) + sizeof(int) - 1) & ~(sizeof(int) - 1))))));
+    ((void)(__vcrt_va_start_verify_argument_type<decltype(_Locale)>(), ((void)(__va_start(&_ArgList, _Locale)))));
 
 #pragma warning(push)
 #pragma warning(disable: 4996)
@@ -14671,7 +14590,7 @@ __inline int __cdecl sprintf(
 {
     int _Result;
     va_list _ArgList;
-    ((void)(__vcrt_va_start_verify_argument_type<decltype(_Format)>(), ((void)(_ArgList = (va_list)(&const_cast<char&>(reinterpret_cast<const volatile char&>(_Format))) + ((sizeof(_Format) + sizeof(int) - 1) & ~(sizeof(int) - 1))))));
+    ((void)(__vcrt_va_start_verify_argument_type<decltype(_Format)>(), ((void)(__va_start(&_ArgList, _Format)))));
 
 #pragma warning(push)
 #pragma warning(disable: 4996)
@@ -14707,7 +14626,7 @@ __inline int __cdecl _sprintf_s_l(
 {
     int _Result;
     va_list _ArgList;
-    ((void)(__vcrt_va_start_verify_argument_type<decltype(_Locale)>(), ((void)(_ArgList = (va_list)(&const_cast<char&>(reinterpret_cast<const volatile char&>(_Locale))) + ((sizeof(_Locale) + sizeof(int) - 1) & ~(sizeof(int) - 1))))));
+    ((void)(__vcrt_va_start_verify_argument_type<decltype(_Locale)>(), ((void)(__va_start(&_ArgList, _Locale)))));
     _Result = _vsprintf_s_l(_Buffer, _BufferCount, _Format, _Locale, _ArgList);
     ((void)(_ArgList = (va_list)0));
     return _Result;
@@ -14729,7 +14648,7 @@ __inline int __cdecl _sprintf_s_l(
     {
         int _Result;
         va_list _ArgList;
-        ((void)(__vcrt_va_start_verify_argument_type<decltype(_Format)>(), ((void)(_ArgList = (va_list)(&const_cast<char&>(reinterpret_cast<const volatile char&>(_Format))) + ((sizeof(_Format) + sizeof(int) - 1) & ~(sizeof(int) - 1))))));
+        ((void)(__vcrt_va_start_verify_argument_type<decltype(_Format)>(), ((void)(__va_start(&_ArgList, _Format)))));
         _Result = _vsprintf_s_l(_Buffer, _BufferCount, _Format, 0, _ArgList);
         ((void)(_ArgList = (va_list)0));
         return _Result;
@@ -14746,7 +14665,7 @@ extern "C++" {
 # 1846 "C:\\Program Files (x86)\\Windows Kits\\10\\Include\\10.0.10240.0\\ucrt\\stdio.h" 3
 #pragma warning(disable: 4793)
 # 1846 "C:\\Program Files (x86)\\Windows Kits\\10\\Include\\10.0.10240.0\\ucrt\\stdio.h" 3
-; template <size_t _Size> inline int __cdecl sprintf_s(char (&_Buffer)[_Size], char const* _Format, ...) throw() { va_list _ArgList; ((void)(__vcrt_va_start_verify_argument_type<decltype(_Format)>(), ((void)(_ArgList = (va_list)(&const_cast<char&>(reinterpret_cast<const volatile char&>(_Format))) + ((sizeof(_Format) + sizeof(int) - 1) & ~(sizeof(int) - 1)))))); return vsprintf_s(_Buffer, _Size, _Format, _ArgList); }
+; template <size_t _Size> inline int __cdecl sprintf_s(char (&_Buffer)[_Size], char const* _Format, ...) throw() { va_list _ArgList; ((void)(__vcrt_va_start_verify_argument_type<decltype(_Format)>(), ((void)(__va_start(&_ArgList, _Format))))); return vsprintf_s(_Buffer, _Size, _Format, _ArgList); }
 # 1846 "C:\\Program Files (x86)\\Windows Kits\\10\\Include\\10.0.10240.0\\ucrt\\stdio.h" 3
 #pragma warning(pop)
 # 1846 "C:\\Program Files (x86)\\Windows Kits\\10\\Include\\10.0.10240.0\\ucrt\\stdio.h" 3
@@ -14770,7 +14689,7 @@ __inline int __cdecl _sprintf_p_l(
 {
     int _Result;
     va_list _ArgList;
-    ((void)(__vcrt_va_start_verify_argument_type<decltype(_Locale)>(), ((void)(_ArgList = (va_list)(&const_cast<char&>(reinterpret_cast<const volatile char&>(_Locale))) + ((sizeof(_Locale) + sizeof(int) - 1) & ~(sizeof(int) - 1))))));
+    ((void)(__vcrt_va_start_verify_argument_type<decltype(_Locale)>(), ((void)(__va_start(&_ArgList, _Locale)))));
     _Result = _vsprintf_p_l(_Buffer, _BufferCount, _Format, _Locale, _ArgList);
     ((void)(_ArgList = (va_list)0));
     return _Result;
@@ -14790,7 +14709,7 @@ __inline int __cdecl _sprintf_p(
 {
     int _Result;
     va_list _ArgList;
-    ((void)(__vcrt_va_start_verify_argument_type<decltype(_Format)>(), ((void)(_ArgList = (va_list)(&const_cast<char&>(reinterpret_cast<const volatile char&>(_Format))) + ((sizeof(_Format) + sizeof(int) - 1) & ~(sizeof(int) - 1))))));
+    ((void)(__vcrt_va_start_verify_argument_type<decltype(_Format)>(), ((void)(__va_start(&_ArgList, _Format)))));
     _Result = _vsprintf_p_l(_Buffer, _BufferCount, _Format, 0, _ArgList);
     ((void)(_ArgList = (va_list)0));
     return _Result;
@@ -14811,7 +14730,7 @@ __inline int __cdecl _snprintf_l(
 {
     int _Result;
     va_list _ArgList;
-    ((void)(__vcrt_va_start_verify_argument_type<decltype(_Locale)>(), ((void)(_ArgList = (va_list)(&const_cast<char&>(reinterpret_cast<const volatile char&>(_Locale))) + ((sizeof(_Locale) + sizeof(int) - 1) & ~(sizeof(int) - 1))))));
+    ((void)(__vcrt_va_start_verify_argument_type<decltype(_Locale)>(), ((void)(__va_start(&_ArgList, _Locale)))));
 
 #pragma warning(push)
 #pragma warning(disable: 4996)
@@ -14833,7 +14752,7 @@ __inline int __cdecl snprintf(
 {
     int _Result;
     va_list _ArgList;
-    ((void)(__vcrt_va_start_verify_argument_type<decltype(_Format)>(), ((void)(_ArgList = (va_list)(&const_cast<char&>(reinterpret_cast<const volatile char&>(_Format))) + ((sizeof(_Format) + sizeof(int) - 1) & ~(sizeof(int) - 1))))));
+    ((void)(__vcrt_va_start_verify_argument_type<decltype(_Format)>(), ((void)(__va_start(&_ArgList, _Format)))));
 #pragma warning(suppress: 28719)
  _Result = vsnprintf(_Buffer, _BufferCount, _Format, _ArgList);
     ((void)(_ArgList = (va_list)0));
@@ -14853,7 +14772,7 @@ __inline int __cdecl _snprintf(
 {
     int _Result;
     va_list _ArgList;
-    ((void)(__vcrt_va_start_verify_argument_type<decltype(_Format)>(), ((void)(_ArgList = (va_list)(&const_cast<char&>(reinterpret_cast<const volatile char&>(_Format))) + ((sizeof(_Format) + sizeof(int) - 1) & ~(sizeof(int) - 1))))));
+    ((void)(__vcrt_va_start_verify_argument_type<decltype(_Format)>(), ((void)(__va_start(&_ArgList, _Format)))));
 #pragma warning(suppress: 28719)
  _Result = _vsnprintf(_Buffer, _BufferCount, _Format, _ArgList);
     ((void)(_ArgList = (va_list)0));
@@ -14875,7 +14794,7 @@ __inline int __cdecl _snprintf_c_l(
 {
     int _Result;
     va_list _ArgList;
-    ((void)(__vcrt_va_start_verify_argument_type<decltype(_Locale)>(), ((void)(_ArgList = (va_list)(&const_cast<char&>(reinterpret_cast<const volatile char&>(_Locale))) + ((sizeof(_Locale) + sizeof(int) - 1) & ~(sizeof(int) - 1))))));
+    ((void)(__vcrt_va_start_verify_argument_type<decltype(_Locale)>(), ((void)(__va_start(&_ArgList, _Locale)))));
     _Result = _vsnprintf_c_l(_Buffer, _BufferCount, _Format, _Locale, _ArgList);
     ((void)(_ArgList = (va_list)0));
     return _Result;
@@ -14895,7 +14814,7 @@ __inline int __cdecl _snprintf_c(
 {
     int _Result;
     va_list _ArgList;
-    ((void)(__vcrt_va_start_verify_argument_type<decltype(_Format)>(), ((void)(_ArgList = (va_list)(&const_cast<char&>(reinterpret_cast<const volatile char&>(_Format))) + ((sizeof(_Format) + sizeof(int) - 1) & ~(sizeof(int) - 1))))));
+    ((void)(__vcrt_va_start_verify_argument_type<decltype(_Format)>(), ((void)(__va_start(&_ArgList, _Format)))));
     _Result = _vsnprintf_c_l(_Buffer, _BufferCount, _Format, 0, _ArgList);
     ((void)(_ArgList = (va_list)0));
     return _Result;
@@ -14917,7 +14836,7 @@ __inline int __cdecl _snprintf_s_l(
 {
     int _Result;
     va_list _ArgList;
-    ((void)(__vcrt_va_start_verify_argument_type<decltype(_Locale)>(), ((void)(_ArgList = (va_list)(&const_cast<char&>(reinterpret_cast<const volatile char&>(_Locale))) + ((sizeof(_Locale) + sizeof(int) - 1) & ~(sizeof(int) - 1))))));
+    ((void)(__vcrt_va_start_verify_argument_type<decltype(_Locale)>(), ((void)(__va_start(&_ArgList, _Locale)))));
     _Result = _vsnprintf_s_l(_Buffer, _BufferCount, _MaxCount, _Format, _Locale, _ArgList);
     ((void)(_ArgList = (va_list)0));
     return _Result;
@@ -14938,7 +14857,7 @@ __inline int __cdecl _snprintf_s(
 {
     int _Result;
     va_list _ArgList;
-    ((void)(__vcrt_va_start_verify_argument_type<decltype(_Format)>(), ((void)(_ArgList = (va_list)(&const_cast<char&>(reinterpret_cast<const volatile char&>(_Format))) + ((sizeof(_Format) + sizeof(int) - 1) & ~(sizeof(int) - 1))))));
+    ((void)(__vcrt_va_start_verify_argument_type<decltype(_Format)>(), ((void)(__va_start(&_ArgList, _Format)))));
     _Result = _vsnprintf_s_l(_Buffer, _BufferCount, _MaxCount, _Format, 0, _ArgList);
     ((void)(_ArgList = (va_list)0));
     return _Result;
@@ -14953,7 +14872,7 @@ extern "C++" {
 # 2064 "C:\\Program Files (x86)\\Windows Kits\\10\\Include\\10.0.10240.0\\ucrt\\stdio.h" 3
 #pragma warning(disable: 4793)
 # 2064 "C:\\Program Files (x86)\\Windows Kits\\10\\Include\\10.0.10240.0\\ucrt\\stdio.h" 3
-; template <size_t _Size> inline int __cdecl _snprintf_s(char (&_Buffer)[_Size], size_t _BufferCount, char const* _Format, ...) throw() { va_list _ArgList; ((void)(__vcrt_va_start_verify_argument_type<decltype(_Format)>(), ((void)(_ArgList = (va_list)(&const_cast<char&>(reinterpret_cast<const volatile char&>(_Format))) + ((sizeof(_Format) + sizeof(int) - 1) & ~(sizeof(int) - 1)))))); return _vsnprintf_s(_Buffer, _Size, _BufferCount, _Format, _ArgList); }
+; template <size_t _Size> inline int __cdecl _snprintf_s(char (&_Buffer)[_Size], size_t _BufferCount, char const* _Format, ...) throw() { va_list _ArgList; ((void)(__vcrt_va_start_verify_argument_type<decltype(_Format)>(), ((void)(__va_start(&_ArgList, _Format))))); return _vsnprintf_s(_Buffer, _Size, _BufferCount, _Format, _ArgList); }
 # 2064 "C:\\Program Files (x86)\\Windows Kits\\10\\Include\\10.0.10240.0\\ucrt\\stdio.h" 3
 #pragma warning(pop)
 # 2064 "C:\\Program Files (x86)\\Windows Kits\\10\\Include\\10.0.10240.0\\ucrt\\stdio.h" 3
@@ -14969,7 +14888,7 @@ __inline int __cdecl _scprintf_l(
 {
     int _Result;
     va_list _ArgList;
-    ((void)(__vcrt_va_start_verify_argument_type<decltype(_Locale)>(), ((void)(_ArgList = (va_list)(&const_cast<char&>(reinterpret_cast<const volatile char&>(_Locale))) + ((sizeof(_Locale) + sizeof(int) - 1) & ~(sizeof(int) - 1))))));
+    ((void)(__vcrt_va_start_verify_argument_type<decltype(_Locale)>(), ((void)(__va_start(&_ArgList, _Locale)))));
     _Result = _vscprintf_l(_Format, _Locale, _ArgList);
     ((void)(_ArgList = (va_list)0));
     return _Result;
@@ -14986,7 +14905,7 @@ __inline int __cdecl _scprintf(
 {
     int _Result;
     va_list _ArgList;
-    ((void)(__vcrt_va_start_verify_argument_type<decltype(_Format)>(), ((void)(_ArgList = (va_list)(&const_cast<char&>(reinterpret_cast<const volatile char&>(_Format))) + ((sizeof(_Format) + sizeof(int) - 1) & ~(sizeof(int) - 1))))));
+    ((void)(__vcrt_va_start_verify_argument_type<decltype(_Format)>(), ((void)(__va_start(&_ArgList, _Format)))));
     _Result = _vscprintf_l(_Format, 0, _ArgList);
     ((void)(_ArgList = (va_list)0));
     return _Result;
@@ -15004,7 +14923,7 @@ __inline int __cdecl _scprintf_p_l(
 {
     int _Result;
     va_list _ArgList;
-    ((void)(__vcrt_va_start_verify_argument_type<decltype(_Locale)>(), ((void)(_ArgList = (va_list)(&const_cast<char&>(reinterpret_cast<const volatile char&>(_Locale))) + ((sizeof(_Locale) + sizeof(int) - 1) & ~(sizeof(int) - 1))))));
+    ((void)(__vcrt_va_start_verify_argument_type<decltype(_Locale)>(), ((void)(__va_start(&_ArgList, _Locale)))));
     _Result = _vscprintf_p_l(_Format, _Locale, _ArgList);
     ((void)(_ArgList = (va_list)0));
     return _Result;
@@ -15021,7 +14940,7 @@ __inline int __cdecl _scprintf_p(
 {
     int _Result;
     va_list _ArgList;
-    ((void)(__vcrt_va_start_verify_argument_type<decltype(_Format)>(), ((void)(_ArgList = (va_list)(&const_cast<char&>(reinterpret_cast<const volatile char&>(_Format))) + ((sizeof(_Format) + sizeof(int) - 1) & ~(sizeof(int) - 1))))));
+    ((void)(__vcrt_va_start_verify_argument_type<decltype(_Format)>(), ((void)(__va_start(&_ArgList, _Format)))));
     _Result = _vscprintf_p(_Format, _ArgList);
     ((void)(_ArgList = (va_list)0));
     return _Result;
@@ -15132,7 +15051,7 @@ __inline int __cdecl _sscanf_l(
 {
     int _Result;
     va_list _ArgList;
-    ((void)(__vcrt_va_start_verify_argument_type<decltype(_Locale)>(), ((void)(_ArgList = (va_list)(&const_cast<char&>(reinterpret_cast<const volatile char&>(_Locale))) + ((sizeof(_Locale) + sizeof(int) - 1) & ~(sizeof(int) - 1))))));
+    ((void)(__vcrt_va_start_verify_argument_type<decltype(_Locale)>(), ((void)(__va_start(&_ArgList, _Locale)))));
     _Result = _vsscanf_l(_Buffer, _Format, _Locale, _ArgList);
     ((void)(_ArgList = (va_list)0));
     return _Result;
@@ -15150,7 +15069,7 @@ __inline int __cdecl sscanf(
 {
     int _Result;
     va_list _ArgList;
-    ((void)(__vcrt_va_start_verify_argument_type<decltype(_Format)>(), ((void)(_ArgList = (va_list)(&const_cast<char&>(reinterpret_cast<const volatile char&>(_Format))) + ((sizeof(_Format) + sizeof(int) - 1) & ~(sizeof(int) - 1))))));
+    ((void)(__vcrt_va_start_verify_argument_type<decltype(_Format)>(), ((void)(__va_start(&_ArgList, _Format)))));
     _Result = _vsscanf_l(_Buffer, _Format, 0, _ArgList);
     ((void)(_ArgList = (va_list)0));
     return _Result;
@@ -15169,7 +15088,7 @@ __inline int __cdecl _sscanf_s_l(
 {
     int _Result;
     va_list _ArgList;
-    ((void)(__vcrt_va_start_verify_argument_type<decltype(_Locale)>(), ((void)(_ArgList = (va_list)(&const_cast<char&>(reinterpret_cast<const volatile char&>(_Locale))) + ((sizeof(_Locale) + sizeof(int) - 1) & ~(sizeof(int) - 1))))));
+    ((void)(__vcrt_va_start_verify_argument_type<decltype(_Locale)>(), ((void)(__va_start(&_ArgList, _Locale)))));
     _Result = _vsscanf_s_l(_Buffer, _Format, _Locale, _ArgList);
     ((void)(_ArgList = (va_list)0));
     return _Result;
@@ -15189,7 +15108,7 @@ __inline int __cdecl _sscanf_s_l(
     {
         int _Result;
         va_list _ArgList;
-        ((void)(__vcrt_va_start_verify_argument_type<decltype(_Format)>(), ((void)(_ArgList = (va_list)(&const_cast<char&>(reinterpret_cast<const volatile char&>(_Format))) + ((sizeof(_Format) + sizeof(int) - 1) & ~(sizeof(int) - 1))))));
+        ((void)(__vcrt_va_start_verify_argument_type<decltype(_Format)>(), ((void)(__va_start(&_ArgList, _Format)))));
 
 #pragma warning(push)
 #pragma warning(disable: 4996)
@@ -15219,7 +15138,7 @@ __inline int __cdecl _snscanf_l(
 {
     int _Result;
     va_list _ArgList;
-    ((void)(__vcrt_va_start_verify_argument_type<decltype(_Locale)>(), ((void)(_ArgList = (va_list)(&const_cast<char&>(reinterpret_cast<const volatile char&>(_Locale))) + ((sizeof(_Locale) + sizeof(int) - 1) & ~(sizeof(int) - 1))))));
+    ((void)(__vcrt_va_start_verify_argument_type<decltype(_Locale)>(), ((void)(__va_start(&_ArgList, _Locale)))));
 
     _Result = __stdio_common_vsscanf(
         (*__local_stdio_scanf_options ()),
@@ -15242,7 +15161,7 @@ __inline int __cdecl _snscanf(
 {
     int _Result;
     va_list _ArgList;
-    ((void)(__vcrt_va_start_verify_argument_type<decltype(_Format)>(), ((void)(_ArgList = (va_list)(&const_cast<char&>(reinterpret_cast<const volatile char&>(_Format))) + ((sizeof(_Format) + sizeof(int) - 1) & ~(sizeof(int) - 1))))));
+    ((void)(__vcrt_va_start_verify_argument_type<decltype(_Format)>(), ((void)(__va_start(&_ArgList, _Format)))));
 
     _Result = __stdio_common_vsscanf(
         (*__local_stdio_scanf_options ()),
@@ -15267,7 +15186,7 @@ __inline int __cdecl _snscanf_s_l(
 {
     int _Result;
     va_list _ArgList;
-    ((void)(__vcrt_va_start_verify_argument_type<decltype(_Locale)>(), ((void)(_ArgList = (va_list)(&const_cast<char&>(reinterpret_cast<const volatile char&>(_Locale))) + ((sizeof(_Locale) + sizeof(int) - 1) & ~(sizeof(int) - 1))))));
+    ((void)(__vcrt_va_start_verify_argument_type<decltype(_Locale)>(), ((void)(__va_start(&_ArgList, _Locale)))));
 
     _Result = __stdio_common_vsscanf(
         (*__local_stdio_scanf_options ()) | (1ULL << 0),
@@ -15290,7 +15209,7 @@ __inline int __cdecl _snscanf_s(
 {
     int _Result;
     va_list _ArgList;
-    ((void)(__vcrt_va_start_verify_argument_type<decltype(_Format)>(), ((void)(_ArgList = (va_list)(&const_cast<char&>(reinterpret_cast<const volatile char&>(_Format))) + ((sizeof(_Format) + sizeof(int) - 1) & ~(sizeof(int) - 1))))));
+    ((void)(__vcrt_va_start_verify_argument_type<decltype(_Format)>(), ((void)(__va_start(&_ArgList, _Format)))));
 
     _Result = __stdio_common_vsscanf(
         (*__local_stdio_scanf_options ()) | (1ULL << 0),
@@ -21404,7 +21323,7 @@ inline
   static_cast<uintptr_t *>(_Ptr)[-1] = _Ptr_container;
 
 
-  static_cast<uintptr_t *>(_Ptr)[-2] = 0xFAFAFAFAUL;
+  static_cast<uintptr_t *>(_Ptr)[-2] = 0xFAFAFAFAFAFAFAFAULL;
 
   }
  else
@@ -21436,7 +21355,7 @@ inline
 
 
 
-  { if (!(reinterpret_cast<uintptr_t *>(_Ptr_ptr)[-1] == 0xFAFAFAFAUL)) { (void)( (!!(("reinterpret_cast<uintptr_t *>(_Ptr_ptr)[-1] == _BIG_ALLOCATION_SENTINEL" && 0))) || (1 != _CrtDbgReportW(2, L"D:\\Microsoft Visual Studio 14.0\\VC\\include\\xmemory0", 110, 0, L"%ls", L"\"reinterpret_cast<uintptr_t *>(_Ptr_ptr)[-1] == _BIG_ALLOCATION_SENTINEL\" && 0")) || (__debugbreak(), 0) ); ::_invalid_parameter(L"\"invalid argument\"", L__FUNCTION__, L"D:\\Microsoft Visual Studio 14.0\\VC\\include\\xmemory0", 110, 0); } ; };
+  { if (!(reinterpret_cast<uintptr_t *>(_Ptr_ptr)[-1] == 0xFAFAFAFAFAFAFAFAULL)) { (void)( (!!(("reinterpret_cast<uintptr_t *>(_Ptr_ptr)[-1] == _BIG_ALLOCATION_SENTINEL" && 0))) || (1 != _CrtDbgReportW(2, L"D:\\Microsoft Visual Studio 14.0\\VC\\include\\xmemory0", 110, 0, L"%ls", L"\"reinterpret_cast<uintptr_t *>(_Ptr_ptr)[-1] == _BIG_ALLOCATION_SENTINEL\" && 0")) || (__debugbreak(), 0) ); ::_invalid_parameter(L"\"invalid argument\"", L__FUNCTION__, L"D:\\Microsoft Visual Studio 14.0\\VC\\include\\xmemory0", 110, 0); } ; };
 
 
 
@@ -22548,23 +22467,45 @@ __declspec(dllimport) void __cdecl _Unlock_shared_ptr_spin_lock();
 #pragma pack(push, 8)
 # 21 "D:\\Microsoft Visual Studio 14.0\\VC\\include\\setjmp.h" 3
  extern "C" {
-# 31 "D:\\Microsoft Visual Studio 14.0\\VC\\include\\setjmp.h" 3
-    typedef struct __JUMP_BUFFER
+# 48 "D:\\Microsoft Visual Studio 14.0\\VC\\include\\setjmp.h" 3
+    typedef struct __declspec(align(16)) _SETJMP_FLOAT128
     {
-        unsigned long Ebp;
-        unsigned long Ebx;
-        unsigned long Edi;
-        unsigned long Esi;
-        unsigned long Esp;
-        unsigned long Eip;
-        unsigned long Registration;
-        unsigned long TryLevel;
-        unsigned long Cookie;
-        unsigned long UnwindFunc;
-        unsigned long UnwindData[6];
+        unsigned __int64 Part[2];
+    } SETJMP_FLOAT128;
+
+
+    typedef SETJMP_FLOAT128 _JBTYPE;
+
+    typedef struct _JUMP_BUFFER
+    {
+        unsigned __int64 Frame;
+        unsigned __int64 Rbx;
+        unsigned __int64 Rsp;
+        unsigned __int64 Rbp;
+        unsigned __int64 Rsi;
+        unsigned __int64 Rdi;
+        unsigned __int64 R12;
+        unsigned __int64 R13;
+        unsigned __int64 R14;
+        unsigned __int64 R15;
+        unsigned __int64 Rip;
+        unsigned long MxCsr;
+        unsigned short FpCsr;
+        unsigned short Spare;
+
+        SETJMP_FLOAT128 Xmm6;
+        SETJMP_FLOAT128 Xmm7;
+        SETJMP_FLOAT128 Xmm8;
+        SETJMP_FLOAT128 Xmm9;
+        SETJMP_FLOAT128 Xmm10;
+        SETJMP_FLOAT128 Xmm11;
+        SETJMP_FLOAT128 Xmm12;
+        SETJMP_FLOAT128 Xmm13;
+        SETJMP_FLOAT128 Xmm14;
+        SETJMP_FLOAT128 Xmm15;
     } _JUMP_BUFFER;
 # 145 "D:\\Microsoft Visual Studio 14.0\\VC\\include\\setjmp.h" 3
-    typedef int jmp_buf[16];
+    typedef _JBTYPE jmp_buf[16];
 # 157 "D:\\Microsoft Visual Studio 14.0\\VC\\include\\setjmp.h" 3
 int __cdecl _setjmp(
           jmp_buf _Buf
@@ -22630,86 +22571,6 @@ typedef union __declspec(intrin_type) __declspec(align(8)) __m64
     unsigned __int16 m64_u16[4];
     unsigned __int32 m64_u32[2];
 } __m64;
-
-
-
-void _m_empty(void);
-__m64 _m_from_int(int _I);
-int _m_to_int(__m64 _M);
-__m64 _m_packsswb(__m64 _MM1, __m64 _MM2);
-__m64 _m_packssdw(__m64 _MM1, __m64 _MM2);
-__m64 _m_packuswb(__m64 _MM1, __m64 _MM2);
-__m64 _m_punpckhbw(__m64 _MM1, __m64 _MM2);
-__m64 _m_punpckhwd(__m64 _MM1, __m64 _MM2);
-__m64 _m_punpckhdq(__m64 _MM1, __m64 _MM2);
-__m64 _m_punpcklbw(__m64 _MM1, __m64 _MM2);
-__m64 _m_punpcklwd(__m64 _MM1, __m64 _MM2);
-__m64 _m_punpckldq(__m64 _MM1, __m64 _MM2);
-
-
-__m64 _m_paddb(__m64 _MM1, __m64 _MM2);
-__m64 _m_paddw(__m64 _MM1, __m64 _MM2);
-__m64 _m_paddd(__m64 _MM1, __m64 _MM2);
-__m64 _m_paddsb(__m64 _MM1, __m64 _MM2);
-__m64 _m_paddsw(__m64 _MM1, __m64 _MM2);
-__m64 _m_paddusb(__m64 _MM1, __m64 _MM2);
-__m64 _m_paddusw(__m64 _MM1, __m64 _MM2);
-__m64 _m_psubb(__m64 _MM1, __m64 _MM2);
-__m64 _m_psubw(__m64 _MM1, __m64 _MM2);
-__m64 _m_psubd(__m64 _MM1, __m64 _MM2);
-__m64 _m_psubsb(__m64 _MM1, __m64 _MM2);
-__m64 _m_psubsw(__m64 _MM1, __m64 _MM2);
-__m64 _m_psubusb(__m64 _MM1, __m64 _MM2);
-__m64 _m_psubusw(__m64 _MM1, __m64 _MM2);
-__m64 _m_pmaddwd(__m64 _MM1, __m64 _MM2);
-__m64 _m_pmulhw(__m64 _MM1, __m64 _MM2);
-__m64 _m_pmullw(__m64 _MM1, __m64 _MM2);
-
-
-__m64 _m_psllw(__m64 _M, __m64 _Count);
-__m64 _m_psllwi(__m64 _M, int _Count);
-__m64 _m_pslld(__m64 _M, __m64 _Count);
-__m64 _m_pslldi(__m64 _M, int _Count);
-__m64 _m_psllq(__m64 _M, __m64 _Count);
-__m64 _m_psllqi(__m64 _M, int _Count);
-__m64 _m_psraw(__m64 _M, __m64 _Count);
-__m64 _m_psrawi(__m64 _M, int _Count);
-__m64 _m_psrad(__m64 _M, __m64 _Count);
-__m64 _m_psradi(__m64 _M, int _Count);
-__m64 _m_psrlw(__m64 _M, __m64 _Count);
-__m64 _m_psrlwi(__m64 _M, int _Count);
-__m64 _m_psrld(__m64 _M, __m64 _Count);
-__m64 _m_psrldi(__m64 _M, int _Count);
-__m64 _m_psrlq(__m64 _M, __m64 _Count);
-__m64 _m_psrlqi(__m64 _M, int _Count);
-
-
-__m64 _m_pand(__m64 _MM1, __m64 _MM2);
-__m64 _m_pandn(__m64 _MM1, __m64 _MM2);
-__m64 _m_por(__m64 _MM1, __m64 _MM2);
-__m64 _m_pxor(__m64 _MM1, __m64 _MM2);
-
-
-__m64 _m_pcmpeqb(__m64 _MM1, __m64 _MM2);
-__m64 _m_pcmpeqw(__m64 _MM1, __m64 _MM2);
-__m64 _m_pcmpeqd(__m64 _MM1, __m64 _MM2);
-__m64 _m_pcmpgtb(__m64 _MM1, __m64 _MM2);
-__m64 _m_pcmpgtw(__m64 _MM1, __m64 _MM2);
-__m64 _m_pcmpgtd(__m64 _MM1, __m64 _MM2);
-
-
-__m64 _mm_setzero_si64(void);
-__m64 _mm_set_pi32(int _I1, int _I0);
-__m64 _mm_set_pi16(short _S3, short _S2, short _S1, short _S0);
-__m64 _mm_set_pi8(char _B7, char _B6, char _B5, char _B4,
-                  char _B3, char _B2, char _B1, char _B0);
-__m64 _mm_set1_pi32(int _I);
-__m64 _mm_set1_pi16(short _S);
-__m64 _mm_set1_pi8(char _B);
-__m64 _mm_setr_pi32(int _I1, int _I0);
-__m64 _mm_setr_pi16(short _S3, short _S2, short _S1, short _S0);
-__m64 _mm_setr_pi8(char _B7, char _B6, char _B5, char _B4,
-                   char _B3, char _B2, char _B1, char _B0);
 # 186 "D:\\Microsoft Visual Studio 14.0\\VC\\include\\mmintrin.h" 3
 };
 # 46 "D:\\Microsoft Visual Studio 14.0\\VC\\include\\xmmintrin.h" 2 3
@@ -22811,15 +22672,16 @@ extern int _mm_cvt_ss2si(__m128 _A);
 extern int _mm_cvtt_ss2si(__m128 _A);
 extern __m128 _mm_cvt_si2ss(__m128, int);
 extern float _mm_cvtss_f32(__m128 _A);
+# 287 "D:\\Microsoft Visual Studio 14.0\\VC\\include\\xmmintrin.h" 3
+extern __int64 _mm_cvtss_si64(__m128 _A);
+extern __int64 _mm_cvttss_si64(__m128 _A);
+extern __m128 _mm_cvtsi64_ss(__m128 _A, __int64 _B);
 
 
 
 
 
-extern __m64 _mm_cvt_ps2pi(__m128 _A);
-extern __m64 _mm_cvtt_ps2pi(__m128 _A);
-extern __m128 _mm_cvt_pi2ps(__m128, __m64);
-# 296 "D:\\Microsoft Visual Studio 14.0\\VC\\include\\xmmintrin.h" 3
+
 extern __m128 _mm_shuffle_ps(__m128 _A, __m128 _B, unsigned int _Imm8);
 extern __m128 _mm_unpackhi_ps(__m128 _A, __m128 _B);
 extern __m128 _mm_unpacklo_ps(__m128 _A, __m128 _B);
@@ -22830,31 +22692,7 @@ extern void _mm_storeh_pi(__m64 *, __m128);
 extern __m128 _mm_loadl_pi(__m128, __m64 const*);
 extern void _mm_storel_pi(__m64 *, __m128);
 extern int _mm_movemask_ps(__m128 _A);
-
-
-
-
-
-
-extern int _m_pextrw(__m64, int);
-extern __m64 _m_pinsrw(__m64, int, int);
-extern __m64 _m_pmaxsw(__m64, __m64);
-extern __m64 _m_pmaxub(__m64, __m64);
-extern __m64 _m_pminsw(__m64, __m64);
-extern __m64 _m_pminub(__m64, __m64);
-extern int _m_pmovmskb(__m64);
-extern __m64 _m_pmulhuw(__m64, __m64);
-extern __m64 _m_pshufw(__m64, int);
-extern void _m_maskmovq(__m64, __m64, char *);
-extern __m64 _m_pavgb(__m64, __m64);
-extern __m64 _m_pavgw(__m64, __m64);
-extern __m64 _m_psadbw(__m64, __m64);
-
-
-
-
-
-
+# 331 "D:\\Microsoft Visual Studio 14.0\\VC\\include\\xmmintrin.h" 3
 extern __m128 _mm_set_ss(float _A);
 extern __m128 _mm_set_ps1(float _A);
 extern __m128 _mm_set_ps(float _A, float _B, float _C, float _D);
@@ -22872,7 +22710,7 @@ extern void _mm_storer_ps(float *_V, __m128 _A);
 extern void _mm_storeu_ps(float *_V, __m128 _A);
 extern void _mm_prefetch(char const*_A, int _Sel);
 
-extern void _mm_stream_pi(__m64 *, __m64);
+
 
 extern void _mm_stream_ps(float *, __m128);
 extern __m128 _mm_move_ss(__m128 _A, __m128 _B);
@@ -22880,59 +22718,7 @@ extern __m128 _mm_move_ss(__m128 _A, __m128 _B);
 extern void _mm_sfence(void);
 extern unsigned int _mm_getcsr(void);
 extern void _mm_setcsr(unsigned int);
-# 401 "D:\\Microsoft Visual Studio 14.0\\VC\\include\\xmmintrin.h" 3
-__inline __m128 _mm_cvtpi16_ps(__m64 _A)
-{
-  __m128 _Tmp;
-  __m64 _Ext_val = _m_pcmpgtw(_mm_setzero_si64(), _A);
-
-  _Tmp = _mm_cvt_pi2ps(_mm_setzero_ps(), _m_punpckhwd(_A, _Ext_val));
-  return(_mm_cvt_pi2ps(_mm_movelh_ps(_Tmp, _Tmp),
-                        _m_punpcklwd(_A, _Ext_val)));
-}
-# 420 "D:\\Microsoft Visual Studio 14.0\\VC\\include\\xmmintrin.h" 3
-__inline __m128 _mm_cvtpu16_ps(__m64 _A)
-{
-  __m128 _Tmp;
-  __m64 _Ext_val = _mm_setzero_si64();
-
-  _Tmp = _mm_cvt_pi2ps(_mm_setzero_ps(), _m_punpckhwd(_A, _Ext_val));
-  return(_mm_cvt_pi2ps(_mm_movelh_ps(_Tmp, _Tmp),
-                        _m_punpcklwd(_A, _Ext_val)));
-}
-# 439 "D:\\Microsoft Visual Studio 14.0\\VC\\include\\xmmintrin.h" 3
-__inline __m64 _mm_cvtps_pi16(__m128 _A)
-{
-  return _m_packssdw(_mm_cvt_ps2pi(_A),
-                        _mm_cvt_ps2pi(_mm_movehl_ps(_A, _A)));
-}
-# 454 "D:\\Microsoft Visual Studio 14.0\\VC\\include\\xmmintrin.h" 3
-__inline __m128 _mm_cvtpi8_ps(__m64 _A)
-{
-  __m64 _Ext_val = _m_pcmpgtb(_mm_setzero_si64(), _A);
-
-  return _mm_cvtpi16_ps(_m_punpcklbw(_A, _Ext_val));
-}
-# 471 "D:\\Microsoft Visual Studio 14.0\\VC\\include\\xmmintrin.h" 3
-__inline __m128 _mm_cvtpu8_ps(__m64 _A)
-{
-  return _mm_cvtpu16_ps(_m_punpcklbw(_A, _mm_setzero_si64()));
-}
-# 485 "D:\\Microsoft Visual Studio 14.0\\VC\\include\\xmmintrin.h" 3
-__inline __m64 _mm_cvtps_pi8(__m128 _A)
-{
-  return _m_packsswb(_mm_cvtps_pi16(_A), _mm_setzero_si64());
-}
-# 500 "D:\\Microsoft Visual Studio 14.0\\VC\\include\\xmmintrin.h" 3
-__inline __m128 _mm_cvtpi32x2_ps(__m64 _A, __m64 _B)
-{
-  return _mm_movelh_ps(_mm_cvt_pi2ps(_mm_setzero_ps(), _A),
-                       _mm_cvt_pi2ps(_mm_setzero_ps(), _B));
-}
-
-
-
-
+# 509 "D:\\Microsoft Visual Studio 14.0\\VC\\include\\xmmintrin.h" 3
 };
 # 42 "D:\\Microsoft Visual Studio 14.0\\VC\\include\\emmintrin.h" 2 3
 
@@ -23043,17 +22829,7 @@ extern __m128d _mm_cvtss_sd(__m128d _A, __m128 _B);
 extern int _mm_cvtsd_si32(__m128d _A);
 extern int _mm_cvttsd_si32(__m128d _A);
 extern __m128d _mm_cvtsi32_sd(__m128d _A, int _B);
-
-
-extern __m64 _mm_cvtpd_pi32(__m128d _A);
-extern __m64 _mm_cvttpd_pi32(__m128d _A);
-extern __m128d _mm_cvtpi32_pd(__m64 _A);
-
-
-
-
-
-
+# 171 "D:\\Microsoft Visual Studio 14.0\\VC\\include\\emmintrin.h" 3
 extern __m128d _mm_unpackhi_pd(__m128d _A, __m128d _B);
 extern __m128d _mm_unpacklo_pd(__m128d _A, __m128d _B);
 extern int _mm_movemask_pd(__m128d _A);
@@ -23102,7 +22878,7 @@ extern __m128i _mm_add_epi8(__m128i _A, __m128i _B);
 extern __m128i _mm_add_epi16(__m128i _A, __m128i _B);
 extern __m128i _mm_add_epi32(__m128i _A, __m128i _B);
 
-extern __m64 _mm_add_si64(__m64 _A, __m64 _B);
+
 
 extern __m128i _mm_add_epi64(__m128i _A, __m128i _B);
 extern __m128i _mm_adds_epi8(__m128i _A, __m128i _B);
@@ -23120,7 +22896,7 @@ extern __m128i _mm_mulhi_epi16(__m128i _A, __m128i _B);
 extern __m128i _mm_mulhi_epu16(__m128i _A, __m128i _B);
 extern __m128i _mm_mullo_epi16(__m128i _A, __m128i _B);
 
-extern __m64 _mm_mul_su32(__m64 _A, __m64 _B);
+
 
 extern __m128i _mm_mul_epu32(__m128i _A, __m128i _B);
 extern __m128i _mm_sad_epu8(__m128i _A, __m128i _B);
@@ -23128,7 +22904,7 @@ extern __m128i _mm_sub_epi8(__m128i _A, __m128i _B);
 extern __m128i _mm_sub_epi16(__m128i _A, __m128i _B);
 extern __m128i _mm_sub_epi32(__m128i _A, __m128i _B);
 
-extern __m64 _mm_sub_si64(__m64 _A, __m64 _B);
+
 
 extern __m128i _mm_sub_epi64(__m128i _A, __m128i _B);
 extern __m128i _mm_subs_epi8(__m128i _A, __m128i _B);
@@ -23218,14 +22994,7 @@ extern __m128i _mm_unpacklo_epi64(__m128i _A, __m128i _B);
 extern __m128i _mm_load_si128(__m128i const*_P);
 extern __m128i _mm_loadu_si128(__m128i const*_P);
 extern __m128i _mm_loadl_epi64(__m128i const*_P);
-
-
-
-
-
-
-extern __m128i _mm_set_epi64(__m64 _Q1, __m64 _Q0);
-
+# 343 "D:\\Microsoft Visual Studio 14.0\\VC\\include\\emmintrin.h" 3
 extern __m128i _mm_set_epi64x(__int64 _I1,__int64 _I0);
 extern __m128i _mm_set_epi32(int _I3, int _I2, int _I1, int _I0);
 extern __m128i _mm_set_epi16(short _W7, short _W6, short _W5, short _W4,
@@ -23235,7 +23004,7 @@ extern __m128i _mm_set_epi8(char _B15, char _B14, char _B13, char _B12,
                             char _B7, char _B6, char _B5, char _B4,
                             char _B3, char _B2, char _B1, char _B0);
 
-extern __m128i _mm_set1_epi64(__m64 _Q);
+
 
 extern __m128i _mm_set1_epi64x(__int64 i);
 extern __m128i _mm_set1_epi32(int _I);
@@ -23243,7 +23012,7 @@ extern __m128i _mm_set1_epi16(short _W);
 extern __m128i _mm_set1_epi8(char _B);
 extern __m128i _mm_setl_epi64(__m128i _Q);
 
-extern __m128i _mm_setr_epi64(__m64 _Q0, __m64 _Q1);
+
 
 extern __m128i _mm_setr_epi32(int _I0, int _I1, int _I2, int _I3);
 extern __m128i _mm_setr_epi16(short _W0, short _W1, short _W2, short _W3,
@@ -23268,15 +23037,7 @@ extern void _mm_maskmoveu_si128(__m128i _D, __m128i _N, char *_P);
 
 
 extern __m128i _mm_move_epi64(__m128i _Q);
-
-extern __m128i _mm_movpi64_epi64(__m64 _Q);
-extern __m64 _mm_movepi64_pi64(__m128i _Q);
-
-
-
-
-
-
+# 394 "D:\\Microsoft Visual Studio 14.0\\VC\\include\\emmintrin.h" 3
 extern void _mm_stream_pd(double *_Dp, __m128d _A);
 extern void _mm_stream_si128(__m128i *_P, __m128i _A);
 extern void _mm_clflush(void const*_P);
@@ -23303,7 +23064,22 @@ extern __m128d _mm_castps_pd(__m128);
 extern __m128i _mm_castps_si128(__m128);
 extern __m128 _mm_castsi128_ps(__m128i);
 extern __m128d _mm_castsi128_pd(__m128i);
-# 436 "D:\\Microsoft Visual Studio 14.0\\VC\\include\\emmintrin.h" 3
+
+
+
+
+
+
+extern __int64 _mm_cvtsd_si64(__m128d);
+extern __int64 _mm_cvttsd_si64(__m128d);
+extern __m128d _mm_cvtsi64_sd(__m128d, __int64);
+extern __m128i _mm_cvtsi64_si128(__int64);
+extern __int64 _mm_cvtsi128_si64(__m128i);
+
+
+
+
+
 };
 # 34 "D:\\Microsoft Visual Studio 14.0\\VC\\include\\pmmintrin.h" 2 3
 # 58 "D:\\Microsoft Visual Studio 14.0\\VC\\include\\pmmintrin.h" 3
@@ -23358,81 +23134,27 @@ extern "C" {
     extern __m128i _mm_hadd_epi16 (__m128i, __m128i);
     extern __m128i _mm_hadd_epi32 (__m128i, __m128i);
     extern __m128i _mm_hadds_epi16 (__m128i, __m128i);
-
-
-    extern __m64 _mm_hadd_pi16 (__m64, __m64);
-    extern __m64 _mm_hadd_pi32 (__m64, __m64);
-    extern __m64 _mm_hadds_pi16 (__m64, __m64);
 # 63 "D:\\Microsoft Visual Studio 14.0\\VC\\include\\tmmintrin.h" 3
     extern __m128i _mm_hsub_epi16 (__m128i, __m128i);
     extern __m128i _mm_hsub_epi32 (__m128i, __m128i);
     extern __m128i _mm_hsubs_epi16 (__m128i, __m128i);
-
-
-    extern __m64 _mm_hsub_pi16 (__m64, __m64);
-    extern __m64 _mm_hsub_pi32 (__m64, __m64);
-    extern __m64 _mm_hsubs_pi16 (__m64, __m64);
 # 82 "D:\\Microsoft Visual Studio 14.0\\VC\\include\\tmmintrin.h" 3
     extern __m128i _mm_maddubs_epi16 (__m128i, __m128i);
-
-
-    extern __m64 _mm_maddubs_pi16 (__m64, __m64);
-
-
-
-
-
+# 91 "D:\\Microsoft Visual Studio 14.0\\VC\\include\\tmmintrin.h" 3
     extern __m128i _mm_mulhrs_epi16 (__m128i, __m128i);
-
-
-    extern __m64 _mm_mulhrs_pi16 (__m64, __m64);
-
-
-
-
-
+# 100 "D:\\Microsoft Visual Studio 14.0\\VC\\include\\tmmintrin.h" 3
     extern __m128i _mm_shuffle_epi8 (__m128i, __m128i);
-
-
-    extern __m64 _mm_shuffle_pi8 (__m64, __m64);
-
-
-
-
-
+# 109 "D:\\Microsoft Visual Studio 14.0\\VC\\include\\tmmintrin.h" 3
     extern __m128i _mm_sign_epi8 (__m128i, __m128i);
     extern __m128i _mm_sign_epi16 (__m128i, __m128i);
     extern __m128i _mm_sign_epi32 (__m128i, __m128i);
-
-
-    extern __m64 _mm_sign_pi8 (__m64, __m64);
-    extern __m64 _mm_sign_pi16 (__m64, __m64);
-    extern __m64 _mm_sign_pi32 (__m64, __m64);
-
-
-
-
-
+# 122 "D:\\Microsoft Visual Studio 14.0\\VC\\include\\tmmintrin.h" 3
     extern __m128i _mm_alignr_epi8 (__m128i, __m128i, int);
-
-
-    extern __m64 _mm_alignr_pi8 (__m64, __m64, int);
-
-
-
-
-
+# 131 "D:\\Microsoft Visual Studio 14.0\\VC\\include\\tmmintrin.h" 3
     extern __m128i _mm_abs_epi8 (__m128i);
     extern __m128i _mm_abs_epi16 (__m128i);
     extern __m128i _mm_abs_epi32 (__m128i);
-
-
-    extern __m64 _mm_abs_pi8 (__m64);
-    extern __m64 _mm_abs_pi16 (__m64);
-    extern __m64 _mm_abs_pi32 (__m64);
-
-
-
+# 142 "D:\\Microsoft Visual Studio 14.0\\VC\\include\\tmmintrin.h" 3
 };
 # 32 "D:\\Microsoft Visual Studio 14.0\\VC\\include\\smmintrin.h" 2 3
 # 83 "D:\\Microsoft Visual Studio 14.0\\VC\\include\\smmintrin.h" 3
@@ -23521,14 +23243,21 @@ extern "C" {
         extern __m128i _mm_insert_epi32(__m128i , int , const int );
 
 
-
+        extern __m128i _mm_insert_epi64(__m128i , __int64 , const int );
 
 
 
 
         extern int _mm_extract_epi8 (__m128i , const int );
         extern int _mm_extract_epi32(__m128i , const int );
-# 207 "D:\\Microsoft Visual Studio 14.0\\VC\\include\\smmintrin.h" 3
+
+
+        extern __int64 _mm_extract_epi64(__m128i , const int );
+
+
+
+
+
         extern __m128i _mm_minpos_epu16(__m128i);
 
 
@@ -23620,13 +23349,21 @@ extern "C" {
 
 
     extern int _mm_popcnt_u32(unsigned int );
-# 126 "D:\\Microsoft Visual Studio 14.0\\VC\\include\\nmmintrin.h" 3
+
+
+    extern __int64 _mm_popcnt_u64(unsigned __int64 );
+
+
+
+
+
+
     extern unsigned int _mm_crc32_u8 (unsigned int , unsigned char );
     extern unsigned int _mm_crc32_u16(unsigned int , unsigned short );
     extern unsigned int _mm_crc32_u32(unsigned int , unsigned int );
 
 
-
+    extern unsigned __int64 _mm_crc32_u64(unsigned __int64 , unsigned __int64 );
 
 
 
@@ -24121,24 +23858,103 @@ extern void __cdecl _xsetbv(unsigned int, unsigned __int64);
 
 
 extern void __cdecl _xsave(void *, unsigned __int64);
-# 1239 "D:\\Microsoft Visual Studio 14.0\\VC\\include\\immintrin.h" 3
+
+extern void __cdecl _xsave64(void *, unsigned __int64);
+
+
+
+
+
+
+
 extern void __cdecl _xsaveopt(void *, unsigned __int64);
-# 1248 "D:\\Microsoft Visual Studio 14.0\\VC\\include\\immintrin.h" 3
+
+extern void __cdecl _xsaveopt64(void *, unsigned __int64);
+
+
+
+
+
+
 extern void __cdecl _xsavec(void *, unsigned __int64);
-# 1258 "D:\\Microsoft Visual Studio 14.0\\VC\\include\\immintrin.h" 3
+
+extern void __cdecl _xsavec64(void *, unsigned __int64);
+
+
+
+
+
+
+
 extern void __cdecl _xrstor(void const *, unsigned __int64);
-# 1268 "D:\\Microsoft Visual Studio 14.0\\VC\\include\\immintrin.h" 3
+
+extern void __cdecl _xrstor64(void const *, unsigned __int64);
+
+
+
+
+
+
+
 extern void __cdecl _xsaves(void *, unsigned __int64);
-# 1278 "D:\\Microsoft Visual Studio 14.0\\VC\\include\\immintrin.h" 3
+
+extern void __cdecl _xsaves64(void *, unsigned __int64);
+
+
+
+
+
+
+
 extern void __cdecl _xrstors(void const *, unsigned __int64);
-# 1287 "D:\\Microsoft Visual Studio 14.0\\VC\\include\\immintrin.h" 3
+
+extern void __cdecl _xrstors64(void const *, unsigned __int64);
+
+
+
+
+
+
 extern void __cdecl _fxsave(void *);
-# 1296 "D:\\Microsoft Visual Studio 14.0\\VC\\include\\immintrin.h" 3
+
+extern void __cdecl _fxsave64(void *);
+
+
+
+
+
+
 extern void __cdecl _fxrstor(void const *);
+
+extern void __cdecl _fxrstor64(void const *);
 # 1307 "D:\\Microsoft Visual Studio 14.0\\VC\\include\\immintrin.h" 3
 extern int __cdecl _rdrand16_step(unsigned short *);
 extern int __cdecl _rdrand32_step(unsigned int *);
-# 1334 "D:\\Microsoft Visual Studio 14.0\\VC\\include\\immintrin.h" 3
+
+extern int __cdecl _rdrand64_step(unsigned __int64 *);
+
+
+
+
+
+
+extern unsigned int __cdecl _readfsbase_u32();
+extern unsigned int __cdecl _readgsbase_u32();
+extern unsigned __int64 __cdecl _readfsbase_u64();
+extern unsigned __int64 __cdecl _readgsbase_u64();
+
+
+
+
+extern void __cdecl _writefsbase_u32(unsigned int);
+extern void __cdecl _writegsbase_u32(unsigned int);
+extern void __cdecl _writefsbase_u64(unsigned __int64);
+extern void __cdecl _writegsbase_u64(unsigned __int64);
+
+
+
+
+
 extern __m128 __cdecl _mm_fmadd_ps(__m128, __m128, __m128);
 extern __m128d __cdecl _mm_fmadd_pd(__m128d, __m128d, __m128d);
 extern __m128 __cdecl _mm_fmadd_ss(__m128, __m128, __m128);
@@ -24633,11 +24449,46 @@ extern unsigned int _shlx_u32(unsigned int ,
                                   unsigned int );
 extern unsigned int _shrx_u32(unsigned int ,
                                           unsigned int );
+
+
+extern unsigned __int64 _bextr_u64(unsigned __int64 ,
+                                   unsigned int ,
+                                   unsigned int );
+extern unsigned __int64 _blsi_u64(unsigned __int64);
+extern unsigned __int64 _blsmsk_u64(unsigned __int64);
+extern unsigned __int64 _blsr_u64(unsigned __int64);
+extern unsigned __int64 _bzhi_u64(unsigned __int64 ,
+                                  unsigned int );
+extern unsigned __int64 _mulx_u64(unsigned __int64 ,
+                                  unsigned __int64 ,
+                                  unsigned __int64 * );
+extern unsigned __int64 _pdep_u64(unsigned __int64 ,
+                                  unsigned __int64 );
+extern unsigned __int64 _pext_u64(unsigned __int64 ,
+                                  unsigned __int64 );
+extern unsigned __int64 _rorx_u64(unsigned __int64 ,
+                                  const unsigned int );
+extern __int64 _sarx_i64(__int64 ,
+                                  unsigned int );
+extern unsigned __int64 _shlx_u64(unsigned __int64 ,
+                                  unsigned int );
+extern unsigned __int64 _shrx_u64(unsigned __int64 ,
+                                          unsigned int );
 # 1862 "D:\\Microsoft Visual Studio 14.0\\VC\\include\\immintrin.h" 3
 extern unsigned int _lzcnt_u32(unsigned int);
+
+extern unsigned __int64 _lzcnt_u64(unsigned __int64);
 # 1874 "D:\\Microsoft Visual Studio 14.0\\VC\\include\\immintrin.h" 3
 extern unsigned int _tzcnt_u32(unsigned int);
-# 1884 "D:\\Microsoft Visual Studio 14.0\\VC\\include\\immintrin.h" 3
+
+extern unsigned __int64 _tzcnt_u64(unsigned __int64);
+
+
+
+
+
+
+
 extern void __cdecl _invpcid(unsigned int , void * );
 
 
@@ -24670,6 +24521,26 @@ extern unsigned char _interlockedbittestandset_HLEAcquire(long *,long);
 extern unsigned char _interlockedbittestandset_HLERelease(long *,long);
 extern unsigned char _interlockedbittestandreset_HLEAcquire(long *,long);
 extern unsigned char _interlockedbittestandreset_HLERelease(long *,long);
+
+
+extern void _Store64_HLERelease(__int64 volatile *,__int64);
+extern __int64 _InterlockedExchange64_HLEAcquire(__int64 volatile *,__int64);
+extern __int64 _InterlockedExchange64_HLERelease(__int64 volatile *,__int64);
+
+extern __int64 _InterlockedExchangeAdd64_HLEAcquire(__int64 volatile *,__int64);
+extern __int64 _InterlockedExchangeAdd64_HLERelease(__int64 volatile *,__int64);
+
+extern __int64 _InterlockedAnd64_HLEAcquire(__int64 volatile *,__int64);
+extern __int64 _InterlockedAnd64_HLERelease(__int64 volatile *,__int64);
+extern __int64 _InterlockedOr64_HLEAcquire(__int64 volatile *,__int64);
+extern __int64 _InterlockedOr64_HLERelease(__int64 volatile *,__int64);
+extern __int64 _InterlockedXor64_HLEAcquire(__int64 volatile *,__int64);
+extern __int64 _InterlockedXor64_HLERelease(__int64 volatile *,__int64);
+
+extern unsigned char _interlockedbittestandset64_HLEAcquire(__int64 *,__int64);
+extern unsigned char _interlockedbittestandset64_HLERelease(__int64 *,__int64);
+extern unsigned char _interlockedbittestandreset64_HLEAcquire(__int64 *,__int64);
+extern unsigned char _interlockedbittestandreset64_HLERelease(__int64 *,__int64);
 # 1948 "D:\\Microsoft Visual Studio 14.0\\VC\\include\\immintrin.h" 3
 extern unsigned int __cdecl _xbegin(void);
 extern void __cdecl _xend(void);
@@ -24678,12 +24549,26 @@ extern unsigned char __cdecl _xtest(void);
 # 1960 "D:\\Microsoft Visual Studio 14.0\\VC\\include\\immintrin.h" 3
 extern int __cdecl _rdseed16_step(unsigned short *);
 extern int __cdecl _rdseed32_step(unsigned int *);
+
+extern int __cdecl _rdseed64_step(unsigned __int64 *);
 # 1975 "D:\\Microsoft Visual Studio 14.0\\VC\\include\\immintrin.h" 3
 extern unsigned char __cdecl _addcarryx_u32(unsigned char ,
                                                    unsigned int ,
                                                    unsigned int ,
                                                    unsigned int * );
-# 1992 "D:\\Microsoft Visual Studio 14.0\\VC\\include\\immintrin.h" 3
+
+
+
+extern unsigned char __cdecl _addcarryx_u64(unsigned char ,
+                                                   unsigned __int64 ,
+                                                   unsigned __int64 ,
+                                                   unsigned __int64 * );
+
+
+
+
+
+
 extern unsigned short __cdecl _load_be_u16(void const*);
 extern unsigned int __cdecl _load_be_u32(void const*);
 extern unsigned __int64 __cdecl _load_be_u64(void const*);
@@ -24857,8 +24742,8 @@ void *__slwpcb();
 void __lwpval32(unsigned int, unsigned int, unsigned int);
 unsigned char __lwpins32(unsigned int, unsigned int, unsigned int);
 
-
-
+void __lwpval64(unsigned __int64, unsigned int, unsigned int);
+unsigned char __lwpins64(unsigned __int64, unsigned int, unsigned int);
 
 
 
@@ -24869,7 +24754,17 @@ unsigned int _lzcnt_u32(unsigned int);
 unsigned int _blsr_u32(unsigned int);
 unsigned int _blsmsk_u32(unsigned int);
 unsigned int _blsi_u32(unsigned int);
-# 278 "D:\\Microsoft Visual Studio 14.0\\VC\\include\\ammintrin.h" 3
+
+unsigned __int64 _bextr_u64(unsigned __int64, unsigned int, unsigned int);
+unsigned __int64 _andn_u64(unsigned __int64, unsigned __int64);
+unsigned __int64 _tzcnt_u64(unsigned __int64);
+unsigned __int64 _lzcnt_u64(unsigned __int64);
+unsigned __int64 _blsr_u64(unsigned __int64);
+unsigned __int64 _blsmsk_u64(unsigned __int64);
+unsigned __int64 _blsi_u64(unsigned __int64);
+
+
+
 unsigned int _bextri_u32(unsigned int, unsigned int);
 unsigned int _blcfill_u32(unsigned int);
 unsigned int _blsfill_u32(unsigned int);
@@ -24880,7 +24775,19 @@ unsigned int _blsic_u32(unsigned int);
 unsigned int _t1mskc_u32(unsigned int);
 unsigned int _blcmsk_u32(unsigned int);
 unsigned int _blci_u32(unsigned int);
-# 301 "D:\\Microsoft Visual Studio 14.0\\VC\\include\\ammintrin.h" 3
+
+unsigned __int64 _bextri_u64(unsigned __int64, unsigned int);
+unsigned __int64 _blcfill_u64(unsigned __int64);
+unsigned __int64 _blsfill_u64(unsigned __int64);
+unsigned __int64 _blcs_u64(unsigned __int64);
+unsigned __int64 _tzmsk_u64(unsigned __int64);
+unsigned __int64 _blcic_u64(unsigned __int64);
+unsigned __int64 _blsic_u64(unsigned __int64);
+unsigned __int64 _t1mskc_u64(unsigned __int64);
+unsigned __int64 _blcmsk_u64(unsigned __int64);
+unsigned __int64 _blci_u64(unsigned __int64);
+
+
 void _mm_monitorx(void const *, unsigned int, unsigned int);
 void _mm_mwaitx(unsigned int, unsigned int, unsigned int);
 
@@ -24889,113 +24796,86 @@ void _mm_clzero(void const *);
 
 };
 # 25 "D:\\Microsoft Visual Studio 14.0\\VC\\include\\intrin.h" 2 3
-
-
-
-
-# 1 "D:\\Microsoft Visual Studio 14.0\\VC\\include\\mm3dnow.h" 1 3
-# 30 "D:\\Microsoft Visual Studio 14.0\\VC\\include\\mm3dnow.h" 3
-# 1 "D:\\Microsoft Visual Studio 14.0\\VC\\include\\vcruntime.h" 1 3
-# 30 "D:\\Microsoft Visual Studio 14.0\\VC\\include\\mm3dnow.h" 2 3
-
-
-
-
-
-extern "C" {
-
-
-
-
-void _m_femms(void);
-__m64 _m_pavgusb(__m64, __m64);
-__m64 _m_pf2id(__m64);
-__m64 _m_pfacc(__m64, __m64);
-__m64 _m_pfadd(__m64, __m64);
-__m64 _m_pfcmpeq(__m64, __m64);
-__m64 _m_pfcmpge(__m64, __m64);
-__m64 _m_pfcmpgt(__m64, __m64);
-__m64 _m_pfmax(__m64, __m64);
-__m64 _m_pfmin(__m64, __m64);
-__m64 _m_pfmul(__m64, __m64);
-__m64 _m_pfrcp(__m64);
-__m64 _m_pfrcpit1(__m64, __m64);
-__m64 _m_pfrcpit2(__m64, __m64);
-__m64 _m_pfrsqrt(__m64);
-__m64 _m_pfrsqit1(__m64, __m64);
-__m64 _m_pfsub(__m64, __m64);
-__m64 _m_pfsubr(__m64, __m64);
-__m64 _m_pi2fd(__m64);
-__m64 _m_pmulhrw(__m64, __m64);
-void _m_prefetch(void*);
-void _m_prefetchw(volatile const void*_Source);
-
-__m64 _m_from_float(float);
-float _m_to_float(__m64);
-
-
-
-__m64 _m_pf2iw(__m64);
-__m64 _m_pfnacc(__m64, __m64);
-__m64 _m_pfpnacc(__m64, __m64);
-__m64 _m_pi2fw(__m64);
-__m64 _m_pswapd(__m64);
-
-
-};
-# 29 "D:\\Microsoft Visual Studio 14.0\\VC\\include\\intrin.h" 2 3
 # 44 "D:\\Microsoft Visual Studio 14.0\\VC\\include\\intrin.h" 3
 extern "C" {
 # 129 "D:\\Microsoft Visual Studio 14.0\\VC\\include\\intrin.h" 3
 void * _AddressOfReturnAddress(void);
 unsigned char _BitScanForward(unsigned long * _Index, unsigned long _Mask);
-
+unsigned char _BitScanForward64(unsigned long * _Index, unsigned __int64 _Mask);
 
 unsigned char _BitScanReverse(unsigned long * _Index, unsigned long _Mask);
-# 155 "D:\\Microsoft Visual Studio 14.0\\VC\\include\\intrin.h" 3
-long _InterlockedAddLargeStatistic(__int64 volatile * _Addend, long _Value);
-
-
-
+unsigned char _BitScanReverse64(unsigned long * _Index, unsigned __int64 _Mask);
+# 159 "D:\\Microsoft Visual Studio 14.0\\VC\\include\\intrin.h" 3
 long _InterlockedAnd(long volatile * _Value, long _Mask);
 short _InterlockedAnd16(short volatile * _Value, short _Mask);
-# 170 "D:\\Microsoft Visual Studio 14.0\\VC\\include\\intrin.h" 3
+
+
+short _InterlockedAnd16_np(short volatile * _Value, short _Mask);
+
+__int64 _InterlockedAnd64(__int64 volatile * _Value, __int64 _Mask);
+
+
+__int64 _InterlockedAnd64_np(__int64 volatile * _Value, __int64 _Mask);
+
 char _InterlockedAnd8(char volatile * _Value, char _Mask);
-# 179 "D:\\Microsoft Visual Studio 14.0\\VC\\include\\intrin.h" 3
-long __cdecl _InterlockedCompareExchange(long volatile * _Destination, long _Exchange, long _Comparand);
+
+
+char _InterlockedAnd8_np(char volatile * _Value, char _Mask);
 
 
 
+long _InterlockedAnd_np(long volatile * _Value, long _Mask);
+
+long _InterlockedCompareExchange(long volatile * _Destination, long _Exchange, long _Comparand);
+
+unsigned char _InterlockedCompareExchange128(__int64 volatile * _Destination, __int64 _ExchangeHigh, __int64 _ExchangeLow, __int64 * _ComparandResult);
 
 
+unsigned char _InterlockedCompareExchange128_np(__int64 volatile * _Destination, __int64 _ExchangeHigh, __int64 _ExchangeLow, __int64 * _ComparandResult);
 
 short _InterlockedCompareExchange16(short volatile * _Destination, short _Exchange, short _Comparand);
 
 
-
+short _InterlockedCompareExchange16_np(short volatile * _Destination, short _Exchange, short _Comparand);
 
 __int64 _InterlockedCompareExchange64(__int64 volatile * _Destination, __int64 _Exchange, __int64 _Comparand);
 
 
-
+__int64 _InterlockedCompareExchange64_np(__int64 volatile * _Destination, __int64 _Exchange, __int64 _Comparand);
 
 char _InterlockedCompareExchange8(char volatile * _Destination, char _Exchange, char _Comparand);
 
 
 
 void * _InterlockedCompareExchangePointer(void * volatile * _Destination, void * _Exchange, void * _Comparand);
-# 209 "D:\\Microsoft Visual Studio 14.0\\VC\\include\\intrin.h" 3
-long __cdecl _InterlockedDecrement(long volatile * _Addend);
+
+
+void * _InterlockedCompareExchangePointer_np(void * volatile * _Destination, void * _Exchange, void * _Comparand);
+
+
+
+long _InterlockedCompareExchange_np(long volatile * _Destination, long _Exchange, long _Comparand);
+
+long _InterlockedDecrement(long volatile * _Addend);
 
 short _InterlockedDecrement16(short volatile * _Addend);
-# 222 "D:\\Microsoft Visual Studio 14.0\\VC\\include\\intrin.h" 3
-long __cdecl _InterlockedExchange(long volatile * _Target, long _Value);
+
+
+
+__int64 _InterlockedDecrement64(__int64 volatile * _Addend);
+
+
+
+
+
+
+long _InterlockedExchange(long volatile * _Target, long _Value);
 
 short _InterlockedExchange16(short volatile * _Target, short _Value);
 
 
 
-
+__int64 _InterlockedExchange64(__int64 volatile * _Target, __int64 _Value);
 
 
 
@@ -25003,12 +24883,12 @@ char _InterlockedExchange8(char volatile * _Target, char _Value);
 
 
 
-long __cdecl _InterlockedExchangeAdd(long volatile * _Addend, long _Value);
+long _InterlockedExchangeAdd(long volatile * _Addend, long _Value);
 short _InterlockedExchangeAdd16(short volatile * _Addend, short _Value);
 
 
 
-
+__int64 _InterlockedExchangeAdd64(__int64 volatile * _Addend, __int64 _Value);
 
 
 
@@ -25026,19 +24906,58 @@ void * _InterlockedExchangePointer(void * volatile * _Target, void * _Value);
 
 
 
-long __cdecl _InterlockedIncrement(long volatile * _Addend);
+long _InterlockedIncrement(long volatile * _Addend);
 
 short _InterlockedIncrement16(short volatile * _Addend);
-# 272 "D:\\Microsoft Visual Studio 14.0\\VC\\include\\intrin.h" 3
+
+
+
+__int64 _InterlockedIncrement64(__int64 volatile * _Addend);
+
+
+
+
+
+
 long _InterlockedOr(long volatile * _Value, long _Mask);
 short _InterlockedOr16(short volatile * _Value, short _Mask);
-# 283 "D:\\Microsoft Visual Studio 14.0\\VC\\include\\intrin.h" 3
+
+
+short _InterlockedOr16_np(short volatile * _Value, short _Mask);
+
+__int64 _InterlockedOr64(__int64 volatile * _Value, __int64 _Mask);
+
+
+__int64 _InterlockedOr64_np(__int64 volatile * _Value, __int64 _Mask);
+
 char _InterlockedOr8(char volatile * _Value, char _Mask);
-# 292 "D:\\Microsoft Visual Studio 14.0\\VC\\include\\intrin.h" 3
+
+
+char _InterlockedOr8_np(char volatile * _Value, char _Mask);
+
+
+
+long _InterlockedOr_np(long volatile * _Value, long _Mask);
+
 long _InterlockedXor(long volatile * _Value, long _Mask);
 short _InterlockedXor16(short volatile * _Value, short _Mask);
-# 303 "D:\\Microsoft Visual Studio 14.0\\VC\\include\\intrin.h" 3
+
+
+short _InterlockedXor16_np(short volatile * _Value, short _Mask);
+
+__int64 _InterlockedXor64(__int64 volatile * _Value, __int64 _Mask);
+
+
+__int64 _InterlockedXor64_np(__int64 volatile * _Value, __int64 _Mask);
+
 char _InterlockedXor8(char volatile * _Value, char _Mask);
+
+
+char _InterlockedXor8_np(char volatile * _Value, char _Mask);
+
+
+
+long _InterlockedXor_np(long volatile * _Value, long _Mask);
 # 320 "D:\\Microsoft Visual Studio 14.0\\VC\\include\\intrin.h" 3
 void _ReadBarrier(void);
 
@@ -25051,16 +24970,15 @@ void _ReadWriteBarrier(void);
 void * _ReturnAddress(void);
 
 void _WriteBarrier(void);
+# 340 "D:\\Microsoft Visual Studio 14.0\\VC\\include\\intrin.h" 3
+void __addgsbyte(unsigned long, unsigned char);
+void __addgsdword(unsigned long, unsigned long);
+void __addgsqword(unsigned long, unsigned __int64);
+void __addgsword(unsigned long, unsigned short);
 
 
 
 
-
-
-void __addfsbyte(unsigned long, unsigned char);
-void __addfsdword(unsigned long, unsigned long);
-void __addfsword(unsigned long, unsigned short);
-# 348 "D:\\Microsoft Visual Studio 14.0\\VC\\include\\intrin.h" 3
 void __code_seg(const char *);
 void __cpuid(int[4], int);
 void __cpuidex(int[4], int, int);
@@ -25069,17 +24987,24 @@ void __cdecl __debugbreak(void);
 __int64 __emul(int, int);
 unsigned __int64 __emulu(unsigned int, unsigned int);
 __declspec(noreturn) void __fastfail(unsigned int);
-
+void __faststorefence(void);
 unsigned int __getcallerseflags(void);
 void __halt(void);
 
 
 unsigned char __inbyte(unsigned short);
 void __inbytestring(unsigned short, unsigned char *, unsigned long);
-void __incfsbyte(unsigned long);
-void __incfsdword(unsigned long);
-void __incfsword(unsigned long);
-# 374 "D:\\Microsoft Visual Studio 14.0\\VC\\include\\intrin.h" 3
+
+
+
+void __incgsbyte(unsigned long);
+void __incgsdword(unsigned long);
+void __incgsqword(unsigned long);
+void __incgsword(unsigned long);
+
+
+
+
 unsigned long __indword(unsigned short);
 void __indwordstring(unsigned short, unsigned long *, unsigned long);
 void __int2c(void);
@@ -25092,12 +25017,12 @@ unsigned __int64 __ll_lshift(unsigned __int64, int);
 __int64 __ll_rshift(__int64, int);
 unsigned int __lzcnt(unsigned int);
 unsigned short __lzcnt16(unsigned short);
-
+unsigned __int64 __lzcnt64(unsigned __int64);
 void __movsb(unsigned char *, unsigned char const *, size_t);
 void __movsd(unsigned long *, unsigned long const *, size_t);
-
+void __movsq(unsigned long long *, unsigned long long const *, size_t);
 void __movsw(unsigned short *, unsigned short const *, size_t);
-
+__int64 __mulh(__int64, __int64);
 void __nop(void);
 void __nvreg_restore_fence(void);
 void __nvreg_save_fence(void);
@@ -25109,34 +25034,34 @@ void __outword(unsigned short, unsigned short);
 void __outwordstring(unsigned short, unsigned short *, unsigned long);
 unsigned int __popcnt(unsigned int);
 unsigned short __popcnt16(unsigned short);
-
+unsigned __int64 __popcnt64(unsigned __int64);
 
 
 
 unsigned __int64 __rdtsc(void);
 unsigned __int64 __rdtscp(unsigned int *);
+unsigned __int64 __readcr0(void);
 
-unsigned long __readcr0(void);
+unsigned __int64 __readcr2(void);
 
-unsigned long __readcr2(void);
+unsigned __int64 __readcr3(void);
 
-unsigned long __readcr3(void);
+unsigned __int64 __readcr4(void);
 
-unsigned long __readcr4(void);
+unsigned __int64 __readcr8(void);
 
-unsigned long __readcr8(void);
+unsigned __int64 __readdr(unsigned int);
 
-unsigned int __readdr(unsigned int);
-
-unsigned int __readeflags(void);
-unsigned char __readfsbyte(unsigned long);
-unsigned long __readfsdword(unsigned long);
-unsigned __int64 __readfsqword(unsigned long);
-unsigned short __readfsword(unsigned long);
+unsigned __int64 __readeflags(void);
 
 
 
 
+
+unsigned char __readgsbyte(unsigned long);
+unsigned long __readgsdword(unsigned long);
+unsigned __int64 __readgsqword(unsigned long);
+unsigned short __readgsword(unsigned long);
 unsigned __int64 __readmsr(unsigned long);
 unsigned __int64 __readpmc(unsigned long);
 
@@ -25145,13 +25070,13 @@ unsigned __int64 __readpmc(unsigned long);
 
 unsigned long __segmentlimit(unsigned long);
 
-
-
+unsigned __int64 __shiftleft128(unsigned __int64 _LowPart, unsigned __int64 _HighPart, unsigned char _Shift);
+unsigned __int64 __shiftright128(unsigned __int64 _LowPart, unsigned __int64 _HighPart, unsigned char _Shift);
 void __sidt(void *);
 
 void __stosb(unsigned char *, unsigned char, size_t);
 void __stosd(unsigned long *, unsigned long, size_t);
-
+void __stosq(unsigned __int64 *, unsigned __int64, size_t);
 void __stosw(unsigned short *, unsigned short, size_t);
 void __svm_clgi(void);
 void __svm_invlpga(void *, int);
@@ -25167,39 +25092,39 @@ void __svm_vmsave(size_t);
 
 void __ud2(void);
 unsigned __int64 __ull_rshift(unsigned __int64, int);
-
+unsigned __int64 __umulh(unsigned __int64, unsigned __int64);
 void __vmx_off(void);
-
-
-
-
+unsigned char __vmx_on(unsigned __int64 *);
+unsigned char __vmx_vmclear(unsigned __int64 *);
+unsigned char __vmx_vmlaunch(void);
+unsigned char __vmx_vmptrld(unsigned __int64 *);
 void __vmx_vmptrst(unsigned __int64 *);
-
-
-
+unsigned char __vmx_vmread(size_t, size_t *);
+unsigned char __vmx_vmresume(void);
+unsigned char __vmx_vmwrite(size_t, size_t);
 void __wbinvd(void);
 
 
+void __writecr0(unsigned __int64);
 
-void __writecr0(unsigned int);
+void __writecr3(unsigned __int64);
 
-void __writecr3(unsigned int);
+void __writecr4(unsigned __int64);
 
-void __writecr4(unsigned int);
+void __writecr8(unsigned __int64);
 
-void __writecr8(unsigned int);
+void __writedr(unsigned int, unsigned __int64);
 
-void __writedr(unsigned int, unsigned int);
-
-void __writeeflags(unsigned int);
-void __writefsbyte(unsigned long, unsigned char);
-void __writefsdword(unsigned long, unsigned long);
-void __writefsqword(unsigned long, unsigned __int64);
-void __writefsword(unsigned long, unsigned short);
+void __writeeflags(unsigned __int64);
 
 
 
 
+
+void __writegsbyte(unsigned long, unsigned char);
+void __writegsdword(unsigned long, unsigned long);
+void __writegsqword(unsigned long, unsigned __int64);
+void __writegsword(unsigned long, unsigned short);
 void __writemsr(unsigned long, unsigned __int64);
 
 
@@ -25207,20 +25132,20 @@ void __writemsr(unsigned long, unsigned __int64);
 
 
 unsigned char _bittest(long const *, long);
-
+unsigned char _bittest64(__int64 const *, __int64);
 unsigned char _bittestandcomplement(long *, long);
-
+unsigned char _bittestandcomplement64(__int64 *, __int64);
 unsigned char _bittestandreset(long *, long);
-
+unsigned char _bittestandreset64(__int64 *, __int64);
 unsigned char _bittestandset(long *, long);
-
+unsigned char _bittestandset64(__int64 *, __int64);
 unsigned __int64 __cdecl _byteswap_uint64( unsigned __int64);
 unsigned long __cdecl _byteswap_ulong( unsigned long);
 unsigned short __cdecl _byteswap_ushort( unsigned short);
 void __cdecl _disable(void);
 void __cdecl _enable(void);
 unsigned char _interlockedbittestandreset(long volatile *, long);
-
+unsigned char _interlockedbittestandreset64(__int64 volatile *, __int64);
 
 
 
@@ -25228,112 +25153,20 @@ unsigned char _interlockedbittestandreset(long volatile *, long);
 
 
 unsigned char _interlockedbittestandset(long volatile *, long);
+unsigned char _interlockedbittestandset64(__int64 volatile *, __int64);
 # 547 "D:\\Microsoft Visual Studio 14.0\\VC\\include\\intrin.h" 3
 unsigned long __cdecl _lrotl( unsigned long, int);
 unsigned long __cdecl _lrotr( unsigned long, int);
-void _m_empty(void);
-void _m_femms(void);
-__m64 _m_from_float(float);
-__m64 _m_from_int(int);
-void _m_maskmovq(__m64, __m64, char *);
-__m64 _m_packssdw(__m64, __m64);
-__m64 _m_packsswb(__m64, __m64);
-__m64 _m_packuswb(__m64, __m64);
-__m64 _m_paddb(__m64, __m64);
-__m64 _m_paddd(__m64, __m64);
-__m64 _m_paddsb(__m64, __m64);
-__m64 _m_paddsw(__m64, __m64);
-__m64 _m_paddusb(__m64, __m64);
-__m64 _m_paddusw(__m64, __m64);
-__m64 _m_paddw(__m64, __m64);
-__m64 _m_pand(__m64, __m64);
-__m64 _m_pandn(__m64, __m64);
-__m64 _m_pavgb(__m64, __m64);
-__m64 _m_pavgusb(__m64, __m64);
-__m64 _m_pavgw(__m64, __m64);
-__m64 _m_pcmpeqb(__m64, __m64);
-__m64 _m_pcmpeqd(__m64, __m64);
-__m64 _m_pcmpeqw(__m64, __m64);
-__m64 _m_pcmpgtb(__m64, __m64);
-__m64 _m_pcmpgtd(__m64, __m64);
-__m64 _m_pcmpgtw(__m64, __m64);
-int _m_pextrw(__m64, int);
-__m64 _m_pf2id(__m64);
-__m64 _m_pf2iw(__m64);
-__m64 _m_pfacc(__m64, __m64);
-__m64 _m_pfadd(__m64, __m64);
-__m64 _m_pfcmpeq(__m64, __m64);
-__m64 _m_pfcmpge(__m64, __m64);
-__m64 _m_pfcmpgt(__m64, __m64);
-__m64 _m_pfmax(__m64, __m64);
-__m64 _m_pfmin(__m64, __m64);
-__m64 _m_pfmul(__m64, __m64);
-__m64 _m_pfnacc(__m64, __m64);
-__m64 _m_pfpnacc(__m64, __m64);
-__m64 _m_pfrcp(__m64);
-__m64 _m_pfrcpit1(__m64, __m64);
-__m64 _m_pfrcpit2(__m64, __m64);
-__m64 _m_pfrsqit1(__m64, __m64);
-__m64 _m_pfrsqrt(__m64);
-__m64 _m_pfsub(__m64, __m64);
-__m64 _m_pfsubr(__m64, __m64);
-__m64 _m_pi2fd(__m64);
-__m64 _m_pi2fw(__m64);
-__m64 _m_pinsrw(__m64, int, int);
-__m64 _m_pmaddwd(__m64, __m64);
-__m64 _m_pmaxsw(__m64, __m64);
-__m64 _m_pmaxub(__m64, __m64);
-__m64 _m_pminsw(__m64, __m64);
-__m64 _m_pminub(__m64, __m64);
-int _m_pmovmskb(__m64);
-__m64 _m_pmulhrw(__m64, __m64);
-__m64 _m_pmulhuw(__m64, __m64);
-__m64 _m_pmulhw(__m64, __m64);
-__m64 _m_pmullw(__m64, __m64);
-__m64 _m_por(__m64, __m64);
+# 609 "D:\\Microsoft Visual Studio 14.0\\VC\\include\\intrin.h" 3
 void _m_prefetch(void *);
 void _m_prefetchw(volatile const void *);
-__m64 _m_psadbw(__m64, __m64);
-__m64 _m_pshufw(__m64, int);
-__m64 _m_pslld(__m64, __m64);
-__m64 _m_pslldi(__m64, int);
-__m64 _m_psllq(__m64, __m64);
-__m64 _m_psllqi(__m64, int);
-__m64 _m_psllw(__m64, __m64);
-__m64 _m_psllwi(__m64, int);
-__m64 _m_psrad(__m64, __m64);
-__m64 _m_psradi(__m64, int);
-__m64 _m_psraw(__m64, __m64);
-__m64 _m_psrawi(__m64, int);
-__m64 _m_psrld(__m64, __m64);
-__m64 _m_psrldi(__m64, int);
-__m64 _m_psrlq(__m64, __m64);
-__m64 _m_psrlqi(__m64, int);
-__m64 _m_psrlw(__m64, __m64);
-__m64 _m_psrlwi(__m64, int);
-__m64 _m_psubb(__m64, __m64);
-__m64 _m_psubd(__m64, __m64);
-__m64 _m_psubsb(__m64, __m64);
-__m64 _m_psubsw(__m64, __m64);
-__m64 _m_psubusb(__m64, __m64);
-__m64 _m_psubusw(__m64, __m64);
-__m64 _m_psubw(__m64, __m64);
-__m64 _m_pswapd(__m64);
-__m64 _m_punpckhbw(__m64, __m64);
-__m64 _m_punpckhdq(__m64, __m64);
-__m64 _m_punpckhwd(__m64, __m64);
-__m64 _m_punpcklbw(__m64, __m64);
-__m64 _m_punpckldq(__m64, __m64);
-__m64 _m_punpcklwd(__m64, __m64);
-__m64 _m_pxor(__m64, __m64);
-float _m_to_float(__m64);
-int _m_to_int(__m64);
+# 646 "D:\\Microsoft Visual Studio 14.0\\VC\\include\\intrin.h" 3
 __m128i _mm_abs_epi16(__m128i);
 __m128i _mm_abs_epi32(__m128i);
 __m128i _mm_abs_epi8(__m128i);
-__m64 _mm_abs_pi16(__m64);
-__m64 _mm_abs_pi32(__m64);
-__m64 _mm_abs_pi8(__m64);
+
+
+
 __m128i _mm_add_epi16(__m128i, __m128i);
 __m128i _mm_add_epi32(__m128i, __m128i);
 __m128i _mm_add_epi64(__m128i, __m128i);
@@ -25341,7 +25174,7 @@ __m128i _mm_add_epi8(__m128i, __m128i);
 __m128d _mm_add_pd(__m128d, __m128d);
 __m128 _mm_add_ps(__m128, __m128);
 __m128d _mm_add_sd(__m128d, __m128d);
-__m64 _mm_add_si64(__m64, __m64);
+
 __m128 _mm_add_ss(__m128, __m128);
 __m128i _mm_adds_epi16(__m128i, __m128i);
 __m128i _mm_adds_epi8(__m128i, __m128i);
@@ -25350,7 +25183,7 @@ __m128i _mm_adds_epu8(__m128i, __m128i);
 __m128d _mm_addsub_pd(__m128d, __m128d);
 __m128 _mm_addsub_ps(__m128, __m128);
 __m128i _mm_alignr_epi8(__m128i, __m128i, int);
-__m64 _mm_alignr_pi8(__m64, __m64, int);
+
 __m128d _mm_and_pd(__m128d, __m128d);
 __m128 _mm_and_ps(__m128, __m128);
 __m128i _mm_and_si128(__m128i, __m128i);
@@ -25456,10 +25289,10 @@ int _mm_comineq_sd(__m128d, __m128d);
 int _mm_comineq_ss(__m128, __m128);
 unsigned int _mm_crc32_u16(unsigned int, unsigned short);
 unsigned int _mm_crc32_u32(unsigned int, unsigned int);
-
+unsigned __int64 _mm_crc32_u64(unsigned __int64, unsigned __int64);
 unsigned int _mm_crc32_u8(unsigned int, unsigned char);
-__m128 _mm_cvt_pi2ps(__m128, __m64);
-__m64 _mm_cvt_ps2pi(__m128);
+
+
 __m128 _mm_cvt_si2ss(__m128, int);
 int _mm_cvt_ss2si(__m128);
 __m128i _mm_cvtepi16_epi32(__m128i);
@@ -25477,39 +25310,39 @@ __m128i _mm_cvtepu8_epi16(__m128i);
 __m128i _mm_cvtepu8_epi32(__m128i);
 __m128i _mm_cvtepu8_epi64(__m128i);
 __m128i _mm_cvtpd_epi32(__m128d);
-__m64 _mm_cvtpd_pi32(__m128d);
+
 __m128 _mm_cvtpd_ps(__m128d);
-__m128d _mm_cvtpi32_pd(__m64);
+
 __m128i _mm_cvtps_epi32(__m128);
 __m128d _mm_cvtps_pd(__m128);
 int _mm_cvtsd_si32(__m128d);
-
-
+__int64 _mm_cvtsd_si64(__m128d);
+__int64 _mm_cvtsd_si64x(__m128d);
 __m128 _mm_cvtsd_ss(__m128, __m128d);
 int _mm_cvtsi128_si32(__m128i);
-
-
+__int64 _mm_cvtsi128_si64(__m128i);
+__int64 _mm_cvtsi128_si64x(__m128i);
 __m128d _mm_cvtsi32_sd(__m128d, int);
 __m128i _mm_cvtsi32_si128(int);
-
-
-
-
-
-
+__m128d _mm_cvtsi64_sd(__m128d, __int64);
+__m128i _mm_cvtsi64_si128(__int64);
+__m128 _mm_cvtsi64_ss(__m128, __int64);
+__m128d _mm_cvtsi64x_sd(__m128d, __int64);
+__m128i _mm_cvtsi64x_si128(__int64);
+__m128 _mm_cvtsi64x_ss(__m128, __int64);
 __m128d _mm_cvtss_sd(__m128d, __m128);
+__int64 _mm_cvtss_si64(__m128);
+__int64 _mm_cvtss_si64x(__m128);
 
-
-__m64 _mm_cvtt_ps2pi(__m128);
 int _mm_cvtt_ss2si(__m128);
 __m128i _mm_cvttpd_epi32(__m128d);
-__m64 _mm_cvttpd_pi32(__m128d);
+
 __m128i _mm_cvttps_epi32(__m128);
 int _mm_cvttsd_si32(__m128d);
-
-
-
-
+__int64 _mm_cvttsd_si64(__m128d);
+__int64 _mm_cvttsd_si64x(__m128d);
+__int64 _mm_cvttss_si64(__m128);
+__int64 _mm_cvttss_si64x(__m128);
 __m128d _mm_div_pd(__m128d, __m128d);
 __m128 _mm_div_ps(__m128, __m128);
 __m128d _mm_div_sd(__m128d, __m128d);
@@ -25518,7 +25351,7 @@ __m128d _mm_dp_pd(__m128d, __m128d, int);
 __m128 _mm_dp_ps(__m128, __m128, int);
 int _mm_extract_epi16(__m128i, int);
 int _mm_extract_epi32(__m128i, int);
-
+__int64 _mm_extract_epi64(__m128i, int);
 int _mm_extract_epi8(__m128i, int);
 int _mm_extract_ps(__m128, int);
 __m128i _mm_extract_si64(__m128i, __m128i);
@@ -25527,22 +25360,22 @@ unsigned int _mm_getcsr(void);
 __m128i _mm_hadd_epi16(__m128i, __m128i);
 __m128i _mm_hadd_epi32(__m128i, __m128i);
 __m128d _mm_hadd_pd(__m128d, __m128d);
-__m64 _mm_hadd_pi16(__m64, __m64);
-__m64 _mm_hadd_pi32(__m64, __m64);
+
+
 __m128 _mm_hadd_ps(__m128, __m128);
 __m128i _mm_hadds_epi16(__m128i, __m128i);
-__m64 _mm_hadds_pi16(__m64, __m64);
+
 __m128i _mm_hsub_epi16(__m128i, __m128i);
 __m128i _mm_hsub_epi32(__m128i, __m128i);
 __m128d _mm_hsub_pd(__m128d, __m128d);
-__m64 _mm_hsub_pi16(__m64, __m64);
-__m64 _mm_hsub_pi32(__m64, __m64);
+
+
 __m128 _mm_hsub_ps(__m128, __m128);
 __m128i _mm_hsubs_epi16(__m128i, __m128i);
-__m64 _mm_hsubs_pi16(__m64, __m64);
+
 __m128i _mm_insert_epi16(__m128i, int, int);
 __m128i _mm_insert_epi32(__m128i, int, int);
-
+__m128i _mm_insert_epi64(__m128i, __int64, int);
 __m128i _mm_insert_epi8(__m128i, int, int);
 __m128 _mm_insert_ps(__m128, __m128, int);
 __m128i _mm_insert_si64(__m128i, __m128i);
@@ -25569,7 +25402,7 @@ __m128 _mm_loadu_ps(float const *);
 __m128i _mm_loadu_si128(__m128i const *);
 __m128i _mm_madd_epi16(__m128i, __m128i);
 __m128i _mm_maddubs_epi16(__m128i, __m128i);
-__m64 _mm_maddubs_pi16(__m64, __m64);
+
 void _mm_maskmoveu_si128(__m128i, __m128i, char *);
 __m128i _mm_max_epi16(__m128i, __m128i);
 __m128i _mm_max_epi32(__m128i, __m128i);
@@ -25605,8 +25438,8 @@ __m128 _mm_movelh_ps(__m128, __m128);
 int _mm_movemask_epi8(__m128i);
 int _mm_movemask_pd(__m128d);
 int _mm_movemask_ps(__m128);
-__m64 _mm_movepi64_pi64(__m128i);
-__m128i _mm_movpi64_epi64(__m64);
+
+
 __m128i _mm_mpsadbw_epu8(__m128i, __m128i, int);
 __m128i _mm_mul_epi32(__m128i, __m128i);
 __m128i _mm_mul_epu32(__m128i, __m128i);
@@ -25614,11 +25447,11 @@ __m128d _mm_mul_pd(__m128d, __m128d);
 __m128 _mm_mul_ps(__m128, __m128);
 __m128d _mm_mul_sd(__m128d, __m128d);
 __m128 _mm_mul_ss(__m128, __m128);
-__m64 _mm_mul_su32(__m64, __m64);
+
 __m128i _mm_mulhi_epi16(__m128i, __m128i);
 __m128i _mm_mulhi_epu16(__m128i, __m128i);
 __m128i _mm_mulhrs_epi16(__m128i, __m128i);
-__m64 _mm_mulhrs_pi16(__m64, __m64);
+
 __m128i _mm_mullo_epi16(__m128i, __m128i);
 __m128i _mm_mullo_epi32(__m128i, __m128i);
 void _mm_mwait(unsigned int, unsigned int);
@@ -25631,7 +25464,7 @@ __m128i _mm_packus_epi16(__m128i, __m128i);
 __m128i _mm_packus_epi32(__m128i, __m128i);
 void _mm_pause(void);
 int _mm_popcnt_u32(unsigned int);
-
+__int64 _mm_popcnt_u64(unsigned __int64);
 void _mm_prefetch(char const *, int);
 __m128 _mm_rcp_ps(__m128);
 __m128 _mm_rcp_ss(__m128);
@@ -25644,22 +25477,22 @@ __m128 _mm_rsqrt_ss(__m128);
 __m128i _mm_sad_epu8(__m128i, __m128i);
 __m128i _mm_set1_epi16(short);
 __m128i _mm_set1_epi32(int);
-__m128i _mm_set1_epi64(__m64);
+
 __m128i _mm_set1_epi64x(__int64);
 __m128i _mm_set1_epi8(char);
 __m128d _mm_set1_pd(double);
-__m64 _mm_set1_pi16(short);
-__m64 _mm_set1_pi32(int);
-__m64 _mm_set1_pi8(char);
+
+
+
 __m128i _mm_set_epi16(short, short, short, short, short, short, short, short);
 __m128i _mm_set_epi32(int, int, int, int);
-__m128i _mm_set_epi64(__m64, __m64);
+
 __m128i _mm_set_epi64x(__int64, __int64);
 __m128i _mm_set_epi8(char, char, char, char, char, char, char, char, char, char, char, char, char, char, char, char);
 __m128d _mm_set_pd(double, double);
-__m64 _mm_set_pi16(short, short, short, short);
-__m64 _mm_set_pi32(int, int);
-__m64 _mm_set_pi8(char, char, char, char, char, char, char, char);
+
+
+
 __m128 _mm_set_ps(float, float, float, float);
 __m128 _mm_set_ps1(float);
 __m128d _mm_set_sd(double);
@@ -25668,32 +25501,32 @@ void _mm_setcsr(unsigned int);
 __m128i _mm_setl_epi64(__m128i);
 __m128i _mm_setr_epi16(short, short, short, short, short, short, short, short);
 __m128i _mm_setr_epi32(int, int, int, int);
-__m128i _mm_setr_epi64(__m64, __m64);
+
 __m128i _mm_setr_epi64x(__int64, __int64);
 __m128i _mm_setr_epi8(char, char, char, char, char, char, char, char, char, char, char, char, char, char, char, char);
 __m128d _mm_setr_pd(double, double);
-__m64 _mm_setr_pi16(short, short, short, short);
-__m64 _mm_setr_pi32(int, int);
-__m64 _mm_setr_pi8(char, char, char, char, char, char, char, char);
+
+
+
 __m128 _mm_setr_ps(float, float, float, float);
 __m128d _mm_setzero_pd(void);
 __m128 _mm_setzero_ps(void);
 __m128i _mm_setzero_si128(void);
-__m64 _mm_setzero_si64(void);
+
 void _mm_sfence(void);
 __m128i _mm_shuffle_epi32(__m128i, int);
 __m128i _mm_shuffle_epi8(__m128i, __m128i);
 __m128d _mm_shuffle_pd(__m128d, __m128d, int);
-__m64 _mm_shuffle_pi8(__m64, __m64);
+
 __m128 _mm_shuffle_ps(__m128, __m128, unsigned int);
 __m128i _mm_shufflehi_epi16(__m128i, int);
 __m128i _mm_shufflelo_epi16(__m128i, int);
 __m128i _mm_sign_epi16(__m128i, __m128i);
 __m128i _mm_sign_epi32(__m128i, __m128i);
 __m128i _mm_sign_epi8(__m128i, __m128i);
-__m64 _mm_sign_pi16(__m64, __m64);
-__m64 _mm_sign_pi32(__m64, __m64);
-__m64 _mm_sign_pi8(__m64, __m64);
+
+
+
 __m128i _mm_sll_epi16(__m128i, __m128i);
 __m128i _mm_sll_epi32(__m128i, __m128i);
 __m128i _mm_sll_epi64(__m128i, __m128i);
@@ -25735,12 +25568,12 @@ void _mm_storeu_ps(float *, __m128);
 void _mm_storeu_si128(__m128i *, __m128i);
 __m128i _mm_stream_load_si128(const __m128i *);
 void _mm_stream_pd(double *, __m128d);
-void _mm_stream_pi(__m64 *, __m64);
+
 void _mm_stream_ps(float *, __m128);
 void _mm_stream_sd(double *, __m128d);
 void _mm_stream_si128(__m128i *, __m128i);
 void _mm_stream_si32(int *, int);
-
+void _mm_stream_si64x(__int64 *, __int64);
 void _mm_stream_ss(float *, __m128);
 __m128i _mm_sub_epi16(__m128i, __m128i);
 __m128i _mm_sub_epi32(__m128i, __m128i);
@@ -25749,7 +25582,7 @@ __m128i _mm_sub_epi8(__m128i, __m128i);
 __m128d _mm_sub_pd(__m128d, __m128d);
 __m128 _mm_sub_ps(__m128, __m128);
 __m128d _mm_sub_sd(__m128d, __m128d);
-__m64 _mm_sub_si64(__m64, __m64);
+
 __m128 _mm_sub_ss(__m128, __m128);
 __m128i _mm_subs_epi16(__m128i, __m128i);
 __m128i _mm_subs_epi8(__m128i, __m128i);
@@ -25785,7 +25618,7 @@ __m128 _mm_unpacklo_ps(__m128, __m128);
 __m128d _mm_xor_pd(__m128d, __m128d);
 __m128 _mm_xor_ps(__m128, __m128);
 __m128i _mm_xor_si128(__m128i, __m128i);
-
+__int64 _mul128(__int64 _Multiplier, __int64 _Multiplicand, __int64 * _HighProduct);
 unsigned int __cdecl _rotl( unsigned int _Value, int _Shift);
 unsigned short __cdecl _rotl16(unsigned short _Value, unsigned char _Shift);
 unsigned __int64 __cdecl _rotl64( unsigned __int64 _Value, int _Shift);
@@ -25795,8 +25628,8 @@ unsigned short __cdecl _rotr16(unsigned short _Value, unsigned char _Shift);
 unsigned __int64 __cdecl _rotr64( unsigned __int64 _Value, int _Shift);
 unsigned char __cdecl _rotr8(unsigned char _Value, unsigned char _Shift);
 int __cdecl _setjmp(jmp_buf);
-
-
+int __cdecl _setjmpex(jmp_buf);
+unsigned __int64 _umul128(unsigned __int64 _Multiplier, unsigned __int64 _Multiplicand, unsigned __int64 * _HighProduct);
 void _rsm(void);
 void _lgdt(void *);
 void _sgdt(void *);
@@ -25808,8 +25641,8 @@ unsigned char __cdecl _addcarry_u16(unsigned char, unsigned short, unsigned shor
 unsigned char __cdecl _subborrow_u16(unsigned char, unsigned short, unsigned short, unsigned short *);
 unsigned char __cdecl _addcarry_u32(unsigned char, unsigned int, unsigned int, unsigned int *);
 unsigned char __cdecl _subborrow_u32(unsigned char, unsigned int, unsigned int, unsigned int *);
-
-
+unsigned char __cdecl _addcarry_u64(unsigned char, unsigned __int64, unsigned __int64, unsigned __int64 *);
+unsigned char __cdecl _subborrow_u64(unsigned char, unsigned __int64, unsigned __int64, unsigned __int64 *);
 void _mm_monitorx(void const *, unsigned int, unsigned int);
 void _mm_mwaitx(unsigned int, unsigned int, unsigned int);
 
@@ -47063,10 +46896,10 @@ private:
 # 13 "C:\\Users\\HP\\Documents\\Visual Studio 2015\\Projects\\Class Projects\\Lab1\\Lab1/stdafx.h" 2
 
 
-# 1 "C:\\Program Files (x86)\\Windows Kits\\10\\Include\\10.0.10240.0\\ucrt\\tchar.h" 1 3
-# 23 "C:\\Program Files (x86)\\Windows Kits\\10\\Include\\10.0.10240.0\\ucrt\\tchar.h" 3
+# 1 "C:\\Program Files (x86)\\Windows Kits\\10\\Include\\10.0.10240.0\\ucrt\\tchar.h" 1
+# 23 "C:\\Program Files (x86)\\Windows Kits\\10\\Include\\10.0.10240.0\\ucrt\\tchar.h"
 #pragma warning(disable: 4514)
-# 43 "C:\\Program Files (x86)\\Windows Kits\\10\\Include\\10.0.10240.0\\ucrt\\tchar.h" 3
+# 43 "C:\\Program Files (x86)\\Windows Kits\\10\\Include\\10.0.10240.0\\ucrt\\tchar.h"
 extern "C" {
 
 
@@ -47120,7 +46953,7 @@ extern "C" {
 #pragma deprecated("_ftclen")
 #pragma deprecated("_ftccpy")
 #pragma deprecated("_ftccmp")
-# 155 "C:\\Program Files (x86)\\Windows Kits\\10\\Include\\10.0.10240.0\\ucrt\\tchar.h" 3
+# 155 "C:\\Program Files (x86)\\Windows Kits\\10\\Include\\10.0.10240.0\\ucrt\\tchar.h"
 }
 
 
@@ -47144,7 +46977,7 @@ typedef wint_t _TINT;
 
 
 typedef wchar_t TCHAR;
-# 640 "C:\\Program Files (x86)\\Windows Kits\\10\\Include\\10.0.10240.0\\ucrt\\tchar.h" 3
+# 640 "C:\\Program Files (x86)\\Windows Kits\\10\\Include\\10.0.10240.0\\ucrt\\tchar.h"
                __inline size_t __cdecl _tclen( const wchar_t *_Cpc)
 {
 
@@ -47161,7 +46994,7 @@ __inline void __cdecl _tccpy_l( wchar_t *_Pc1, const wchar_t *_Cpc2, _locale_t _
 #pragma warning(pop)
 }
                __inline int __cdecl _tccmp( const wchar_t *_Cpc1, const wchar_t *_Cpc2) { return (int) ((*_Cpc1)-(*_Cpc2)); }
-# 720 "C:\\Program Files (x86)\\Windows Kits\\10\\Include\\10.0.10240.0\\ucrt\\tchar.h" 3
+# 720 "C:\\Program Files (x86)\\Windows Kits\\10\\Include\\10.0.10240.0\\ucrt\\tchar.h"
                __inline wchar_t * __cdecl _wcsdec( const wchar_t * _Cpc1, const wchar_t * _Cpc2) { return (wchar_t *)((_Cpc1)>=(_Cpc2) ? 0 : ((_Cpc2)-1)); }
                __inline wchar_t * __cdecl _wcsinc( const wchar_t * _Pc) { return (wchar_t *)(_Pc+1); }
                __inline unsigned int __cdecl _wcsnextc( const wchar_t * _Cpc) { return (unsigned int)*_Cpc; }
@@ -47282,7 +47115,7 @@ __declspec(deprecated("This function or variable may be unsafe. Consider using "
  return _wcsset(_Dst, _Value);
 #pragma warning(pop)
 }
-# 2414 "C:\\Program Files (x86)\\Windows Kits\\10\\Include\\10.0.10240.0\\ucrt\\tchar.h" 3
+# 2414 "C:\\Program Files (x86)\\Windows Kits\\10\\Include\\10.0.10240.0\\ucrt\\tchar.h"
 }
 # 15 "C:\\Users\\HP\\Documents\\Visual Studio 2015\\Projects\\Class Projects\\Lab1\\Lab1/stdafx.h" 2
 
@@ -50707,26 +50540,8 @@ template<class _Elem,
  static_assert(is_unsigned<_UTy>::value, "_UTy must be unsigned");
 
 
-
-
- if (sizeof(_UTy) > 4)
-  {
-  while (_UVal > 0xFFFFFFFFU)
-   {
-   auto _UVal_chunk = static_cast<_Uint32t>(_UVal % 1000000000);
-   _UVal /= 1000000000;
-
-   for (int _Idx = 0; _Idx != 9; ++_Idx)
-    {
-    *--_RNext = '0' + _UVal_chunk % 10;
-    _UVal_chunk /= 10;
-    }
-   }
-  }
-
- auto _UVal_trunc = static_cast<_Uint32t>(_UVal);
-
-
+ auto _UVal_trunc = _UVal;
+# 514 "D:\\Microsoft Visual Studio 14.0\\VC\\include\\string" 3
  do
   {
   *--_RNext = '0' + _UVal_trunc % 10;
@@ -50920,5 +50735,591 @@ inline u32string operator "" s(const char32_t *_Str, size_t _Len)
 # 18 "C:\\Users\\HP\\Documents\\Visual Studio 2015\\Projects\\Class Projects\\Lab1\\Lab1/stdafx.h" 2
 
 using namespace std;
-# 7 "c:\\users\\hp\\documents\\visual studio 2015\\projects\\class projects\\lab1\\lab1\\stdafx.cpp" 2
+# 6 "c:\\users\\hp\\documents\\visual studio 2015\\projects\\class projects\\lab1\\lab1\\lab1.cpp" 2
 
+# 1 "C:\\Users\\HP\\Documents\\Visual Studio 2015\\Projects\\Class Projects\\Lab1\\Lab1/list.h" 1
+
+
+using namespace std;
+
+template <typename T>
+bool bigger(const T& a,const T& b)
+{
+ return a > b;
+}
+template <typename T>
+bool smaller(const T& a,const T& b)
+{
+ return a < b;
+}
+template <typename T>
+struct Node
+{
+ T data;
+ Node* prev;
+ Node* next;
+ Node(const T& d = 0, Node* pr = nullptr, Node* nx = nullptr) :data(d), prev(pr), next(nx) {}
+};
+
+template <typename T>
+class List
+{
+protected:
+ Node<T>* head;
+ Node<T>* tail;
+public:
+ List() :head(nullptr), tail(nullptr) {}
+ List(const List &a);
+ List<T>& operator=(const List<T>& a);
+ bool isempty();
+ int size();
+ inline Node<T>* begin() const { return head; }
+ inline Node<T>* end() const { return tail; }
+ inline Node<T>*& begin() { return head; }
+ inline Node<T>*& end() { return tail; }
+ void addNode_tail(T data);
+ void addNode_head(T data);
+ void showList(ostream&os=cout) const;
+ void showList_reverse(ostream&os = cout) const;
+ void insertNode_sorted(T key,bool (*pf)(const T&,const T&));
+ void insertNode_after(Node<T>* a,T data);
+ void insertNode_before(Node<T>* a, T data);
+ void deleteNode_head();
+ void deleteNode_tail();
+ void deleteNode_index(int i);
+ void deleteNode_key(T key);
+ Node<T>* find(T key);
+ Node<T>*& operator[](int i);
+ const Node<T>* operator[](int i) const;
+ virtual ~List();
+ template <typename U>
+ friend ostream& operator<<(ostream& os,const List<U>& a);
+};
+template <typename U>
+ostream & operator<<(ostream& os, const List<U>& a)
+{
+ Node<U>* p = a.head;
+ while (p)
+ {
+  os << p->data << ' ';
+  p = p->next;
+ }
+ return os;
+}
+
+template<typename T>
+void List<T>::insertNode_after(Node<T>* a,T data)
+{
+ if (a == nullptr)
+  return;
+ if (a == tail)
+ {
+  addNode_tail(data);
+  return;
+ }
+ Node<T>* add = new Node<T>(data,a,a->next);
+ a->next->prev = add;
+ a->next = add;
+}
+
+template<typename T>
+void List<T>::insertNode_before(Node<T>* a, T data)
+{
+ if (a == nullptr)
+  return;
+ if (a == head)
+ {
+  addNode_head(data);
+  return;
+ }
+ insertNode_after(a->prev, data);
+}
+
+template<typename T>
+void List<T>::deleteNode_head()
+{
+ if (!head)
+  return;
+ Node<T>* t = head;
+ if (head == tail)
+  tail = nullptr;
+ else
+  head->next->prev = nullptr;
+ head = head->next;
+ delete t;
+}
+
+template<typename T>
+void List<T>::deleteNode_tail()
+{
+ if (!head)
+  return;
+ Node<T>* t = tail;
+ if (head == tail)
+  head = nullptr;
+ else
+  tail->prev->next = nullptr;
+ tail = tail->prev;
+ delete t;
+}
+
+template<typename T>
+void List<T>::deleteNode_index(int i)
+{
+ if (i < 0)
+  return;
+ if (i == 0)
+  deleteNode_head();
+ else
+ {
+  Node<T> *p = head;
+  while (p && (i > 0))
+  {
+   p = p->next;
+   i--;
+  }
+  if (p == tail)
+   deleteNode_tail();
+  else
+  {
+   p->prev->next = p->next;
+   p->next->prev = p->prev;
+   delete p;
+  }
+ }
+}
+
+template<typename T>
+void List<T>::deleteNode_key(T key)
+{
+ if (head->data == key)
+  deleteNode_head();
+ else if (tail->data == key)
+  deleteNode_tail();
+ else
+ {
+  Node<T>* p = head->next;
+  while (p->next)
+  {
+   if (p->data == key)
+   {
+
+    p->prev->next = p->next;
+    p->next->prev = p->prev;
+    delete p;
+    return;
+   }
+   p = p-> next;
+  }
+ }
+}
+
+template<typename T>
+Node<T>* List<T>::find(T key)
+{
+ Node<T>* p=head;
+ while (p)
+ {
+  if (p->data == key)
+   return p;
+  p = p->next;
+ }
+ return nullptr;
+}
+
+template<typename T>
+List<T>::List(const List & a):List()
+{
+ if (!a.head)
+  return;
+ head = new Node<T>(a.head->data);
+ Node<T>* p = a.head->next,*t,*prev;
+ prev = head;
+ t = head;
+ while (p)
+ {
+  t = new Node<T>(p->data);
+  t->prev = prev;
+  prev->next = t;
+  prev = t;
+  p = p->next;
+ }
+ tail = t;
+ t->next = nullptr;
+}
+
+template<typename T>
+List<T>& List<T>::operator=(const List<T> & a)
+{
+ if (this == &a)
+  return *this;
+ this->~List();
+ if (!a.head)
+ {
+  head = tail = nullptr;
+ }
+ else
+ {
+  head = new Node<T>(a.head->data);
+  Node<T>* p = a.head->next, *t, *prev;
+  prev = head;
+  t = head;
+  while (p)
+  {
+   t = new Node<T>(p->data);
+   t->prev = prev;
+   prev->next = t;
+   prev = t;
+   p = p->next;
+  }
+  tail = t;
+  t->next = nullptr;
+ }
+ return *this;
+}
+
+
+template<typename T>
+inline bool List<T>::isempty()
+{
+ return head==nullptr;
+}
+
+template<typename T>
+inline int List<T>::size()
+{
+ Node<T>* p = head;
+ int count = 0;
+ while (p)
+ {
+  p = p->next;
+  ++count;
+ }
+ return count;
+}
+
+template<typename T>
+void List<T>::addNode_tail(T data)
+{
+ Node<T>* add = new Node<T>(data);
+ if (!head)
+ {
+  head = add;
+  tail = head;
+  return;
+ }
+ tail->next = add;
+ add->prev = tail;
+ tail = add;
+}
+
+template<typename T>
+void List<T>::addNode_head(T data)
+{
+ Node<T>* add = new Node<T>(data);
+ if (!head)
+ {
+  head = add;
+  tail = head;
+  return;
+ }
+ add->next = head;
+ head->prev = add;
+ head = add;
+}
+
+template<typename T>
+void List<T>::showList(ostream& os) const
+{
+ Node<T>* p = head;
+ while (p)
+ {
+  os << p->data << ' ';
+  p = p->next;
+ }
+ os << endl;
+}
+
+template<typename T>
+void List<T>::showList_reverse(ostream& os) const
+{
+ Node<T> *p = tail;
+ while (p)
+ {
+  os << p->data << ' ';
+  p = p->prev;
+ }
+ os << endl;
+}
+
+template<typename T>
+void List<T>::insertNode_sorted(T key,bool (*pf)(const T&,const T&))
+{
+ if (!head)
+ {
+  addNode_tail(key);
+  return;
+ }
+ Node<T>*p=head;
+ if (pf(key,head->data))
+ {
+  addNode_head(key);
+  return;
+ }
+ if (pf(tail->data, key))
+ {
+  addNode_tail(key);
+  return;
+ }
+ while (p)
+ {
+  if (pf(key,p->data))
+  {
+   insertNode_after(p->prev, key);
+   return;
+  }
+  p = p->next;
+ }
+}
+
+template<typename T>
+Node<T>*& List<T>::operator[](int i)
+{
+ Node<T>*p = head;
+ while (p && (i>0))
+ {
+  p = p->next;
+  i--;
+ }
+ return p;
+}
+
+template<typename T>
+const Node<T>* List<T>::operator[](int i) const
+{
+ Node<T>*p = head;
+ while (p && (i>0))
+ {
+  p = p->next;
+  i--;
+ }
+ return p;
+}
+
+
+template<typename T>
+List<T>::~List()
+{
+ while (head)
+ {
+  Node<T>* cur = head;
+  head = head->next;
+  delete cur;
+ }
+}
+# 7 "c:\\users\\hp\\documents\\visual studio 2015\\projects\\class projects\\lab1\\lab1\\lab1.cpp" 2
+
+# 1 "C:\\Users\\HP\\Documents\\Visual Studio 2015\\Projects\\Class Projects\\Lab1\\Lab1/polynom.h" 1
+
+
+
+const double eps = 1e-6;
+const string var = "xyzfgh";
+int compare(double a,double b);
+class monom
+{
+ double coef;
+ vector<pair<char, double>> var;
+ int var_numb;
+public:
+ monom() :var(),coef(0),var_numb(0) {}
+ friend monom string_get(const string& s, int& i);
+ friend ostream& operator<<(ostream& os, const monom& m);
+};
+struct monomial
+{
+ double coef;
+ int numb_of_variables;
+ vector<double> powers;
+ monomial(double c = 1, int n = 1) :coef(c), numb_of_variables(n), powers(n, 0) {}
+ inline void add_powers(const vector<double>& a)
+ {
+  copy(a.begin(), a.end(), powers.begin());
+ }
+ void show(ostream &os=cout) const;
+ double value(const vector<double>& a) const;
+ void get();
+ double power() const;
+ double max_power() const;
+ friend monomial string_get(const string& s,int& i,const int& numb_var);
+ friend bool divide(const monomial& a, const monomial& b, monomial& res);
+ friend bool operator==(const monomial& a, const monomial& b);
+ friend bool operator<(const monomial& a, const monomial& b);
+ friend bool operator<=(const monomial& a, const monomial& b);
+ friend bool operator>(const monomial& a, const monomial& b);
+ friend bool operator>=(const monomial& a, const monomial& b);
+ friend monomial operator*(const monomial& a, const monomial& b);
+ friend ostream& operator<<(ostream& os,const monomial& p);
+ friend istream& operator>>(istream& is, monomial&p);
+};
+
+class polynomial
+{
+ List<monomial> pol;
+ int numb_of_variables;
+ void add_0();
+public:
+ explicit polynomial(int n=1) :pol(),numb_of_variables(n) {}
+ void get(istream& is=cin);
+ void fget(fstream& fis);
+ inline int numb_of_var() const { return numb_of_variables; }
+ friend polynomial string_get(const string& s);
+ polynomial& operator-();
+ polynomial derivative() const;
+ double value(const vector<double> &a) const;
+ friend bool divide(const polynomial& a, const polynomial& b, polynomial& quotient, polynomial& reminder);
+ friend polynomial operator-(const polynomial& a, const polynomial& b);
+ friend ostream& operator<<(ostream& os, const polynomial& p);
+ friend polynomial operator+(const polynomial& a, const polynomial& b);
+ friend polynomial operator*(const polynomial& a, const polynomial& b);
+ friend polynomial operator*(const polynomial& a, const monomial& b);
+};
+# 8 "c:\\users\\hp\\documents\\visual studio 2015\\projects\\class projects\\lab1\\lab1\\lab1.cpp" 2
+
+# 1 "C:\\Program Files (x86)\\Visual Leak Detector\\include\\vld.h" 1
+# 26 "C:\\Program Files (x86)\\Visual Leak Detector\\include\\vld.h"
+# 1 "C:\\Program Files (x86)\\Visual Leak Detector\\include/vld_def.h" 1
+# 49 "C:\\Program Files (x86)\\Visual Leak Detector\\include/vld_def.h"
+typedef int (__cdecl * VLD_REPORT_HOOK)(int reportType, wchar_t *message, int *returnValue);
+# 26 "C:\\Program Files (x86)\\Visual Leak Detector\\include\\vld.h" 2
+
+
+typedef int VLD_BOOL;
+typedef unsigned int VLD_UINT;
+typedef size_t VLD_SIZET;
+typedef void* VLD_HMODULE;
+
+
+
+
+
+
+
+#pragma comment(lib, "vld.lib")
+
+
+
+
+#pragma comment(linker, "/include:__imp_?g_vld@@3VVisualLeakDetector@@A")
+
+
+
+
+
+
+
+extern "C" {
+# 75 "C:\\Program Files (x86)\\Visual Leak Detector\\include\\vld.h"
+__declspec(dllimport) void VLDDisable ();
+# 97 "C:\\Program Files (x86)\\Visual Leak Detector\\include\\vld.h"
+__declspec(dllimport) void VLDEnable ();
+
+
+
+
+
+
+
+__declspec(dllimport) void VLDRestore ();
+# 115 "C:\\Program Files (x86)\\Visual Leak Detector\\include\\vld.h"
+__declspec(dllimport) void VLDGlobalDisable ();
+# 125 "C:\\Program Files (x86)\\Visual Leak Detector\\include\\vld.h"
+__declspec(dllimport) void VLDGlobalEnable ();
+
+
+
+
+
+
+
+__declspec(dllimport) VLD_UINT VLDReportLeaks ();
+# 143 "C:\\Program Files (x86)\\Visual Leak Detector\\include\\vld.h"
+__declspec(dllimport) VLD_UINT VLDReportThreadLeaks (VLD_UINT threadId);
+
+
+
+
+
+
+
+__declspec(dllimport) VLD_UINT VLDGetLeaksCount ();
+# 161 "C:\\Program Files (x86)\\Visual Leak Detector\\include\\vld.h"
+__declspec(dllimport) VLD_UINT VLDGetThreadLeaksCount (VLD_UINT threadId);
+
+
+
+
+
+
+
+__declspec(dllimport) void VLDMarkAllLeaksAsReported ();
+# 179 "C:\\Program Files (x86)\\Visual Leak Detector\\include\\vld.h"
+__declspec(dllimport) void VLDMarkThreadLeaksAsReported (VLD_UINT threadId);
+# 188 "C:\\Program Files (x86)\\Visual Leak Detector\\include\\vld.h"
+__declspec(dllimport) void VLDRefreshModules();
+# 200 "C:\\Program Files (x86)\\Visual Leak Detector\\include\\vld.h"
+__declspec(dllimport) void VLDEnableModule(VLD_HMODULE module);
+# 211 "C:\\Program Files (x86)\\Visual Leak Detector\\include\\vld.h"
+__declspec(dllimport) void VLDDisableModule(VLD_HMODULE module);
+
+
+
+
+
+
+
+__declspec(dllimport) VLD_UINT VLDGetOptions();
+# 229 "C:\\Program Files (x86)\\Visual Leak Detector\\include\\vld.h"
+__declspec(dllimport) void VLDGetReportFilename(wchar_t *filename);
+# 251 "C:\\Program Files (x86)\\Visual Leak Detector\\include\\vld.h"
+__declspec(dllimport) void VLDSetOptions(VLD_UINT option_mask, VLD_SIZET maxDataDump, VLD_UINT maxTraceFrames);
+# 264 "C:\\Program Files (x86)\\Visual Leak Detector\\include\\vld.h"
+__declspec(dllimport) void VLDSetModulesList(const wchar_t *modules, VLD_BOOL includeModules);
+# 277 "C:\\Program Files (x86)\\Visual Leak Detector\\include\\vld.h"
+__declspec(dllimport) VLD_BOOL VLDGetModulesList(wchar_t *modules, VLD_UINT size);
+# 293 "C:\\Program Files (x86)\\Visual Leak Detector\\include\\vld.h"
+__declspec(dllimport) void VLDSetReportOptions(VLD_UINT option_mask, const wchar_t *filename);
+# 306 "C:\\Program Files (x86)\\Visual Leak Detector\\include\\vld.h"
+__declspec(dllimport) int VLDSetReportHook(int mode, VLD_REPORT_HOOK pfnNewHook);
+# 319 "C:\\Program Files (x86)\\Visual Leak Detector\\include\\vld.h"
+__declspec(dllexport) int VLDResolveCallstacks();
+
+
+}
+# 9 "c:\\users\\hp\\documents\\visual studio 2015\\projects\\class projects\\lab1\\lab1\\lab1.cpp" 2
+
+bool is_cor(const string& s, const set<string>& a)
+{
+ if (a.find(s) != a.end())
+  return true;
+ return false;
+}
+int show_list_of_pol(const List<polynomial> &a)
+{
+ Node<polynomial>* p = a.begin();
+ int i = 0;
+ while (p)
+ {
+  cout << ++i << ". " << p->data << endl;
+  p = p->next;
+ }
+ return i;
+}
+int main()
+{
+ int i = 0;
+ monom a = string_get("12xy2",i);
+ cout << a << endl;
+ system("pause");
+    return 0;
+}

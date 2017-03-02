@@ -10,7 +10,7 @@ class monom
 	vector<pair<char, double>> var;
 	int var_numb;
 public:
-	monom() :var() {}
+	monom() :var(),coef(0),var_numb(0) {}
 	friend monom string_get(const string& s, int& i);
 	friend ostream& operator<<(ostream& os, const monom& m);
 };
