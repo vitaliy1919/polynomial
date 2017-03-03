@@ -16,8 +16,10 @@ public:
 	double max_power() const;
 	double sum_powers() const;
 	friend monomial_list string_get(const string& s, int& i);
+	int get_var_numb() const { return var_numb; }
 	double get_coef() const { return coef; }
 	double& set_coef() { return coef; }
+	monomial_list derivative() const;
 	friend ostream& operator<<(ostream& os, const monomial_list& m);
 	friend monomial_list operator*(const monomial_list& a, const monomial_list& b);
 	double value(const vector<double>& m) const;
@@ -55,13 +57,13 @@ struct monomial_vector
 typedef monomial_list monom;
 class polynomial
 {
-	List<monomial_vector> pol;
+	List<monom> pol;
 	int numb_of_variables;
 	void add_0();
 public:
 	explicit polynomial(int n=1) :pol(),numb_of_variables(n) {}
-	void get(istream& is=cin);
-	void fget(fstream& fis);
+	//void get(istream& is=cin);
+	//void fget(fstream& fis);
 	inline int numb_of_var() const { return numb_of_variables; }
 	friend polynomial string_get(const string& s);
 	polynomial& operator-();
@@ -72,5 +74,5 @@ public:
 	friend ostream& operator<<(ostream& os, const polynomial& p);
 	friend polynomial operator+(const polynomial& a, const polynomial& b);
 	friend polynomial operator*(const polynomial& a, const polynomial& b);
-	friend polynomial operator*(const polynomial& a, const monomial_vector& b);
+	friend polynomial operator*(const polynomial& a, const monom& b);
 };

@@ -2,7 +2,7 @@
 // PVS-Studio Static Code Analyzer for C, C++ and C#: http://www.viva64.com
 #include "stdafx.h"
 #include "polynom.h"
-bool cur_order(const monomial_vector& a, const monomial_vector& b)
+bool cur_order(const monom& a, const monom& b)
 {
 	return operator>=(a, b);
 }
@@ -81,7 +81,7 @@ ostream & operator<<(ostream & os, const monomial_list & m)
 monomial_list operator*(const monomial_list & a, const monomial_list & b)
 {
 	monomial_list res(a.coef*b.coef);
-	if (res.coef)
+	if (compare(res.coef,0))
 	{
 		p_node_pair pa = a.var.begin(), pb = b.var.begin();
 		while (pa && pb)
@@ -426,7 +426,7 @@ bool divide(const polynomial & a, const polynomial & b, polynomial & quotient, p
 	if (a.numb_of_variables != b.numb_of_variables && a.numb_of_variables != 1)
 		return false;
 	//const Node<monomial>* pa = a.pol[0];
-	monomial_vector temp;
+	monom temp;
 	reminder = a;
 	reminder.numb_of_variables = a.numb_of_variables;
 	quotient = polynomial(a.numb_of_variables);
@@ -441,41 +441,41 @@ bool divide(const polynomial & a, const polynomial & b, polynomial & quotient, p
 polynomial operator-(const polynomial & a, const polynomial & b)
 {
 	polynomial res(a.numb_of_variables);
-	monomial_vector temp;
-	const Node<monomial_vector>* pa = a.pol[0], *pb = b.pol[0];
+	monom temp;
+	const Node<monom>* pa = a.pol[0], *pb = b.pol[0];
 	while (pa && pb)
 	{
 		if (pa->data == pb->data)
 		{
 			temp = pa->data;
-			temp.coef -= pb->data.coef;
-			if (compare(temp.coef,0))
+			temp.set_coef() -= pb->data.get_coef();
+			if (compare(temp.get_coef(),0))
 				res.pol.addNode_tail(temp);
 			pa = pa->next;
 			pb = pb->next;
 		}
 		else if (pa->data > pb->data)
 		{
-			if (compare(pa->data.coef,0))
+			if (compare(pa->data.get_coef(),0))
 				res.pol.addNode_tail(pa->data);
 			pa = pa->next;
 		}
 		else
 		{
-			if (compare(pb->data.coef,0))
+			if (compare(pb->data.get_coef(),0))
 				res.pol.addNode_tail(pb->data);
 			pb = pb->next;
 		}
 	}
 	while (pa)
 	{
-		if (compare(pa->data.coef, 0))
+		if (compare(pa->data.get_coef(), 0))
 			res.pol.addNode_tail(pa->data);
 		pa = pa->next;
 	}
 	while (pb)
 	{
-		if (compare(pb->data.coef, 0))
+		if (compare(pb->data.get_coef(), 0))
 			res.pol.addNode_tail(pb->data);
 		pb = pb->next;
 	}
@@ -485,10 +485,10 @@ polynomial operator-(const polynomial & a, const polynomial & b)
 
 ostream& operator<<(ostream & os, const polynomial& a)
 {
-	const Node<monomial_vector>* p = a.pol.begin();
+	const Node<monom>* p = a.pol.begin();
 	while (p)
 	{
-		if (p->data.coef >= 0 && p != a.pol.begin())
+		if (p->data.get_coef() >= 0 && p != a.pol.begin())
 			os << '+';
 		os << p->data;
 		p = p->next;
@@ -499,41 +499,41 @@ ostream& operator<<(ostream & os, const polynomial& a)
 polynomial operator+(const polynomial & a, const polynomial & b)
 {
 	polynomial res(a.numb_of_variables);
-	monomial_vector temp;
-	const Node<monomial_vector>* pa = a.pol[0], *pb = b.pol[0];
+	monom temp;
+	const Node<monom>* pa = a.pol[0], *pb = b.pol[0];
 	while (pa && pb)
 	{
 		if (pa->data == pb->data)
 		{
 			temp = pa->data;
-			temp.coef += pb->data.coef;
-			if (compare(temp.coef,0))
+			temp.set_coef() += pb->data.get_coef();
+			if (compare(temp.get_coef(),0))
 				res.pol.addNode_tail(temp);
 			pa = pa->next;
 			pb=pb->next;
 		}
 		else if (pa->data > pb->data)
 		{
-			if (compare(pa->data.coef,0))
+			if (compare(pa->data.get_coef(),0))
 				res.pol.addNode_tail(pa->data);
 			pa = pa->next;
 		}
 		else
 		{
-			if (compare(pb->data.coef,0))
+			if (compare(pb->data.get_coef(),0))
 				res.pol.addNode_tail(pb->data);
 			pb = pb->next;
 		}
 	}
 	while (pa)
 	{
-		if (pa->data.coef != 0)
+		if (compare(pa->data.get_coef(), 0))
 			res.pol.addNode_tail(pa->data);
 		pa = pa->next;
 	}
 	while (pb)
 	{
-		if (pb->data.coef != 0)
+		if (compare(pb->data.get_coef(), 0))
 			res.pol.addNode_tail(pb->data);
 		pb = pb->next;
 	}
@@ -545,40 +545,40 @@ void polynomial::add_0()
 {
 	if (pol.isempty())
 	{
-		monomial_vector temp = monomial_vector(0, 0);
+		monom temp = monom(0);
 		pol.addNode_tail(temp);
 	}
 }
 
-void polynomial::get(istream& is)
-{
-	cout << "Input number of variables: ";
-	is >> numb_of_variables;
-	monomial_vector t(1,numb_of_variables);
-	pol.~List();
-	while(is)
-	{
-		is >> t;
-		if (is)
-			pol.insertNode_sorted(t, cur_order);
-	}
-	is.clear();
-	while (is.get() != '\n');
-}
-
-void polynomial::fget(fstream & fis)
-{
-	fis >> numb_of_variables;
-	int number_of_lines = 0;
-	fis >> number_of_lines;
-	monomial_vector t(1, numb_of_variables);
-	pol.~List();
-	for (int i=0;i<number_of_lines && !fis.eof();++i)
-	{
-		fis >> t;
-		pol.insertNode_sorted(t, operator>);
-	}
-}
+//void polynomial::get(istream& is)
+//{
+//	cout << "Input number of variables: ";
+//	is >> numb_of_variables;
+//	monom t(1,numb_of_variables);
+//	pol.~List();
+//	while(is)
+//	{
+//		is >> t;
+//		if (is)
+//			pol.insertNode_sorted(t, cur_order);
+//	}
+//	is.clear();
+//	while (is.get() != '\n');
+//}
+//
+//void polynomial::fget(fstream & fis)
+//{
+//	fis >> numb_of_variables;
+//	int number_of_lines = 0;
+//	fis >> number_of_lines;
+//	monom t(1, numb_of_variables);
+//	pol.~List();
+//	for (int i=0;i<number_of_lines && !fis.eof();++i)
+//	{
+//		fis >> t;
+//		pol.insertNode_sorted(t, operator>);
+//	}
+//}
 
 double get_number(const string& s, int& i)
 {
@@ -604,17 +604,17 @@ polynomial string_get(const string & s)
 	len = s_right.length();
 	while (i < len)
 	{
-		res.pol.insertNode_sorted(string_get(s_right, i, res.numb_of_variables),cur_order);
+		res.pol.insertNode_sorted(string_get(s_right, i),cur_order);
 	}
 	return res;
 }
 
 polynomial & polynomial::operator-()
 {
-	Node<monomial_vector>* p = pol[0];
+	Node<monom>* p = pol[0];
 	while (p) 
 	{
-		p->data.coef = -p->data.coef;
+		p->data.set_coef() = -p->data.get_coef();
 		p = p->next;
 	}
 	return *this;
@@ -625,15 +625,10 @@ polynomial polynomial::derivative() const
 	if (numb_of_variables!=1)
 		return polynomial();
 	polynomial res(numb_of_variables);
-	const Node<monomial_vector> *p = pol.begin();
+	const Node<monom> *p = pol.begin();
 	while (p)
 	{
-		if (p->data.powers[0] > 0)
-		{
-			monomial_vector t(p->data.coef*p->data.powers[0], numb_of_variables);
-			t.powers[0] = p->data.powers[0] - 1;
-			res.pol.addNode_tail(t);
-		}
+		res.pol.insertNode_sorted(p->data.derivative(), cur_order);
 		p = p->next;
 	}
 	return res;
@@ -649,7 +644,7 @@ double polynomial::value(const vector<double>& a) const
 	}
 	else
 	{
-		const Node<monomial_vector>* p = pol.begin();
+		const Node<monom>* p = pol.begin();
 		while (p)
 		{
 			res += p->data.value(a);
@@ -678,7 +673,7 @@ polynomial operator*(const polynomial& a, const polynomial& b)
 {
 	int num = (a.numb_of_variables > b.numb_of_variables ? a.numb_of_variables : b.numb_of_variables);
 	polynomial res(num);
-	const Node<monomial_vector>* pa = a.pol.begin();
+	const Node<monom>* pa = a.pol.begin();
 	while (pa)
 	{
 		res = res + b*pa->data;
@@ -688,10 +683,10 @@ polynomial operator*(const polynomial& a, const polynomial& b)
 	return res;
 }
 
-polynomial operator*(const polynomial & a, const monomial_vector & b)
+polynomial operator*(const polynomial & a, const monom & b)
 {
-	const Node<monomial_vector>* p = a.pol.begin();
-	int num = (a.numb_of_variables > b.numb_of_variables ? a.numb_of_variables : b.numb_of_variables);
+	const Node<monom>* p = a.pol.begin();
+	int num = (a.numb_of_variables > b.get_var_numb() ? a.numb_of_variables : b.get_var_numb());
 	polynomial res(num);
 	while (p)
 	{
@@ -725,6 +720,29 @@ double monomial_list::sum_powers() const
 		p = p->next;
 	}
 	return sum;
+}
+
+monomial_list monomial_list::derivative() const
+{
+	if (var_numb == 1 && compare(coef,0))
+	{
+		
+		p_node_pair p = var.begin();
+		monomial_list res(coef*p->data.second);
+		while (p)
+		{
+			if (p->data.second < 1)
+			{
+				cout << "Can't take derivative.\n";
+				return monomial_list();
+			}
+			else if (compare(p->data.second,1))
+				res.var.addNode_tail({ p->data.first,p->data.second - 1 });
+			p = p->next;
+		}
+		return res;
+	}
+	return monomial_list();
 }
 
 double monomial_list::value(const vector<double>& m) const

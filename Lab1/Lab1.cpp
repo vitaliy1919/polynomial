@@ -27,7 +27,6 @@ int show_list_of_pol(const List<polynomial> &a)
 int main()
 {
 	int i = 0, j = 0;;
-	monomial_list a = string_get("x",i),b=string_get("5xy",j),res;
 	cout << a << endl << b << endl << a*b << endl;;
 	cout << (int)(a >= b) << endl;
 	if (divide(a, b, res))
