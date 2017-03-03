@@ -27,12 +27,9 @@ int show_list_of_pol(const List<polynomial> &a)
 int main()
 {
 	int i = 0, j = 0;;
-	cout << a << endl << b << endl << a*b << endl;;
-	cout << (int)(a >= b) << endl;
-	if (divide(a, b, res))
-		cout << res << endl;
-	else
-		cout << "can't divide!\n";
+	polynomial a = string_get("ab+xy2"), b = string_get("x");
+	monom c = string_get("xy", i), d = string_get("x", j);
+	cout << a*b << endl;
 	system("pause");
     return 0;
 }
