@@ -3,16 +3,18 @@
 #include "list.h"
 const double eps = 1e-6;
 const string var = "xyzfgh";
+typedef pair<char, double> pair_c_d;
 int compare(double a,double b);
 class monom
 {
 	double coef;
-	vector<pair<char, double>> var;
+	List<pair_c_d> var;
 	int var_numb;
 public:
 	monom() :var(),coef(0),var_numb(0) {}
 	friend monom string_get(const string& s, int& i);
 	friend ostream& operator<<(ostream& os, const monom& m);
+	//double value() const;
 };
 struct monomial
 {

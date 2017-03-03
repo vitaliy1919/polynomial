@@ -22,7 +22,10 @@ int compare(double a, double b)
 	}
 	return 0;
 }
-
+bool alfab_order(const pair_c_d& a, const pair_c_d& b)
+{
+	return a.first <= b.first;
+}
 monom string_get(const string & s, int & i)
 {
 	monom res;
@@ -45,11 +48,11 @@ monom string_get(const string & s, int & i)
 		i++;
 		char var = s[i-1];
 		if (i >= len || !isdigit(s[i]))
-			res.var.push_back({ var,1 });
+			res.var.insertNode_sorted({ var,1 },alfab_order);
 		else
-			res.var.push_back({ var,get_number(s, i) });
+			res.var.insertNode_sorted({ var,get_number(s, i) },alfab_order);
+		res.var_numb++;
 	}
-	res.var_numb = res.var.size();
 	return res;
 }
 
@@ -62,13 +65,15 @@ ostream & operator<<(ostream & os, const monom & m)
 		os << m.coef;
 	if (show_coef && m.var_numb)
 		os << '*';
-	for (int i = 0; i < m.var_numb; ++i)
+	Node<pair_c_d>* p = m.var.begin();
+	while (p)
 	{
-		os << m.var[i].first;
-		if (compare(m.var[i].second, 1))
-			os << '^' << m.var[i].second;
-		if (i<m.var_numb-1)
+		os << p->data.first;
+		if (compare(p->data.second, 1))
+			os << '^' << p->data.second;
+		if (p->next)
 			os << '*';
+		p = p->next;
 	}
 	return os;
 }
@@ -564,3 +569,5 @@ polynomial operator*(const polynomial & a, const monomial & b)
 	res.add_0();
 	return res;
 }
+
+
