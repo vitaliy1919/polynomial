@@ -614,4 +614,23 @@ polynomial operator*(const polynomial & a, const monomial & b)
 	return res;
 }
 
-
+double monom::value(const vector<double>& m) const
+{
+	if (m.size() == var_numb)
+	{
+		double res = coef;
+		if (compare(res, 0))
+		{
+			int i = 0;
+			Node<pair_c_d>* p = var.begin();
+			while (p)
+			{
+				res *= pow(m[i], p->data.second);
+				p = p->next;
+				i++;
+			}
+		}
+		return res;
+	}
+	return 0;
+}

@@ -17,7 +17,7 @@ public:
 	double& set_coef() { return coef; }
 	friend ostream& operator<<(ostream& os, const monom& m);
 	friend monom operator*(const monom& a, const monom& b);
-	//double value() const;
+	double value(const vector<double>& m) const;
 };
 struct monomial
 {
