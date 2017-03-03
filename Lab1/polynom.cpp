@@ -163,6 +163,8 @@ bool divide(const monomial_list & a, const monomial_list & b, monomial_list & re
 
 bool operator>(const monomial_list & a, const monomial_list & b)
 {
+	if (!a.var.begin())
+		return false;
 	double a_m = a.max_power(), b_m = b.max_power();
 	if (a_m > b_m)
 		return true;
@@ -182,7 +184,7 @@ bool operator>(const monomial_list & a, const monomial_list & b)
 			if (!pa)
 				return alfab_order(a.var.begin()->data, b.var.begin()->data);
 			else
-				return (pa->data.second > pb->data.first);
+				return (pa->data.second > pb->data.second);
 		}
 	}
 	return false;
@@ -425,14 +427,13 @@ bool divide(const polynomial & a, const polynomial & b, polynomial & quotient, p
 {
 	if (a.numb_of_variables != b.numb_of_variables && a.numb_of_variables != 1)
 		return false;
-	//const Node<monomial>* pa = a.pol[0];
 	monom temp;
 	reminder = a;
 	reminder.numb_of_variables = a.numb_of_variables;
 	quotient = polynomial(a.numb_of_variables);
 	while (reminder.pol.begin() && divide(reminder.pol[0]->data, b.pol[0]->data, temp))
 	{
-		quotient.pol.insertNode_sorted(temp,operator>);
+		quotient.pol.insertNode_sorted(temp,cur_order);
 		reminder = reminder - b*temp;
 	}
 	return true;
@@ -606,6 +607,7 @@ polynomial string_get(const string & s)
 	{
 		res.pol.insertNode_sorted(string_get(s_right, i),cur_order);
 	}
+	res.simplify();
 	return res;
 }
 
@@ -628,10 +630,44 @@ polynomial polynomial::derivative() const
 	const Node<monom> *p = pol.begin();
 	while (p)
 	{
-		res.pol.insertNode_sorted(p->data.derivative(), cur_order);
+		monom temp = p->data.derivative();
+		if (compare(temp.get_coef(),0))	
+			res.pol.insertNode_sorted(temp, cur_order);
 		p = p->next;
 	}
 	return res;
+}
+
+void polynomial::simplify()
+{
+	if (pol.begin() == pol.end() || !pol.begin())
+		return;
+	Node<monom> *p = pol.begin();
+	int i = 0;
+	while (p->next)
+	{
+		if (p->data == p->next->data)
+		{
+			p->data.set_coef() += p->next->data.get_coef();
+			pol.deleteNode_index(i + 1);
+			continue;
+		}
+		i++;
+		p = p->next;
+	}
+	p = pol.begin();
+	i = 0;
+	while (p)
+	{
+		Node<monom> *p_n = p->next;
+		if (!compare(p->data.get_coef(), 0))
+		{
+			pol.deleteNode_index(i);
+		}
+		++i;
+		p = p_n;
+	}
+	add_0();
 }
 
 double polynomial::value(const vector<double>& a) const
@@ -725,8 +761,7 @@ double monomial_list::sum_powers() const
 monomial_list monomial_list::derivative() const
 {
 	if (var_numb == 1 && compare(coef,0))
-	{
-		
+	{	
 		p_node_pair p = var.begin();
 		monomial_list res(coef*p->data.second);
 		while (p)
@@ -736,8 +771,11 @@ monomial_list monomial_list::derivative() const
 				cout << "Can't take derivative.\n";
 				return monomial_list();
 			}
-			else if (compare(p->data.second,1))
+			else if (compare(p->data.second, 1))
+			{
 				res.var.addNode_tail({ p->data.first,p->data.second - 1 });
+				res.var_numb++;
+			}
 			p = p->next;
 		}
 		return res;

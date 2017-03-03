@@ -68,6 +68,7 @@ public:
 	friend polynomial string_get(const string& s);
 	polynomial& operator-();
 	polynomial derivative() const;
+	void simplify();
 	double value(const vector<double> &a) const;
 	friend bool divide(const polynomial& a, const polynomial& b, polynomial& quotient, polynomial& reminder);
 	friend polynomial operator-(const polynomial& a, const polynomial& b);
