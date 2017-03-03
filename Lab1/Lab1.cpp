@@ -27,8 +27,8 @@ int show_list_of_pol(const List<polynomial> &a)
 int main()
 {
 	int i = 0, j = 0;;
-	monom a = string_get("xy",i),b=string_get("xz",j);
-	cout << a << endl << b << endl << a*b << endl;;
+	monomial_list a = string_get("xy",i),b=string_get("xz",j);
+	cout << a << endl << b << endl << a*b << endl;
 	system("pause");
     return 0;
 }

@@ -2,7 +2,7 @@
 // PVS-Studio Static Code Analyzer for C, C++ and C#: http://www.viva64.com
 #include "stdafx.h"
 #include "polynom.h"
-bool cur_order(const monomial& a, const monomial& b)
+bool cur_order(const monomial_vector& a, const monomial_vector& b)
 {
 	return operator>=(a, b);
 }
@@ -26,9 +26,9 @@ bool alfab_order(const pair_c_d& a, const pair_c_d& b)
 {
 	return a.first <= b.first;
 }
-monom string_get(const string & s, int & i)
+monomial_list string_get(const string & s, int & i)
 {
-	monom res;
+	monomial_list res;
 	res.coef = 1;
 	if (isoper(s[i]))
 	{
@@ -57,7 +57,7 @@ monom string_get(const string & s, int & i)
 	return res;
 }
 
-ostream & operator<<(ostream & os, const monom & m)
+ostream & operator<<(ostream & os, const monomial_list & m)
 {
 	int show_coef = compare(fabs(m.coef), 1);
 	if (!compare(m.coef, -1)&& m.var_numb)
@@ -79,9 +79,9 @@ ostream & operator<<(ostream & os, const monom & m)
 	return os;
 }
 
-monom operator*(const monom & a, const monom & b)
+monomial_list operator*(const monomial_list & a, const monomial_list & b)
 {
-	monom res;
+	monomial_list res;
 	res.coef = a.coef*b.coef;
 	if (res.coef)
 	{
@@ -122,11 +122,11 @@ monom operator*(const monom & a, const monom & b)
 	return res;
 }
 
-bool divide(const monomial & a, const monomial & b, monomial & res)
+bool divide(const monomial_vector & a, const monomial_vector & b, monomial_vector & res)
 {
 	if (a.power() < b.power() || a.max_power() < b.max_power() || !compare(b.coef,0))
 		return false;
-	res = monomial(a.coef / b.coef, a.numb_of_variables);
+	res = monomial_vector(a.coef / b.coef, a.numb_of_variables);
 	for (int i = 0; i < res.numb_of_variables; ++i)
 	{
 		if (a.powers[i] - b.powers[i] > 0 || !compare((a.powers[i] - b.powers[i]),0))
@@ -137,10 +137,10 @@ bool divide(const monomial & a, const monomial & b, monomial & res)
 	return true;
 }
 
-bool operator==(const monomial & a, const monomial & b)
+bool operator==(const monomial_vector & a, const monomial_vector & b)
 {
 	int numb_var = (a.numb_of_variables > b.numb_of_variables ? b.numb_of_variables : a.numb_of_variables);
-	const monomial& t = (a.numb_of_variables > b.numb_of_variables ? a : b);
+	const monomial_vector& t = (a.numb_of_variables > b.numb_of_variables ? a : b);
 	for (int i = 0; i < numb_var; i++)
 		if (compare(a.powers[i] - b.powers[i],0))
 			return false;
@@ -150,7 +150,7 @@ bool operator==(const monomial & a, const monomial & b)
 	return true;
 }
 
-bool operator<(const monomial & a, const monomial & b)
+bool operator<(const monomial_vector & a, const monomial_vector & b)
 {
 	double pow_a = a.power(), pow_b = b.power();
 	if (pow_b > pow_a)
@@ -162,7 +162,7 @@ bool operator<(const monomial & a, const monomial & b)
 		else
 		{
 			int numb_var = (a.numb_of_variables < b.numb_of_variables ? a.numb_of_variables : b.numb_of_variables);
-			const monomial& t = (a.numb_of_variables < b.numb_of_variables ? b : a);
+			const monomial_vector& t = (a.numb_of_variables < b.numb_of_variables ? b : a);
 			for (int i = 0; i < numb_var; ++i)
 			{
 				if (a.powers[i] > b.powers[i])
@@ -183,12 +183,12 @@ bool operator<(const monomial & a, const monomial & b)
 	return false;
 }
 
-bool operator<=(const monomial & a, const monomial & b)
+bool operator<=(const monomial_vector & a, const monomial_vector & b)
 {
 	return operator<(a,b) || operator==(a,b);
 }
 
-bool operator>(const monomial & a, const monomial & b)
+bool operator>(const monomial_vector & a, const monomial_vector & b)
 {
 	double pow_a = a.power(), pow_b = b.power();
 	if (pow_a > pow_b)
@@ -200,7 +200,7 @@ bool operator>(const monomial & a, const monomial & b)
 		else
 		{
 			int numb_var = (a.numb_of_variables < b.numb_of_variables ? a.numb_of_variables : b.numb_of_variables);
-			const monomial& t = (a.numb_of_variables < b.numb_of_variables ? b : a);
+			const monomial_vector& t = (a.numb_of_variables < b.numb_of_variables ? b : a);
 			for (int i = 0; i < numb_var; ++i)
 			{
 				if (a.powers[i] > b.powers[i])
@@ -221,18 +221,18 @@ bool operator>(const monomial & a, const monomial & b)
 	return false;
 }
 
-bool operator>=(const monomial & a, const monomial & b)
+bool operator>=(const monomial_vector & a, const monomial_vector & b)
 {
 	return operator>(a,b) || operator==(a,b);
 }
 
-ostream & operator<<(ostream & os,const monomial & p)
+ostream & operator<<(ostream & os,const monomial_vector & p)
 {
 	p.show(os);
 	return os;
 }
 
-istream & operator >> (istream & is, monomial & p)
+istream & operator >> (istream & is, monomial_vector & p)
 {
 	is >> p.coef;
 	for (int i = 0; i < p.numb_of_variables; ++i)
@@ -240,7 +240,7 @@ istream & operator >> (istream & is, monomial & p)
 	return is;
 }
 
-void monomial::show(ostream & os) const
+void monomial_vector::show(ostream & os) const
 {	
 	int show_coef = compare(fabs(coef), 1);
 	int first_not_show_multi = numb_of_variables - 1;
@@ -268,7 +268,7 @@ void monomial::show(ostream & os) const
 	}
 }
 
-double monomial::value(const vector<double>& a) const
+double monomial_vector::value(const vector<double>& a) const
 {
 	double res = coef;
 	for (int i = 0; i < numb_of_variables; ++i)
@@ -277,7 +277,7 @@ double monomial::value(const vector<double>& a) const
 }
 
 
-void monomial::get()
+void monomial_vector::get()
 {
 	cout << "Input coefficient and " << numb_of_variables << " variable powers:\n";
 	cin >> coef;
@@ -288,7 +288,7 @@ void monomial::get()
 	while (cin.get() != '\n');
 }
 
-double monomial::power() const
+double monomial_vector::power() const
 {
 	double res = 0;
 	for (int i = 0; i < numb_of_variables; ++i)
@@ -296,7 +296,7 @@ double monomial::power() const
 	return res;
 }
 
-double monomial::max_power() const
+double monomial_vector::max_power() const
 {
 	int max = 0;
 	for (int i = 0; i < numb_of_variables; ++i)
@@ -305,9 +305,9 @@ double monomial::max_power() const
 	return powers[max];
 }
 
-monomial string_get(const string & s, int & i,const int& numb_var) 
+monomial_vector string_get(const string & s, int & i,const int& numb_var) 
 {
-	monomial res(1, numb_var);
+	monomial_vector res(1, numb_var);
 	if (isoper(s[i]))
 	{
 		if (isalpha(s[i + 1]))
@@ -339,7 +339,7 @@ bool divide(const polynomial & a, const polynomial & b, polynomial & quotient, p
 	if (a.numb_of_variables != b.numb_of_variables && a.numb_of_variables != 1)
 		return false;
 	//const Node<monomial>* pa = a.pol[0];
-	monomial temp;
+	monomial_vector temp;
 	reminder = a;
 	reminder.numb_of_variables = a.numb_of_variables;
 	quotient = polynomial(a.numb_of_variables);
@@ -354,8 +354,8 @@ bool divide(const polynomial & a, const polynomial & b, polynomial & quotient, p
 polynomial operator-(const polynomial & a, const polynomial & b)
 {
 	polynomial res(a.numb_of_variables);
-	monomial temp;
-	const Node<monomial>* pa = a.pol[0], *pb = b.pol[0];
+	monomial_vector temp;
+	const Node<monomial_vector>* pa = a.pol[0], *pb = b.pol[0];
 	while (pa && pb)
 	{
 		if (pa->data == pb->data)
@@ -398,7 +398,7 @@ polynomial operator-(const polynomial & a, const polynomial & b)
 
 ostream& operator<<(ostream & os, const polynomial& a)
 {
-	const Node<monomial>* p = a.pol.begin();
+	const Node<monomial_vector>* p = a.pol.begin();
 	while (p)
 	{
 		if (p->data.coef >= 0 && p != a.pol.begin())
@@ -412,8 +412,8 @@ ostream& operator<<(ostream & os, const polynomial& a)
 polynomial operator+(const polynomial & a, const polynomial & b)
 {
 	polynomial res(a.numb_of_variables);
-	monomial temp;
-	const Node<monomial>* pa = a.pol[0], *pb = b.pol[0];
+	monomial_vector temp;
+	const Node<monomial_vector>* pa = a.pol[0], *pb = b.pol[0];
 	while (pa && pb)
 	{
 		if (pa->data == pb->data)
@@ -458,7 +458,7 @@ void polynomial::add_0()
 {
 	if (pol.isempty())
 	{
-		monomial temp = monomial(0, 0);
+		monomial_vector temp = monomial_vector(0, 0);
 		pol.addNode_tail(temp);
 	}
 }
@@ -467,7 +467,7 @@ void polynomial::get(istream& is)
 {
 	cout << "Input number of variables: ";
 	is >> numb_of_variables;
-	monomial t(1,numb_of_variables);
+	monomial_vector t(1,numb_of_variables);
 	pol.~List();
 	while(is)
 	{
@@ -484,7 +484,7 @@ void polynomial::fget(fstream & fis)
 	fis >> numb_of_variables;
 	int number_of_lines = 0;
 	fis >> number_of_lines;
-	monomial t(1, numb_of_variables);
+	monomial_vector t(1, numb_of_variables);
 	pol.~List();
 	for (int i=0;i<number_of_lines && !fis.eof();++i)
 	{
@@ -522,7 +522,7 @@ polynomial string_get(const string & s)
 
 polynomial & polynomial::operator-()
 {
-	Node<monomial>* p = pol[0];
+	Node<monomial_vector>* p = pol[0];
 	while (p) 
 	{
 		p->data.coef = -p->data.coef;
@@ -536,12 +536,12 @@ polynomial polynomial::derivative() const
 	if (numb_of_variables!=1)
 		return polynomial();
 	polynomial res(numb_of_variables);
-	const Node<monomial> *p = pol.begin();
+	const Node<monomial_vector> *p = pol.begin();
 	while (p)
 	{
 		if (p->data.powers[0] > 0)
 		{
-			monomial t(p->data.coef*p->data.powers[0], numb_of_variables);
+			monomial_vector t(p->data.coef*p->data.powers[0], numb_of_variables);
 			t.powers[0] = p->data.powers[0] - 1;
 			res.pol.addNode_tail(t);
 		}
@@ -560,7 +560,7 @@ double polynomial::value(const vector<double>& a) const
 	}
 	else
 	{
-		const Node<monomial>* p = pol.begin();
+		const Node<monomial_vector>* p = pol.begin();
 		while (p)
 		{
 			res += p->data.value(a);
@@ -571,11 +571,11 @@ double polynomial::value(const vector<double>& a) const
 }
 
 
-monomial operator*(const monomial& a, const monomial& b)
+monomial_vector operator*(const monomial_vector& a, const monomial_vector& b)
 {
 	int num = (a.numb_of_variables < b.numb_of_variables ? a.numb_of_variables : b.numb_of_variables);
-	const monomial &t=(a.numb_of_variables > b.numb_of_variables ? a : b);
-	monomial res(a.coef*b.coef, t.numb_of_variables);
+	const monomial_vector &t=(a.numb_of_variables > b.numb_of_variables ? a : b);
+	monomial_vector res(a.coef*b.coef, t.numb_of_variables);
 	if (compare(res.coef,0))
 	{
 		for (int i = 0; i < num; ++i)
@@ -590,7 +590,7 @@ polynomial operator*(const polynomial& a, const polynomial& b)
 {
 	int num = (a.numb_of_variables > b.numb_of_variables ? a.numb_of_variables : b.numb_of_variables);
 	polynomial res(num);
-	const Node<monomial>* pa = a.pol.begin();
+	const Node<monomial_vector>* pa = a.pol.begin();
 	while (pa)
 	{
 		res = res + b*pa->data;
@@ -600,9 +600,9 @@ polynomial operator*(const polynomial& a, const polynomial& b)
 	return res;
 }
 
-polynomial operator*(const polynomial & a, const monomial & b)
+polynomial operator*(const polynomial & a, const monomial_vector & b)
 {
-	const Node<monomial>* p = a.pol.begin();
+	const Node<monomial_vector>* p = a.pol.begin();
 	int num = (a.numb_of_variables > b.numb_of_variables ? a.numb_of_variables : b.numb_of_variables);
 	polynomial res(num);
 	while (p)
