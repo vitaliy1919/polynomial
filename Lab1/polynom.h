@@ -4,6 +4,7 @@
 const double eps = 1e-6;
 const string var = "xyzfgh";
 typedef pair<char, double> pair_c_d;
+typedef Node<pair_c_d>* p_node_pair;
 int compare(double a,double b);
 class monom
 {
@@ -11,13 +12,19 @@ class monom
 	List<pair_c_d> var;
 	int var_numb;
 public:
-	monom() :var(),coef(0),var_numb(0) {}
+	monom(double c=0) :var(),coef(c),var_numb(0) {}
+	double max_power() const;
+	double sum_powers() const;
 	friend monom string_get(const string& s, int& i);
 	double get_coef() const { return coef; }
 	double& set_coef() { return coef; }
 	friend ostream& operator<<(ostream& os, const monom& m);
 	friend monom operator*(const monom& a, const monom& b);
 	double value(const vector<double>& m) const;
+	friend bool divide(const monom& a, const monom& b, monom& res);
+	friend bool operator>(const monom& a, const monom& b);
+	friend bool operator==(const monom& a, const monom& b);
+	friend bool operator>=(const monom& a, const monom& b);
 };
 struct monomial
 {

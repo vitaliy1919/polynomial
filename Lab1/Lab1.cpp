@@ -27,10 +27,13 @@ int show_list_of_pol(const List<polynomial> &a)
 int main()
 {
 	int i = 0, j = 0;;
-	monom a = string_get("5",i),b=string_get("xz",j);
+	monom a = string_get("x",i),b=string_get("5xy",j),res;
 	cout << a << endl << b << endl << a*b << endl;;
-	double mas[2] = { 3,2 };
-	cout << a.value(mas, 0) << endl;
+	cout << (int)(a >= b) << endl;
+	if (divide(a, b, res))
+		cout << res << endl;
+	else
+		cout << "can't divide!\n";
 	system("pause");
     return 0;
 }

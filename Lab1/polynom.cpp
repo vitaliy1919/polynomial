@@ -28,8 +28,7 @@ bool alfab_order(const pair_c_d& a, const pair_c_d& b)
 }
 monom string_get(const string & s, int & i)
 {
-	monom res;
-	res.coef = 1;
+	monom res(1);
 	if (isoper(s[i]))
 	{
 		if (isalpha(s[i + 1]))
@@ -66,7 +65,7 @@ ostream & operator<<(ostream & os, const monom & m)
 		os << m.coef;
 	if (show_coef && m.var_numb)
 		os << '*';
-	Node<pair_c_d>* p = m.var.begin();
+	p_node_pair p = m.var.begin();
 	while (p)
 	{
 		os << p->data.first;
@@ -81,11 +80,10 @@ ostream & operator<<(ostream & os, const monom & m)
 
 monom operator*(const monom & a, const monom & b)
 {
-	monom res;
-	res.coef = a.coef*b.coef;
+	monom res(a.coef*b.coef);
 	if (res.coef)
 	{
-		Node<pair_c_d>* pa = a.var.begin(), *pb = b.var.begin();
+		p_node_pair pa = a.var.begin(), pb = b.var.begin();
 		while (pa && pb)
 		{
 			if (pa->data.first == pb->data.first)
@@ -120,6 +118,96 @@ monom operator*(const monom & a, const monom & b)
 		}
 	}
 	return res;
+}
+
+bool divide(const monom & a, const monom & b, monom & res)
+{
+	if (compare(b.coef, 0))
+	{
+		res.~monom();
+		res = monom(a.coef / b.coef);
+		Node<pair_c_d> *pa = a.var.begin(), *pb = b.var.begin();
+		while (pa && pb)
+		{
+			if (pa->data.first == pb->data.first)
+			{
+				if (compare(pa->data.second - pb->data.second, 0))
+				{
+					res.var.insertNode_sorted({ pa->data.first,pa->data.second - pb->data.second }, alfab_order);
+					++res.var_numb;
+				}
+				pa = pa->next;
+				pb = pb->next;
+			}
+			else if (alfab_order(pb->data, pa->data))
+				return false;
+			else
+			{
+				res.var.insertNode_sorted(pa->data, alfab_order);
+				pa = pa->next;
+				++res.var_numb;
+			}
+		}
+		if (pb)
+			return false;
+		while (pa)
+		{
+			res.var.insertNode_sorted(pa->data, alfab_order);
+			pa = pa->next;
+			++res.var_numb;
+		}
+		return true;
+	}
+	return false;
+}
+
+bool operator>(const monom & a, const monom & b)
+{
+	double a_m = a.max_power(), b_m = b.max_power();
+	if (a_m > b_m)
+		return true;
+	else if (!compare(a_m,b_m))
+	{
+		double a_s = a.sum_powers(), b_s = b.sum_powers();
+		if (a_s > b_s)
+			return true;
+		else if (!compare(a_s,b_s))
+		{
+			p_node_pair pa = a.var.begin(), pb = b.var.begin();
+			while (pa && pb && pa->data.second == pb->data.second)
+			{
+				pa = pa->next;
+				pb = pb->next;
+			}
+			if (!pa)
+				return alfab_order(a.var.begin()->data, b.var.begin()->data);
+			else
+				return (pa->data.second > pb->data.first);
+		}
+	}
+	return false;
+}
+
+bool operator==(const monom & a, const monom & b)
+{
+	if (a.var_numb == b.var_numb)
+	{
+		p_node_pair pa = a.var.begin(), pb = b.var.begin();
+		while (pa && pb && pa->data==pb->data)
+		{
+			pa = pa->next;
+			pb = pb->next;
+		}
+		if (pa || pb)
+			return false;
+		return true;
+	}
+	return false;
+}
+
+bool operator>=(const monom & a, const monom & b)
+{
+	return (a>b) || (a==b);
 }
 
 bool divide(const monomial & a, const monomial & b, monomial & res)
@@ -275,7 +363,6 @@ double monomial::value(const vector<double>& a) const
 		res *= pow(a[i], powers[i]);
 	return res;
 }
-
 
 void monomial::get()
 {
@@ -492,6 +579,7 @@ void polynomial::fget(fstream & fis)
 		pol.insertNode_sorted(t, operator>);
 	}
 }
+
 double get_number(const string& s, int& i)
 {
 	string res;
@@ -501,6 +589,7 @@ double get_number(const string& s, int& i)
 		res += s[i++];
 	return atof(res.c_str());
 }
+
 polynomial string_get(const string & s)
 {
 	polynomial res(0);
@@ -570,7 +659,6 @@ double polynomial::value(const vector<double>& a) const
 	return res;
 }
 
-
 monomial operator*(const monomial& a, const monomial& b)
 {
 	int num = (a.numb_of_variables < b.numb_of_variables ? a.numb_of_variables : b.numb_of_variables);
@@ -614,6 +702,31 @@ polynomial operator*(const polynomial & a, const monomial & b)
 	return res;
 }
 
+double monom::max_power() const
+{
+	p_node_pair p = var.begin();
+	double max = 0;
+	while (p)
+	{
+		if (p->data.second > max)
+			max = p->data.second;
+		p = p->next;
+	}
+	return max;
+}
+
+double monom::sum_powers() const
+{
+	p_node_pair p = var.begin();
+	double sum = 0;
+	while (p)
+	{
+		sum += p->data.second;
+		p = p->next;
+	}
+	return sum;
+}
+
 double monom::value(const vector<double>& m) const
 {
 	if (m.size() == var_numb)
@@ -622,7 +735,7 @@ double monom::value(const vector<double>& m) const
 		if (compare(res, 0))
 		{
 			int i = 0;
-			Node<pair_c_d>* p = var.begin();
+			p_node_pair p = var.begin();
 			while (p)
 			{
 				res *= pow(m[i], p->data.second);
