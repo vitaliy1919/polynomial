@@ -13,6 +13,8 @@ class monom
 public:
 	monom() :var(),coef(0),var_numb(0) {}
 	friend monom string_get(const string& s, int& i);
+	double get_coef() const { return coef; }
+	double& set_coef() { return coef; }
 	friend ostream& operator<<(ostream& os, const monom& m);
 	friend monom operator*(const monom& a, const monom& b);
 	//double value() const;
