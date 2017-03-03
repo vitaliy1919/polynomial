@@ -14,6 +14,7 @@ public:
 	monom() :var(),coef(0),var_numb(0) {}
 	friend monom string_get(const string& s, int& i);
 	friend ostream& operator<<(ostream& os, const monom& m);
+	friend monom operator*(const monom& a, const monom& b);
 	//double value() const;
 };
 struct monomial

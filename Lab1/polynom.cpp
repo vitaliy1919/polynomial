@@ -78,6 +78,45 @@ ostream & operator<<(ostream & os, const monom & m)
 	return os;
 }
 
+monom operator*(const monom & a, const monom & b)
+{
+	monom res;
+	Node<pair_c_d>* pa = a.var.begin(), *pb = b.var.begin();
+	while (pa && pb)
+	{
+		if (pa->data.first == pb->data.first)
+		{
+			res.var.insertNode_sorted({ pa->data.first,pa->data.second + pb->data.second }, alfab_order);
+			pa = pa->next;
+			pb = pb->next;
+		}
+		else if (alfab_order(pa->data, pb->data))
+		{
+			res.var.insertNode_sorted(pa->data, alfab_order);
+			pa = pa->next;
+		}
+		else
+		{
+			res.var.insertNode_sorted(pb->data, alfab_order);
+			pb = pb->next;
+		}
+		res.var_numb++;
+	}
+	while (pa)
+	{
+		res.var.insertNode_sorted(pa->data, alfab_order);
+		pa = pa->next;
+		res.var_numb++;
+	}
+	while (pb)
+	{
+		res.var.insertNode_sorted(pb->data, alfab_order);
+		pb = pb->next;
+		res.var_numb++;
+	}
+	return res;
+}
+
 bool divide(const monomial & a, const monomial & b, monomial & res)
 {
 	if (a.power() < b.power() || a.max_power() < b.max_power() || !compare(b.coef,0))

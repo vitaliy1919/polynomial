@@ -26,9 +26,9 @@ int show_list_of_pol(const List<polynomial> &a)
 }
 int main()
 {
-	int i = 0;
-	monom a = string_get("-1xy",i);
-	cout << a << endl;
+	int i = 0, j = 0;;
+	monom a = string_get("-1xy",i),b=string_get("xz",j);
+	cout << a << endl << b << endl << a*b << endl;;
 	system("pause");
     return 0;
 }
