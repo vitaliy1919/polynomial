@@ -20,6 +20,7 @@ public:
 	double get_coef() const { return coef; }
 	double& set_coef() { return coef; }
 	monomial_list derivative() const;
+	void simplify();
 	friend ostream& operator<<(ostream& os, const monomial_list& m);
 	friend monomial_list operator*(const monomial_list& a, const monomial_list& b);
 	double value(const vector<double>& m) const;

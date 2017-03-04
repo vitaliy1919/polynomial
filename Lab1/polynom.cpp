@@ -53,6 +53,7 @@ monomial_list string_get(const string & s, int & i)
 			res.var.insertNode_sorted({ var,get_number(s, i) },alfab_order);
 		res.var_numb++;
 	}
+	res.simplify();
 	return res;
 }
 
@@ -781,6 +782,45 @@ monomial_list monomial_list::derivative() const
 		return res;
 	}
 	return monomial_list();
+}
+
+void monomial_list::simplify()
+{
+	if (var_numb == 0)
+		return;
+	p_node_pair p = var.begin();
+	int i = 0;
+	if (var_numb != 1)
+	{
+		while (p->next)
+		{
+			if (p->data.first == p->next->data.first)
+			{
+				p->data.second += p->next->data.second;
+				var.deleteNode_index(i + 1);
+				var_numb--;
+			}
+			else
+			{
+				i++;
+				p = p->next;
+			}
+		}
+		p = var.begin();
+		i = 0;
+	}
+	while (p)
+	{
+		p_node_pair t = p->next;
+		if (!compare(p->data.second, 0))
+		{
+			var.deleteNode_index(i);
+			var_numb--;
+		}
+		else
+			i++;
+		p = t;
+	}
 }
 
 double monomial_list::value(const vector<double>& m) const
