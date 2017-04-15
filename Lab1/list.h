@@ -41,15 +41,16 @@ public:
 		iterator& operator=(Node<T> *val) { iter_ = val; return *this; }
 		void setNode(const Node<T>* val) { iter_ = val; }
 		Node<T>* getNode() const { return iter_; }
-		bool operator==(const iterator& b) const;
-		bool operator!=(const iterator&  b) const;
-		void operator++();
-		void operator++(int i);
-		void operator--();
-		void operator--(int i);
-		iterator operator+(int i) const;
-		iterator operator-(int i) const;
-		void operator*();
+		bool operator==(const iterator& b) const { return iter_ == b.iter_; }
+		bool operator!=(const iterator&  b) const { return iter_ != b.iter_; }
+		void operator++() { iter_ = iter_->next; }
+		void operator++(int i) { ++iter; }
+		void operator--() { iter_ = iter_->prev; }
+		void operator--(int i) { --iter_; }
+		iterator operator+(int i) const {} //TO DO
+		iterator operator-(int i) const {} //TO DO
+		T& operator*() { return iter_->data; }
+		T operator*() const { return iter_->data; }
 	};
 	List();
 	List(const List &a) { copyList(a.head); }
@@ -72,7 +73,7 @@ public:
 	void showList_reverse(ostream&os = cout) const;
 	iterator find(T key) const;
 	iterator& operator[](int i);
-	const Node<T>* operator[](int i) const;
+	const iterator operator[](int i) const;
 	virtual ~List();
 	template <typename U>
 	friend ostream& operator<<(ostream& os,const List<U>& a);
