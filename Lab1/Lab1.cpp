@@ -160,10 +160,11 @@ List<polynomial> polynomial_gui()
 			}
 		}
 	} while (cin && s != "q");
+	return list_pol;
 }
 int main()
 {
-	
+	polynomial_gui();
 	system("pause");
 	return 0;
 
