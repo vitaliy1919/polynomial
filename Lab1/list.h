@@ -43,12 +43,12 @@ public:
 		Node<T>* getNode() const { return iter_; }
 		bool operator==(const iterator& b) const { return iter_ == b.iter_; }
 		bool operator!=(const iterator&  b) const { return iter_ != b.iter_; }
-		void operator++() { iter_ = iter_->next; }
-		void operator++(int i) { ++iter; }
-		void operator--() { iter_ = iter_->prev; }
-		void operator--(int i) { --iter_; }
-		iterator operator+(int i) const {} //TO DO
-		iterator operator-(int i) const {} //TO DO
+		iterator operator++() { iter_ = iter_->next; return *this; }
+		iterator operator++(int i);
+		iterator operator--() { iter_ = iter_->prev; return *this; }
+		iterator operator--(int i);
+		iterator operator+(int i) const { return *this; } //TO DO
+		iterator operator-(int i) const { return *this; } //TO DO
 		T& operator*() { return iter_->data; }
 		T operator*() const { return iter_->data; }
 	};
@@ -58,19 +58,22 @@ public:
 	bool empty() const { return head == nil; }
 	int size() const;
 	inline iterator begin() const { return head; }
+	inline iterator rbegin() const { return tail; }
 	inline iterator end() const { return nil; }
+	inline iterator rend() const { return nil; }
 	void addNodeTail(T data);
 	void addNodeHead(T data);
 	void deleteNodeHead();
 	void deleteNodeTail();
 	void deleteNodeIndex(int i);
 	void deleteNodeKey(T key);
-	void deleteNode(const iterator& iter) { deleteNode(iter.getNode()); }
+	void deleteNode(const iterator& iter) { if (iter!=end()) deleteNode(iter.getNode()); }
 	void insertNodeSorted(T key,bool (*pf)(const T&,const T&));
 	void insertNodeAfter(const iterator& a,T data);
 	void insertNodeBefore(const iterator& a, T data);
 	void showList(ostream&os=cout) const;
 	void showList_reverse(ostream&os = cout) const;
+	void clear() { deleteList(head); head = tail = nil; }
 	iterator find(T key) const;
 	iterator& operator[](int i);
 	const iterator operator[](int i) const;
@@ -84,8 +87,8 @@ void List<T>::deleteList(Node<T>* start_node)
 {
 	while (start_node != nil)
 	{
-		Node<T>* node_to_delete = head;
-		start_node = start_nodes->next;
+		Node<T>* node_to_delete = start_node;
+		start_node = start_node->next;
 		delete node_to_delete;
 	}
 }
@@ -124,6 +127,7 @@ void List<T>::deleteNode(const Node<T>* node_to_delete)
 	else
 	{
 		node_to_delete->prev->next = node_to_delete->next;
+
 		node_to_delete->next->prev = node_to_delete->prev;
 		delete node_to_delete;
 	}
@@ -163,7 +167,7 @@ inline int List<T>::size() const
 template<typename T>
 void List<T>::addNodeTail(T data)
 {
-	Node<T>* add = new Node<T>(data);
+	Node<T>* add = new Node<T>(data,nil,nil);
 	if (head == nil) //if list is empty we shoud change head also
 	{
 		head = add;
@@ -181,7 +185,7 @@ void List<T>::addNodeTail(T data)
 template<typename T>
 void List<T>::addNodeHead(T data)
 {
-	Node<T>* add = new Node<T>(data);
+	Node<T>* add = new Node<T>(data,nil,nil);
 	if (head == nil) //if list is empty we shoud change tail also
 	{
 		head = add;
@@ -235,15 +239,23 @@ void List<T>::deleteNodeTail()
 template<typename T>
 void List<T>::deleteNodeIndex(int i)
 {
-	Node<T>* node_to_delete = operator[i].getNode();
-	deleteNode(node_to_delete);
+	iterator temp = operator[](i);
+	if (temp != end())
+	{
+		Node<T>* node_to_delete = temp.getNode();
+		deleteNode(node_to_delete);
+	}
 }
 
 template<typename T>
 void List<T>::deleteNodeKey(T key)
 {
-	Node<T>* node_to_delete = find(key).getNode();
-	deleteNode(node_to_delete);
+	iterator temp = find(key);
+	if (temp != end())
+	{
+		Node<T>* node_to_delete = temp.getNode();
+		deleteNode(node_to_delete);
+	}
 }
 
 template<typename T>
@@ -330,11 +342,12 @@ void List<T>::showList_reverse(ostream& os) const
 	os << endl;
 }
 
+
 template <typename U>
 ostream & operator<<(ostream& os, const List<U>& a)
 {
 	Node<U>* p = a.head;
-	while (p)
+	while (p!=a.nil)
 	{
 		os << p->data << ' ';
 		p = p->next;
@@ -349,7 +362,7 @@ typename List<T>::iterator List<T>::find(T key) const
 	while (p != nil)
 	{
 		if (p->data == key)
-			return p;
+			return iterator(p);
 		p = p->next;
 	}
 	return nil;
@@ -384,4 +397,20 @@ List<T>::~List()
 {
 	deleteList(head);
 	delete nil;
+}
+
+template<typename T>
+inline typename List<T>::iterator List<T>::iterator::operator++(int i)
+{
+	iterator temp = iter_;
+	iter_ = iter_->next;
+	return temp;
+}
+
+template<typename T>
+inline typename List<T>::iterator List<T>::iterator::operator--(int i)
+{
+	iterator temp = iter_;
+	iter_ = iter_->prev;
+	return temp;
 }
