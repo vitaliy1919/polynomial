@@ -24,50 +24,237 @@ struct Node
 template <typename T>
 class List
 {
-protected:
+private:
 	Node<T>* head; 
 	Node<T>* tail;
 	Node<T>* nil; //added for supporting iterator end() function, nil->prev = tail 
+	void deleteList(Node<T>* start_node);
+	void copyList(const Node<T>* source);
 public:
 	class iterator
 	{
 		Node<T>* iter_;
 	public:
 		iterator(Node<T> *val = nullptr) :iter_(val) {}
-		iterator& operator=(Node<T> *val) { iter_ = val; }
-		bool operator==(const iter_& b) const;
-		bool operator!=(const iter_& b) const;
+		iterator& operator=(Node<T> *val) { iter_ = val; return *this; }
+		bool operator==(const iterator& b) const;
+		bool operator!=(const iterator&  b) const;
 		void operator++();
 		void operator++(int i);
 		void operator--();
-		void operator--();
+		void operator--(int i);
 		void operator*();
 	};
 	List();
 	List(const List &a);
 	List<T>& operator=(const List<T>& a);
-	bool isempty();
-	int size();
+	bool empty() const { return head == nil; }
+	int size() const;
 	inline iterator begin() const { return head; }
 	inline iterator end() const { return nil; }
-	void addNode_tail(T data);
-	void addNode_head(T data);
+	void addNodeTail(T data);
+	void addNodeHead(T data);
+	void deleteNodeHead();
+	void deleteNodeTail();
+	void deleteNodeIndex(int i);
+	void deleteNodeKey(T key);
+	void insertNodeSorted(T key,bool (*pf)(const T&,const T&));
+	void insertNodeAfter(Node<T>* a,T data);
+	void insertNodeBefore(Node<T>* a, T data);
 	void showList(ostream&os=cout) const;
 	void showList_reverse(ostream&os = cout) const;
-	void insertNode_sorted(T key,bool (*pf)(const T&,const T&));
-	void insertNode_after(Node<T>* a,T data);
-	void insertNode_before(Node<T>* a, T data);
-	void deleteNode_head();
-	void deleteNode_tail();
-	void deleteNode_index(int i);
-	void deleteNode_key(T key);
-	Node<T>* find(T key);
+	iterator find(T key) const;
 	iterator& operator[](int i);
 	const Node<T>* operator[](int i) const;
 	virtual ~List();
 	template <typename U>
 	friend ostream& operator<<(ostream& os,const List<U>& a);
 };
+
+template<typename T>
+void List<T>::deleteList(Node<T>* start_node)
+{
+	while (start_node != nil)
+	{
+		Node<T>* node_to_delete = head;
+		start_node = start_nodes->next;
+		delete node_to_delete;
+	}
+}
+
+template<typename T>
+void List<T>::copyList(const Node<T>* source)
+{
+	if (source == nil)
+		head = tail = nil;
+	else
+	{
+		Node<T>* new_node = new Node(source->data);
+		head = new_node;
+		Node<T>* prev_node = head, *iter = source->next; //prev note is used to fill next and prev fields
+		while (iter != nil)
+		{
+			new_node = new Node(iter->data); //copy data
+			prev_node->next = new_node; //fill next and prev fields
+			new_node->prev = prev_node;
+			prev_node = new_node; //move prev node
+			iter = iter->next;
+		}
+		prev_node->next = nil; //fill last element
+		tail = prev_node; //fill tail
+		nil->prev = tail;
+	}
+}
+
+template<typename T>
+List<T>::List()
+{
+	nil = new Node;
+	head = tail = nil;
+}
+
+template<typename T>
+List<T>::List(const List & a):List()
+{
+	copyList(a.head);
+}
+
+template<typename T>
+List<T>& List<T>::operator=(const List<T> & a)
+{
+	if (this == &a)
+		return *this;
+	deleteList(head);
+	copyList(a.head);
+	return *this;
+}
+
+template<typename T>
+inline int List<T>::size() const
+{
+	Node<T>* p = head;
+	int count = 0;
+	while (p != nil)
+	{
+		p = p->next;
+		++count;
+	}
+	return count;
+}
+
+template<typename T>
+void List<T>::addNodeTail(T data)
+{
+	Node<T>* add = new Node<T>(data);
+	if (head == nil)
+	{
+		head = add;
+		tail = head;
+		return;
+	}
+	tail->next = add;
+	add->prev = tail;
+	tail = add;
+}
+
+template<typename T>
+void List<T>::addNodeHead(T data)
+{
+	Node<T>* add = new Node<T>(data);
+	if (head == nil)
+	{
+		head = add;
+		tail = head;
+		return;
+	}
+	add->next = head;
+	head->prev = add;
+	head = add;
+}
+
+template<typename T>
+void List<T>::deleteNodeHead()
+{
+	if (!head) //head = nullptr - then list is empty
+		return;
+	Node<T>* t = head; //remember position of head (for deleting it later)
+	if (head == tail) //list has 1 element, so we should change not only head, but also tail
+	{
+		tail = nil;
+		nil->prev = nil;
+	}
+	else
+		head->next->prev = nil; //
+	head = head->next;
+	delete t;
+}
+
+template<typename T>
+void List<T>::deleteNodeTail()
+{
+	if (!head)
+		return;
+	Node<T>* t = tail;
+	if (head == tail)
+		head = nil;
+	else
+		tail->prev->next = nil;
+	tail = tail->prev;
+	nil->prev = tail;
+	delete t;
+}
+
+template<typename T>
+void List<T>::deleteNodeIndex(int i)
+{
+	if (i < 0)
+		return;
+	if (i == 0)
+		deleteNodeHead();
+	else
+	{
+		Node<T> *p = head;
+		while (p != nil && (i > 0))
+		{
+			p = p->next;
+			i--;
+		}
+		if (p == tail)
+			deleteNodeTail();
+		else
+		{
+			p->prev->next = p->next;
+			p->next->prev = p->prev;
+			delete p;
+		}
+	}
+}
+
+template<typename T>
+void List<T>::deleteNodeKey(T key)
+{
+	if (head->data == key)
+		deleteNodeHead();
+	else if (tail->data == key)
+		deleteNodeTail();
+	else
+	{
+		Node<T>* p = head->next;
+		while (p->next != nil)
+		{
+			if (p->data == key)
+			{
+				//Node<T>* t = p;
+				p->prev->next = p->next;
+				p->next->prev = p->prev;
+				delete p;
+				return;
+			}
+			p = p->next;
+		}
+	}
+}
+
 template <typename U>
 ostream & operator<<(ostream& os, const List<U>& a)
 {
@@ -81,13 +268,13 @@ ostream & operator<<(ostream& os, const List<U>& a)
 }
 
 template<typename T>
-void List<T>::insertNode_after(Node<T>* a,T data)
+void List<T>::insertNodeAfter(Node<T>* a,T data)
 {
 	if (a == nil)
 		return;
 	if (a == tail)
 	{
-		addNode_tail(data);
+		addNodeTail(data);
 		return;
 	}
 	Node<T>* add = new Node<T>(data,a,a->next);
@@ -96,223 +283,53 @@ void List<T>::insertNode_after(Node<T>* a,T data)
 }
 
 template<typename T>
-void List<T>::insertNode_before(Node<T>* a, T data)
+void List<T>::insertNodeBefore(Node<T>* a, T data)
 {
 	if (a == nil)
 		return;
 	if (a == head)
 	{
-		addNode_head(data);
+		addNodeHead(data);
 		return;
 	}
-	insertNode_after(a->prev, data);
+	insertNodeAfter(a->prev, data);
 }
 
 template<typename T>
-void List<T>::deleteNode_head()
+void List<T>::insertNodeSorted(T key, bool(*pf)(const T&, const T&))
 {
-	if (!head) //head = nullptr - then list is empty
-		return;
-	Node<T>* t = head;
-	if (head == tail) //list has 1 element, so we should change not only head, but also tail
-		tail = nil;
-	else
-		head->next->prev = nil;
-	head = head->next;
-	delete t;
-}
-
-template<typename T>
-void List<T>::deleteNode_tail()
-{
-	if (!head)
-		return;
-	Node<T>* t = tail;
-	if (head == tail)
-		head = nil;
-	else
-		tail->prev->next = nil;
-	tail = tail->prev;
-	delete t;
-}
-
-template<typename T>
-void List<T>::deleteNode_index(int i)
-{
-	if (i < 0)
-		return;
-	if (i == 0)
-		deleteNode_head();
-	else
+	if (head == nil)
 	{
-		Node<T> *p = head;
-		while (p && (i > 0))
-		{
-			p = p->next;
-			i--;
-		}
-		if (p == tail)
-			deleteNode_tail();
-		else
-		{
-			p->prev->next = p->next;
-			p->next->prev = p->prev;
-			delete p;
-		}
+		addNodeTail(key);
+		return;
 	}
-}
-
-template<typename T>
-void List<T>::deleteNode_key(T key)
-{
-	if (head->data == key)
-		deleteNode_head();
-	else if (tail->data == key)
-		deleteNode_tail();
-	else
+	Node<T>*p = head;
+	if (pf(key, head->data))
 	{
-		Node<T>* p = head->next;
-		while (p->next)
-		{
-			if (p->data == key)
-			{
-				//Node<T>* t = p;
-				p->prev->next = p->next;
-				p->next->prev = p->prev;
-				delete p;
-				return;
-			}
-			p = p-> next;
-		}
+		addNodeHead(key);
+		return;
 	}
-}
-
-template<typename T>
-Node<T>* List<T>::find(T key)
-{
-	Node<T>* p=head;
-	while (p)
+	if (pf(tail->data, key))
 	{
-		if (p->data == key)
-			return p;
+		addNodeTail(key);
+		return;
+	}
+	while (p != nil)
+	{
+		if (pf(key, p->data))
+		{
+			insertNodeAfter(p->prev, key);
+			return;
+		}
 		p = p->next;
 	}
-	return nil;
-}
-
-template<typename T>
-List<T>::List()
-{
-	nil = new Node;
-	head = tail = nul;
-}
-
-template<typename T>
-List<T>::List(const List & a):List()
-{
-	if (!a.head)
-		return;
-	head = new Node<T>(a.head->data);
-	Node<T>* p = a.head->next,*t,*prev;
-	prev = head;
-	t = head;
-	while (p)
-	{
-		t = new Node<T>(p->data);
-		t->prev = prev;
-		prev->next = t;
-		prev = t;
-		p = p->next;
-	}
-	tail = t;
-	t->next = nil;
-}
-
-template<typename T>
-List<T>& List<T>::operator=(const List<T> & a)
-{
-	if (this == &a)
-		return *this;
-	this->~List();
-	if (!a.head)
-	{
-		head = tail = nil;
-	}
-	else
-	{
-		head = new Node<T>(a.head->data);
-		Node<T>* p = a.head->next, *t, *prev;
-		prev = head;
-		t = head;
-		while (p)
-		{
-			t = new Node<T>(p->data);
-			t->prev = prev;
-			prev->next = t;
-			prev = t;
-			p = p->next;
-		}
-		tail = t;
-		t->next = nil;
-	}
-	return *this;
-}
-
-
-template<typename T>
-inline bool List<T>::isempty()
-{
-	return head==nil;
-}
-
-template<typename T>
-inline int List<T>::size()
-{
-	Node<T>* p = head;
-	int count = 0;
-	while (p)
-	{
-		p = p->next;
-		++count;
-	}
-	return count;
-}
-
-template<typename T>
-void List<T>::addNode_tail(T data)
-{
-	Node<T>* add = new Node<T>(data);
-	if (!head)
-	{
-		head = add;
-		tail = head;
-		return;
-	}
-	tail->next = add;
-	add->prev = tail;
-	tail = add;
-}
-
-template<typename T>
-void List<T>::addNode_head(T data)
-{
-	Node<T>* add = new Node<T>(data);
-	if (!head)
-	{
-		head = add;
-		tail = head;
-		return;
-	}
-	add->next = head;
-	head->prev = add;
-	head = add;
 }
 
 template<typename T>
 void List<T>::showList(ostream& os) const
 {
 	Node<T>* p = head;
-	while (p)
+	while (p != nil)
 	{
 		os << p->data << ' ';
 		p = p->next;
@@ -324,7 +341,7 @@ template<typename T>
 void List<T>::showList_reverse(ostream& os) const
 {
 	Node<T> *p = tail;
-	while (p)
+	while (p != nil)
 	{
 		os << p->data << ' ';
 		p = p->prev;
@@ -333,40 +350,23 @@ void List<T>::showList_reverse(ostream& os) const
 }
 
 template<typename T>
-void List<T>::insertNode_sorted(T key,bool (*pf)(const T&,const T&))
+typename List<T>::iterator List<T>::find(T key) const
 {
-	if (!head)
+	Node<T>* p=head;
+	while (p != nil)
 	{
-		addNode_tail(key);
-		return;
-	}
-	Node<T>*p=head;
-	if (pf(key,head->data))
-	{
-		addNode_head(key);
-		return;
-	}
-	if (pf(tail->data, key))
-	{
-		addNode_tail(key);
-		return;
-	}
-	while (p)
-	{
-		if (pf(key,p->data))
-		{
-			insertNode_after(p->prev, key);
-			return;
-		}
+		if (p->data == key)
+			return p;
 		p = p->next;
 	}
+	return nil;
 }
 
 template<typename T>
-List<T>::iterator& List<T>::operator[](int i)
+typename List<T>::iterator& List<T>::operator[](int i)
 {
 	Node<T>*p = head;
-	while (p && (i>0))
+	while (p!=nil && (i>0))
 	{
 		p = p->next;
 		i--;
@@ -378,7 +378,7 @@ template<typename T>
 const Node<T>* List<T>::operator[](int i) const
 {
 	Node<T>*p = head;
-	while (p && (i>0))
+	while (p!=nil && (i>0))
 	{
 		p = p->next;
 		i--;
@@ -386,14 +386,9 @@ const Node<T>* List<T>::operator[](int i) const
 	return p;
 }
 
-
 template<typename T>
 List<T>::~List()
 {
-	while (head)
-	{
-		Node<T>* cur = head;
-		head = head->next;
-		delete cur;
-	}
+	deleteList(head);
+	delete nil;
 }
