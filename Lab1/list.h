@@ -27,9 +27,11 @@ class List
 private:
 	Node<T>* head; 
 	Node<T>* tail;
-	Node<T>* nil; //added for supporting iterator end() function, nil->prev = tail 
+	Node<T>* nil; //added for supporting iterator end() function, nil->prev == tail  and if list not empty tail->next == nil head->prev == nil
+				  //also if list is empty tail and head are nil, nil->prev == nil
 	void deleteList(Node<T>* start_node);
 	void copyList(const Node<T>* source);
+	void deleteNode(const Node<T> *node_to_delete);
 public:
 	class iterator
 	{
@@ -37,16 +39,20 @@ public:
 	public:
 		iterator(Node<T> *val = nullptr) :iter_(val) {}
 		iterator& operator=(Node<T> *val) { iter_ = val; return *this; }
+		void setNode(const Node<T>* val) { iter_ = val; }
+		Node<T>* getNode() const { return iter_; }
 		bool operator==(const iterator& b) const;
 		bool operator!=(const iterator&  b) const;
 		void operator++();
 		void operator++(int i);
 		void operator--();
 		void operator--(int i);
+		iterator operator+(int i) const;
+		iterator operator-(int i) const;
 		void operator*();
 	};
 	List();
-	List(const List &a);
+	List(const List &a) { copyList(a.head); }
 	List<T>& operator=(const List<T>& a);
 	bool empty() const { return head == nil; }
 	int size() const;
@@ -58,9 +64,10 @@ public:
 	void deleteNodeTail();
 	void deleteNodeIndex(int i);
 	void deleteNodeKey(T key);
+	void deleteNode(const iterator& iter) { deleteNode(iter.getNode()); }
 	void insertNodeSorted(T key,bool (*pf)(const T&,const T&));
-	void insertNodeAfter(Node<T>* a,T data);
-	void insertNodeBefore(Node<T>* a, T data);
+	void insertNodeAfter(const iterator& a,T data);
+	void insertNodeBefore(const iterator& a, T data);
 	void showList(ostream&os=cout) const;
 	void showList_reverse(ostream&os = cout) const;
 	iterator find(T key) const;
@@ -107,16 +114,26 @@ void List<T>::copyList(const Node<T>* source)
 }
 
 template<typename T>
-List<T>::List()
+void List<T>::deleteNode(const Node<T>* node_to_delete)
 {
-	nil = new Node;
-	head = tail = nil;
+	if (node_to_delete == head)
+		deleteNodeHead();
+	else if (node_to_delete == tail)
+		deleteNodeTail();
+	else
+	{
+		node_to_delete->prev->next = node_to_delete->next;
+		node_to_delete->next->prev = node_to_delete->prev;
+		delete node_to_delete;
+	}
 }
 
 template<typename T>
-List<T>::List(const List & a):List()
+List<T>::List()
 {
-	copyList(a.head);
+	nil = new Node<T>;
+	nil->prev = nil;
+	head = tail = nil;
 }
 
 template<typename T>
@@ -146,60 +163,70 @@ template<typename T>
 void List<T>::addNodeTail(T data)
 {
 	Node<T>* add = new Node<T>(data);
-	if (head == nil)
+	if (head == nil) //if list is empty we shoud change head also
 	{
 		head = add;
 		tail = head;
-		return;
 	}
-	tail->next = add;
-	add->prev = tail;
-	tail = add;
+	else
+	{
+		tail->next = add;
+		add->prev = tail;
+		tail = add;
+	}
+	nil->prev = tail;
 }
 
 template<typename T>
 void List<T>::addNodeHead(T data)
 {
 	Node<T>* add = new Node<T>(data);
-	if (head == nil)
+	if (head == nil) //if list is empty we shoud change tail also
 	{
 		head = add;
 		tail = head;
-		return;
+		nil->prev = tail; //for the sake of iterators end() and -- function
 	}
-	add->next = head;
-	head->prev = add;
-	head = add;
+	else
+	{
+		add->next = head;
+		head->prev = add;
+		head = add;
+	}
 }
 
 template<typename T>
 void List<T>::deleteNodeHead()
 {
-	if (!head) //head = nullptr - then list is empty
+	if (head==nil) //head = nil - then list is empty
 		return;
 	Node<T>* t = head; //remember position of head (for deleting it later)
 	if (head == tail) //list has 1 element, so we should change not only head, but also tail
 	{
-		tail = nil;
+		head = tail = nil;
 		nil->prev = nil;
 	}
 	else
-		head->next->prev = nil; //
-	head = head->next;
+	{
+		head->next->prev = nil; //otherwise move head and change links
+		head = head->next;
+	}
 	delete t;
 }
 
 template<typename T>
 void List<T>::deleteNodeTail()
 {
-	if (!head)
+	if (head==nil)
 		return;
 	Node<T>* t = tail;
 	if (head == tail)
-		head = nil;
+		head = tail = nil;
 	else
+	{
 		tail->prev->next = nil;
-	tail = tail->prev;
+		tail = tail->prev;
+	}
 	nil->prev = tail;
 	delete t;
 }
@@ -207,103 +234,56 @@ void List<T>::deleteNodeTail()
 template<typename T>
 void List<T>::deleteNodeIndex(int i)
 {
-	if (i < 0)
-		return;
-	if (i == 0)
-		deleteNodeHead();
-	else
-	{
-		Node<T> *p = head;
-		while (p != nil && (i > 0))
-		{
-			p = p->next;
-			i--;
-		}
-		if (p == tail)
-			deleteNodeTail();
-		else
-		{
-			p->prev->next = p->next;
-			p->next->prev = p->prev;
-			delete p;
-		}
-	}
+	Node<T>* node_to_delete = operator[i].getNode();
+	deleteNode(node_to_delete);
 }
 
 template<typename T>
 void List<T>::deleteNodeKey(T key)
 {
-	if (head->data == key)
-		deleteNodeHead();
-	else if (tail->data == key)
-		deleteNodeTail();
-	else
-	{
-		Node<T>* p = head->next;
-		while (p->next != nil)
-		{
-			if (p->data == key)
-			{
-				//Node<T>* t = p;
-				p->prev->next = p->next;
-				p->next->prev = p->prev;
-				delete p;
-				return;
-			}
-			p = p->next;
-		}
-	}
-}
-
-template <typename U>
-ostream & operator<<(ostream& os, const List<U>& a)
-{
-	Node<U>* p = a.head;
-	while (p)
-	{
-		os << p->data << ' ';
-		p = p->next;
-	}
-	return os;
+	Node<T>* node_to_delete = find(key).getNode();
+	deleteNode(node_to_delete);
 }
 
 template<typename T>
-void List<T>::insertNodeAfter(Node<T>* a,T data)
+void List<T>::insertNodeAfter(const iterator& a, T data)
 {
-	if (a == nil)
+	Node<T>* node_from_iter = a.getNode();
+	if (node_from_iter == nil)
 		return;
-	if (a == tail)
+	if (node_from_iter == tail)
 	{
 		addNodeTail(data);
 		return;
 	}
-	Node<T>* add = new Node<T>(data,a,a->next);
-	a->next->prev = add;
-	a->next = add;
+	Node<T>* add = new Node<T>(data, node_from_iter, node_from_iter->next);
+	node_from_iter->next->prev = add;
+	node_from_iter->next = add;
 }
 
 template<typename T>
-void List<T>::insertNodeBefore(Node<T>* a, T data)
+void List<T>::insertNodeBefore(const iterator& a, T data)
 {
-	if (a == nil)
+	Node<T>* node_from_iter = a.getNode();
+	if (node_from_iter == nil)
 		return;
-	if (a == head)
+	if (node_from_iter == head)
 	{
 		addNodeHead(data);
 		return;
 	}
-	insertNodeAfter(a->prev, data);
+	insertNodeAfter(node_from_iter->prev, data);
 }
 
 template<typename T>
-void List<T>::insertNodeSorted(T key, bool(*pf)(const T&, const T&))
+void List<T>::insertNodeSorted(T key, bool(*pf)(const T&, const T&)) //pf should return true if argument are in right order
 {
 	if (head == nil)
 	{
 		addNodeTail(key);
 		return;
 	}
-	Node<T>*p = head;
+	Node<T>* iter = head;
 	if (pf(key, head->data))
 	{
 		addNodeHead(key);
@@ -314,14 +294,14 @@ void List<T>::insertNodeSorted(T key, bool(*pf)(const T&, const T&))
 		addNodeTail(key);
 		return;
 	}
-	while (p != nil)
+	while (iter != nil)
 	{
-		if (pf(key, p->data))
+		if (pf(key, iter->data))
 		{
-			insertNodeAfter(p->prev, key);
+			insertNodeAfter(iter->prev, key);
 			return;
 		}
-		p = p->next;
+		iter = iter->next;
 	}
 }
 
@@ -349,6 +329,18 @@ void List<T>::showList_reverse(ostream& os) const
 	os << endl;
 }
 
+template <typename U>
+ostream & operator<<(ostream& os, const List<U>& a)
+{
+	Node<U>* p = a.head;
+	while (p)
+	{
+		os << p->data << ' ';
+		p = p->next;
+	}
+	return os;
+}
+
 template<typename T>
 typename List<T>::iterator List<T>::find(T key) const
 {
@@ -365,17 +357,17 @@ typename List<T>::iterator List<T>::find(T key) const
 template<typename T>
 typename List<T>::iterator& List<T>::operator[](int i)
 {
-	Node<T>*p = head;
+	Node<T>* p = head;
 	while (p!=nil && (i>0))
 	{
 		p = p->next;
 		i--;
 	}
-	return p;
+	return iterator(p);
 }
 
 template<typename T>
-const Node<T>* List<T>::operator[](int i) const
+const typename List<T>::iterator List<T>::operator[](int i) const
 {
 	Node<T>*p = head;
 	while (p!=nil && (i>0))
@@ -383,7 +375,7 @@ const Node<T>* List<T>::operator[](int i) const
 		p = p->next;
 		i--;
 	}
-	return p;
+	return iterator(p);
 }
 
 template<typename T>
