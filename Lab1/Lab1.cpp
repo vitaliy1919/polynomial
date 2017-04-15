@@ -6,7 +6,7 @@
 #include "stdafx.h"
 #include "list.h"
 #include "polynom.h"
-#include <vld.h> 
+//#include <vld.h> 
 bool is_cor(const string& s, const set<string>& a)
 {
 	if (a.find(s) != a.end())
@@ -24,7 +24,8 @@ int show_list_of_pol(const List<polynomial> &a)
 	}
 	return i;
 }
-int main()
+
+List<polynomial> polynomial_gui()
 {
 	char inp = 'k';
 	do
@@ -159,6 +160,10 @@ int main()
 			}
 		}
 	} while (cin && s != "q");
+}
+int main()
+{
+	
 	system("pause");
 	return 0;
 

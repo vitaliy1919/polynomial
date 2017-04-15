@@ -29,32 +29,6 @@ public:
 	friend bool operator==(const monomial_list& a, const monomial_list& b);
 	friend bool operator>=(const monomial_list& a, const monomial_list& b);
 };
-struct monomial_vector
-{
-	double coef;
-	int numb_of_variables;
-	vector<double> powers;
-	monomial_vector(double c = 1, int n = 1) :coef(c), numb_of_variables(n), powers(n, 0) {}
-	inline void add_powers(const vector<double>& a)
-	{
-		copy(a.begin(), a.end(), powers.begin());
-	}
-	void show(ostream &os=cout) const;
-	double value(const vector<double>& a) const;
-	void get();
-	double power() const;
-	double max_power() const;
-	friend monomial_vector string_get(const string& s,int& i,const int& numb_var);
-	friend bool divide(const monomial_vector& a, const monomial_vector& b, monomial_vector& res);
-	friend bool operator==(const monomial_vector& a, const monomial_vector& b);
-	friend bool operator<(const monomial_vector& a, const monomial_vector& b);
-	friend bool operator<=(const monomial_vector& a, const monomial_vector& b);
-	friend bool operator>(const monomial_vector& a, const monomial_vector& b);
-	friend bool operator>=(const monomial_vector& a, const monomial_vector& b);
-	friend monomial_vector operator*(const monomial_vector& a, const monomial_vector& b);
-	friend ostream& operator<<(ostream& os,const monomial_vector& p);
-	friend istream& operator>>(istream& is, monomial_vector&p);
-};
 typedef monomial_list monom;
 class polynomial
 {
